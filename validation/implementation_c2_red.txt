@@ -1,0 +1,552 @@
+FFFFFFFFFFFFFFFFFFFFFFFFF                                                [100%]
+================================== FAILURES ===================================
+__________ test_mask_alignment_sign_wt_and_all_nineteen_alternatives __________
+
+    def test_mask_alignment_sign_wt_and_all_nineteen_alternatives():
+        backend = SyntheticBackend()
+>       result = ESMEngine(backend).score_positions(Target(), [32])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_esm_contract.py:55: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.science.esm_engine.ESMEngine object at 0x000001C89BABBB60>
+target = Target(reference_sequence='MKFVKRRIIALVTILMLSVTSLFALQPSAKAAEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQ...91ee4907d7', sequence_context='full_212', protected_positions=(108, 164, 187), reference_id='ESTA_BACSU_Nutschel_2020')
+positions = [32], checkpoint_key = 'esm150'
+
+    def score_positions(self, target, positions, checkpoint_key='esm150'):
+>       raise NotImplementedError('Masked-marginal scoring is not implemented')
+E       NotImplementedError: Masked-marginal scoring is not implemented
+
+app\science\esm_engine.py:10: NotImplementedError
+___ test_distribution_reused_by_position_and_persisted_with_exact_identity ____
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.runtime/pytest_esm/test_distribution_reused_by_po0')
+
+    def test_distribution_reused_by_position_and_persisted_with_exact_identity(tmp_path):
+        backend = SyntheticBackend()
+        engine = ESMEngine(backend, tmp_path)
+>       a = engine.score_positions(Target(), [32])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_esm_contract.py:71: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.science.esm_engine.ESMEngine object at 0x000001C89BB26C10>
+target = Target(reference_sequence='MKFVKRRIIALVTILMLSVTSLFALQPSAKAAEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQ...91ee4907d7', sequence_context='full_212', protected_positions=(108, 164, 187), reference_id='ESTA_BACSU_Nutschel_2020')
+positions = [32], checkpoint_key = 'esm150'
+
+    def score_positions(self, target, positions, checkpoint_key='esm150'):
+>       raise NotImplementedError('Masked-marginal scoring is not implemented')
+E       NotImplementedError: Masked-marginal scoring is not implemented
+
+app\science\esm_engine.py:10: NotImplementedError
+__ test_invalid_or_protected_positions_rejected_before_inference[positions0] __
+
+positions = []
+
+    @pytest.mark.parametrize('positions', [[], [32, 32], [0], [1], [213], [True], [108], [164], [187], [32.0]])
+    def test_invalid_or_protected_positions_rejected_before_inference(positions):
+        backend = SyntheticBackend()
+        with pytest.raises(ValueError):
+>           ESMEngine(backend).score_positions(Target(), positions)
+
+tests_app\test_esm_contract.py:92: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.science.esm_engine.ESMEngine object at 0x000001C89BB27890>
+target = Target(reference_sequence='MKFVKRRIIALVTILMLSVTSLFALQPSAKAAEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQ...91ee4907d7', sequence_context='full_212', protected_positions=(108, 164, 187), reference_id='ESTA_BACSU_Nutschel_2020')
+positions = [], checkpoint_key = 'esm150'
+
+    def score_positions(self, target, positions, checkpoint_key='esm150'):
+>       raise NotImplementedError('Masked-marginal scoring is not implemented')
+E       NotImplementedError: Masked-marginal scoring is not implemented
+
+app\science\esm_engine.py:10: NotImplementedError
+__ test_invalid_or_protected_positions_rejected_before_inference[positions1] __
+
+positions = [32, 32]
+
+    @pytest.mark.parametrize('positions', [[], [32, 32], [0], [1], [213], [True], [108], [164], [187], [32.0]])
+    def test_invalid_or_protected_positions_rejected_before_inference(positions):
+        backend = SyntheticBackend()
+        with pytest.raises(ValueError):
+>           ESMEngine(backend).score_positions(Target(), positions)
+
+tests_app\test_esm_contract.py:92: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.science.esm_engine.ESMEngine object at 0x000001C89BAE6FD0>
+target = Target(reference_sequence='MKFVKRRIIALVTILMLSVTSLFALQPSAKAAEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQ...91ee4907d7', sequence_context='full_212', protected_positions=(108, 164, 187), reference_id='ESTA_BACSU_Nutschel_2020')
+positions = [32, 32], checkpoint_key = 'esm150'
+
+    def score_positions(self, target, positions, checkpoint_key='esm150'):
+>       raise NotImplementedError('Masked-marginal scoring is not implemented')
+E       NotImplementedError: Masked-marginal scoring is not implemented
+
+app\science\esm_engine.py:10: NotImplementedError
+__ test_invalid_or_protected_positions_rejected_before_inference[positions2] __
+
+positions = [0]
+
+    @pytest.mark.parametrize('positions', [[], [32, 32], [0], [1], [213], [True], [108], [164], [187], [32.0]])
+    def test_invalid_or_protected_positions_rejected_before_inference(positions):
+        backend = SyntheticBackend()
+        with pytest.raises(ValueError):
+>           ESMEngine(backend).score_positions(Target(), positions)
+
+tests_app\test_esm_contract.py:92: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.science.esm_engine.ESMEngine object at 0x000001C89BAE76F0>
+target = Target(reference_sequence='MKFVKRRIIALVTILMLSVTSLFALQPSAKAAEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQ...91ee4907d7', sequence_context='full_212', protected_positions=(108, 164, 187), reference_id='ESTA_BACSU_Nutschel_2020')
+positions = [0], checkpoint_key = 'esm150'
+
+    def score_positions(self, target, positions, checkpoint_key='esm150'):
+>       raise NotImplementedError('Masked-marginal scoring is not implemented')
+E       NotImplementedError: Masked-marginal scoring is not implemented
+
+app\science\esm_engine.py:10: NotImplementedError
+__ test_invalid_or_protected_positions_rejected_before_inference[positions3] __
+
+positions = [1]
+
+    @pytest.mark.parametrize('positions', [[], [32, 32], [0], [1], [213], [True], [108], [164], [187], [32.0]])
+    def test_invalid_or_protected_positions_rejected_before_inference(positions):
+        backend = SyntheticBackend()
+        with pytest.raises(ValueError):
+>           ESMEngine(backend).score_positions(Target(), positions)
+
+tests_app\test_esm_contract.py:92: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.science.esm_engine.ESMEngine object at 0x000001C89BC0A8D0>
+target = Target(reference_sequence='MKFVKRRIIALVTILMLSVTSLFALQPSAKAAEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQ...91ee4907d7', sequence_context='full_212', protected_positions=(108, 164, 187), reference_id='ESTA_BACSU_Nutschel_2020')
+positions = [1], checkpoint_key = 'esm150'
+
+    def score_positions(self, target, positions, checkpoint_key='esm150'):
+>       raise NotImplementedError('Masked-marginal scoring is not implemented')
+E       NotImplementedError: Masked-marginal scoring is not implemented
+
+app\science\esm_engine.py:10: NotImplementedError
+__ test_invalid_or_protected_positions_rejected_before_inference[positions4] __
+
+positions = [213]
+
+    @pytest.mark.parametrize('positions', [[], [32, 32], [0], [1], [213], [True], [108], [164], [187], [32.0]])
+    def test_invalid_or_protected_positions_rejected_before_inference(positions):
+        backend = SyntheticBackend()
+        with pytest.raises(ValueError):
+>           ESMEngine(backend).score_positions(Target(), positions)
+
+tests_app\test_esm_contract.py:92: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.science.esm_engine.ESMEngine object at 0x000001C89BAEF240>
+target = Target(reference_sequence='MKFVKRRIIALVTILMLSVTSLFALQPSAKAAEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQ...91ee4907d7', sequence_context='full_212', protected_positions=(108, 164, 187), reference_id='ESTA_BACSU_Nutschel_2020')
+positions = [213], checkpoint_key = 'esm150'
+
+    def score_positions(self, target, positions, checkpoint_key='esm150'):
+>       raise NotImplementedError('Masked-marginal scoring is not implemented')
+E       NotImplementedError: Masked-marginal scoring is not implemented
+
+app\science\esm_engine.py:10: NotImplementedError
+__ test_invalid_or_protected_positions_rejected_before_inference[positions5] __
+
+positions = [True]
+
+    @pytest.mark.parametrize('positions', [[], [32, 32], [0], [1], [213], [True], [108], [164], [187], [32.0]])
+    def test_invalid_or_protected_positions_rejected_before_inference(positions):
+        backend = SyntheticBackend()
+        with pytest.raises(ValueError):
+>           ESMEngine(backend).score_positions(Target(), positions)
+
+tests_app\test_esm_contract.py:92: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.science.esm_engine.ESMEngine object at 0x000001C89BAEF8A0>
+target = Target(reference_sequence='MKFVKRRIIALVTILMLSVTSLFALQPSAKAAEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQ...91ee4907d7', sequence_context='full_212', protected_positions=(108, 164, 187), reference_id='ESTA_BACSU_Nutschel_2020')
+positions = [True], checkpoint_key = 'esm150'
+
+    def score_positions(self, target, positions, checkpoint_key='esm150'):
+>       raise NotImplementedError('Masked-marginal scoring is not implemented')
+E       NotImplementedError: Masked-marginal scoring is not implemented
+
+app\science\esm_engine.py:10: NotImplementedError
+__ test_invalid_or_protected_positions_rejected_before_inference[positions6] __
+
+positions = [108]
+
+    @pytest.mark.parametrize('positions', [[], [32, 32], [0], [1], [213], [True], [108], [164], [187], [32.0]])
+    def test_invalid_or_protected_positions_rejected_before_inference(positions):
+        backend = SyntheticBackend()
+        with pytest.raises(ValueError):
+>           ESMEngine(backend).score_positions(Target(), positions)
+
+tests_app\test_esm_contract.py:92: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.science.esm_engine.ESMEngine object at 0x000001C89BB8A450>
+target = Target(reference_sequence='MKFVKRRIIALVTILMLSVTSLFALQPSAKAAEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQ...91ee4907d7', sequence_context='full_212', protected_positions=(108, 164, 187), reference_id='ESTA_BACSU_Nutschel_2020')
+positions = [108], checkpoint_key = 'esm150'
+
+    def score_positions(self, target, positions, checkpoint_key='esm150'):
+>       raise NotImplementedError('Masked-marginal scoring is not implemented')
+E       NotImplementedError: Masked-marginal scoring is not implemented
+
+app\science\esm_engine.py:10: NotImplementedError
+__ test_invalid_or_protected_positions_rejected_before_inference[positions7] __
+
+positions = [164]
+
+    @pytest.mark.parametrize('positions', [[], [32, 32], [0], [1], [213], [True], [108], [164], [187], [32.0]])
+    def test_invalid_or_protected_positions_rejected_before_inference(positions):
+        backend = SyntheticBackend()
+        with pytest.raises(ValueError):
+>           ESMEngine(backend).score_positions(Target(), positions)
+
+tests_app\test_esm_contract.py:92: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.science.esm_engine.ESMEngine object at 0x000001C89BB8AF50>
+target = Target(reference_sequence='MKFVKRRIIALVTILMLSVTSLFALQPSAKAAEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQ...91ee4907d7', sequence_context='full_212', protected_positions=(108, 164, 187), reference_id='ESTA_BACSU_Nutschel_2020')
+positions = [164], checkpoint_key = 'esm150'
+
+    def score_positions(self, target, positions, checkpoint_key='esm150'):
+>       raise NotImplementedError('Masked-marginal scoring is not implemented')
+E       NotImplementedError: Masked-marginal scoring is not implemented
+
+app\science\esm_engine.py:10: NotImplementedError
+__ test_invalid_or_protected_positions_rejected_before_inference[positions8] __
+
+positions = [187]
+
+    @pytest.mark.parametrize('positions', [[], [32, 32], [0], [1], [213], [True], [108], [164], [187], [32.0]])
+    def test_invalid_or_protected_positions_rejected_before_inference(positions):
+        backend = SyntheticBackend()
+        with pytest.raises(ValueError):
+>           ESMEngine(backend).score_positions(Target(), positions)
+
+tests_app\test_esm_contract.py:92: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.science.esm_engine.ESMEngine object at 0x000001C89BB84E60>
+target = Target(reference_sequence='MKFVKRRIIALVTILMLSVTSLFALQPSAKAAEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQ...91ee4907d7', sequence_context='full_212', protected_positions=(108, 164, 187), reference_id='ESTA_BACSU_Nutschel_2020')
+positions = [187], checkpoint_key = 'esm150'
+
+    def score_positions(self, target, positions, checkpoint_key='esm150'):
+>       raise NotImplementedError('Masked-marginal scoring is not implemented')
+E       NotImplementedError: Masked-marginal scoring is not implemented
+
+app\science\esm_engine.py:10: NotImplementedError
+__ test_invalid_or_protected_positions_rejected_before_inference[positions9] __
+
+positions = [32.0]
+
+    @pytest.mark.parametrize('positions', [[], [32, 32], [0], [1], [213], [True], [108], [164], [187], [32.0]])
+    def test_invalid_or_protected_positions_rejected_before_inference(positions):
+        backend = SyntheticBackend()
+        with pytest.raises(ValueError):
+>           ESMEngine(backend).score_positions(Target(), positions)
+
+tests_app\test_esm_contract.py:92: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.science.esm_engine.ESMEngine object at 0x000001C89BB85F40>
+target = Target(reference_sequence='MKFVKRRIIALVTILMLSVTSLFALQPSAKAAEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQ...91ee4907d7', sequence_context='full_212', protected_positions=(108, 164, 187), reference_id='ESTA_BACSU_Nutschel_2020')
+positions = [32.0], checkpoint_key = 'esm150'
+
+    def score_positions(self, target, positions, checkpoint_key='esm150'):
+>       raise NotImplementedError('Masked-marginal scoring is not implemented')
+E       NotImplementedError: Masked-marginal scoring is not implemented
+
+app\science\esm_engine.py:10: NotImplementedError
+_________ test_mature_context_or_wrong_hash_rejected_before_inference _________
+
+    def test_mature_context_or_wrong_hash_rejected_before_inference():
+        backend = SyntheticBackend()
+        for target in [replace(Target(), sequence_context='mature_181'), replace(Target(), reference_sha256='0' * 64)]:
+            with pytest.raises(ValueError):
+>               ESMEngine(backend).score_positions(target, [32])
+
+tests_app\test_esm_contract.py:100: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.science.esm_engine.ESMEngine object at 0x000001C89BBD5710>
+target = Target(reference_sequence='MKFVKRRIIALVTILMLSVTSLFALQPSAKAAEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQ...ee4907d7', sequence_context='mature_181', protected_positions=(108, 164, 187), reference_id='ESTA_BACSU_Nutschel_2020')
+positions = [32], checkpoint_key = 'esm150'
+
+    def score_positions(self, target, positions, checkpoint_key='esm150'):
+>       raise NotImplementedError('Masked-marginal scoring is not implemented')
+E       NotImplementedError: Masked-marginal scoring is not implemented
+
+app\science\esm_engine.py:10: NotImplementedError
+___________ test_disabled_checkpoint_cannot_be_scored_or_mislabeled ___________
+
+    def test_disabled_checkpoint_cannot_be_scored_or_mislabeled():
+        backend = SyntheticBackend()
+        with pytest.raises(ValueError):
+>           ESMEngine(backend).score_positions(Target(), [32], 'esm650')
+
+tests_app\test_esm_contract.py:107: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.science.esm_engine.ESMEngine object at 0x000001C89BBD5D30>
+target = Target(reference_sequence='MKFVKRRIIALVTILMLSVTSLFALQPSAKAAEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQ...91ee4907d7', sequence_context='full_212', protected_positions=(108, 164, 187), reference_id='ESTA_BACSU_Nutschel_2020')
+positions = [32], checkpoint_key = 'esm650'
+
+    def score_positions(self, target, positions, checkpoint_key='esm150'):
+>       raise NotImplementedError('Masked-marginal scoring is not implemented')
+E       NotImplementedError: Masked-marginal scoring is not implemented
+
+app\science\esm_engine.py:10: NotImplementedError
+_____________ test_bad_tokenizer_alignment_blocked_before_forward _____________
+
+    def test_bad_tokenizer_alignment_blocked_before_forward():
+        backend = SyntheticBackend()
+        backend.tokenize = lambda sequence: [backend.token_id(a) for a in sequence]
+        with pytest.raises(ValueError, match='token'):
+>           ESMEngine(backend).score_positions(Target(), [32])
+
+tests_app\test_esm_contract.py:117: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.science.esm_engine.ESMEngine object at 0x000001C89CC3A820>
+target = Target(reference_sequence='MKFVKRRIIALVTILMLSVTSLFALQPSAKAAEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQ...91ee4907d7', sequence_context='full_212', protected_positions=(108, 164, 187), reference_id='ESTA_BACSU_Nutschel_2020')
+positions = [32], checkpoint_key = 'esm150'
+
+    def score_positions(self, target, positions, checkpoint_key='esm150'):
+>       raise NotImplementedError('Masked-marginal scoring is not implemented')
+E       NotImplementedError: Masked-marginal scoring is not implemented
+
+app\science\esm_engine.py:10: NotImplementedError
+_________ test_nonfinite_logits_fail_instead_of_creating_an_artifact __________
+
+    def test_nonfinite_logits_fail_instead_of_creating_an_artifact():
+        backend = SyntheticBackend()
+        backend.forward = lambda tokens: [[float('nan')] * 23 for _ in tokens]
+        with pytest.raises(ValueError):
+>           ESMEngine(backend).score_positions(Target(), [32])
+
+tests_app\test_esm_contract.py:125: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.science.esm_engine.ESMEngine object at 0x000001C89BA53410>
+target = Target(reference_sequence='MKFVKRRIIALVTILMLSVTSLFALQPSAKAAEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQ...91ee4907d7', sequence_context='full_212', protected_positions=(108, 164, 187), reference_id='ESTA_BACSU_Nutschel_2020')
+positions = [32], checkpoint_key = 'esm150'
+
+    def score_positions(self, target, positions, checkpoint_key='esm150'):
+>       raise NotImplementedError('Masked-marginal scoring is not implemented')
+E       NotImplementedError: Masked-marginal scoring is not implemented
+
+app\science\esm_engine.py:10: NotImplementedError
+______ test_rank_ignores_optional_annotations_and_ties_use_candidate_id _______
+
+    def test_rank_ignores_optional_annotations_and_ties_use_candidate_id():
+>       rows = ESMEngine(SyntheticBackend()).score_positions(Target(), [32])['rows']
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_esm_contract.py:129: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.science.esm_engine.ESMEngine object at 0x000001C89BA537D0>
+target = Target(reference_sequence='MKFVKRRIIALVTILMLSVTSLFALQPSAKAAEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQ...91ee4907d7', sequence_context='full_212', protected_positions=(108, 164, 187), reference_id='ESTA_BACSU_Nutschel_2020')
+positions = [32], checkpoint_key = 'esm150'
+
+    def score_positions(self, target, positions, checkpoint_key='esm150'):
+>       raise NotImplementedError('Masked-marginal scoring is not implemented')
+E       NotImplementedError: Masked-marginal scoring is not implemented
+
+app\science\esm_engine.py:10: NotImplementedError
+____ test_mixed_provenance_rank_is_blocked[checkpoint-esm2_t33_650M_UR50D] ____
+
+key = 'checkpoint', value = 'esm2_t33_650M_UR50D'
+
+    @pytest.mark.parametrize('key,value', [('checkpoint', 'esm2_t33_650M_UR50D'), ('sequence_context', 'mature_181'), ('weights_sha256', '0' * 64), ('tokenizer_sha256', '0' * 64), ('reference_sha256', '0' * 64)])
+    def test_mixed_provenance_rank_is_blocked(key, value):
+>       rows = ESMEngine(SyntheticBackend()).score_positions(Target(), [32])['rows']
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_esm_contract.py:140: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.science.esm_engine.ESMEngine object at 0x000001C89BB90470>
+target = Target(reference_sequence='MKFVKRRIIALVTILMLSVTSLFALQPSAKAAEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQ...91ee4907d7', sequence_context='full_212', protected_positions=(108, 164, 187), reference_id='ESTA_BACSU_Nutschel_2020')
+positions = [32], checkpoint_key = 'esm150'
+
+    def score_positions(self, target, positions, checkpoint_key='esm150'):
+>       raise NotImplementedError('Masked-marginal scoring is not implemented')
+E       NotImplementedError: Masked-marginal scoring is not implemented
+
+app\science\esm_engine.py:10: NotImplementedError
+_____ test_mixed_provenance_rank_is_blocked[sequence_context-mature_181] ______
+
+key = 'sequence_context', value = 'mature_181'
+
+    @pytest.mark.parametrize('key,value', [('checkpoint', 'esm2_t33_650M_UR50D'), ('sequence_context', 'mature_181'), ('weights_sha256', '0' * 64), ('tokenizer_sha256', '0' * 64), ('reference_sha256', '0' * 64)])
+    def test_mixed_provenance_rank_is_blocked(key, value):
+>       rows = ESMEngine(SyntheticBackend()).score_positions(Target(), [32])['rows']
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_esm_contract.py:140: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.science.esm_engine.ESMEngine object at 0x000001C89BB909F0>
+target = Target(reference_sequence='MKFVKRRIIALVTILMLSVTSLFALQPSAKAAEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQ...91ee4907d7', sequence_context='full_212', protected_positions=(108, 164, 187), reference_id='ESTA_BACSU_Nutschel_2020')
+positions = [32], checkpoint_key = 'esm150'
+
+    def score_positions(self, target, positions, checkpoint_key='esm150'):
+>       raise NotImplementedError('Masked-marginal scoring is not implemented')
+E       NotImplementedError: Masked-marginal scoring is not implemented
+
+app\science\esm_engine.py:10: NotImplementedError
+_ test_mixed_provenance_rank_is_blocked[weights_sha256-0000000000000000000000000000000000000000000000000000000000000000] _
+
+key = 'weights_sha256'
+value = '0000000000000000000000000000000000000000000000000000000000000000'
+
+    @pytest.mark.parametrize('key,value', [('checkpoint', 'esm2_t33_650M_UR50D'), ('sequence_context', 'mature_181'), ('weights_sha256', '0' * 64), ('tokenizer_sha256', '0' * 64), ('reference_sha256', '0' * 64)])
+    def test_mixed_provenance_rank_is_blocked(key, value):
+>       rows = ESMEngine(SyntheticBackend()).score_positions(Target(), [32])['rows']
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_esm_contract.py:140: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.science.esm_engine.ESMEngine object at 0x000001C89BB6E3F0>
+target = Target(reference_sequence='MKFVKRRIIALVTILMLSVTSLFALQPSAKAAEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQ...91ee4907d7', sequence_context='full_212', protected_positions=(108, 164, 187), reference_id='ESTA_BACSU_Nutschel_2020')
+positions = [32], checkpoint_key = 'esm150'
+
+    def score_positions(self, target, positions, checkpoint_key='esm150'):
+>       raise NotImplementedError('Masked-marginal scoring is not implemented')
+E       NotImplementedError: Masked-marginal scoring is not implemented
+
+app\science\esm_engine.py:10: NotImplementedError
+_ test_mixed_provenance_rank_is_blocked[tokenizer_sha256-0000000000000000000000000000000000000000000000000000000000000000] _
+
+key = 'tokenizer_sha256'
+value = '0000000000000000000000000000000000000000000000000000000000000000'
+
+    @pytest.mark.parametrize('key,value', [('checkpoint', 'esm2_t33_650M_UR50D'), ('sequence_context', 'mature_181'), ('weights_sha256', '0' * 64), ('tokenizer_sha256', '0' * 64), ('reference_sha256', '0' * 64)])
+    def test_mixed_provenance_rank_is_blocked(key, value):
+>       rows = ESMEngine(SyntheticBackend()).score_positions(Target(), [32])['rows']
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_esm_contract.py:140: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.science.esm_engine.ESMEngine object at 0x000001C89BB6E850>
+target = Target(reference_sequence='MKFVKRRIIALVTILMLSVTSLFALQPSAKAAEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQ...91ee4907d7', sequence_context='full_212', protected_positions=(108, 164, 187), reference_id='ESTA_BACSU_Nutschel_2020')
+positions = [32], checkpoint_key = 'esm150'
+
+    def score_positions(self, target, positions, checkpoint_key='esm150'):
+>       raise NotImplementedError('Masked-marginal scoring is not implemented')
+E       NotImplementedError: Masked-marginal scoring is not implemented
+
+app\science\esm_engine.py:10: NotImplementedError
+_ test_mixed_provenance_rank_is_blocked[reference_sha256-0000000000000000000000000000000000000000000000000000000000000000] _
+
+key = 'reference_sha256'
+value = '0000000000000000000000000000000000000000000000000000000000000000'
+
+    @pytest.mark.parametrize('key,value', [('checkpoint', 'esm2_t33_650M_UR50D'), ('sequence_context', 'mature_181'), ('weights_sha256', '0' * 64), ('tokenizer_sha256', '0' * 64), ('reference_sha256', '0' * 64)])
+    def test_mixed_provenance_rank_is_blocked(key, value):
+>       rows = ESMEngine(SyntheticBackend()).score_positions(Target(), [32])['rows']
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_esm_contract.py:140: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.science.esm_engine.ESMEngine object at 0x000001C89BBED2E0>
+target = Target(reference_sequence='MKFVKRRIIALVTILMLSVTSLFALQPSAKAAEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQ...91ee4907d7', sequence_context='full_212', protected_positions=(108, 164, 187), reference_id='ESTA_BACSU_Nutschel_2020')
+positions = [32], checkpoint_key = 'esm150'
+
+    def score_positions(self, target, positions, checkpoint_key='esm150'):
+>       raise NotImplementedError('Masked-marginal scoring is not implemented')
+E       NotImplementedError: Masked-marginal scoring is not implemented
+
+app\science\esm_engine.py:10: NotImplementedError
+________ test_unknown_policy_duplicate_ids_and_nonfinite_rank_blocked _________
+
+    def test_unknown_policy_duplicate_ids_and_nonfinite_rank_blocked():
+>       rows = ESMEngine(SyntheticBackend()).score_positions(Target(), [32])['rows']
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_esm_contract.py:147: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.science.esm_engine.ESMEngine object at 0x000001C89BB9A1D0>
+target = Target(reference_sequence='MKFVKRRIIALVTILMLSVTSLFALQPSAKAAEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQ...91ee4907d7', sequence_context='full_212', protected_positions=(108, 164, 187), reference_id='ESTA_BACSU_Nutschel_2020')
+positions = [32], checkpoint_key = 'esm150'
+
+    def score_positions(self, target, positions, checkpoint_key='esm150'):
+>       raise NotImplementedError('Masked-marginal scoring is not implemented')
+E       NotImplementedError: Masked-marginal scoring is not implemented
+
+app\science\esm_engine.py:10: NotImplementedError
+________________________ test_cache_tamper_is_rejected ________________________
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.runtime/pytest_esm/test_cache_tamper_is_rejected0')
+
+    def test_cache_tamper_is_rejected(tmp_path):
+        engine = ESMEngine(SyntheticBackend(), tmp_path)
+>       engine.score_positions(Target(), [32])
+
+tests_app\test_esm_contract.py:159: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.science.esm_engine.ESMEngine object at 0x000001C89BB9B350>
+target = Target(reference_sequence='MKFVKRRIIALVTILMLSVTSLFALQPSAKAAEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQ...91ee4907d7', sequence_context='full_212', protected_positions=(108, 164, 187), reference_id='ESTA_BACSU_Nutschel_2020')
+positions = [32], checkpoint_key = 'esm150'
+
+    def score_positions(self, target, positions, checkpoint_key='esm150'):
+>       raise NotImplementedError('Masked-marginal scoring is not implemented')
+E       NotImplementedError: Masked-marginal scoring is not implemented
+
+app\science\esm_engine.py:10: NotImplementedError
+____ test_missing_real_local_checkpoint_stays_unavailable_without_download ____
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.runtime/pytest_esm/test_missing_real_local_checkp0')
+
+    def test_missing_real_local_checkpoint_stays_unavailable_without_download(tmp_path):
+        with pytest.raises(ValueError, match='checkpoint'):
+>           LocalHFBackend(tmp_path)
+
+tests_app\test_esm_contract.py:170: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.science.esm_engine.LocalHFBackend object at 0x000001C89BC04980>
+checkpoint_dir = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.runtime/pytest_esm/test_missing_real_local_checkp0')
+
+    def __init__(self, checkpoint_dir):
+>       raise NotImplementedError('Local checkpoint verification is not implemented')
+E       NotImplementedError: Local checkpoint verification is not implemented
+
+app\science\esm_engine.py:15: NotImplementedError
+=========================== short test summary info ===========================
+FAILED tests_app/test_esm_contract.py::test_mask_alignment_sign_wt_and_all_nineteen_alternatives
+FAILED tests_app/test_esm_contract.py::test_distribution_reused_by_position_and_persisted_with_exact_identity
+FAILED tests_app/test_esm_contract.py::test_invalid_or_protected_positions_rejected_before_inference[positions0]
+FAILED tests_app/test_esm_contract.py::test_invalid_or_protected_positions_rejected_before_inference[positions1]
+FAILED tests_app/test_esm_contract.py::test_invalid_or_protected_positions_rejected_before_inference[positions2]
+FAILED tests_app/test_esm_contract.py::test_invalid_or_protected_positions_rejected_before_inference[positions3]
+FAILED tests_app/test_esm_contract.py::test_invalid_or_protected_positions_rejected_before_inference[positions4]
+FAILED tests_app/test_esm_contract.py::test_invalid_or_protected_positions_rejected_before_inference[positions5]
+FAILED tests_app/test_esm_contract.py::test_invalid_or_protected_positions_rejected_before_inference[positions6]
+FAILED tests_app/test_esm_contract.py::test_invalid_or_protected_positions_rejected_before_inference[positions7]
+FAILED tests_app/test_esm_contract.py::test_invalid_or_protected_positions_rejected_before_inference[positions8]
+FAILED tests_app/test_esm_contract.py::test_invalid_or_protected_positions_rejected_before_inference[positions9]
+FAILED tests_app/test_esm_contract.py::test_mature_context_or_wrong_hash_rejected_before_inference
+FAILED tests_app/test_esm_contract.py::test_disabled_checkpoint_cannot_be_scored_or_mislabeled
+FAILED tests_app/test_esm_contract.py::test_bad_tokenizer_alignment_blocked_before_forward
+FAILED tests_app/test_esm_contract.py::test_nonfinite_logits_fail_instead_of_creating_an_artifact
+FAILED tests_app/test_esm_contract.py::test_rank_ignores_optional_annotations_and_ties_use_candidate_id
+FAILED tests_app/test_esm_contract.py::test_mixed_provenance_rank_is_blocked[checkpoint-esm2_t33_650M_UR50D]
+FAILED tests_app/test_esm_contract.py::test_mixed_provenance_rank_is_blocked[sequence_context-mature_181]
+FAILED tests_app/test_esm_contract.py::test_mixed_provenance_rank_is_blocked[weights_sha256-0000000000000000000000000000000000000000000000000000000000000000]
+FAILED tests_app/test_esm_contract.py::test_mixed_provenance_rank_is_blocked[tokenizer_sha256-0000000000000000000000000000000000000000000000000000000000000000]
+FAILED tests_app/test_esm_contract.py::test_mixed_provenance_rank_is_blocked[reference_sha256-0000000000000000000000000000000000000000000000000000000000000000]
+FAILED tests_app/test_esm_contract.py::test_unknown_policy_duplicate_ids_and_nonfinite_rank_blocked
+FAILED tests_app/test_esm_contract.py::test_cache_tamper_is_rejected - NotImp...
+FAILED tests_app/test_esm_contract.py::test_missing_real_local_checkpoint_stays_unavailable_without_download
+25 failed in 0.34s

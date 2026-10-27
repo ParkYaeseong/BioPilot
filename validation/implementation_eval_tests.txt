@@ -1,0 +1,43 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.0, pytest-9.0.1, pluggy-1.6.0 -- C:\Users\user\Desktop\BioPilot_Atlas_v3\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\user\Desktop\BioPilot_Atlas_v3
+configfile: pytest.ini
+plugins: hydra-core-1.3.4, asyncio-1.4.0, anyio-4.11.0, django-4.11.1
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 32 items
+
+tests_app/test_evaluation_cohort.py::test_spearman_average_ties_and_undefined_vectors PASSED [  3%]
+tests_app/test_evaluation_cohort.py::test_frozen_prediction_hash_is_independent_and_immutable PASSED [  6%]
+tests_app/test_evaluation_cohort.py::test_missing_duplicate_and_unexpected_predictions_refused[bad0] PASSED [  9%]
+tests_app/test_evaluation_cohort.py::test_missing_duplicate_and_unexpected_predictions_refused[bad1] PASSED [ 12%]
+tests_app/test_evaluation_cohort.py::test_missing_duplicate_and_unexpected_predictions_refused[bad2] PASSED [ 15%]
+tests_app/test_evaluation_cohort.py::test_cohort_duplicate_and_invalid_k_refused PASSED [ 18%]
+tests_app/test_evaluation_cohort.py::test_site_grouping_and_protocol_frozen_before_labels PASSED [ 21%]
+tests_app/test_evaluation_cohort.py::test_metrics_preserve_cohort_and_do_not_claim_wt_or_temperature PASSED [ 25%]
+tests_app/test_evaluation_cohort.py::test_recall_top_k_ties_use_candidate_id_ascending PASSED [ 28%]
+tests_app/test_evaluation_cohort.py::test_missing_duplicate_or_nonfinite_labels_never_shrink_cohort[<lambda>0] PASSED [ 31%]
+tests_app/test_evaluation_cohort.py::test_missing_duplicate_or_nonfinite_labels_never_shrink_cohort[<lambda>1] PASSED [ 34%]
+tests_app/test_evaluation_cohort.py::test_missing_duplicate_or_nonfinite_labels_never_shrink_cohort[<lambda>2] PASSED [ 37%]
+tests_app/test_evaluation_cohort.py::test_missing_duplicate_or_nonfinite_labels_never_shrink_cohort[<lambda>3] PASSED [ 40%]
+tests_app/test_evaluation_cohort.py::test_fixture_and_real_evaluation_cannot_be_mixed PASSED [ 43%]
+tests_app/test_evaluation_cohort.py::test_alternate_checkpoint_requires_explicit_matching_frozen_policy[esm2_t12_35M_UR50D-esm35_masked_v1] PASSED [ 46%]
+tests_app/test_evaluation_cohort.py::test_alternate_checkpoint_requires_explicit_matching_frozen_policy[esm2_t33_650M_UR50D-esm650_masked_v1] PASSED [ 50%]
+tests_app/test_evaluation_cohort.py::test_mixed_checkpoint_or_policy_rows_cannot_enter_frozen_rank[esm2_t12_35M_UR50D-esm35_masked_v1] PASSED [ 53%]
+tests_app/test_evaluation_cohort.py::test_mixed_checkpoint_or_policy_rows_cannot_enter_frozen_rank[esm2_t30_150M_UR50D-esm150_masked_v1] PASSED [ 56%]
+tests_app/test_evaluation_cohort.py::test_mixed_checkpoint_or_policy_rows_cannot_enter_frozen_rank[esm2_t33_650M_UR50D-esm650_masked_v1] PASSED [ 59%]
+tests_app/test_evaluation_cohort.py::test_actual_engine_artifact_projects_complete_numeric_predictions[esm35] PASSED [ 62%]
+tests_app/test_evaluation_cohort.py::test_actual_engine_artifact_projects_complete_numeric_predictions[esm150] PASSED [ 65%]
+tests_app/test_evaluation_cohort.py::test_actual_engine_artifact_projects_complete_numeric_predictions[esm650] PASSED [ 68%]
+tests_app/test_evaluation_cohort.py::test_corrupt_numeric_artifact_rejected_before_projection PASSED [ 71%]
+tests_app/test_evaluation_cohort.py::test_mixed_score_artifact_metadata_refused_even_with_recomputed_hash[change0] PASSED [ 75%]
+tests_app/test_evaluation_cohort.py::test_mixed_score_artifact_metadata_refused_even_with_recomputed_hash[change1] PASSED [ 78%]
+tests_app/test_evaluation_cohort.py::test_mixed_score_artifact_metadata_refused_even_with_recomputed_hash[change2] PASSED [ 81%]
+tests_app/test_evaluation_cohort.py::test_mixed_score_artifact_metadata_refused_even_with_recomputed_hash[change3] PASSED [ 84%]
+tests_app/test_evaluation_cohort.py::test_mixed_score_artifact_metadata_refused_even_with_recomputed_hash[change4] PASSED [ 87%]
+tests_app/test_evaluation_cohort.py::test_artifact_freeze_requires_complete_prespecified_cohort PASSED [ 90%]
+tests_app/test_evaluation_cohort.py::test_runtime_paths_and_symlink_escapes_refused SKIPPED [ 93%]
+tests_app/test_evaluation_cohort.py::test_cli_freeze_is_checked_before_label_file_is_opened PASSED [ 96%]
+tests_app/test_evaluation_cohort.py::test_cli_separate_process_only_writes_evaluator_report PASSED [100%]
+
+======================== 31 passed, 1 skipped in 0.33s ========================

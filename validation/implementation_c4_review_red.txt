@@ -1,0 +1,573 @@
+.............FFFFFFFFFFFFFFFF                                            [100%]
+================================== FAILURES ===================================
+_ test_sequence_review_three_turns_code_ranks_artifact_and_final_has_no_tools _
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.cache/pytest_meta_review/test_sequence_review_three_tur0')
+
+    def test_sequence_review_three_turns_code_ranks_artifact_and_final_has_no_tools(tmp_path):
+        client=Client([response(call=[tool()]),response(call=[score_tool()]),
+                       response(text='Sequence preferences only; T50 and activity remain unknown.')])
+        host,runs,rid,bridge=setup_review(tmp_path,client)
+>       result=asyncio.run(host.run())
+               ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_meta_loop.py:215: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python314\Lib\asyncio\runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+app\host\meta_client.py:79: in run
+    return await self._run_sequence_review()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.host.meta_client.MetaHost object at 0x000001E774AF8E60>
+
+    async def _run_sequence_review(self):
+>       raise NotImplementedError('Bounded sequence review loop is not implemented')
+E       NotImplementedError: Bounded sequence review loop is not implemented
+
+app\host\meta_client.py:203: NotImplementedError
+_ test_sequence_pending_returns_partial_without_model_poll_or_duplicate_dispatch[pending] _
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.cache/pytest_meta_review/test_sequence_pending_returns_0')
+status = 'pending'
+
+    @pytest.mark.parametrize('status',['pending','unknown','reserved'])
+    def test_sequence_pending_returns_partial_without_model_poll_or_duplicate_dispatch(tmp_path,status):
+        bridge=ReviewBridge({'status':status,'task_id':'fixture-job','cost_micros':None})
+        client=Client([response(call=[tool()]),response(call=[score_tool()])])
+        host,runs,rid,bridge=setup_review(tmp_path,client,bridge)
+>       first=asyncio.run(host.run())
+              ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_meta_loop.py:240: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python314\Lib\asyncio\runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+app\host\meta_client.py:79: in run
+    return await self._run_sequence_review()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.host.meta_client.MetaHost object at 0x000001E774AEDEF0>
+
+    async def _run_sequence_review(self):
+>       raise NotImplementedError('Bounded sequence review loop is not implemented')
+E       NotImplementedError: Bounded sequence review loop is not implemented
+
+app\host\meta_client.py:203: NotImplementedError
+_ test_sequence_pending_returns_partial_without_model_poll_or_duplicate_dispatch[unknown] _
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.cache/pytest_meta_review/test_sequence_pending_returns_1')
+status = 'unknown'
+
+    @pytest.mark.parametrize('status',['pending','unknown','reserved'])
+    def test_sequence_pending_returns_partial_without_model_poll_or_duplicate_dispatch(tmp_path,status):
+        bridge=ReviewBridge({'status':status,'task_id':'fixture-job','cost_micros':None})
+        client=Client([response(call=[tool()]),response(call=[score_tool()])])
+        host,runs,rid,bridge=setup_review(tmp_path,client,bridge)
+>       first=asyncio.run(host.run())
+              ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_meta_loop.py:240: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python314\Lib\asyncio\runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+app\host\meta_client.py:79: in run
+    return await self._run_sequence_review()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.host.meta_client.MetaHost object at 0x000001E774AECC90>
+
+    async def _run_sequence_review(self):
+>       raise NotImplementedError('Bounded sequence review loop is not implemented')
+E       NotImplementedError: Bounded sequence review loop is not implemented
+
+app\host\meta_client.py:203: NotImplementedError
+_ test_sequence_pending_returns_partial_without_model_poll_or_duplicate_dispatch[reserved] _
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.cache/pytest_meta_review/test_sequence_pending_returns_2')
+status = 'reserved'
+
+    @pytest.mark.parametrize('status',['pending','unknown','reserved'])
+    def test_sequence_pending_returns_partial_without_model_poll_or_duplicate_dispatch(tmp_path,status):
+        bridge=ReviewBridge({'status':status,'task_id':'fixture-job','cost_micros':None})
+        client=Client([response(call=[tool()]),response(call=[score_tool()])])
+        host,runs,rid,bridge=setup_review(tmp_path,client,bridge)
+>       first=asyncio.run(host.run())
+              ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_meta_loop.py:240: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python314\Lib\asyncio\runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+app\host\meta_client.py:79: in run
+    return await self._run_sequence_review()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.host.meta_client.MetaHost object at 0x000001E774D7E270>
+
+    async def _run_sequence_review(self):
+>       raise NotImplementedError('Bounded sequence review loop is not implemented')
+E       NotImplementedError: Bounded sequence review loop is not implemented
+
+app\host\meta_client.py:203: NotImplementedError
+__ test_sequence_review_preserves_report_request_and_cost_reserve[2-250000] ___
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.cache/pytest_meta_review/test_sequence_review_preserves0')
+max_requests = 2, micros = 250000
+
+    @pytest.mark.parametrize('max_requests,micros',[(2,250000),(3,100000)])
+    def test_sequence_review_preserves_report_request_and_cost_reserve(tmp_path,max_requests,micros):
+        client=Client([])
+        host,runs,rid,bridge=setup_review(tmp_path,client,max_requests=max_requests,micros=micros)
+>       result=asyncio.run(host.run())
+               ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_meta_loop.py:253: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python314\Lib\asyncio\runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+app\host\meta_client.py:79: in run
+    return await self._run_sequence_review()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.host.meta_client.MetaHost object at 0x000001E773A37890>
+
+    async def _run_sequence_review(self):
+>       raise NotImplementedError('Bounded sequence review loop is not implemented')
+E       NotImplementedError: Bounded sequence review loop is not implemented
+
+app\host\meta_client.py:203: NotImplementedError
+__ test_sequence_review_preserves_report_request_and_cost_reserve[3-100000] ___
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.cache/pytest_meta_review/test_sequence_review_preserves1')
+max_requests = 3, micros = 100000
+
+    @pytest.mark.parametrize('max_requests,micros',[(2,250000),(3,100000)])
+    def test_sequence_review_preserves_report_request_and_cost_reserve(tmp_path,max_requests,micros):
+        client=Client([])
+        host,runs,rid,bridge=setup_review(tmp_path,client,max_requests=max_requests,micros=micros)
+>       result=asyncio.run(host.run())
+               ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_meta_loop.py:253: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python314\Lib\asyncio\runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+app\host\meta_client.py:79: in run
+    return await self._run_sequence_review()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.host.meta_client.MetaHost object at 0x000001E773A37AD0>
+
+    async def _run_sequence_review(self):
+>       raise NotImplementedError('Bounded sequence review loop is not implemented')
+E       NotImplementedError: Bounded sequence review loop is not implemented
+
+app\host\meta_client.py:203: NotImplementedError
+___________________ test_score_cannot_run_before_validation ___________________
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.cache/pytest_meta_review/test_score_cannot_run_before_v0')
+
+    def test_score_cannot_run_before_validation(tmp_path):
+        client=Client([response(call=[score_tool()])])
+        host,runs,rid,bridge=setup_review(tmp_path,client)
+>       result=asyncio.run(host.run())
+               ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_meta_loop.py:262: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python314\Lib\asyncio\runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+app\host\meta_client.py:79: in run
+    return await self._run_sequence_review()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.host.meta_client.MetaHost object at 0x000001E774D20520>
+
+    async def _run_sequence_review(self):
+>       raise NotImplementedError('Bounded sequence review loop is not implemented')
+E       NotImplementedError: Bounded sequence review loop is not implemented
+
+app\host\meta_client.py:203: NotImplementedError
+_ test_sequence_model_cannot_change_frozen_model_cohort_or_reuse_call_id[call0] _
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.cache/pytest_meta_review/test_sequence_model_cannot_cha0')
+call = {'function': {'arguments': '{"reference_id": "ESTA_BACSU_Nutschel_2020", "model_key": "esm650", "positions_1based": [3...tered sequence preferences with the approved model"}', 'name': 'score_positions'}, 'id': 'score-1', 'type': 'function'}
+
+    @pytest.mark.parametrize('call',[score_tool(model_key='esm650'),score_tool(positions=[33]),score_tool(id='call-1')])
+    def test_sequence_model_cannot_change_frozen_model_cohort_or_reuse_call_id(tmp_path,call):
+        client=Client([response(call=[tool()]),response(call=[call])])
+        host,runs,rid,bridge=setup_review(tmp_path,client)
+>       result=asyncio.run(host.run())
+               ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_meta_loop.py:271: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python314\Lib\asyncio\runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+app\host\meta_client.py:79: in run
+    return await self._run_sequence_review()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.host.meta_client.MetaHost object at 0x000001E774D20B50>
+
+    async def _run_sequence_review(self):
+>       raise NotImplementedError('Bounded sequence review loop is not implemented')
+E       NotImplementedError: Bounded sequence review loop is not implemented
+
+app\host\meta_client.py:203: NotImplementedError
+_ test_sequence_model_cannot_change_frozen_model_cohort_or_reuse_call_id[call1] _
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.cache/pytest_meta_review/test_sequence_model_cannot_cha1')
+call = {'function': {'arguments': '{"reference_id": "ESTA_BACSU_Nutschel_2020", "model_key": "esm150", "positions_1based": [3...tered sequence preferences with the approved model"}', 'name': 'score_positions'}, 'id': 'score-1', 'type': 'function'}
+
+    @pytest.mark.parametrize('call',[score_tool(model_key='esm650'),score_tool(positions=[33]),score_tool(id='call-1')])
+    def test_sequence_model_cannot_change_frozen_model_cohort_or_reuse_call_id(tmp_path,call):
+        client=Client([response(call=[tool()]),response(call=[call])])
+        host,runs,rid,bridge=setup_review(tmp_path,client)
+>       result=asyncio.run(host.run())
+               ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_meta_loop.py:271: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python314\Lib\asyncio\runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+app\host\meta_client.py:79: in run
+    return await self._run_sequence_review()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.host.meta_client.MetaHost object at 0x000001E774C8EF30>
+
+    async def _run_sequence_review(self):
+>       raise NotImplementedError('Bounded sequence review loop is not implemented')
+E       NotImplementedError: Bounded sequence review loop is not implemented
+
+app\host\meta_client.py:203: NotImplementedError
+_ test_sequence_model_cannot_change_frozen_model_cohort_or_reuse_call_id[call2] _
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.cache/pytest_meta_review/test_sequence_model_cannot_cha2')
+call = {'function': {'arguments': '{"reference_id": "ESTA_BACSU_Nutschel_2020", "model_key": "esm150", "positions_1based": [3...stered sequence preferences with the approved model"}', 'name': 'score_positions'}, 'id': 'call-1', 'type': 'function'}
+
+    @pytest.mark.parametrize('call',[score_tool(model_key='esm650'),score_tool(positions=[33]),score_tool(id='call-1')])
+    def test_sequence_model_cannot_change_frozen_model_cohort_or_reuse_call_id(tmp_path,call):
+        client=Client([response(call=[tool()]),response(call=[call])])
+        host,runs,rid,bridge=setup_review(tmp_path,client)
+>       result=asyncio.run(host.run())
+               ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_meta_loop.py:271: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python314\Lib\asyncio\runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+app\host\meta_client.py:79: in run
+    return await self._run_sequence_review()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.host.meta_client.MetaHost object at 0x000001E774C8F4D0>
+
+    async def _run_sequence_review(self):
+>       raise NotImplementedError('Bounded sequence review loop is not implemented')
+E       NotImplementedError: Bounded sequence review loop is not implemented
+
+app\host\meta_client.py:203: NotImplementedError
+_ test_sequence_review_rejects_invalid_or_mixed_artifact_before_final_model[hash] _
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.cache/pytest_meta_review/test_sequence_review_rejects_i0')
+corruption = 'hash'
+
+    @pytest.mark.parametrize('corruption',['hash','mixed_checkpoint','incomplete'])
+    def test_sequence_review_rejects_invalid_or_mixed_artifact_before_final_model(tmp_path,corruption):
+        from app.host.meta_client import _hash
+        artifact=synthetic_score_artifact()
+        if corruption=='hash': artifact['artifact_sha256']='0'*64
+        else:
+            if corruption=='mixed_checkpoint': artifact['rows'][0]['checkpoint']='esm2_t33_650M_UR50D'
+            else: artifact['rows'].pop()
+            artifact['artifact_sha256']=_hash({k:v for k,v in artifact.items() if k!='artifact_sha256'})
+        client=Client([response(call=[tool()]),response(call=[score_tool()])])
+        host,runs,rid,bridge=setup_review(tmp_path,client,ReviewBridge({'status':'completed','artifact':artifact}))
+>       result=asyncio.run(host.run())
+               ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_meta_loop.py:287: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python314\Lib\asyncio\runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+app\host\meta_client.py:79: in run
+    return await self._run_sequence_review()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.host.meta_client.MetaHost object at 0x000001E774C8B890>
+
+    async def _run_sequence_review(self):
+>       raise NotImplementedError('Bounded sequence review loop is not implemented')
+E       NotImplementedError: Bounded sequence review loop is not implemented
+
+app\host\meta_client.py:203: NotImplementedError
+_ test_sequence_review_rejects_invalid_or_mixed_artifact_before_final_model[mixed_checkpoint] _
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.cache/pytest_meta_review/test_sequence_review_rejects_i1')
+corruption = 'mixed_checkpoint'
+
+    @pytest.mark.parametrize('corruption',['hash','mixed_checkpoint','incomplete'])
+    def test_sequence_review_rejects_invalid_or_mixed_artifact_before_final_model(tmp_path,corruption):
+        from app.host.meta_client import _hash
+        artifact=synthetic_score_artifact()
+        if corruption=='hash': artifact['artifact_sha256']='0'*64
+        else:
+            if corruption=='mixed_checkpoint': artifact['rows'][0]['checkpoint']='esm2_t33_650M_UR50D'
+            else: artifact['rows'].pop()
+            artifact['artifact_sha256']=_hash({k:v for k,v in artifact.items() if k!='artifact_sha256'})
+        client=Client([response(call=[tool()]),response(call=[score_tool()])])
+        host,runs,rid,bridge=setup_review(tmp_path,client,ReviewBridge({'status':'completed','artifact':artifact}))
+>       result=asyncio.run(host.run())
+               ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_meta_loop.py:287: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python314\Lib\asyncio\runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+app\host\meta_client.py:79: in run
+    return await self._run_sequence_review()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.host.meta_client.MetaHost object at 0x000001E774D92550>
+
+    async def _run_sequence_review(self):
+>       raise NotImplementedError('Bounded sequence review loop is not implemented')
+E       NotImplementedError: Bounded sequence review loop is not implemented
+
+app\host\meta_client.py:203: NotImplementedError
+_ test_sequence_review_rejects_invalid_or_mixed_artifact_before_final_model[incomplete] _
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.cache/pytest_meta_review/test_sequence_review_rejects_i2')
+corruption = 'incomplete'
+
+    @pytest.mark.parametrize('corruption',['hash','mixed_checkpoint','incomplete'])
+    def test_sequence_review_rejects_invalid_or_mixed_artifact_before_final_model(tmp_path,corruption):
+        from app.host.meta_client import _hash
+        artifact=synthetic_score_artifact()
+        if corruption=='hash': artifact['artifact_sha256']='0'*64
+        else:
+            if corruption=='mixed_checkpoint': artifact['rows'][0]['checkpoint']='esm2_t33_650M_UR50D'
+            else: artifact['rows'].pop()
+            artifact['artifact_sha256']=_hash({k:v for k,v in artifact.items() if k!='artifact_sha256'})
+        client=Client([response(call=[tool()]),response(call=[score_tool()])])
+        host,runs,rid,bridge=setup_review(tmp_path,client,ReviewBridge({'status':'completed','artifact':artifact}))
+>       result=asyncio.run(host.run())
+               ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_meta_loop.py:287: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python314\Lib\asyncio\runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+app\host\meta_client.py:79: in run
+    return await self._run_sequence_review()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.host.meta_client.MetaHost object at 0x000001E774F98050>
+
+    async def _run_sequence_review(self):
+>       raise NotImplementedError('Bounded sequence review loop is not implemented')
+E       NotImplementedError: Bounded sequence review loop is not implemented
+
+app\host\meta_client.py:203: NotImplementedError
+_______________ test_sequence_final_tool_call_is_not_dispatched _______________
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.cache/pytest_meta_review/test_sequence_final_tool_call_0')
+
+    def test_sequence_final_tool_call_is_not_dispatched(tmp_path):
+        client=Client([response(call=[tool()]),response(call=[score_tool()]),response(call=[tool(id='last')])])
+        host,runs,rid,bridge=setup_review(tmp_path,client)
+>       result=asyncio.run(host.run())
+               ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_meta_loop.py:296: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python314\Lib\asyncio\runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+app\host\meta_client.py:79: in run
+    return await self._run_sequence_review()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.host.meta_client.MetaHost object at 0x000001E774F992D0>
+
+    async def _run_sequence_review(self):
+>       raise NotImplementedError('Bounded sequence review loop is not implemented')
+E       NotImplementedError: Bounded sequence review loop is not implemented
+
+app\host\meta_client.py:203: NotImplementedError
+___________ test_no_tool_sequence_narrative_cannot_become_complete ____________
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.cache/pytest_meta_review/test_no_tool_sequence_narrativ0')
+
+    def test_no_tool_sequence_narrative_cannot_become_complete(tmp_path):
+        client=Client([response(text='Everything is complete.')])
+        host,runs,rid,bridge=setup_review(tmp_path,client)
+>       result=asyncio.run(host.run())
+               ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_meta_loop.py:304: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python314\Lib\asyncio\runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+app\host\meta_client.py:79: in run
+    return await self._run_sequence_review()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.host.meta_client.MetaHost object at 0x000001E774DBBD50>
+
+    async def _run_sequence_review(self):
+>       raise NotImplementedError('Bounded sequence review loop is not implemented')
+E       NotImplementedError: Bounded sequence review loop is not implemented
+
+app\host\meta_client.py:203: NotImplementedError
+______________________ test_unknown_workflow_is_rejected ______________________
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.cache/pytest_meta_review/test_unknown_workflow_is_rejec0')
+
+    def test_unknown_workflow_is_rejected(tmp_path):
+        host,runs,rid,bridge=setup(tmp_path,Client([]))
+>       with pytest.raises(ValueError,match='workflow'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests_app\test_meta_loop.py:312: Failed
+=========================== short test summary info ===========================
+FAILED tests_app/test_meta_loop.py::test_sequence_review_three_turns_code_ranks_artifact_and_final_has_no_tools
+FAILED tests_app/test_meta_loop.py::test_sequence_pending_returns_partial_without_model_poll_or_duplicate_dispatch[pending]
+FAILED tests_app/test_meta_loop.py::test_sequence_pending_returns_partial_without_model_poll_or_duplicate_dispatch[unknown]
+FAILED tests_app/test_meta_loop.py::test_sequence_pending_returns_partial_without_model_poll_or_duplicate_dispatch[reserved]
+FAILED tests_app/test_meta_loop.py::test_sequence_review_preserves_report_request_and_cost_reserve[2-250000]
+FAILED tests_app/test_meta_loop.py::test_sequence_review_preserves_report_request_and_cost_reserve[3-100000]
+FAILED tests_app/test_meta_loop.py::test_score_cannot_run_before_validation
+FAILED tests_app/test_meta_loop.py::test_sequence_model_cannot_change_frozen_model_cohort_or_reuse_call_id[call0]
+FAILED tests_app/test_meta_loop.py::test_sequence_model_cannot_change_frozen_model_cohort_or_reuse_call_id[call1]
+FAILED tests_app/test_meta_loop.py::test_sequence_model_cannot_change_frozen_model_cohort_or_reuse_call_id[call2]
+FAILED tests_app/test_meta_loop.py::test_sequence_review_rejects_invalid_or_mixed_artifact_before_final_model[hash]
+FAILED tests_app/test_meta_loop.py::test_sequence_review_rejects_invalid_or_mixed_artifact_before_final_model[mixed_checkpoint]
+FAILED tests_app/test_meta_loop.py::test_sequence_review_rejects_invalid_or_mixed_artifact_before_final_model[incomplete]
+FAILED tests_app/test_meta_loop.py::test_sequence_final_tool_call_is_not_dispatched
+FAILED tests_app/test_meta_loop.py::test_no_tool_sequence_narrative_cannot_become_complete
+FAILED tests_app/test_meta_loop.py::test_unknown_workflow_is_rejected - Faile...
+16 failed, 13 passed in 1.67s

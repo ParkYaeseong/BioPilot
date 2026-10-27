@@ -1,0 +1,22 @@
+{
+  "recorded_date": "2026-10-27",
+  "modal_sdk_version": "1.6.2",
+  "installed_in": "project .venv only",
+  "package_source": "https://pypi.org/project/modal/1.6.2/",
+  "scope": "offline import and public signature inspection only",
+  "api_shape_checks": {
+    "App_include_source": true,
+    "App_function_timeout_block_network_include_source": true,
+    "Volume_with_mount_options": true,
+    "Function_from_name_environment_name": true,
+    "FunctionCall_get_timeout": true,
+    "Image_add_local_file_copy": true
+  },
+  "modal_authentication_performed": false,
+  "remote_inference_requests": 0,
+  "gpu_allocations": 0,
+  "model_downloads": 0,
+  "deployments": 0,
+  "live_compatibility_verified": false,
+  "remote_execution_enabled": false
+}

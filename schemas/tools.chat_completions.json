@@ -73,6 +73,7 @@
           "model_key": {
             "type": "string",
             "enum": [
+              "esm35",
               "esm150",
               "esm650"
             ]

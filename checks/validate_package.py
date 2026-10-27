@@ -19,6 +19,7 @@ from science_contracts import verify_target
 from hackathon_contracts import to_chat_tools, select_tools, validate_timeline, validate_bundle_paths, RUBRIC_WEIGHTS
 from datetime import datetime
 from zoneinfo import ZoneInfo
+from package_files import package_files
 
 def main() -> int:
     parser=argparse.ArgumentParser(description=__doc__)
@@ -28,7 +29,7 @@ def main() -> int:
         checks.append(name)
         if not condition:failures.append(name)
     def load(path):return json.loads((root/path).read_text(encoding='utf-8'))
-    files=[p for p in root.rglob('*') if p.is_file() and '__pycache__' not in p.parts]
+    files=list(package_files(root))
     for p in files:
         rel=p.relative_to(root).as_posix()
         if p.suffix in {'.md','.txt','.json','.yaml','.mmd','.py','.fasta'} or p.name in {'.env.example','MANIFEST.sha256'}:
@@ -37,7 +38,7 @@ def main() -> int:
             if p.suffix=='.py':ast.parse(text,filename=rel);check('Python parses '+rel,True)
             if p.suffix=='.json':json.loads(text);check('JSON parses '+rel,True)
     for p in (root/'schemas').glob('*.schema.json'):
-        Draft202012Validator.check_schema(json.loads(p.read_text()));check('valid JSON Schema '+p.name,True)
+        Draft202012Validator.check_schema(json.loads(p.read_text(encoding='utf-8')));check('valid JSON Schema '+p.name,True)
     for instance,schema in [
         ('run_input','run_input'),('lipase_run_input','run_input'),('plan_response','plan'),
         ('report_narrative','report_narrative'),('tool_result_blocked','tool_result')]:
@@ -54,7 +55,7 @@ def main() -> int:
     check('reject efficacy=true',not rv.is_valid(invalid))
     invalid=dict(report);invalid['ranking_scope']='measured_T50_prediction'
     check('reject fabricated calibrated rank',not rv.is_valid(invalid))
-    cfg=yaml.safe_load((root/'config/development.yaml').read_text())
+    cfg=yaml.safe_load((root/'config/development.yaml').read_text(encoding='utf-8'))
     for k in ['paid_execution_enabled','external_sequence_upload_enabled','public_write_demo_enabled']:
         check('default off '+k,cfg[k] is False)
     check('live Meta contract blocked',cfg['meta']['model'] is None and cfg['meta']['base_url'] is None and not cfg['meta']['provider_contract_verified'])
@@ -65,7 +66,7 @@ def main() -> int:
     p=load('reference/target_profile.json');target=verify_target(p)
     check('target guard pass',target['protected_full_positions']==[108,164,187])
     for fn,seq in [('reference/lipase_full_212.fasta',p['reference_sequence']),('reference/1ISP_A_deposited_181.fasta',p['mature_sequence'])]:
-        lines=(root/fn).read_text().splitlines();actual=''.join(x for x in lines if not x.startswith('>'))
+        lines=(root/fn).read_text(encoding='utf-8').splitlines();actual=''.join(x for x in lines if not x.startswith('>'))
         check('FASTA/profile consistency '+fn,actual==seq)
     mapping=load('reference/residue_map.json')
     check('map length',len(mapping['mapping'])==len(p['reference_sequence']))
@@ -81,7 +82,7 @@ def main() -> int:
     check('counts not silently reconciled',recon['raw_library_reported_count']-recon['proteingym_metadata_reported_count']==recon['count_difference'] and recon['status']=='pending_row_level_audit')
     tools=load('schemas/tools.chat_completions.json')
     check('unique native tool names',len({t['function']['name'] for t in tools})==len(tools))
-    prompt=(root/'prompts/runtime/00_developer.txt').read_text()
+    prompt=(root/'prompts/runtime/00_developer.txt').read_text(encoding='utf-8')
     for phase in ['plan','execute','report']:
         d=load('examples/meta_'+phase+'_request.json')
         check('request model placeholder '+phase,d['model']=='__VERIFY_META_MODEL_ID__')
@@ -92,11 +93,11 @@ def main() -> int:
             check('canonical schema '+phase,d['response_format']['json_schema']['schema']==schema)
             check('no tools in structured phase '+phase,not d.get('tools'))
     for pth in (root/'prompts/runtime').glob('*.txt'):
-        text=pth.read_text();check('no numeric assay cutoff in runtime '+pth.name,'46.34' not in text)
+        text=pth.read_text(encoding='utf-8');check('no numeric assay cutoff in runtime '+pth.name,'46.34' not in text)
     sources=load('sources.json');ids=[s['id'] for s in sources]
     check('source IDs unique',len(ids)==len(set(ids)))
     for doc in (root/'docs').rglob('*.md'):
-        for token in re.findall(r'\[(S[0-9]{2}(?:[^\]]*)?)\]',doc.read_text()):
+        for token in re.findall(r'\[(S[0-9]{2}(?:[^\]]*)?)\]',doc.read_text(encoding='utf-8')):
             for sid in re.findall(r'S[0-9]{2}',token):check('source resolves '+doc.name+' '+sid,sid in ids)
     prompts=list((root/'prompts').rglob('*.txt'))
     inventory=load('prompts/inventory.json')
@@ -110,7 +111,7 @@ def main() -> int:
     check('remote MCP disabled',cfg['mcp']['remote_enabled'] is False)
     check('evaluator tools disabled',cfg['mcp']['evaluator_tools_enabled'] is False)
     check('live MCP not falsely claimed',cfg['mcp']['server_implemented'] is False and cfg['mcp']['compatibility_verified'] is False)
-    hc=yaml.safe_load((root/'config/hackathon.yaml').read_text())
+    hc=yaml.safe_load((root/'config/hackathon.yaml').read_text(encoding='utf-8'))
     check('captured rubric weights match contract',hc['rubric_weights']==RUBRIC_WEIGHTS)
     check('rubric sums to one',abs(sum(hc['rubric_weights'].values())-1)<1e-12)
     end=datetime.fromisoformat(hc['submission_deadline']['local'])
@@ -137,13 +138,13 @@ def main() -> int:
     rule_snapshot=load('compliance/rules_snapshot.json')
     check('rules capture accurately scoped',rule_snapshot['fresh_authenticated_retrieval'] is False)
     for rp in (root/'prompts/runtime').glob('*.txt'):
-        check('runtime no numeric outcome cutoff '+rp.name,'46.34' not in rp.read_text())
+        check('runtime no numeric outcome cutoff '+rp.name,'46.34' not in rp.read_text(encoding='utf-8'))
 
     # Optional manifest verification allows validation before packaging and after unpacking.
     manifest=root/'MANIFEST.sha256'
     if manifest.exists():
         covered=set()
-        for line in manifest.read_text().splitlines():
+        for line in manifest.read_text(encoding='utf-8').splitlines():
             digest,rel=line.split('  ',1);f=(root/rel).resolve()
             check('safe manifest path '+rel,root in f.parents)
             check('manifest hash '+rel,f.exists() and hashlib.sha256(f.read_bytes()).hexdigest()==digest)

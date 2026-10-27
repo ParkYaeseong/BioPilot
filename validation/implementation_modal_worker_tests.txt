@@ -1,0 +1,37 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.0, pytest-9.0.1, pluggy-1.6.0 -- C:\Users\user\Desktop\BioPilot_Atlas_v3\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\user\Desktop\BioPilot_Atlas_v3
+configfile: pytest.ini
+plugins: hydra-core-1.3.4, asyncio-1.4.0, anyio-4.11.0, django-4.11.1
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 26 items
+
+tests_app/test_modal_worker.py::test_worker_fixture_matches_same_local_masked_scoring[esm35] PASSED [  3%]
+tests_app/test_modal_worker.py::test_worker_fixture_matches_same_local_masked_scoring[esm150] PASSED [  7%]
+tests_app/test_modal_worker.py::test_worker_fixture_matches_same_local_masked_scoring[esm650] PASSED [ 11%]
+tests_app/test_modal_worker.py::test_worker_rejects_extra_payload_data_before_backend[extra0] PASSED [ 15%]
+tests_app/test_modal_worker.py::test_worker_rejects_extra_payload_data_before_backend[extra1] PASSED [ 19%]
+tests_app/test_modal_worker.py::test_worker_rejects_extra_payload_data_before_backend[extra2] PASSED [ 23%]
+tests_app/test_modal_worker.py::test_worker_rejects_extra_payload_data_before_backend[extra3] PASSED [ 26%]
+tests_app/test_modal_worker.py::test_worker_revalidates_target_frame_and_position_guards[change0] PASSED [ 30%]
+tests_app/test_modal_worker.py::test_worker_revalidates_target_frame_and_position_guards[change1] PASSED [ 34%]
+tests_app/test_modal_worker.py::test_worker_revalidates_target_frame_and_position_guards[change2] PASSED [ 38%]
+tests_app/test_modal_worker.py::test_worker_revalidates_target_frame_and_position_guards[change3] PASSED [ 42%]
+tests_app/test_modal_worker.py::test_worker_revalidates_target_frame_and_position_guards[change4] PASSED [ 46%]
+tests_app/test_modal_worker.py::test_worker_revalidates_target_frame_and_position_guards[change5] PASSED [ 50%]
+tests_app/test_modal_worker.py::test_manifest_pin_mismatch_and_unprovisioned_model_never_fallback PASSED [ 53%]
+tests_app/test_modal_worker.py::test_backend_cannot_ignore_the_manifest_pins PASSED [ 57%]
+tests_app/test_modal_worker.py::test_manifest_cannot_include_credentials_or_unreviewed_settings PASSED [ 61%]
+tests_app/test_modal_worker.py::test_deployment_default_blocks_before_optional_sdk_import PASSED [ 65%]
+tests_app/test_modal_worker.py::test_existing_volume_requires_its_explicit_approval PASSED [ 69%]
+tests_app/test_modal_worker.py::test_source_allowlist_omits_host_evaluator_and_secrets PASSED [ 73%]
+tests_app/test_modal_worker.py::test_approved_factory_definition_is_bounded_and_uses_only_file_allowlist PASSED [ 76%]
+tests_app/test_modal_worker.py::test_sdk_version_must_match_before_any_definition PASSED [ 80%]
+tests_app/test_modal_worker.py::test_definition_freezes_manifest_without_capturing_host_environment PASSED [ 84%]
+tests_app/test_modal_worker.py::test_source_manifest_detects_changes_without_reading_unlisted_files PASSED [ 88%]
+tests_app/test_modal_worker.py::test_timeout_above_approved_max_or_invalid_is_refused[0] PASSED [ 92%]
+tests_app/test_modal_worker.py::test_timeout_above_approved_max_or_invalid_is_refused[901] PASSED [ 96%]
+tests_app/test_modal_worker.py::test_timeout_above_approved_max_or_invalid_is_refused[True] PASSED [100%]
+
+============================= 26 passed in 0.09s ==============================

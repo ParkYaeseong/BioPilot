@@ -1,0 +1,2 @@
+# Optional client dependency; installation does not authorize cloud execution.
+modal==1.6.2

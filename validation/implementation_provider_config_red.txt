@@ -1,0 +1,191 @@
+FFFFFFFFF                                                                [100%]
+================================== FAILURES ===================================
+___________ test_default_modal_is_blocked_not_silent_local_fallback ___________
+
+    def test_default_modal_is_blocked_not_silent_local_fallback():
+>       settings=load_esm_settings(environ={})
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_provider_config.py:5: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+env_file = None, environ = {}
+
+    def load_esm_settings(env_file=None, environ=None):
+>       raise NotImplementedError('Provider configuration not implemented')
+E       NotImplementedError: Provider configuration not implemented
+
+app\science\provider_config.py:3: NotImplementedError
+_____________ test_env_whitelist_and_precedence_without_meta_key ______________
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.cache/pytest_config_red/test_env_whitelist_and_precede0')
+
+    def test_env_whitelist_and_precedence_without_meta_key(tmp_path):
+        path=tmp_path/'.env';path.write_text('ESM_BACKEND=local\nMETA_API_KEY=fixture\nMODEL_API_KEY=fixture\n')
+>       settings=load_esm_settings(path,environ={'ESM_BACKEND':'runpod','MODAL_TOKEN_SECRET':'fixture-secret'})
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_provider_config.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+env_file = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.cache/pytest_config_red/test_env_whitelist_and_precede0/.env')
+environ = {'ESM_BACKEND': 'runpod', 'MODAL_TOKEN_SECRET': 'fixture-secret'}
+
+    def load_esm_settings(env_file=None, environ=None):
+>       raise NotImplementedError('Provider configuration not implemented')
+E       NotImplementedError: Provider configuration not implemented
+
+app\science\provider_config.py:3: NotImplementedError
+_________ test_unknown_or_ambiguous_configuration_blocked[settings0] __________
+
+settings = {'ESM_BACKEND': 'arbitrary'}
+
+    @pytest.mark.parametrize('settings',[{'ESM_BACKEND':'arbitrary'}, {'ESM_DEVICE':'auto'},
+        {'ESM_REMOTE_TIMEOUT_SECONDS':'0'}, {'ESM_REMOTE_TIMEOUT_SECONDS':'901'},
+        {'ESM_REMOTE_EXECUTION_APPROVED':'yes'}, {'ESM_MODEL_KEY':'esm8'}])
+    def test_unknown_or_ambiguous_configuration_blocked(settings):
+>       with pytest.raises(ValueError): load_esm_settings(environ=settings)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_provider_config.py:23: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+env_file = None, environ = {'ESM_BACKEND': 'arbitrary'}
+
+    def load_esm_settings(env_file=None, environ=None):
+>       raise NotImplementedError('Provider configuration not implemented')
+E       NotImplementedError: Provider configuration not implemented
+
+app\science\provider_config.py:3: NotImplementedError
+_________ test_unknown_or_ambiguous_configuration_blocked[settings1] __________
+
+settings = {'ESM_DEVICE': 'auto'}
+
+    @pytest.mark.parametrize('settings',[{'ESM_BACKEND':'arbitrary'}, {'ESM_DEVICE':'auto'},
+        {'ESM_REMOTE_TIMEOUT_SECONDS':'0'}, {'ESM_REMOTE_TIMEOUT_SECONDS':'901'},
+        {'ESM_REMOTE_EXECUTION_APPROVED':'yes'}, {'ESM_MODEL_KEY':'esm8'}])
+    def test_unknown_or_ambiguous_configuration_blocked(settings):
+>       with pytest.raises(ValueError): load_esm_settings(environ=settings)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_provider_config.py:23: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+env_file = None, environ = {'ESM_DEVICE': 'auto'}
+
+    def load_esm_settings(env_file=None, environ=None):
+>       raise NotImplementedError('Provider configuration not implemented')
+E       NotImplementedError: Provider configuration not implemented
+
+app\science\provider_config.py:3: NotImplementedError
+_________ test_unknown_or_ambiguous_configuration_blocked[settings2] __________
+
+settings = {'ESM_REMOTE_TIMEOUT_SECONDS': '0'}
+
+    @pytest.mark.parametrize('settings',[{'ESM_BACKEND':'arbitrary'}, {'ESM_DEVICE':'auto'},
+        {'ESM_REMOTE_TIMEOUT_SECONDS':'0'}, {'ESM_REMOTE_TIMEOUT_SECONDS':'901'},
+        {'ESM_REMOTE_EXECUTION_APPROVED':'yes'}, {'ESM_MODEL_KEY':'esm8'}])
+    def test_unknown_or_ambiguous_configuration_blocked(settings):
+>       with pytest.raises(ValueError): load_esm_settings(environ=settings)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_provider_config.py:23: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+env_file = None, environ = {'ESM_REMOTE_TIMEOUT_SECONDS': '0'}
+
+    def load_esm_settings(env_file=None, environ=None):
+>       raise NotImplementedError('Provider configuration not implemented')
+E       NotImplementedError: Provider configuration not implemented
+
+app\science\provider_config.py:3: NotImplementedError
+_________ test_unknown_or_ambiguous_configuration_blocked[settings3] __________
+
+settings = {'ESM_REMOTE_TIMEOUT_SECONDS': '901'}
+
+    @pytest.mark.parametrize('settings',[{'ESM_BACKEND':'arbitrary'}, {'ESM_DEVICE':'auto'},
+        {'ESM_REMOTE_TIMEOUT_SECONDS':'0'}, {'ESM_REMOTE_TIMEOUT_SECONDS':'901'},
+        {'ESM_REMOTE_EXECUTION_APPROVED':'yes'}, {'ESM_MODEL_KEY':'esm8'}])
+    def test_unknown_or_ambiguous_configuration_blocked(settings):
+>       with pytest.raises(ValueError): load_esm_settings(environ=settings)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_provider_config.py:23: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+env_file = None, environ = {'ESM_REMOTE_TIMEOUT_SECONDS': '901'}
+
+    def load_esm_settings(env_file=None, environ=None):
+>       raise NotImplementedError('Provider configuration not implemented')
+E       NotImplementedError: Provider configuration not implemented
+
+app\science\provider_config.py:3: NotImplementedError
+_________ test_unknown_or_ambiguous_configuration_blocked[settings4] __________
+
+settings = {'ESM_REMOTE_EXECUTION_APPROVED': 'yes'}
+
+    @pytest.mark.parametrize('settings',[{'ESM_BACKEND':'arbitrary'}, {'ESM_DEVICE':'auto'},
+        {'ESM_REMOTE_TIMEOUT_SECONDS':'0'}, {'ESM_REMOTE_TIMEOUT_SECONDS':'901'},
+        {'ESM_REMOTE_EXECUTION_APPROVED':'yes'}, {'ESM_MODEL_KEY':'esm8'}])
+    def test_unknown_or_ambiguous_configuration_blocked(settings):
+>       with pytest.raises(ValueError): load_esm_settings(environ=settings)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_provider_config.py:23: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+env_file = None, environ = {'ESM_REMOTE_EXECUTION_APPROVED': 'yes'}
+
+    def load_esm_settings(env_file=None, environ=None):
+>       raise NotImplementedError('Provider configuration not implemented')
+E       NotImplementedError: Provider configuration not implemented
+
+app\science\provider_config.py:3: NotImplementedError
+_________ test_unknown_or_ambiguous_configuration_blocked[settings5] __________
+
+settings = {'ESM_MODEL_KEY': 'esm8'}
+
+    @pytest.mark.parametrize('settings',[{'ESM_BACKEND':'arbitrary'}, {'ESM_DEVICE':'auto'},
+        {'ESM_REMOTE_TIMEOUT_SECONDS':'0'}, {'ESM_REMOTE_TIMEOUT_SECONDS':'901'},
+        {'ESM_REMOTE_EXECUTION_APPROVED':'yes'}, {'ESM_MODEL_KEY':'esm8'}])
+    def test_unknown_or_ambiguous_configuration_blocked(settings):
+>       with pytest.raises(ValueError): load_esm_settings(environ=settings)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_provider_config.py:23: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+env_file = None, environ = {'ESM_MODEL_KEY': 'esm8'}
+
+    def load_esm_settings(env_file=None, environ=None):
+>       raise NotImplementedError('Provider configuration not implemented')
+E       NotImplementedError: Provider configuration not implemented
+
+app\science\provider_config.py:3: NotImplementedError
+___________________ test_runpod_is_explicitly_unconfigured ____________________
+
+    def test_runpod_is_explicitly_unconfigured():
+>       settings=load_esm_settings(environ={'ESM_BACKEND':'runpod'})
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_provider_config.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+env_file = None, environ = {'ESM_BACKEND': 'runpod'}
+
+    def load_esm_settings(env_file=None, environ=None):
+>       raise NotImplementedError('Provider configuration not implemented')
+E       NotImplementedError: Provider configuration not implemented
+
+app\science\provider_config.py:3: NotImplementedError
+=========================== short test summary info ===========================
+FAILED tests_app/test_provider_config.py::test_default_modal_is_blocked_not_silent_local_fallback
+FAILED tests_app/test_provider_config.py::test_env_whitelist_and_precedence_without_meta_key
+FAILED tests_app/test_provider_config.py::test_unknown_or_ambiguous_configuration_blocked[settings0]
+FAILED tests_app/test_provider_config.py::test_unknown_or_ambiguous_configuration_blocked[settings1]
+FAILED tests_app/test_provider_config.py::test_unknown_or_ambiguous_configuration_blocked[settings2]
+FAILED tests_app/test_provider_config.py::test_unknown_or_ambiguous_configuration_blocked[settings3]
+FAILED tests_app/test_provider_config.py::test_unknown_or_ambiguous_configuration_blocked[settings4]
+FAILED tests_app/test_provider_config.py::test_unknown_or_ambiguous_configuration_blocked[settings5]
+FAILED tests_app/test_provider_config.py::test_runpod_is_explicitly_unconfigured
+9 failed in 0.21s

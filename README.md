@@ -1,5 +1,9 @@
 # BioPilot Atlas v3 | MCP-first hackathon design and prompt pack
 
+**2026-10-27 local implementation:** Python product code now exists under `app/`.
+See [Korean execution instructions](docs/IMPLEMENTATION_KO.md) and [actual status](docs/STATUS.md).
+Real ESM/Modal/independent biological validation are still pending. The supplied package description follows.
+
 **Version:** 3.0 / 2026-10-27. **Owner:** Yaeseong Park.
 
 **A verifiable protein-variant review agent, not a validated enzyme optimizer.**

@@ -1,0 +1,4 @@
+# Optional local scientific runtime; installation/download needs separate approval.
+torch==2.9.1
+transformers==5.2.0
+safetensors==0.7.0

@@ -1,0 +1,324 @@
+FFFFFFFFFFFFFFFFF                                                        [100%]
+================================== FAILURES ===================================
+______________ test_spearman_average_ties_and_undefined_vectors _______________
+
+    def test_spearman_average_ties_and_undefined_vectors():
+>       assert spearman([1, 1, 3], [1, 2, 3]) == pytest.approx(0.8660254037844387)
+E       assert 0.0 == 0.8660254037844387 �� 8.7e-07
+E         
+E         comparison failed
+E         Obtained: 0.0
+E         Expected: 0.8660254037844387 �� 8.7e-07
+
+tests_app\test_evaluation_cohort.py:54: AssertionError
+__________ test_frozen_prediction_hash_is_independent_and_immutable ___________
+
+    def test_frozen_prediction_hash_is_independent_and_immutable():
+        bundle = frozen()
+>       assert len(bundle["freeze_sha256"]) == 64
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'freeze_sha256'
+
+tests_app\test_evaluation_cohort.py:64: KeyError
+_______ test_missing_duplicate_and_unexpected_predictions_refused[bad0] _______
+
+bad = [{'candidate_id': 'A32V', 'score': 4.0, 'source_mode': 'synthetic_fixture'}, {'candidate_id': 'E33A', 'score': 3.0, 'source_mode': 'synthetic_fixture'}, {'candidate_id': 'H34A', 'score': 2.0, 'source_mode': 'synthetic_fixture'}]
+
+    @pytest.mark.parametrize("bad", [records()[:-1], records() + [records()[0]], records() + [{"candidate_id": "V36A", "score": 1., "source_mode": "synthetic_fixture"}]])
+    def test_missing_duplicate_and_unexpected_predictions_refused(bad):
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests_app\test_evaluation_cohort.py:76: Failed
+_______ test_missing_duplicate_and_unexpected_predictions_refused[bad1] _______
+
+bad = [{'candidate_id': 'A32V', 'score': 4.0, 'source_mode': 'synthetic_fixture'}, {'candidate_id': 'E33A', 'score': 3.0, 's...: 1.0, 'source_mode': 'synthetic_fixture'}, {'candidate_id': 'A32V', 'score': 4.0, 'source_mode': 'synthetic_fixture'}]
+
+    @pytest.mark.parametrize("bad", [records()[:-1], records() + [records()[0]], records() + [{"candidate_id": "V36A", "score": 1., "source_mode": "synthetic_fixture"}]])
+    def test_missing_duplicate_and_unexpected_predictions_refused(bad):
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests_app\test_evaluation_cohort.py:76: Failed
+_______ test_missing_duplicate_and_unexpected_predictions_refused[bad2] _______
+
+bad = [{'candidate_id': 'A32V', 'score': 4.0, 'source_mode': 'synthetic_fixture'}, {'candidate_id': 'E33A', 'score': 3.0, 's...: 1.0, 'source_mode': 'synthetic_fixture'}, {'candidate_id': 'V36A', 'score': 1.0, 'source_mode': 'synthetic_fixture'}]
+
+    @pytest.mark.parametrize("bad", [records()[:-1], records() + [records()[0]], records() + [{"candidate_id": "V36A", "score": 1., "source_mode": "synthetic_fixture"}]])
+    def test_missing_duplicate_and_unexpected_predictions_refused(bad):
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests_app\test_evaluation_cohort.py:76: Failed
+_________________ test_cohort_duplicate_and_invalid_k_refused _________________
+
+    def test_cohort_duplicate_and_invalid_k_refused():
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests_app\test_evaluation_cohort.py:81: Failed
+____________ test_site_grouping_and_protocol_frozen_before_labels _____________
+
+    def test_site_grouping_and_protocol_frozen_before_labels():
+        cohort = prepare_cohort(["A32V", "A32L"], protocol(top_k=1, site_splits={"32": "development"}))
+>       assert cohort["candidate_sites"] == {"A32L": 32, "A32V": 32}
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'candidate_sites'
+
+tests_app\test_evaluation_cohort.py:90: KeyError
+_______ test_metrics_preserve_cohort_and_do_not_claim_wt_or_temperature _______
+
+    def test_metrics_preserve_cohort_and_do_not_claim_wt_or_temperature():
+>       result = evaluate(frozen())
+                 ^^^^^^^^^^^^^^^^^^
+
+tests_app\test_evaluation_cohort.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+bundle = {'cohort': {'candidate_ids': ['A32V', 'E33A', 'H34A', 'N35A'], 'protocol': {'analysis_scope': 'development_only', 'bud... 2.0, 'source_mode': 'synthetic_fixture'}, {'candidate_id': 'N35A', 'score': 1.0, 'source_mode': 'synthetic_fixture'}]}
+label_records = None
+
+    def evaluate(bundle, label_records=None):
+        return evaluate_predictions(bundle, labels() if label_records is None else label_records,
+>                                   expected_freeze_sha256=bundle["freeze_sha256"])
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'freeze_sha256'
+
+tests_app\test_evaluation_cohort.py:50: KeyError
+______________ test_recall_top_k_ties_use_candidate_id_ascending ______________
+
+    def test_recall_top_k_ties_use_candidate_id_ascending():
+        source = records()
+        for row in source:
+            row["score"] = 1.
+        bundle = freeze_predictions(list(reversed(source)), prepare_cohort(IDS, protocol()))
+>       result = evaluate(bundle, labels([1., 1., 1., 1.]))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_evaluation_cohort.py:115: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+bundle = {'cohort': {'candidate_ids': ['A32V', 'E33A', 'H34A', 'N35A'], 'protocol': {'analysis_scope': 'development_only', 'bud... 1.0, 'source_mode': 'synthetic_fixture'}, {'candidate_id': 'A32V', 'score': 1.0, 'source_mode': 'synthetic_fixture'}]}
+label_records = {'records': [{'candidate_id': 'A32V', 'outcome': 1.0}, {'candidate_id': 'E33A', 'outcome': 1.0}, {'candidate_id': 'H34A', 'outcome': 1.0}, {'candidate_id': 'N35A', 'outcome': 1.0}], 'source_mode': 'synthetic_fixture'}
+
+    def evaluate(bundle, label_records=None):
+        return evaluate_predictions(bundle, labels() if label_records is None else label_records,
+>                                   expected_freeze_sha256=bundle["freeze_sha256"])
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'freeze_sha256'
+
+tests_app\test_evaluation_cohort.py:50: KeyError
+__ test_missing_duplicate_or_nonfinite_labels_never_shrink_cohort[<lambda>0] __
+
+mutate = <function <lambda> at 0x0000019076D67320>
+
+    @pytest.mark.parametrize("mutate", [
+        lambda d: d["records"].pop(),
+        lambda d: d["records"].append(d["records"][0]),
+        lambda d: d["records"][0].update(outcome=None),
+        lambda d: d["records"][0].update(outcome=float("inf")),
+    ])
+    def test_missing_duplicate_or_nonfinite_labels_never_shrink_cohort(mutate):
+        data = labels()
+        mutate(data)
+        with pytest.raises(ValueError):
+>           evaluate(frozen(), data)
+
+tests_app\test_evaluation_cohort.py:132: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+bundle = {'cohort': {'candidate_ids': ['A32V', 'E33A', 'H34A', 'N35A'], 'protocol': {'analysis_scope': 'development_only', 'bud... 2.0, 'source_mode': 'synthetic_fixture'}, {'candidate_id': 'N35A', 'score': 1.0, 'source_mode': 'synthetic_fixture'}]}
+label_records = {'records': [{'candidate_id': 'A32V', 'outcome': 1.0}, {'candidate_id': 'E33A', 'outcome': 2.0}, {'candidate_id': 'H34A', 'outcome': 3.0}], 'source_mode': 'synthetic_fixture'}
+
+    def evaluate(bundle, label_records=None):
+        return evaluate_predictions(bundle, labels() if label_records is None else label_records,
+>                                   expected_freeze_sha256=bundle["freeze_sha256"])
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'freeze_sha256'
+
+tests_app\test_evaluation_cohort.py:50: KeyError
+__ test_missing_duplicate_or_nonfinite_labels_never_shrink_cohort[<lambda>1] __
+
+mutate = <function <lambda> at 0x0000019076D673D0>
+
+    @pytest.mark.parametrize("mutate", [
+        lambda d: d["records"].pop(),
+        lambda d: d["records"].append(d["records"][0]),
+        lambda d: d["records"][0].update(outcome=None),
+        lambda d: d["records"][0].update(outcome=float("inf")),
+    ])
+    def test_missing_duplicate_or_nonfinite_labels_never_shrink_cohort(mutate):
+        data = labels()
+        mutate(data)
+        with pytest.raises(ValueError):
+>           evaluate(frozen(), data)
+
+tests_app\test_evaluation_cohort.py:132: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+bundle = {'cohort': {'candidate_ids': ['A32V', 'E33A', 'H34A', 'N35A'], 'protocol': {'analysis_scope': 'development_only', 'bud... 2.0, 'source_mode': 'synthetic_fixture'}, {'candidate_id': 'N35A', 'score': 1.0, 'source_mode': 'synthetic_fixture'}]}
+label_records = {'records': [{'candidate_id': 'A32V', 'outcome': 1.0}, {'candidate_id': 'E33A', 'outcome': 2.0}, {'candidate_id': 'H34...'candidate_id': 'N35A', 'outcome': 4.0}, {'candidate_id': 'A32V', 'outcome': 1.0}], 'source_mode': 'synthetic_fixture'}
+
+    def evaluate(bundle, label_records=None):
+        return evaluate_predictions(bundle, labels() if label_records is None else label_records,
+>                                   expected_freeze_sha256=bundle["freeze_sha256"])
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'freeze_sha256'
+
+tests_app\test_evaluation_cohort.py:50: KeyError
+__ test_missing_duplicate_or_nonfinite_labels_never_shrink_cohort[<lambda>2] __
+
+mutate = <function <lambda> at 0x0000019076D67480>
+
+    @pytest.mark.parametrize("mutate", [
+        lambda d: d["records"].pop(),
+        lambda d: d["records"].append(d["records"][0]),
+        lambda d: d["records"][0].update(outcome=None),
+        lambda d: d["records"][0].update(outcome=float("inf")),
+    ])
+    def test_missing_duplicate_or_nonfinite_labels_never_shrink_cohort(mutate):
+        data = labels()
+        mutate(data)
+        with pytest.raises(ValueError):
+>           evaluate(frozen(), data)
+
+tests_app\test_evaluation_cohort.py:132: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+bundle = {'cohort': {'candidate_ids': ['A32V', 'E33A', 'H34A', 'N35A'], 'protocol': {'analysis_scope': 'development_only', 'bud... 2.0, 'source_mode': 'synthetic_fixture'}, {'candidate_id': 'N35A', 'score': 1.0, 'source_mode': 'synthetic_fixture'}]}
+label_records = {'records': [{'candidate_id': 'A32V', 'outcome': None}, {'candidate_id': 'E33A', 'outcome': 2.0}, {'candidate_id': 'H34A', 'outcome': 3.0}, {'candidate_id': 'N35A', 'outcome': 4.0}], 'source_mode': 'synthetic_fixture'}
+
+    def evaluate(bundle, label_records=None):
+        return evaluate_predictions(bundle, labels() if label_records is None else label_records,
+>                                   expected_freeze_sha256=bundle["freeze_sha256"])
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'freeze_sha256'
+
+tests_app\test_evaluation_cohort.py:50: KeyError
+__ test_missing_duplicate_or_nonfinite_labels_never_shrink_cohort[<lambda>3] __
+
+mutate = <function <lambda> at 0x0000019076D67530>
+
+    @pytest.mark.parametrize("mutate", [
+        lambda d: d["records"].pop(),
+        lambda d: d["records"].append(d["records"][0]),
+        lambda d: d["records"][0].update(outcome=None),
+        lambda d: d["records"][0].update(outcome=float("inf")),
+    ])
+    def test_missing_duplicate_or_nonfinite_labels_never_shrink_cohort(mutate):
+        data = labels()
+        mutate(data)
+        with pytest.raises(ValueError):
+>           evaluate(frozen(), data)
+
+tests_app\test_evaluation_cohort.py:132: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+bundle = {'cohort': {'candidate_ids': ['A32V', 'E33A', 'H34A', 'N35A'], 'protocol': {'analysis_scope': 'development_only', 'bud... 2.0, 'source_mode': 'synthetic_fixture'}, {'candidate_id': 'N35A', 'score': 1.0, 'source_mode': 'synthetic_fixture'}]}
+label_records = {'records': [{'candidate_id': 'A32V', 'outcome': inf}, {'candidate_id': 'E33A', 'outcome': 2.0}, {'candidate_id': 'H34A', 'outcome': 3.0}, {'candidate_id': 'N35A', 'outcome': 4.0}], 'source_mode': 'synthetic_fixture'}
+
+    def evaluate(bundle, label_records=None):
+        return evaluate_predictions(bundle, labels() if label_records is None else label_records,
+>                                   expected_freeze_sha256=bundle["freeze_sha256"])
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'freeze_sha256'
+
+tests_app\test_evaluation_cohort.py:50: KeyError
+______________ test_fixture_and_real_evaluation_cannot_be_mixed _______________
+
+    def test_fixture_and_real_evaluation_cannot_be_mixed():
+        data = labels()
+        data["source_mode"] = "imported_snapshot"
+        with pytest.raises(ValueError):
+>           evaluate(frozen(), data)
+
+tests_app\test_evaluation_cohort.py:139: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+bundle = {'cohort': {'candidate_ids': ['A32V', 'E33A', 'H34A', 'N35A'], 'protocol': {'analysis_scope': 'development_only', 'bud... 2.0, 'source_mode': 'synthetic_fixture'}, {'candidate_id': 'N35A', 'score': 1.0, 'source_mode': 'synthetic_fixture'}]}
+label_records = {'records': [{'candidate_id': 'A32V', 'outcome': 1.0}, {'candidate_id': 'E33A', 'outcome': 2.0}, {'candidate_id': 'H34A', 'outcome': 3.0}, {'candidate_id': 'N35A', 'outcome': 4.0}], 'source_mode': 'imported_snapshot'}
+
+    def evaluate(bundle, label_records=None):
+        return evaluate_predictions(bundle, labels() if label_records is None else label_records,
+>                                   expected_freeze_sha256=bundle["freeze_sha256"])
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'freeze_sha256'
+
+tests_app\test_evaluation_cohort.py:50: KeyError
+_______________ test_runtime_paths_and_symlink_escapes_refused ________________
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.cache/pytest-eval-red/test_runtime_paths_and_symlink0')
+
+    def test_runtime_paths_and_symlink_escapes_refused(tmp_path):
+        runtime = tmp_path / ".runtime"
+        runtime.mkdir()
+        inside = runtime / "labels.json"
+        inside.write_text("[]")
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests_app\test_evaluation_cohort.py:147: Failed
+___________ test_cli_freeze_is_checked_before_label_file_is_opened ____________
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.cache/pytest-eval-red/test_cli_freeze_is_checked_bef0')
+
+    def test_cli_freeze_is_checked_before_label_file_is_opened(tmp_path):
+        runtime = tmp_path / ".runtime"
+        runtime.mkdir()
+        pred = tmp_path / "predictions.json"
+        bundle = frozen()
+        pred.write_text(json.dumps(bundle))
+        output = tmp_path / "report.json"
+        command = [sys.executable, "-m", "evaluation.baseline", "--predictions", str(pred),
+                   "--expected-freeze-sha256", "0" * 64, "--labels", str(tmp_path / "missing-labels.json"),
+                   "--output", str(output), "--runtime-root", str(runtime)]
+        process = subprocess.run(command, capture_output=True, text=True, timeout=20)
+>       assert process.returncode == 2
+E       AssertionError: assert 0 == 2
+E        +  where 0 = CompletedProcess(args=['C:\\Users\\user\\Desktop\\BioPilot_Atlas_v3\\.venv\\Scripts\\python.exe', '-m', 'evaluation.ba...lot_Atlas_v3\\.cache\\pytest-eval-red\\test_cli_freeze_is_checked_bef0\\.runtime'], returncode=0, stdout='', stderr='').returncode
+
+tests_app\test_evaluation_cohort.py:174: AssertionError
+___________ test_cli_separate_process_only_writes_evaluator_report ____________
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.cache/pytest-eval-red/test_cli_separate_process_only0')
+
+    def test_cli_separate_process_only_writes_evaluator_report(tmp_path):
+        runtime = tmp_path / ".runtime"
+        runtime.mkdir()
+        bundle = frozen()
+        pred = tmp_path / "predictions.json"
+        pred.write_text(json.dumps(bundle))
+        label_file = tmp_path / "synthetic-labels.json"
+        label_file.write_text(json.dumps(labels()))
+        output = tmp_path / "report.json"
+        command = [sys.executable, "-m", "evaluation.baseline", "--predictions", str(pred),
+>                  "--expected-freeze-sha256", bundle["freeze_sha256"], "--labels", str(label_file),
+                                               ^^^^^^^^^^^^^^^^^^^^^^^
+                   "--output", str(output), "--runtime-root", str(runtime)]
+E       KeyError: 'freeze_sha256'
+
+tests_app\test_evaluation_cohort.py:189: KeyError
+=========================== short test summary info ===========================
+FAILED tests_app/test_evaluation_cohort.py::test_spearman_average_ties_and_undefined_vectors
+FAILED tests_app/test_evaluation_cohort.py::test_frozen_prediction_hash_is_independent_and_immutable
+FAILED tests_app/test_evaluation_cohort.py::test_missing_duplicate_and_unexpected_predictions_refused[bad0]
+FAILED tests_app/test_evaluation_cohort.py::test_missing_duplicate_and_unexpected_predictions_refused[bad1]
+FAILED tests_app/test_evaluation_cohort.py::test_missing_duplicate_and_unexpected_predictions_refused[bad2]
+FAILED tests_app/test_evaluation_cohort.py::test_cohort_duplicate_and_invalid_k_refused
+FAILED tests_app/test_evaluation_cohort.py::test_site_grouping_and_protocol_frozen_before_labels
+FAILED tests_app/test_evaluation_cohort.py::test_metrics_preserve_cohort_and_do_not_claim_wt_or_temperature
+FAILED tests_app/test_evaluation_cohort.py::test_recall_top_k_ties_use_candidate_id_ascending
+FAILED tests_app/test_evaluation_cohort.py::test_missing_duplicate_or_nonfinite_labels_never_shrink_cohort[<lambda>0]
+FAILED tests_app/test_evaluation_cohort.py::test_missing_duplicate_or_nonfinite_labels_never_shrink_cohort[<lambda>1]
+FAILED tests_app/test_evaluation_cohort.py::test_missing_duplicate_or_nonfinite_labels_never_shrink_cohort[<lambda>2]
+FAILED tests_app/test_evaluation_cohort.py::test_missing_duplicate_or_nonfinite_labels_never_shrink_cohort[<lambda>3]
+FAILED tests_app/test_evaluation_cohort.py::test_fixture_and_real_evaluation_cannot_be_mixed
+FAILED tests_app/test_evaluation_cohort.py::test_runtime_paths_and_symlink_escapes_refused
+FAILED tests_app/test_evaluation_cohort.py::test_cli_freeze_is_checked_before_label_file_is_opened
+FAILED tests_app/test_evaluation_cohort.py::test_cli_separate_process_only_writes_evaluator_report
+17 failed in 0.36s

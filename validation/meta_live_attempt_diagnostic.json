@@ -1,0 +1,17 @@
+{
+  "recorded_date": "2026-10-27",
+  "scope": "supplement_to_immutable_partial_validation_smoke",
+  "run_id": "e742eb0d87d145b8a116a554916bb731",
+  "original_artifact_id": "8d8b1b94c269109112d3ca277f0177ae2a8329f77f7d5e7fcfd51791d18d453c",
+  "original_trace_status": "provider_outcome_unknown_no_retry",
+  "verified_actual_model": null,
+  "verified_usage_tokens": null,
+  "actual_cost_micros": null,
+  "diagnosis": "The original client accepted only MODEL_API_KEY. The local file has META_API_KEY and no MODEL_API_KEY. The key lookup branch precedes HTTP request construction. Key alias support was subsequently tested using synthetic credentials and an injected local transport. No live retry was performed.",
+  "secret_values_recorded": false,
+  "earlier_user_reported_smoke": {
+    "status": "OK",
+    "tokens": 120,
+    "provenance": "user_reported_before_implementation_not_reexecuted"
+  }
+}

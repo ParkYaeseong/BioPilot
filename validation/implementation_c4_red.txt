@@ -1,0 +1,278 @@
+FFFFFFFFF                                                                [100%]
+================================== FAILURES ===================================
+________________ test_exact_call_ids_and_no_tool_final_report _________________
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.runtime/pytest_meta_red/test_exact_call_ids_and_no_too0')
+
+    def test_exact_call_ids_and_no_tool_final_report(tmp_path):
+        client=Client([response(call=[tool()]),response(text='Sequence mapping verified; ESM unavailable.')])
+        host,runs,rid,bridge=setup(tmp_path,client)
+>       report=asyncio.run(host.run())
+               ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_meta_loop.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python314\Lib\asyncio\runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.host.meta_client.MetaHost object at 0x000001DCA09A86E0>
+
+    async def run(self):
+>       raise NotImplementedError('Meta loop not implemented')
+E       NotImplementedError: Meta loop not implemented
+
+app\host\meta_client.py:16: NotImplementedError
+___________ test_unknown_schema_or_duplicate_call_rejected[calls0] ____________
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.runtime/pytest_meta_red/test_unknown_schema_or_duplica0')
+calls = [{'function': {'arguments': '{"reference_id": "ESTA_BACSU_Nutschel_2020", "reason_brief": "Check registered full frame"}', 'name': 'read_file'}, 'id': 'call-1', 'type': 'function'}]
+
+    @pytest.mark.parametrize('calls',[[tool(name='read_file')],[tool(args={'owner_id':'foreign'})],
+                                      [tool(),tool(id='call-1')]])
+    def test_unknown_schema_or_duplicate_call_rejected(tmp_path,calls):
+        client=Client([response(call=calls)])
+        host,runs,rid,bridge=setup(tmp_path,client)
+>       report=asyncio.run(host.run())
+               ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_meta_loop.py:66: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python314\Lib\asyncio\runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.host.meta_client.MetaHost object at 0x000001DCA08EB890>
+
+    async def run(self):
+>       raise NotImplementedError('Meta loop not implemented')
+E       NotImplementedError: Meta loop not implemented
+
+app\host\meta_client.py:16: NotImplementedError
+___________ test_unknown_schema_or_duplicate_call_rejected[calls1] ____________
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.runtime/pytest_meta_red/test_unknown_schema_or_duplica1')
+calls = [{'function': {'arguments': '{"owner_id": "foreign"}', 'name': 'validate_target_context'}, 'id': 'call-1', 'type': 'function'}]
+
+    @pytest.mark.parametrize('calls',[[tool(name='read_file')],[tool(args={'owner_id':'foreign'})],
+                                      [tool(),tool(id='call-1')]])
+    def test_unknown_schema_or_duplicate_call_rejected(tmp_path,calls):
+        client=Client([response(call=calls)])
+        host,runs,rid,bridge=setup(tmp_path,client)
+>       report=asyncio.run(host.run())
+               ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_meta_loop.py:66: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python314\Lib\asyncio\runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.host.meta_client.MetaHost object at 0x000001DCA0924910>
+
+    async def run(self):
+>       raise NotImplementedError('Meta loop not implemented')
+E       NotImplementedError: Meta loop not implemented
+
+app\host\meta_client.py:16: NotImplementedError
+___________ test_unknown_schema_or_duplicate_call_rejected[calls2] ____________
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.runtime/pytest_meta_red/test_unknown_schema_or_duplica2')
+calls = [{'function': {'arguments': '{"reference_id": "ESTA_BACSU_Nutschel_2020", "reason_brief": "Check registered full frame...eason_brief": "Check registered full frame"}', 'name': 'validate_target_context'}, 'id': 'call-1', 'type': 'function'}]
+
+    @pytest.mark.parametrize('calls',[[tool(name='read_file')],[tool(args={'owner_id':'foreign'})],
+                                      [tool(),tool(id='call-1')]])
+    def test_unknown_schema_or_duplicate_call_rejected(tmp_path,calls):
+        client=Client([response(call=calls)])
+        host,runs,rid,bridge=setup(tmp_path,client)
+>       report=asyncio.run(host.run())
+               ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_meta_loop.py:66: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python314\Lib\asyncio\runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.host.meta_client.MetaHost object at 0x000001DCA089F950>
+
+    async def run(self):
+>       raise NotImplementedError('Meta loop not implemented')
+E       NotImplementedError: Meta loop not implemented
+
+app\host\meta_client.py:16: NotImplementedError
+__________ test_timeout_is_not_retried_or_redispatched_after_restart __________
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.runtime/pytest_meta_red/test_timeout_is_not_retried_or0')
+
+    def test_timeout_is_not_retried_or_redispatched_after_restart(tmp_path):
+        client=Client([TimeoutError('private provider details')])
+        host,runs,rid,bridge=setup(tmp_path,client)
+>       first=asyncio.run(host.run())
+              ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_meta_loop.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python314\Lib\asyncio\runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.host.meta_client.MetaHost object at 0x000001DCA1A58640>
+
+    async def run(self):
+>       raise NotImplementedError('Meta loop not implemented')
+E       NotImplementedError: Meta loop not implemented
+
+app\host\meta_client.py:16: NotImplementedError
+______________________ test_no_alternate_model_fallback _______________________
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.runtime/pytest_meta_red/test_no_alternate_model_fallba0')
+
+    def test_no_alternate_model_fallback(tmp_path):
+        client=Client([response(text='hello',model='another-model')])
+        host,runs,rid,bridge=setup(tmp_path,client)
+>       result=asyncio.run(host.run())
+               ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_meta_loop.py:84: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python314\Lib\asyncio\runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.host.meta_client.MetaHost object at 0x000001DCA09A29F0>
+
+    async def run(self):
+>       raise NotImplementedError('Meta loop not implemented')
+E       NotImplementedError: Meta loop not implemented
+
+app\host\meta_client.py:16: NotImplementedError
+______________ test_live_client_blocks_before_secret_or_network _______________
+
+    def test_live_client_blocks_before_secret_or_network():
+        with pytest.raises(ValueError,match='approval|live'):
+>           MetaClient(live=False).complete({})
+
+tests_app\test_meta_loop.py:90: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.host.meta_client.MetaClient object at 0x000001DCA09A8AD0>
+payload = {}
+
+    def complete(self, payload):
+>       raise NotImplementedError('Meta transport not implemented')
+E       NotImplementedError: Meta transport not implemented
+
+app\host\meta_client.py:8: NotImplementedError
+__________ test_product_context_has_no_labels_paths_or_raw_sequence ___________
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.runtime/pytest_meta_red/test_product_context_has_no_la0')
+
+    def test_product_context_has_no_labels_paths_or_raw_sequence(tmp_path):
+        client=Client([response(text='No scores available.')])
+        host,runs,rid,bridge=setup(tmp_path,client)
+>       asyncio.run(host.run())
+
+tests_app\test_meta_loop.py:95: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python314\Lib\asyncio\runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.host.meta_client.MetaHost object at 0x000001DCA09448D0>
+
+    async def run(self):
+>       raise NotImplementedError('Meta loop not implemented')
+E       NotImplementedError: Meta loop not implemented
+
+app\host\meta_client.py:16: NotImplementedError
+__________________ test_final_tool_attempt_is_not_dispatched __________________
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.runtime/pytest_meta_red/test_final_tool_attempt_is_not0')
+
+    def test_final_tool_attempt_is_not_dispatched(tmp_path):
+        client=Client([response(call=[tool()]),response(call=[tool(id='call-2')])])
+        host,runs,rid,bridge=setup(tmp_path,client)
+>       result=asyncio.run(host.run())
+               ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_meta_loop.py:103: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python314\Lib\asyncio\runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\asyncio\base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.host.meta_client.MetaHost object at 0x000001DCA0945370>
+
+    async def run(self):
+>       raise NotImplementedError('Meta loop not implemented')
+E       NotImplementedError: Meta loop not implemented
+
+app\host\meta_client.py:16: NotImplementedError
+=========================== short test summary info ===========================
+FAILED tests_app/test_meta_loop.py::test_exact_call_ids_and_no_tool_final_report
+FAILED tests_app/test_meta_loop.py::test_unknown_schema_or_duplicate_call_rejected[calls0]
+FAILED tests_app/test_meta_loop.py::test_unknown_schema_or_duplicate_call_rejected[calls1]
+FAILED tests_app/test_meta_loop.py::test_unknown_schema_or_duplicate_call_rejected[calls2]
+FAILED tests_app/test_meta_loop.py::test_timeout_is_not_retried_or_redispatched_after_restart
+FAILED tests_app/test_meta_loop.py::test_no_alternate_model_fallback - NotImp...
+FAILED tests_app/test_meta_loop.py::test_live_client_blocks_before_secret_or_network
+FAILED tests_app/test_meta_loop.py::test_product_context_has_no_labels_paths_or_raw_sequence
+FAILED tests_app/test_meta_loop.py::test_final_tool_attempt_is_not_dispatched
+9 failed in 0.63s

@@ -1,0 +1,73 @@
+FFFF                                                                     [100%]
+================================== FAILURES ===================================
+______________________________ test_validate_cli ______________________________
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.runtime/pytest_cli_red/test_validate_cli0')
+
+    def test_validate_cli(tmp_path):
+        result=run('validate','--variant','A32V')
+>       assert result.returncode==0,result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "<frozen runpy>", line 198, in _run_module_as_main
+E           File "<frozen runpy>", line 88, in _run_code
+E           File "C:\Users\user\Desktop\BioPilot_Atlas_v3\app\cli.py", line 6, in <module>
+E             raise SystemExit(main())
+E                              ~~~~^^
+E           File "C:\Users\user\Desktop\BioPilot_Atlas_v3\app\cli.py", line 3, in main
+E             raise NotImplementedError('CLI is not implemented')
+E         NotImplementedError: CLI is not implemented
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['C:\\Users\\user\\Desktop\\BioPilot_Atlas_v3\\.venv\\Scripts\\python.exe', '-m', 'app.cli', 'va... 3, in main\n    raise NotImplementedError(\'CLI is not implemented\')\nNotImplementedError: CLI is not implemented\n').returncode
+
+tests_app\test_cli.py:14: AssertionError
+__________________________ test_invalid_variant_cli ___________________________
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.runtime/pytest_cli_red/test_invalid_variant_cli0')
+
+    def test_invalid_variant_cli(tmp_path):
+        result=run('validate','--variant','S108A')
+>       assert result.returncode==2
+E       AssertionError: assert 1 == 2
+E        +  where 1 = CompletedProcess(args=['C:\\Users\\user\\Desktop\\BioPilot_Atlas_v3\\.venv\\Scripts\\python.exe', '-m', 'app.cli', 'va... 3, in main\n    raise NotImplementedError(\'CLI is not implemented\')\nNotImplementedError: CLI is not implemented\n').returncode
+
+tests_app\test_cli.py:21: AssertionError
+________________________ test_prepare_and_real_mcp_cli ________________________
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.runtime/pytest_cli_red/test_prepare_and_real_mcp_cli0')
+
+    def test_prepare_and_real_mcp_cli(tmp_path):
+        workspace=tmp_path/'session'
+        result=run('prepare','--workspace',workspace)
+>       assert result.returncode==0,result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "<frozen runpy>", line 198, in _run_module_as_main
+E           File "<frozen runpy>", line 88, in _run_code
+E           File "C:\Users\user\Desktop\BioPilot_Atlas_v3\app\cli.py", line 6, in <module>
+E             raise SystemExit(main())
+E                              ~~~~^^
+E           File "C:\Users\user\Desktop\BioPilot_Atlas_v3\app\cli.py", line 3, in main
+E             raise NotImplementedError('CLI is not implemented')
+E         NotImplementedError: CLI is not implemented
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['C:\\Users\\user\\Desktop\\BioPilot_Atlas_v3\\.venv\\Scripts\\python.exe', '-m', 'app.cli', 'pr... 3, in main\n    raise NotImplementedError(\'CLI is not implemented\')\nNotImplementedError: CLI is not implemented\n').returncode
+
+tests_app\test_cli.py:27: AssertionError
+_________________ test_live_is_blocked_without_explicit_flags _________________
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.runtime/pytest_cli_red/test_live_is_blocked_without_e0')
+
+    def test_live_is_blocked_without_explicit_flags(tmp_path):
+        result=run('meta-smoke','--workspace',tmp_path/'absent')
+>       assert result.returncode==2
+E       AssertionError: assert 1 == 2
+E        +  where 1 = CompletedProcess(args=['C:\\Users\\user\\Desktop\\BioPilot_Atlas_v3\\.venv\\Scripts\\python.exe', '-m', 'app.cli', 'me... 3, in main\n    raise NotImplementedError(\'CLI is not implemented\')\nNotImplementedError: CLI is not implemented\n').returncode
+
+tests_app\test_cli.py:39: AssertionError
+=========================== short test summary info ===========================
+FAILED tests_app/test_cli.py::test_validate_cli - AssertionError: Traceback (...
+FAILED tests_app/test_cli.py::test_invalid_variant_cli - AssertionError: asse...
+FAILED tests_app/test_cli.py::test_prepare_and_real_mcp_cli - AssertionError:...
+FAILED tests_app/test_cli.py::test_live_is_blocked_without_explicit_flags - A...
+4 failed in 0.54s

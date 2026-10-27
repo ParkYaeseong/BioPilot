@@ -1,0 +1,440 @@
+......................FFFFFFFFFFFF.FFFFFF                                [100%]
+================================== FAILURES ===================================
+_______ test_reserved_second_job_is_claimed_once_after_first_completes ________
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.runtime/pytest_providers_review_red/test_reserved_second_job_is_cl0')
+
+    def test_reserved_second_job_is_claimed_once_after_first_completes(tmp_path):
+        _,context = setup_run(tmp_path)
+        class QueuedProvider:
+            def __init__(self):
+                self.submissions = []
+            def ensure_ready(self): pass
+            def submit(self,req):
+                self.submissions.append(req)
+                return Submission(f'fixture-{len(self.submissions)}','pending')
+            def poll(self,job_id,timeout_seconds):
+                req = self.submissions[int(job_id.split('-')[-1])-1]
+                result = ESMEngine(SyntheticBackend()).score_positions(
+                    validate_target(registered_profile(),'sequence_plausibility_review'),list(req.positions))
+                return Submission(job_id,'completed',result)
+        provider = QueuedProvider()
+        service = InferenceService(context.db_path,provider,'modal','fixture',estimate_micros=100,
+            job_timeout_seconds=60,model_pins=PINS)
+        first = service.submit(context,request())
+        queued = service.submit(context,request(positions=(33,)))
+        assert queued['status']=='reserved'
+        assert len(provider.submissions)==1
+        assert service.poll(context,first['task_id'])['status']=='completed'
+        started = service.submit(context,request(positions=(33,)))
+        assert started['task_id']==queued['task_id']
+>       assert started['status']=='pending'
+E       AssertionError: assert 'reserved' == 'pending'
+E         
+E         - pending
+E         + reserved
+
+tests_app\test_esm_providers.py:273: AssertionError
+__ test_source_mode_and_core_provenance_cannot_be_relabelled[envelope_live] ___
+
+mutation = 'envelope_live'
+
+    @pytest.mark.parametrize('mutation', ['envelope_live','common_missing_mode','common_unknown_mode',
+        'row_missing_mode','row_unknown_mode','missing_implementation','missing_precision','row_different_precision',
+        'row_different_implementation','fixture_cache_as_live'])
+    def test_source_mode_and_core_provenance_cannot_be_relabelled(mutation):
+        result = deepcopy(artifact())
+        if mutation=='envelope_live': result['source_mode']='live'
+        elif mutation=='common_missing_mode': result['provenance'].pop('source_mode')
+        elif mutation=='common_unknown_mode': result['provenance']['source_mode']='unknown'
+        elif mutation=='row_missing_mode': result['rows'][0].pop('source_mode')
+        elif mutation=='row_unknown_mode': result['rows'][0]['source_mode']='unknown'
+        elif mutation=='missing_implementation': result['provenance'].pop('implementation')
+        elif mutation=='missing_precision': result['provenance'].pop('precision')
+        elif mutation=='row_different_precision': result['rows'][0]['precision']='float16'
+        elif mutation=='row_different_implementation': result['rows'][0]['implementation']='different'
+        else:
+            result['source_mode']='replay'
+            result['cached_positions_1based']=[32]
+>       with pytest.raises(ProviderError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'app.science.providers.ProviderError'>
+
+tests_app\test_esm_providers.py:299: Failed
+_ test_source_mode_and_core_provenance_cannot_be_relabelled[common_missing_mode] _
+
+mutation = 'common_missing_mode'
+
+    @pytest.mark.parametrize('mutation', ['envelope_live','common_missing_mode','common_unknown_mode',
+        'row_missing_mode','row_unknown_mode','missing_implementation','missing_precision','row_different_precision',
+        'row_different_implementation','fixture_cache_as_live'])
+    def test_source_mode_and_core_provenance_cannot_be_relabelled(mutation):
+        result = deepcopy(artifact())
+        if mutation=='envelope_live': result['source_mode']='live'
+        elif mutation=='common_missing_mode': result['provenance'].pop('source_mode')
+        elif mutation=='common_unknown_mode': result['provenance']['source_mode']='unknown'
+        elif mutation=='row_missing_mode': result['rows'][0].pop('source_mode')
+        elif mutation=='row_unknown_mode': result['rows'][0]['source_mode']='unknown'
+        elif mutation=='missing_implementation': result['provenance'].pop('implementation')
+        elif mutation=='missing_precision': result['provenance'].pop('precision')
+        elif mutation=='row_different_precision': result['rows'][0]['precision']='float16'
+        elif mutation=='row_different_implementation': result['rows'][0]['implementation']='different'
+        else:
+            result['source_mode']='replay'
+            result['cached_positions_1based']=[32]
+>       with pytest.raises(ProviderError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'app.science.providers.ProviderError'>
+
+tests_app\test_esm_providers.py:299: Failed
+_ test_source_mode_and_core_provenance_cannot_be_relabelled[common_unknown_mode] _
+
+mutation = 'common_unknown_mode'
+
+    @pytest.mark.parametrize('mutation', ['envelope_live','common_missing_mode','common_unknown_mode',
+        'row_missing_mode','row_unknown_mode','missing_implementation','missing_precision','row_different_precision',
+        'row_different_implementation','fixture_cache_as_live'])
+    def test_source_mode_and_core_provenance_cannot_be_relabelled(mutation):
+        result = deepcopy(artifact())
+        if mutation=='envelope_live': result['source_mode']='live'
+        elif mutation=='common_missing_mode': result['provenance'].pop('source_mode')
+        elif mutation=='common_unknown_mode': result['provenance']['source_mode']='unknown'
+        elif mutation=='row_missing_mode': result['rows'][0].pop('source_mode')
+        elif mutation=='row_unknown_mode': result['rows'][0]['source_mode']='unknown'
+        elif mutation=='missing_implementation': result['provenance'].pop('implementation')
+        elif mutation=='missing_precision': result['provenance'].pop('precision')
+        elif mutation=='row_different_precision': result['rows'][0]['precision']='float16'
+        elif mutation=='row_different_implementation': result['rows'][0]['implementation']='different'
+        else:
+            result['source_mode']='replay'
+            result['cached_positions_1based']=[32]
+>       with pytest.raises(ProviderError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'app.science.providers.ProviderError'>
+
+tests_app\test_esm_providers.py:299: Failed
+_ test_source_mode_and_core_provenance_cannot_be_relabelled[row_missing_mode] _
+
+mutation = 'row_missing_mode'
+
+    @pytest.mark.parametrize('mutation', ['envelope_live','common_missing_mode','common_unknown_mode',
+        'row_missing_mode','row_unknown_mode','missing_implementation','missing_precision','row_different_precision',
+        'row_different_implementation','fixture_cache_as_live'])
+    def test_source_mode_and_core_provenance_cannot_be_relabelled(mutation):
+        result = deepcopy(artifact())
+        if mutation=='envelope_live': result['source_mode']='live'
+        elif mutation=='common_missing_mode': result['provenance'].pop('source_mode')
+        elif mutation=='common_unknown_mode': result['provenance']['source_mode']='unknown'
+        elif mutation=='row_missing_mode': result['rows'][0].pop('source_mode')
+        elif mutation=='row_unknown_mode': result['rows'][0]['source_mode']='unknown'
+        elif mutation=='missing_implementation': result['provenance'].pop('implementation')
+        elif mutation=='missing_precision': result['provenance'].pop('precision')
+        elif mutation=='row_different_precision': result['rows'][0]['precision']='float16'
+        elif mutation=='row_different_implementation': result['rows'][0]['implementation']='different'
+        else:
+            result['source_mode']='replay'
+            result['cached_positions_1based']=[32]
+>       with pytest.raises(ProviderError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'app.science.providers.ProviderError'>
+
+tests_app\test_esm_providers.py:299: Failed
+_ test_source_mode_and_core_provenance_cannot_be_relabelled[row_unknown_mode] _
+
+mutation = 'row_unknown_mode'
+
+    @pytest.mark.parametrize('mutation', ['envelope_live','common_missing_mode','common_unknown_mode',
+        'row_missing_mode','row_unknown_mode','missing_implementation','missing_precision','row_different_precision',
+        'row_different_implementation','fixture_cache_as_live'])
+    def test_source_mode_and_core_provenance_cannot_be_relabelled(mutation):
+        result = deepcopy(artifact())
+        if mutation=='envelope_live': result['source_mode']='live'
+        elif mutation=='common_missing_mode': result['provenance'].pop('source_mode')
+        elif mutation=='common_unknown_mode': result['provenance']['source_mode']='unknown'
+        elif mutation=='row_missing_mode': result['rows'][0].pop('source_mode')
+        elif mutation=='row_unknown_mode': result['rows'][0]['source_mode']='unknown'
+        elif mutation=='missing_implementation': result['provenance'].pop('implementation')
+        elif mutation=='missing_precision': result['provenance'].pop('precision')
+        elif mutation=='row_different_precision': result['rows'][0]['precision']='float16'
+        elif mutation=='row_different_implementation': result['rows'][0]['implementation']='different'
+        else:
+            result['source_mode']='replay'
+            result['cached_positions_1based']=[32]
+>       with pytest.raises(ProviderError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'app.science.providers.ProviderError'>
+
+tests_app\test_esm_providers.py:299: Failed
+_ test_source_mode_and_core_provenance_cannot_be_relabelled[missing_implementation] _
+
+mutation = 'missing_implementation'
+
+    @pytest.mark.parametrize('mutation', ['envelope_live','common_missing_mode','common_unknown_mode',
+        'row_missing_mode','row_unknown_mode','missing_implementation','missing_precision','row_different_precision',
+        'row_different_implementation','fixture_cache_as_live'])
+    def test_source_mode_and_core_provenance_cannot_be_relabelled(mutation):
+        result = deepcopy(artifact())
+        if mutation=='envelope_live': result['source_mode']='live'
+        elif mutation=='common_missing_mode': result['provenance'].pop('source_mode')
+        elif mutation=='common_unknown_mode': result['provenance']['source_mode']='unknown'
+        elif mutation=='row_missing_mode': result['rows'][0].pop('source_mode')
+        elif mutation=='row_unknown_mode': result['rows'][0]['source_mode']='unknown'
+        elif mutation=='missing_implementation': result['provenance'].pop('implementation')
+        elif mutation=='missing_precision': result['provenance'].pop('precision')
+        elif mutation=='row_different_precision': result['rows'][0]['precision']='float16'
+        elif mutation=='row_different_implementation': result['rows'][0]['implementation']='different'
+        else:
+            result['source_mode']='replay'
+            result['cached_positions_1based']=[32]
+>       with pytest.raises(ProviderError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'app.science.providers.ProviderError'>
+
+tests_app\test_esm_providers.py:299: Failed
+_ test_source_mode_and_core_provenance_cannot_be_relabelled[missing_precision] _
+
+mutation = 'missing_precision'
+
+    @pytest.mark.parametrize('mutation', ['envelope_live','common_missing_mode','common_unknown_mode',
+        'row_missing_mode','row_unknown_mode','missing_implementation','missing_precision','row_different_precision',
+        'row_different_implementation','fixture_cache_as_live'])
+    def test_source_mode_and_core_provenance_cannot_be_relabelled(mutation):
+        result = deepcopy(artifact())
+        if mutation=='envelope_live': result['source_mode']='live'
+        elif mutation=='common_missing_mode': result['provenance'].pop('source_mode')
+        elif mutation=='common_unknown_mode': result['provenance']['source_mode']='unknown'
+        elif mutation=='row_missing_mode': result['rows'][0].pop('source_mode')
+        elif mutation=='row_unknown_mode': result['rows'][0]['source_mode']='unknown'
+        elif mutation=='missing_implementation': result['provenance'].pop('implementation')
+        elif mutation=='missing_precision': result['provenance'].pop('precision')
+        elif mutation=='row_different_precision': result['rows'][0]['precision']='float16'
+        elif mutation=='row_different_implementation': result['rows'][0]['implementation']='different'
+        else:
+            result['source_mode']='replay'
+            result['cached_positions_1based']=[32]
+>       with pytest.raises(ProviderError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'app.science.providers.ProviderError'>
+
+tests_app\test_esm_providers.py:299: Failed
+_ test_source_mode_and_core_provenance_cannot_be_relabelled[row_different_precision] _
+
+mutation = 'row_different_precision'
+
+    @pytest.mark.parametrize('mutation', ['envelope_live','common_missing_mode','common_unknown_mode',
+        'row_missing_mode','row_unknown_mode','missing_implementation','missing_precision','row_different_precision',
+        'row_different_implementation','fixture_cache_as_live'])
+    def test_source_mode_and_core_provenance_cannot_be_relabelled(mutation):
+        result = deepcopy(artifact())
+        if mutation=='envelope_live': result['source_mode']='live'
+        elif mutation=='common_missing_mode': result['provenance'].pop('source_mode')
+        elif mutation=='common_unknown_mode': result['provenance']['source_mode']='unknown'
+        elif mutation=='row_missing_mode': result['rows'][0].pop('source_mode')
+        elif mutation=='row_unknown_mode': result['rows'][0]['source_mode']='unknown'
+        elif mutation=='missing_implementation': result['provenance'].pop('implementation')
+        elif mutation=='missing_precision': result['provenance'].pop('precision')
+        elif mutation=='row_different_precision': result['rows'][0]['precision']='float16'
+        elif mutation=='row_different_implementation': result['rows'][0]['implementation']='different'
+        else:
+            result['source_mode']='replay'
+            result['cached_positions_1based']=[32]
+>       with pytest.raises(ProviderError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'app.science.providers.ProviderError'>
+
+tests_app\test_esm_providers.py:299: Failed
+_ test_source_mode_and_core_provenance_cannot_be_relabelled[row_different_implementation] _
+
+mutation = 'row_different_implementation'
+
+    @pytest.mark.parametrize('mutation', ['envelope_live','common_missing_mode','common_unknown_mode',
+        'row_missing_mode','row_unknown_mode','missing_implementation','missing_precision','row_different_precision',
+        'row_different_implementation','fixture_cache_as_live'])
+    def test_source_mode_and_core_provenance_cannot_be_relabelled(mutation):
+        result = deepcopy(artifact())
+        if mutation=='envelope_live': result['source_mode']='live'
+        elif mutation=='common_missing_mode': result['provenance'].pop('source_mode')
+        elif mutation=='common_unknown_mode': result['provenance']['source_mode']='unknown'
+        elif mutation=='row_missing_mode': result['rows'][0].pop('source_mode')
+        elif mutation=='row_unknown_mode': result['rows'][0]['source_mode']='unknown'
+        elif mutation=='missing_implementation': result['provenance'].pop('implementation')
+        elif mutation=='missing_precision': result['provenance'].pop('precision')
+        elif mutation=='row_different_precision': result['rows'][0]['precision']='float16'
+        elif mutation=='row_different_implementation': result['rows'][0]['implementation']='different'
+        else:
+            result['source_mode']='replay'
+            result['cached_positions_1based']=[32]
+>       with pytest.raises(ProviderError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'app.science.providers.ProviderError'>
+
+tests_app\test_esm_providers.py:299: Failed
+_ test_source_mode_and_core_provenance_cannot_be_relabelled[fixture_cache_as_live] _
+
+mutation = 'fixture_cache_as_live'
+
+    @pytest.mark.parametrize('mutation', ['envelope_live','common_missing_mode','common_unknown_mode',
+        'row_missing_mode','row_unknown_mode','missing_implementation','missing_precision','row_different_precision',
+        'row_different_implementation','fixture_cache_as_live'])
+    def test_source_mode_and_core_provenance_cannot_be_relabelled(mutation):
+        result = deepcopy(artifact())
+        if mutation=='envelope_live': result['source_mode']='live'
+        elif mutation=='common_missing_mode': result['provenance'].pop('source_mode')
+        elif mutation=='common_unknown_mode': result['provenance']['source_mode']='unknown'
+        elif mutation=='row_missing_mode': result['rows'][0].pop('source_mode')
+        elif mutation=='row_unknown_mode': result['rows'][0]['source_mode']='unknown'
+        elif mutation=='missing_implementation': result['provenance'].pop('implementation')
+        elif mutation=='missing_precision': result['provenance'].pop('precision')
+        elif mutation=='row_different_precision': result['rows'][0]['precision']='float16'
+        elif mutation=='row_different_implementation': result['rows'][0]['implementation']='different'
+        else:
+            result['source_mode']='replay'
+            result['cached_positions_1based']=[32]
+>       with pytest.raises(ProviderError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'app.science.providers.ProviderError'>
+
+tests_app\test_esm_providers.py:299: Failed
+______ test_immutable_run_selection_blocks_model_chosen_escape[changes0] ______
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.runtime/pytest_providers_review_red/test_immutable_run_selection_b0')
+changes = {'positions_1based': [33]}
+
+    @pytest.mark.parametrize('changes', [
+        {'positions_1based':[33]}, {'esm_model_key':'esm35'},
+        {'model_pins':{'esm150':{'expected_weights_sha256':'c'*64,'expected_tokenizer_sha256':'b'*64}}},
+    ])
+    def test_immutable_run_selection_blocks_model_chosen_escape(tmp_path,changes):
+        runs,context = setup_run(tmp_path,**changes)
+        transport = FakeTransport()
+        service = InferenceService(context.db_path,
+            ModalESMProvider(CONFIG,transport=transport,execution_approved=True),'modal','fixture',
+            estimate_micros=100,job_timeout_seconds=60,model_pins=PINS)
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests_app\test_esm_providers.py:312: Failed
+______ test_immutable_run_selection_blocks_model_chosen_escape[changes2] ______
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.runtime/pytest_providers_review_red/test_immutable_run_selection_b2')
+changes = {'model_pins': {'esm150': {'expected_tokenizer_sha256': 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb', 'expected_weights_sha256': 'cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc'}}}
+
+    @pytest.mark.parametrize('changes', [
+        {'positions_1based':[33]}, {'esm_model_key':'esm35'},
+        {'model_pins':{'esm150':{'expected_weights_sha256':'c'*64,'expected_tokenizer_sha256':'b'*64}}},
+    ])
+    def test_immutable_run_selection_blocks_model_chosen_escape(tmp_path,changes):
+        runs,context = setup_run(tmp_path,**changes)
+        transport = FakeTransport()
+        service = InferenceService(context.db_path,
+            ModalESMProvider(CONFIG,transport=transport,execution_approved=True),'modal','fixture',
+            estimate_micros=100,job_timeout_seconds=60,model_pins=PINS)
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests_app\test_esm_providers.py:312: Failed
+___ test_direct_service_submit_cannot_escape_provider_model_pins[changes0] ____
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.runtime/pytest_providers_review_red/test_direct_service_submit_can0')
+changes = {'expected_weights_sha256': 'cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc'}
+
+    @pytest.mark.parametrize('changes', [{'expected_weights_sha256':'c'*64},
+        {'expected_tokenizer_sha256':'c'*64},{'model_key':'esm35'}])
+    def test_direct_service_submit_cannot_escape_provider_model_pins(tmp_path,changes):
+        runs,context = setup_run(tmp_path)
+        transport = FakeTransport()
+        service = InferenceService(context.db_path,
+            ModalESMProvider(CONFIG,transport=transport,execution_approved=True),'modal','fixture',
+            estimate_micros=100,job_timeout_seconds=60,model_pins=PINS)
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests_app\test_esm_providers.py:325: Failed
+___ test_direct_service_submit_cannot_escape_provider_model_pins[changes1] ____
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.runtime/pytest_providers_review_red/test_direct_service_submit_can1')
+changes = {'expected_tokenizer_sha256': 'cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc'}
+
+    @pytest.mark.parametrize('changes', [{'expected_weights_sha256':'c'*64},
+        {'expected_tokenizer_sha256':'c'*64},{'model_key':'esm35'}])
+    def test_direct_service_submit_cannot_escape_provider_model_pins(tmp_path,changes):
+        runs,context = setup_run(tmp_path)
+        transport = FakeTransport()
+        service = InferenceService(context.db_path,
+            ModalESMProvider(CONFIG,transport=transport,execution_approved=True),'modal','fixture',
+            estimate_micros=100,job_timeout_seconds=60,model_pins=PINS)
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests_app\test_esm_providers.py:325: Failed
+___ test_direct_service_submit_cannot_escape_provider_model_pins[changes2] ____
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.runtime/pytest_providers_review_red/test_direct_service_submit_can2')
+changes = {'model_key': 'esm35'}
+
+    @pytest.mark.parametrize('changes', [{'expected_weights_sha256':'c'*64},
+        {'expected_tokenizer_sha256':'c'*64},{'model_key':'esm35'}])
+    def test_direct_service_submit_cannot_escape_provider_model_pins(tmp_path,changes):
+        runs,context = setup_run(tmp_path)
+        transport = FakeTransport()
+        service = InferenceService(context.db_path,
+            ModalESMProvider(CONFIG,transport=transport,execution_approved=True),'modal','fixture',
+            estimate_micros=100,job_timeout_seconds=60,model_pins=PINS)
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests_app\test_esm_providers.py:325: Failed
+____ test_remote_reserves_worker_ceiling_even_when_client_timeout_is_short ____
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.runtime/pytest_providers_review_red/test_remote_reserves_worker_ce0')
+
+    def test_remote_reserves_worker_ceiling_even_when_client_timeout_is_short(tmp_path):
+        _,context = setup_run(tmp_path)
+        transport = FakeTransport()
+        service = InferenceService(context.db_path,
+            ModalESMProvider(CONFIG,transport=transport,execution_approved=True),'modal','fixture',
+            estimate_micros=100,job_timeout_seconds=60,model_pins=PINS)
+>       assert service.submit(context,request())['reserved_gpu_seconds']==900
+E       assert 60 == 900
+
+tests_app\test_esm_providers.py:336: AssertionError
+______ test_remote_120_second_budget_cannot_authorize_900_second_worker _______
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.runtime/pytest_providers_review_red/test_remote_120_second_budget_0')
+
+    def test_remote_120_second_budget_cannot_authorize_900_second_worker(tmp_path):
+        runs,context = setup_run(tmp_path,requested_budget={'usd_micros':1000,'max_meta_requests':2,'max_gpu_seconds':120})
+        transport = FakeTransport()
+        service = InferenceService(context.db_path,
+            ModalESMProvider(CONFIG,transport=transport,execution_approved=True),'modal','fixture',
+            estimate_micros=100,job_timeout_seconds=60,model_pins=PINS)
+>       with pytest.raises(ValueError,match='GPU-seconds'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests_app\test_esm_providers.py:344: Failed
+=========================== short test summary info ===========================
+FAILED tests_app/test_esm_providers.py::test_reserved_second_job_is_claimed_once_after_first_completes
+FAILED tests_app/test_esm_providers.py::test_source_mode_and_core_provenance_cannot_be_relabelled[envelope_live]
+FAILED tests_app/test_esm_providers.py::test_source_mode_and_core_provenance_cannot_be_relabelled[common_missing_mode]
+FAILED tests_app/test_esm_providers.py::test_source_mode_and_core_provenance_cannot_be_relabelled[common_unknown_mode]
+FAILED tests_app/test_esm_providers.py::test_source_mode_and_core_provenance_cannot_be_relabelled[row_missing_mode]
+FAILED tests_app/test_esm_providers.py::test_source_mode_and_core_provenance_cannot_be_relabelled[row_unknown_mode]
+FAILED tests_app/test_esm_providers.py::test_source_mode_and_core_provenance_cannot_be_relabelled[missing_implementation]
+FAILED tests_app/test_esm_providers.py::test_source_mode_and_core_provenance_cannot_be_relabelled[missing_precision]
+FAILED tests_app/test_esm_providers.py::test_source_mode_and_core_provenance_cannot_be_relabelled[row_different_precision]
+FAILED tests_app/test_esm_providers.py::test_source_mode_and_core_provenance_cannot_be_relabelled[row_different_implementation]
+FAILED tests_app/test_esm_providers.py::test_source_mode_and_core_provenance_cannot_be_relabelled[fixture_cache_as_live]
+FAILED tests_app/test_esm_providers.py::test_immutable_run_selection_blocks_model_chosen_escape[changes0]
+FAILED tests_app/test_esm_providers.py::test_immutable_run_selection_blocks_model_chosen_escape[changes2]
+FAILED tests_app/test_esm_providers.py::test_direct_service_submit_cannot_escape_provider_model_pins[changes0]
+FAILED tests_app/test_esm_providers.py::test_direct_service_submit_cannot_escape_provider_model_pins[changes1]
+FAILED tests_app/test_esm_providers.py::test_direct_service_submit_cannot_escape_provider_model_pins[changes2]
+FAILED tests_app/test_esm_providers.py::test_remote_reserves_worker_ceiling_even_when_client_timeout_is_short
+FAILED tests_app/test_esm_providers.py::test_remote_120_second_budget_cannot_authorize_900_second_worker
+18 failed, 23 passed in 2.01s

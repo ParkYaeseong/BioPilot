@@ -1,0 +1,244 @@
+FF.FFFFFFFFFFFFF                                                         [100%]
+================================== FAILURES ===================================
+___________________ test_cross_owner_cannot_read_or_approve ___________________
+
+ledger = (<app.core.runs.RunService object at 0x000001B756237A10>, '1199a37568684307a443ca45cb71c4f6')
+
+    def test_cross_owner_cannot_read_or_approve(ledger):
+        service, rid = ledger
+        run = service.get(rid, "alice")
+>       with pytest.raises(OwnershipError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'app.core.budget.OwnershipError'>
+
+tests_app\test_run_policy.py:30: Failed
+______________ test_wrong_plan_and_budget_version_cannot_approve ______________
+
+ledger = (<app.core.runs.RunService object at 0x000001B7562AAD50>, 'e958a6075d784724966e77fc03e8aa5b')
+
+    def test_wrong_plan_and_budget_version_cannot_approve(ledger):
+        service, rid = ledger
+        run = service.get(rid, "alice")
+>       with pytest.raises(PolicyError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'app.core.budget.PolicyError'>
+
+tests_app\test_run_policy.py:39: Failed
+______________________ test_no_dispatch_without_approval ______________________
+
+ledger = (<app.core.runs.RunService object at 0x000001B756262780>, '03511163e5bb4c8ab685ee52f7de36e1')
+
+    def test_no_dispatch_without_approval(ledger):
+        service, rid = ledger
+        with pytest.raises(PolicyError):
+>           service.reserve(rid, "job-one", 10, "alice")
+            ^^^^^^^^^^^^^^^
+E           AttributeError: 'RunService' object has no attribute 'reserve'
+
+tests_app\test_run_policy.py:55: AttributeError
+______________ test_duplicate_job_reuses_task_and_only_one_claim ______________
+
+ledger = (<app.core.runs.RunService object at 0x000001B756262C40>, '82c5ba7e4da8423ebdf969748172446d')
+
+    def test_duplicate_job_reuses_task_and_only_one_claim(ledger):
+        service, rid = ledger
+        approve(service, rid)
+>       first = service.reserve(rid, "job-one", 60, "alice")
+                ^^^^^^^^^^^^^^^
+E       AttributeError: 'RunService' object has no attribute 'reserve'
+
+tests_app\test_run_policy.py:61: AttributeError
+__________ test_restart_preserves_unknown_outcome_without_redispatch __________
+
+ledger = (<app.core.runs.RunService object at 0x000001B756263360>, '7f61dfe1db8349f4ad45036fa23a3dd1')
+
+    def test_restart_preserves_unknown_outcome_without_redispatch(ledger):
+        service, rid = ledger
+        approve(service, rid)
+>       task = service.reserve(rid, "job-one", 60, "alice")
+               ^^^^^^^^^^^^^^^
+E       AttributeError: 'RunService' object has no attribute 'reserve'
+
+tests_app\test_run_policy.py:75: AttributeError
+___________ test_lower_limit_blocks_future_work_and_keeps_inflight ____________
+
+ledger = (<app.core.runs.RunService object at 0x000001B756263A80>, '4a1d183d75cf42708c61770ce465232e')
+
+    def test_lower_limit_blocks_future_work_and_keeps_inflight(ledger):
+        service, rid = ledger
+        approve(service, rid)
+>       task = service.reserve(rid, "job-one", 60, "alice")
+               ^^^^^^^^^^^^^^^
+E       AttributeError: 'RunService' object has no attribute 'reserve'
+
+tests_app\test_run_policy.py:94: AttributeError
+___________________ test_new_budget_requires_fresh_approval ___________________
+
+ledger = (<app.core.runs.RunService object at 0x000001B756263CE0>, 'cb67fc802ad042c1b765e3f7db0ebb5d')
+
+    def test_new_budget_requires_fresh_approval(ledger):
+        service, rid = ledger
+        old = approve(service, rid)
+>       service.set_budget(rid, "alice", 200)
+        ^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'RunService' object has no attribute 'set_budget'
+
+tests_app\test_run_policy.py:111: AttributeError
+______________ test_concurrent_reservations_never_oversubscribe _______________
+
+ledger = (<app.core.runs.RunService object at 0x000001B756330180>, 'b7fbd895265e40cb9898bec8e4c9b656')
+
+    def test_concurrent_reservations_never_oversubscribe(ledger):
+        service, rid = ledger
+        approve(service, rid)
+        def reserve(digest):
+            try:
+                return service.reserve(rid, digest, 60, "alice")
+            except BudgetError:
+                return None
+        with ThreadPoolExecutor(max_workers=2) as pool:
+>           results = list(pool.map(reserve, ["a", "b"]))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_run_policy.py:129: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python314\Lib\concurrent\futures\_base.py:639: in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\concurrent\futures\_base.py:311: in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\concurrent\futures\_base.py:443: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\concurrent\futures\_base.py:395: in __get_result
+    raise self._exception
+C:\Python314\Lib\concurrent\futures\thread.py:86: in run
+    result = ctx.run(self.task)
+             ^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\concurrent\futures\thread.py:73: in run
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+digest = 'a'
+
+    def reserve(digest):
+        try:
+>           return service.reserve(rid, digest, 60, "alice")
+                   ^^^^^^^^^^^^^^^
+E           AttributeError: 'RunService' object has no attribute 'reserve'
+
+tests_app\test_run_policy.py:125: AttributeError
+_________________ test_unknown_actual_is_not_released_as_zero _________________
+
+ledger = (<app.core.runs.RunService object at 0x000001B756330770>, '448db047004940d3acd16ab6d350cb44')
+
+    def test_unknown_actual_is_not_released_as_zero(ledger):
+        service, rid = ledger
+        approve(service, rid)
+>       task = service.reserve(rid, "a", 60, "alice")
+               ^^^^^^^^^^^^^^^
+E       AttributeError: 'RunService' object has no attribute 'reserve'
+
+tests_app\test_run_policy.py:137: AttributeError
+__________________ test_settle_actual_cost_and_late_overrun ___________________
+
+ledger = (<app.core.runs.RunService object at 0x000001B756330B00>, 'e87cc07894f24401bd40bed0feb35a2f')
+
+    def test_settle_actual_cost_and_late_overrun(ledger):
+        service, rid = ledger
+        approve(service, rid)
+>       task = service.reserve(rid, "a", 60, "alice")
+               ^^^^^^^^^^^^^^^
+E       AttributeError: 'RunService' object has no attribute 'reserve'
+
+tests_app\test_run_policy.py:149: AttributeError
+________________ test_request_ceiling_is_not_a_money_estimate _________________
+
+ledger = (<app.core.runs.RunService object at 0x000001B756330D60>, 'f4ecc766ddbd4ad4a6cb54c9eea89dcc')
+
+    def test_request_ceiling_is_not_a_money_estimate(ledger):
+        service, rid = ledger
+        approve(service, rid)
+        for i in range(2):
+>           task = service.reserve(rid, f"meta-{i}", 0, "alice", kind="meta")
+                   ^^^^^^^^^^^^^^^
+E           AttributeError: 'RunService' object has no attribute 'reserve'
+
+tests_app\test_run_policy.py:165: AttributeError
+____________________ test_invalid_money_never_reserved[-1] ____________________
+
+ledger = (<app.core.runs.RunService object at 0x000001B756330FC0>, 'c0a93d91eca24500a6487f39d1ad805f')
+value = -1
+
+    @pytest.mark.parametrize("value", [-1, True, 1.5])
+    def test_invalid_money_never_reserved(ledger, value):
+        service, rid = ledger
+        approve(service, rid)
+        with pytest.raises(PolicyError):
+>           service.reserve(rid, "job-one", value, "alice")
+            ^^^^^^^^^^^^^^^
+E           AttributeError: 'RunService' object has no attribute 'reserve'
+
+tests_app\test_run_policy.py:177: AttributeError
+___________________ test_invalid_money_never_reserved[True] ___________________
+
+ledger = (<app.core.runs.RunService object at 0x000001B756331220>, 'f2cf440dcf7e4d5ebd9e53df9ab6e17e')
+value = True
+
+    @pytest.mark.parametrize("value", [-1, True, 1.5])
+    def test_invalid_money_never_reserved(ledger, value):
+        service, rid = ledger
+        approve(service, rid)
+        with pytest.raises(PolicyError):
+>           service.reserve(rid, "job-one", value, "alice")
+            ^^^^^^^^^^^^^^^
+E           AttributeError: 'RunService' object has no attribute 'reserve'
+
+tests_app\test_run_policy.py:177: AttributeError
+___________________ test_invalid_money_never_reserved[1.5] ____________________
+
+ledger = (<app.core.runs.RunService object at 0x000001B756331480>, 'f2bbac7db286413992e79d3fcf352957')
+value = 1.5
+
+    @pytest.mark.parametrize("value", [-1, True, 1.5])
+    def test_invalid_money_never_reserved(ledger, value):
+        service, rid = ledger
+        approve(service, rid)
+        with pytest.raises(PolicyError):
+>           service.reserve(rid, "job-one", value, "alice")
+            ^^^^^^^^^^^^^^^
+E           AttributeError: 'RunService' object has no attribute 'reserve'
+
+tests_app\test_run_policy.py:177: AttributeError
+__________________ test_foreign_task_and_cancel_are_rejected __________________
+
+ledger = (<app.core.runs.RunService object at 0x000001B7563316E0>, 'cde6060a3d2e4e0a8e2322dc8b23a043')
+
+    def test_foreign_task_and_cancel_are_rejected(ledger):
+        service, rid = ledger
+        other = service.create(run_input(), "alice")
+        approve(service, rid)
+>       task = service.reserve(rid, "one", 10, "alice")
+               ^^^^^^^^^^^^^^^
+E       AttributeError: 'RunService' object has no attribute 'reserve'
+
+tests_app\test_run_policy.py:184: AttributeError
+=========================== short test summary info ===========================
+FAILED tests_app/test_run_policy.py::test_cross_owner_cannot_read_or_approve
+FAILED tests_app/test_run_policy.py::test_wrong_plan_and_budget_version_cannot_approve
+FAILED tests_app/test_run_policy.py::test_no_dispatch_without_approval - Attr...
+FAILED tests_app/test_run_policy.py::test_duplicate_job_reuses_task_and_only_one_claim
+FAILED tests_app/test_run_policy.py::test_restart_preserves_unknown_outcome_without_redispatch
+FAILED tests_app/test_run_policy.py::test_lower_limit_blocks_future_work_and_keeps_inflight
+FAILED tests_app/test_run_policy.py::test_new_budget_requires_fresh_approval
+FAILED tests_app/test_run_policy.py::test_concurrent_reservations_never_oversubscribe
+FAILED tests_app/test_run_policy.py::test_unknown_actual_is_not_released_as_zero
+FAILED tests_app/test_run_policy.py::test_settle_actual_cost_and_late_overrun
+FAILED tests_app/test_run_policy.py::test_request_ceiling_is_not_a_money_estimate
+FAILED tests_app/test_run_policy.py::test_invalid_money_never_reserved[-1] - ...
+FAILED tests_app/test_run_policy.py::test_invalid_money_never_reserved[True]
+FAILED tests_app/test_run_policy.py::test_invalid_money_never_reserved[1.5]
+FAILED tests_app/test_run_policy.py::test_foreign_task_and_cancel_are_rejected
+15 failed, 1 passed in 0.49s

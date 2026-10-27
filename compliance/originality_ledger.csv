@@ -3,4 +3,5 @@ prior_v2_pack,pre_event_preparation,2026-10-26,BioPilot_Atlas_v2_Biology_Revised
 v3_pack,planning_revision,2026-10-27,BioPilot_Atlas_v3,,review_required,pending,Package revision not a completed application
 esm_dependency,third_party_model,,https://github.com/facebookresearch/esm,,review_required,not_applicable,Separate code and weights terms
 public_reference_data,third_party_data,,reference/source_snapshot.json,,review_required,not_applicable,Keep source and data terms distinct
-event_application,event_implementation,,,,pending,pending,Record actual new files and commits when built
+event_application,implementation_started,2026-10-27,app/;evaluation/;tests_app/,Python core;MCP;providers;host;offline evaluator,review_required,pending,New local code; event eligibility and reuse ruling unresolved; no publication
+v2_guard_reuse,pre_event_helper_reuse,2026-10-26,checks/science_contracts.py,Registered product wrappers reuse sequence and WT validation algorithms,review_required,pending,Original helper and source dates preserved; product gates newly implemented

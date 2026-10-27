@@ -17,7 +17,26 @@ class PackageValidatorV3Tests(unittest.TestCase):
         return proc.returncode,json.loads(proc.stdout)
 
     def copy_package(self,destination):
-        shutil.copytree(ROOT,destination,ignore=shutil.ignore_patterns('__pycache__','MANIFEST.sha256'))
+        shutil.copytree(ROOT,destination,ignore=shutil.ignore_patterns(
+            '__pycache__','MANIFEST.sha256','.git','.venv','.runtime','.cache',
+            '.pytest_cache','.superpowers','.env','BioPilot_Atlas_Local_Start','local_artifacts'))
+
+    def test_local_secret_and_environment_are_not_package_sources(self):
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td)/'pack';self.copy_package(root)
+            for directory in ('.venv', '.git', 'BioPilot_Atlas_Local_Start'):
+                target=root/directory;target.mkdir(exist_ok=True)
+                (target/'broken.json').write_text('{invalid local content')
+            (root/'.env').write_text('not a package source')
+            code,report=self.run_checker(root)
+            self.assertEqual(code,0,report['failures'])
+
+    def test_utf8_document_does_not_depend_on_windows_codepage(self):
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td)/'pack';self.copy_package(root)
+            (root/'docs'/'utf8_receipt.md').write_text('# UTF-8 \U0001f52c\n',encoding='utf-8')
+            code,report=self.run_checker(root)
+            self.assertEqual(code,0,report['failures'])
 
     def test_current_v3_package_is_accepted(self):
         code,report=self.run_checker(ROOT)

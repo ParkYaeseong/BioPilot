@@ -1,0 +1,196 @@
+..............FFF.Fs..                                                   [100%]
+================================== FAILURES ===================================
+_ test_alternate_checkpoint_requires_explicit_matching_frozen_policy[esm2_t12_35M_UR50D-esm35_masked_v1] _
+
+checkpoint = 'esm2_t12_35M_UR50D', rank_policy = 'esm35_masked_v1'
+
+    @pytest.mark.parametrize("checkpoint,rank_policy", [
+        ("esm2_t12_35M_UR50D", "esm35_masked_v1"),
+        ("esm2_t33_650M_UR50D", "esm650_masked_v1"),
+    ])
+    def test_alternate_checkpoint_requires_explicit_matching_frozen_policy(checkpoint, rank_policy):
+        selected = protocol(checkpoint=checkpoint, rank_policy=rank_policy)
+>       cohort = prepare_cohort(IDS, selected)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_evaluation_cohort.py:148: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+candidate_ids = ['A32V', 'E33A', 'H34A', 'N35A']
+frozen_protocol = {'analysis_scope': 'development_only', 'budget_sha256': 'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee...ckpoint': 'esm2_t12_35M_UR50D', 'code_sha256': 'ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff', ...}
+
+    def prepare_cohort(candidate_ids, frozen_protocol):
+        """Build a label-free protected-cohort manifest with one split per residue site.
+    
+        This minimal interface does not reconcile raw/curated datasets or establish an
+        unrestricted published benchmark. Those remain separate scientific tasks.
+        """
+        sites = _ids(candidate_ids)
+        if not isinstance(frozen_protocol, dict) or set(frozen_protocol) != PROTOCOL_FIELDS:
+            raise ValueError("Frozen protocol fields must match the label-free allowlist")
+        protocol = deepcopy(frozen_protocol)
+        mode = protocol["source_mode"]
+        if mode not in {"synthetic_fixture", "live", "replay"}:
+            raise ValueError("Unknown prediction source mode")
+        if protocol["analysis_scope"] not in {"development_only", "retrospective_fixed_no_tuning"}:
+            raise ValueError("Unsupported prespecified evaluation scope")
+        for key in ("reference_sha256", "weights_sha256", "tokenizer_sha256", "prompt_sha256", "budget_sha256", "code_sha256"):
+            if not isinstance(protocol[key], str) or re.fullmatch(r"[0-9a-f]{64}", protocol[key]) is None:
+                raise ValueError(f"Expected exact {key}")
+        if (protocol["reference_id"] != "ESTA_BACSU_Nutschel_2020"
+                or protocol["checkpoint"] != "esm2_t30_150M_UR50D"
+                or protocol["sequence_context"] != "full_212"
+                or protocol["score_kind"] != "masked_marginal_log_likelihood_ratio"
+                or protocol["rank_policy"] != "esm150_masked_v1"
+                or protocol["tie_rule"] != "candidate_id_ascending"):
+>           raise ValueError("Protocol must use the registered common ESM baseline")
+E           ValueError: Protocol must use the registered common ESM baseline
+
+evaluation\prepare.py:79: ValueError
+_ test_alternate_checkpoint_requires_explicit_matching_frozen_policy[esm2_t33_650M_UR50D-esm650_masked_v1] _
+
+checkpoint = 'esm2_t33_650M_UR50D', rank_policy = 'esm650_masked_v1'
+
+    @pytest.mark.parametrize("checkpoint,rank_policy", [
+        ("esm2_t12_35M_UR50D", "esm35_masked_v1"),
+        ("esm2_t33_650M_UR50D", "esm650_masked_v1"),
+    ])
+    def test_alternate_checkpoint_requires_explicit_matching_frozen_policy(checkpoint, rank_policy):
+        selected = protocol(checkpoint=checkpoint, rank_policy=rank_policy)
+>       cohort = prepare_cohort(IDS, selected)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_evaluation_cohort.py:148: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+candidate_ids = ['A32V', 'E33A', 'H34A', 'N35A']
+frozen_protocol = {'analysis_scope': 'development_only', 'budget_sha256': 'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee...kpoint': 'esm2_t33_650M_UR50D', 'code_sha256': 'ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff', ...}
+
+    def prepare_cohort(candidate_ids, frozen_protocol):
+        """Build a label-free protected-cohort manifest with one split per residue site.
+    
+        This minimal interface does not reconcile raw/curated datasets or establish an
+        unrestricted published benchmark. Those remain separate scientific tasks.
+        """
+        sites = _ids(candidate_ids)
+        if not isinstance(frozen_protocol, dict) or set(frozen_protocol) != PROTOCOL_FIELDS:
+            raise ValueError("Frozen protocol fields must match the label-free allowlist")
+        protocol = deepcopy(frozen_protocol)
+        mode = protocol["source_mode"]
+        if mode not in {"synthetic_fixture", "live", "replay"}:
+            raise ValueError("Unknown prediction source mode")
+        if protocol["analysis_scope"] not in {"development_only", "retrospective_fixed_no_tuning"}:
+            raise ValueError("Unsupported prespecified evaluation scope")
+        for key in ("reference_sha256", "weights_sha256", "tokenizer_sha256", "prompt_sha256", "budget_sha256", "code_sha256"):
+            if not isinstance(protocol[key], str) or re.fullmatch(r"[0-9a-f]{64}", protocol[key]) is None:
+                raise ValueError(f"Expected exact {key}")
+        if (protocol["reference_id"] != "ESTA_BACSU_Nutschel_2020"
+                or protocol["checkpoint"] != "esm2_t30_150M_UR50D"
+                or protocol["sequence_context"] != "full_212"
+                or protocol["score_kind"] != "masked_marginal_log_likelihood_ratio"
+                or protocol["rank_policy"] != "esm150_masked_v1"
+                or protocol["tie_rule"] != "candidate_id_ascending"):
+>           raise ValueError("Protocol must use the registered common ESM baseline")
+E           ValueError: Protocol must use the registered common ESM baseline
+
+evaluation\prepare.py:79: ValueError
+_ test_mixed_checkpoint_or_policy_rows_cannot_enter_frozen_rank[esm2_t12_35M_UR50D-esm35_masked_v1] _
+
+checkpoint = 'esm2_t12_35M_UR50D', rank_policy = 'esm35_masked_v1'
+
+    @pytest.mark.parametrize("checkpoint,rank_policy", [
+        ("esm2_t12_35M_UR50D", "esm35_masked_v1"),
+        ("esm2_t30_150M_UR50D", "esm150_masked_v1"),
+        ("esm2_t33_650M_UR50D", "esm650_masked_v1"),
+    ])
+    def test_mixed_checkpoint_or_policy_rows_cannot_enter_frozen_rank(checkpoint, rank_policy):
+>       cohort = prepare_cohort(IDS, protocol(checkpoint=checkpoint, rank_policy=rank_policy))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_evaluation_cohort.py:164: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+candidate_ids = ['A32V', 'E33A', 'H34A', 'N35A']
+frozen_protocol = {'analysis_scope': 'development_only', 'budget_sha256': 'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee...ckpoint': 'esm2_t12_35M_UR50D', 'code_sha256': 'ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff', ...}
+
+    def prepare_cohort(candidate_ids, frozen_protocol):
+        """Build a label-free protected-cohort manifest with one split per residue site.
+    
+        This minimal interface does not reconcile raw/curated datasets or establish an
+        unrestricted published benchmark. Those remain separate scientific tasks.
+        """
+        sites = _ids(candidate_ids)
+        if not isinstance(frozen_protocol, dict) or set(frozen_protocol) != PROTOCOL_FIELDS:
+            raise ValueError("Frozen protocol fields must match the label-free allowlist")
+        protocol = deepcopy(frozen_protocol)
+        mode = protocol["source_mode"]
+        if mode not in {"synthetic_fixture", "live", "replay"}:
+            raise ValueError("Unknown prediction source mode")
+        if protocol["analysis_scope"] not in {"development_only", "retrospective_fixed_no_tuning"}:
+            raise ValueError("Unsupported prespecified evaluation scope")
+        for key in ("reference_sha256", "weights_sha256", "tokenizer_sha256", "prompt_sha256", "budget_sha256", "code_sha256"):
+            if not isinstance(protocol[key], str) or re.fullmatch(r"[0-9a-f]{64}", protocol[key]) is None:
+                raise ValueError(f"Expected exact {key}")
+        if (protocol["reference_id"] != "ESTA_BACSU_Nutschel_2020"
+                or protocol["checkpoint"] != "esm2_t30_150M_UR50D"
+                or protocol["sequence_context"] != "full_212"
+                or protocol["score_kind"] != "masked_marginal_log_likelihood_ratio"
+                or protocol["rank_policy"] != "esm150_masked_v1"
+                or protocol["tie_rule"] != "candidate_id_ascending"):
+>           raise ValueError("Protocol must use the registered common ESM baseline")
+E           ValueError: Protocol must use the registered common ESM baseline
+
+evaluation\prepare.py:79: ValueError
+_ test_mixed_checkpoint_or_policy_rows_cannot_enter_frozen_rank[esm2_t33_650M_UR50D-esm650_masked_v1] _
+
+checkpoint = 'esm2_t33_650M_UR50D', rank_policy = 'esm650_masked_v1'
+
+    @pytest.mark.parametrize("checkpoint,rank_policy", [
+        ("esm2_t12_35M_UR50D", "esm35_masked_v1"),
+        ("esm2_t30_150M_UR50D", "esm150_masked_v1"),
+        ("esm2_t33_650M_UR50D", "esm650_masked_v1"),
+    ])
+    def test_mixed_checkpoint_or_policy_rows_cannot_enter_frozen_rank(checkpoint, rank_policy):
+>       cohort = prepare_cohort(IDS, protocol(checkpoint=checkpoint, rank_policy=rank_policy))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_evaluation_cohort.py:164: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+candidate_ids = ['A32V', 'E33A', 'H34A', 'N35A']
+frozen_protocol = {'analysis_scope': 'development_only', 'budget_sha256': 'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee...kpoint': 'esm2_t33_650M_UR50D', 'code_sha256': 'ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff', ...}
+
+    def prepare_cohort(candidate_ids, frozen_protocol):
+        """Build a label-free protected-cohort manifest with one split per residue site.
+    
+        This minimal interface does not reconcile raw/curated datasets or establish an
+        unrestricted published benchmark. Those remain separate scientific tasks.
+        """
+        sites = _ids(candidate_ids)
+        if not isinstance(frozen_protocol, dict) or set(frozen_protocol) != PROTOCOL_FIELDS:
+            raise ValueError("Frozen protocol fields must match the label-free allowlist")
+        protocol = deepcopy(frozen_protocol)
+        mode = protocol["source_mode"]
+        if mode not in {"synthetic_fixture", "live", "replay"}:
+            raise ValueError("Unknown prediction source mode")
+        if protocol["analysis_scope"] not in {"development_only", "retrospective_fixed_no_tuning"}:
+            raise ValueError("Unsupported prespecified evaluation scope")
+        for key in ("reference_sha256", "weights_sha256", "tokenizer_sha256", "prompt_sha256", "budget_sha256", "code_sha256"):
+            if not isinstance(protocol[key], str) or re.fullmatch(r"[0-9a-f]{64}", protocol[key]) is None:
+                raise ValueError(f"Expected exact {key}")
+        if (protocol["reference_id"] != "ESTA_BACSU_Nutschel_2020"
+                or protocol["checkpoint"] != "esm2_t30_150M_UR50D"
+                or protocol["sequence_context"] != "full_212"
+                or protocol["score_kind"] != "masked_marginal_log_likelihood_ratio"
+                or protocol["rank_policy"] != "esm150_masked_v1"
+                or protocol["tie_rule"] != "candidate_id_ascending"):
+>           raise ValueError("Protocol must use the registered common ESM baseline")
+E           ValueError: Protocol must use the registered common ESM baseline
+
+evaluation\prepare.py:79: ValueError
+=========================== short test summary info ===========================
+FAILED tests_app/test_evaluation_cohort.py::test_alternate_checkpoint_requires_explicit_matching_frozen_policy[esm2_t12_35M_UR50D-esm35_masked_v1]
+FAILED tests_app/test_evaluation_cohort.py::test_alternate_checkpoint_requires_explicit_matching_frozen_policy[esm2_t33_650M_UR50D-esm650_masked_v1]
+FAILED tests_app/test_evaluation_cohort.py::test_mixed_checkpoint_or_policy_rows_cannot_enter_frozen_rank[esm2_t12_35M_UR50D-esm35_masked_v1]
+FAILED tests_app/test_evaluation_cohort.py::test_mixed_checkpoint_or_policy_rows_cannot_enter_frozen_rank[esm2_t33_650M_UR50D-esm650_masked_v1]
+4 failed, 17 passed, 1 skipped in 0.48s

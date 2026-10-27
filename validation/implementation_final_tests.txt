@@ -1,0 +1,19 @@
+............................................................ [ 17%]
+........................................................................ [ 38%]
+.................................................................s...... [ 59%]
+........................................................................ [ 80%]
+................................s................................        [100%]
+============================== warnings summary ===============================
+tests_app/test_modal_sdk_contract.py::test_installed_modal_sdk_has_required_offline_api_shape
+  C:\Users\user\Desktop\BioPilot_Atlas_v3\.venv\Lib\site-packages\modal\_utils\async_utils.py:43: DeprecationWarning: 'asyncio.WindowsSelectorEventLoopPolicy' is deprecated and slated for removal in Python 3.16
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+
+tests_app/test_modal_sdk_contract.py::test_installed_modal_sdk_has_required_offline_api_shape
+  C:\Users\user\Desktop\BioPilot_Atlas_v3\.venv\Lib\site-packages\modal\_utils\async_utils.py:43: DeprecationWarning: 'asyncio.set_event_loop_policy' is deprecated and slated for removal in Python 3.16
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+SKIPPED [1] tests_app\test_evaluation_cohort.py:268: Windows account lacks symlink creation rights
+SKIPPED [1] tests_app\test_runtime_bundle.py:40: Symlink creation requires an OS privilege
+339 passed, 2 skipped, 2 warnings, 12 subtests passed in 59.59s

@@ -1,0 +1,158 @@
+...................FFFF......s..                                         [100%]
+================================== FAILURES ===================================
+__ test_actual_engine_artifact_projects_complete_numeric_predictions[esm35] ___
+
+model_key = 'esm35'
+
+    @pytest.mark.parametrize("model_key", ["esm35", "esm150", "esm650"])
+    def test_actual_engine_artifact_projects_complete_numeric_predictions(model_key):
+        artifact, cohort = engine_artifact_fixture(model_key)
+        original = deepcopy(artifact)
+>       bundle = freeze_score_artifact(artifact, cohort)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_evaluation_cohort.py:211: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+evaluation\prepare.py:167: in freeze_score_artifact
+    return freeze_predictions(artifact["rows"], cohort_manifest)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+records = [{'candidate_id': 'A32C', 'checkpoint': 'esm2_t12_35M_UR50D', 'checkpoint_revision': None, 'config_sha256': '111111111...kpoint_revision': None, 'config_sha256': '1111111111111111111111111111111111111111111111111111111111111111', ...}, ...]
+cohort_manifest = {'candidate_ids': ['A32C', 'A32D', 'A32E', 'A32F', 'A32G', 'A32H', ...], 'candidate_sites': {'A32C': 32, 'A32D': 32, '...ohort_sha256': '59d0d3717a778d22ddedc40d2c2903e0c4e1a9680bdb30faad5e699684f23aa9', 'format': 'biopilot-cohort-v1', ...}
+
+    def freeze_predictions(records, cohort_manifest):
+        """Freeze complete predictions, without labels, before the evaluator is launched."""
+        cohort = _checked_cohort(cohort_manifest)
+        protocol = cohort["protocol"]
+        if not isinstance(records, (list, tuple)):
+            raise ValueError("Expected prediction records")
+        rows = []
+        seen = set()
+        for record in records:
+            if not isinstance(record, dict) or not set(record) <= ROW_FIELDS:
+>               raise ValueError("Prediction records cannot carry outcomes or unreviewed fields")
+E               ValueError: Prediction records cannot carry outcomes or unreviewed fields
+
+evaluation\prepare.py:138: ValueError
+__ test_actual_engine_artifact_projects_complete_numeric_predictions[esm150] __
+
+model_key = 'esm150'
+
+    @pytest.mark.parametrize("model_key", ["esm35", "esm150", "esm650"])
+    def test_actual_engine_artifact_projects_complete_numeric_predictions(model_key):
+        artifact, cohort = engine_artifact_fixture(model_key)
+        original = deepcopy(artifact)
+>       bundle = freeze_score_artifact(artifact, cohort)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_evaluation_cohort.py:211: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+evaluation\prepare.py:167: in freeze_score_artifact
+    return freeze_predictions(artifact["rows"], cohort_manifest)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+records = [{'candidate_id': 'A32C', 'checkpoint': 'esm2_t30_150M_UR50D', 'checkpoint_revision': None, 'config_sha256': '11111111...kpoint_revision': None, 'config_sha256': '1111111111111111111111111111111111111111111111111111111111111111', ...}, ...]
+cohort_manifest = {'candidate_ids': ['A32C', 'A32D', 'A32E', 'A32F', 'A32G', 'A32H', ...], 'candidate_sites': {'A32C': 32, 'A32D': 32, '...ohort_sha256': '978314550ccae4259e280cb63dfea904a5980b3b92702cc74b57fc271e0f0dc0', 'format': 'biopilot-cohort-v1', ...}
+
+    def freeze_predictions(records, cohort_manifest):
+        """Freeze complete predictions, without labels, before the evaluator is launched."""
+        cohort = _checked_cohort(cohort_manifest)
+        protocol = cohort["protocol"]
+        if not isinstance(records, (list, tuple)):
+            raise ValueError("Expected prediction records")
+        rows = []
+        seen = set()
+        for record in records:
+            if not isinstance(record, dict) or not set(record) <= ROW_FIELDS:
+>               raise ValueError("Prediction records cannot carry outcomes or unreviewed fields")
+E               ValueError: Prediction records cannot carry outcomes or unreviewed fields
+
+evaluation\prepare.py:138: ValueError
+__ test_actual_engine_artifact_projects_complete_numeric_predictions[esm650] __
+
+model_key = 'esm650'
+
+    @pytest.mark.parametrize("model_key", ["esm35", "esm150", "esm650"])
+    def test_actual_engine_artifact_projects_complete_numeric_predictions(model_key):
+        artifact, cohort = engine_artifact_fixture(model_key)
+        original = deepcopy(artifact)
+>       bundle = freeze_score_artifact(artifact, cohort)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_evaluation_cohort.py:211: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+evaluation\prepare.py:167: in freeze_score_artifact
+    return freeze_predictions(artifact["rows"], cohort_manifest)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+records = [{'candidate_id': 'A32C', 'checkpoint': 'esm2_t33_650M_UR50D', 'checkpoint_revision': None, 'config_sha256': '11111111...kpoint_revision': None, 'config_sha256': '1111111111111111111111111111111111111111111111111111111111111111', ...}, ...]
+cohort_manifest = {'candidate_ids': ['A32C', 'A32D', 'A32E', 'A32F', 'A32G', 'A32H', ...], 'candidate_sites': {'A32C': 32, 'A32D': 32, '...ohort_sha256': 'c52b70ded7f6be288f3ff1cd3959f8799cc6bcec8a226c8a567d326d56bac5ed', 'format': 'biopilot-cohort-v1', ...}
+
+    def freeze_predictions(records, cohort_manifest):
+        """Freeze complete predictions, without labels, before the evaluator is launched."""
+        cohort = _checked_cohort(cohort_manifest)
+        protocol = cohort["protocol"]
+        if not isinstance(records, (list, tuple)):
+            raise ValueError("Expected prediction records")
+        rows = []
+        seen = set()
+        for record in records:
+            if not isinstance(record, dict) or not set(record) <= ROW_FIELDS:
+>               raise ValueError("Prediction records cannot carry outcomes or unreviewed fields")
+E               ValueError: Prediction records cannot carry outcomes or unreviewed fields
+
+evaluation\prepare.py:138: ValueError
+__________ test_corrupt_numeric_artifact_rejected_before_projection ___________
+
+    def test_corrupt_numeric_artifact_rejected_before_projection():
+        artifact, cohort = engine_artifact_fixture()
+        artifact["rows"][0]["score"] += 1000
+        with pytest.raises(ValueError, match="hash|checksum"):
+>           freeze_score_artifact(artifact, cohort)
+
+tests_app\test_evaluation_cohort.py:226: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+evaluation\prepare.py:167: in freeze_score_artifact
+    return freeze_predictions(artifact["rows"], cohort_manifest)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+records = [{'candidate_id': 'A32C', 'checkpoint': 'esm2_t30_150M_UR50D', 'checkpoint_revision': None, 'config_sha256': '11111111...kpoint_revision': None, 'config_sha256': '1111111111111111111111111111111111111111111111111111111111111111', ...}, ...]
+cohort_manifest = {'candidate_ids': ['A32C', 'A32D', 'A32E', 'A32F', 'A32G', 'A32H', ...], 'candidate_sites': {'A32C': 32, 'A32D': 32, '...ohort_sha256': '978314550ccae4259e280cb63dfea904a5980b3b92702cc74b57fc271e0f0dc0', 'format': 'biopilot-cohort-v1', ...}
+
+    def freeze_predictions(records, cohort_manifest):
+        """Freeze complete predictions, without labels, before the evaluator is launched."""
+        cohort = _checked_cohort(cohort_manifest)
+        protocol = cohort["protocol"]
+        if not isinstance(records, (list, tuple)):
+            raise ValueError("Expected prediction records")
+        rows = []
+        seen = set()
+        for record in records:
+            if not isinstance(record, dict) or not set(record) <= ROW_FIELDS:
+>               raise ValueError("Prediction records cannot carry outcomes or unreviewed fields")
+E               ValueError: Prediction records cannot carry outcomes or unreviewed fields
+
+evaluation\prepare.py:138: ValueError
+
+During handling of the above exception, another exception occurred:
+
+    def test_corrupt_numeric_artifact_rejected_before_projection():
+        artifact, cohort = engine_artifact_fixture()
+        artifact["rows"][0]["score"] += 1000
+>       with pytest.raises(ValueError, match="hash|checksum"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'hash|checksum'
+E         Actual message: 'Prediction records cannot carry outcomes or unreviewed fields'
+
+tests_app\test_evaluation_cohort.py:225: AssertionError
+=========================== short test summary info ===========================
+FAILED tests_app/test_evaluation_cohort.py::test_actual_engine_artifact_projects_complete_numeric_predictions[esm35]
+FAILED tests_app/test_evaluation_cohort.py::test_actual_engine_artifact_projects_complete_numeric_predictions[esm150]
+FAILED tests_app/test_evaluation_cohort.py::test_actual_engine_artifact_projects_complete_numeric_predictions[esm650]
+FAILED tests_app/test_evaluation_cohort.py::test_corrupt_numeric_artifact_rejected_before_projection
+4 failed, 27 passed, 1 skipped in 0.49s
