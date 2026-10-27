@@ -1,0 +1,154 @@
+{
+  "catalog_version": "3.0",
+  "transport_envelope": false,
+  "tools": [
+    {
+      "name": "validate_target_context",
+      "description": "Validate the already registered target, exact sequence frame, supported objective and protected positions. Does not edit target or grant spending permission.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "reference_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reason_brief": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 400
+          }
+        },
+        "required": [
+          "reference_id",
+          "reason_brief"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "retrieve_atlas_evidence",
+      "description": "Retrieve evidence for an existing reference through a verified live-search route or approved imported snapshot. Never fabricate hits. The server binds ownership, source mode and budget.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "reference_id": {
+            "type": "string"
+          },
+          "max_hits": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "reason_brief": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 400
+          }
+        },
+        "required": [
+          "reference_id",
+          "max_hits",
+          "reason_brief"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "score_positions",
+      "description": "Request masked marginal scores at registered reference positions. Reuse all substitutions at a position. The verifier is optional annotation, not an automatic mixed-model rerank.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "reference_id": {
+            "type": "string"
+          },
+          "model_key": {
+            "type": "string",
+            "enum": [
+              "esm150",
+              "esm650"
+            ]
+          },
+          "positions_1based": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 512
+            },
+            "maxItems": 200,
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "reason_brief": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 400
+          }
+        },
+        "required": [
+          "reference_id",
+          "model_key",
+          "positions_1based",
+          "reason_brief"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "fetch_atlas_structure",
+      "description": "Fetch a predicted structure for an accession already verified in this run. This is a reference/homolog structure, not a new candidate prediction.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "atlas_id": {
+            "type": "string",
+            "pattern": "^MGYP[0-9]+$"
+          },
+          "reason_brief": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 400
+          }
+        },
+        "required": [
+          "atlas_id",
+          "reason_brief"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "predict_structure",
+      "description": "OPTIONAL: predict the exact registered candidate sequence, only when the server has enabled this tool and approved a structure budget. No claim of thermostability follows from this result.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "candidate_id": {
+            "type": "string"
+          },
+          "reason_brief": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 400
+          }
+        },
+        "required": [
+          "candidate_id",
+          "reason_brief"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "get_run_status",
+      "description": "Return server-owned current state, known artifacts and approved remaining limits. Never changes limits. The backend handles waiting; do not poll repeatedly.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

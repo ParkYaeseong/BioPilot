@@ -1,0 +1,20 @@
+{
+  "tool_call_id": "fixture_call_001",
+  "task_id": null,
+  "status": "blocked",
+  "source_mode": "synthetic_fixture",
+  "evidence_ids": [],
+  "artifact_ids": [],
+  "summary": "Synthetic error fixture: paid execution is disabled. No provider request was issued.",
+  "error": {
+    "code": "PAID_EXECUTION_DISABLED",
+    "message": "Explicit execution authorization is required.",
+    "retryable": false
+  },
+  "usage": {
+    "cpu_ms": 0,
+    "gpu_ms": 0,
+    "cost_usd_micros": 0
+  },
+  "timestamp": "2026-10-24T00:00:00Z"
+}

@@ -1,0 +1,10 @@
+Implement B1 in a separate preparation/evaluation environment. Audit actual raw/curated rows,
+variant mapping, missingness and assay transformations. Freeze development/held-out separation
+and use site-aware splits before reporting performance. The runtime bundle receives no labels,
+cutoffs, paper outcomes or evaluator results. If the baseline does not support T50 utility, keep
+that result and narrow the product claim. Do not expand the UI around unmeasured efficacy.
+
+Read AGENTS.md, docs/04_science_and_evaluation.md and docs/10-12. Preserve the v2 biological
+contract. Follow the v3 plan; earlier plans are superseded. No paid call, GPU allocation, upload,
+publication or submission is authorized by this prompt alone. Test the real application boundary,
+not only the offline helper. Report actual, mock, replay and unverified integrations separately.

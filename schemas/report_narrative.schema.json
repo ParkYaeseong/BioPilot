@@ -1,0 +1,109 @@
+{
+  "type": "object",
+  "properties": {
+    "run_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "completed",
+        "partial",
+        "blocked"
+      ]
+    },
+    "summary": {
+      "type": "string"
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 20
+          },
+          "classification": {
+            "type": "string",
+            "enum": [
+              "observed",
+              "predicted",
+              "hypothesis",
+              "unknown"
+            ]
+          },
+          "support_scope": {
+            "type": "string",
+            "enum": [
+              "reference_structure",
+              "sequence_model_score",
+              "assay_metadata",
+              "workflow_event",
+              "hypothesis",
+              "unknown"
+            ]
+          }
+        },
+        "required": [
+          "text",
+          "evidence_ids",
+          "classification",
+          "support_scope"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 20
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 20
+    },
+    "next_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 10
+    },
+    "objective_profile_id": {
+      "type": "string",
+      "enum": [
+        "sequence_plausibility_review",
+        "lipase_T50_hypothesis_review"
+      ]
+    },
+    "ranking_scope": {
+      "type": "string",
+      "enum": [
+        "sequence_model_preference_only",
+        "unavailable"
+      ]
+    },
+    "biological_efficacy_established": {
+      "type": "boolean",
+      "const": false
+    }
+  },
+  "required": [
+    "run_id",
+    "status",
+    "summary",
+    "claims",
+    "limitations",
+    "next_actions",
+    "objective_profile_id",
+    "ranking_scope",
+    "biological_efficacy_established"
+  ],
+  "additionalProperties": false
+}

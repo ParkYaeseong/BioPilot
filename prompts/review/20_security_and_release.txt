@@ -1,0 +1,25 @@
+Review BioPilot Atlas for security, spend and release readiness using actual files and sanitized logs. Start read-only. Check secret handling, frontend bundles, arbitrary URL/shell surfaces, prompt injection, run ownership, untrusted structure parsing, artifact downloads, HTML/CSV injection, disabled paid mode, transactional reservations, cancellation and timeout reconciliation.
+
+Confirm that coding-agent permissions do not leak into product tools, labels are inaccessible to the app, and public demo mode cannot start billed jobs. Check source licenses/attribution, institutional-code boundaries and missing event-rule permissions. Standard API mode is not proof of zero retention.
+
+For every finding provide severity, evidence, plausible impact, minimal fix and test. Distinguish an estimated app budget from a provider-enforced spend cap. Do not deploy, publish, change accounts, rotate keys or submit the entry. Produce a release checklist that says VERIFIED, NOT TESTED or BLOCKED for each item.
+
+
+V2 BIOLOGICAL CONTRACT (authoritative)
+Read docs/04_science_and_evaluation.md, docs/10_biology_corrections.md,
+docs/11_target_registration.md and docs/12_biological_readiness.md.
+The baseline is an uncalibrated ESM sequence preference, not a T50/activity predictor.
+Only sequence_plausibility_review and lipase_T50_hypothesis_review are supported.
+Use full-reference 1-based coordinates and full_212 scoring context. Verified sequence
+correspondence is not verified PDB atom numbering. Protect full S108/D164/H187 for the
+registered interactive target, but do not claim preserved function.
+T50 refers to the registered assay endpoint, not Tm. A median-bin label is not WT improvement.
+No coordinate-derived statement is allowed with null/unverified coordinates. No partial
+checkpoint/context mixing. Reconcile raw/curated cohorts and preserve missing predictions.
+Meta and Biohub Atlas providers are distinct. Atlas/structure evidence does not automatically
+change the baseline rank. Identical fixed ranks cannot establish agent-driven biological gain.
+Run B0 before general implementation and B1 development-only baseline evaluation before UI
+expansion. Do not expose evaluator files or paper outcome tables to the prediction agent.
+Provider settings inherited from v1 require current documentation/account verification.
+Package guards are reference helpers, not an already wired application. No paid/cloud/public
+operation is authorized merely by these instructions. Report real, mock and unverified work separately.

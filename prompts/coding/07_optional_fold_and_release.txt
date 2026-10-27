@@ -1,0 +1,10 @@
+Prepare S1 only after P0 works. Optional folding/open-weight routing is P1 and requires separate
+permission; do not add it merely to chase a bonus prize. Check all application tests, live trace
+evidence, source terms and the originality ledger. Prepare a true 180-second demo, plain English
+narration/captions and reproducible setup. Replace result placeholders only with measured outputs.
+Validate actual video and link access. Do not upload, publish or submit automatically.
+
+Read AGENTS.md, docs/04_science_and_evaluation.md and docs/10-12. Preserve the v2 biological
+contract. Follow the v3 plan; earlier plans are superseded. No paid call, GPU allocation, upload,
+publication or submission is authorized by this prompt alone. Test the real application boundary,
+not only the offline helper. Report actual, mock, replay and unverified integrations separately.

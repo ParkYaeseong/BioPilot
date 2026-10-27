@@ -1,0 +1,400 @@
+{
+  "version": "2.0",
+  "date": "2026-10-26",
+  "original_archive": "BioPilot_Atlas_Design_Prompt_Pack_20261024.zip",
+  "original_archive_sha256": "63a819afbe01dff32a7df5b56e725fcfe94421802eec50c2db3efc3118627f7b",
+  "scope": "Design, prompts, metadata and offline guards. Manifest/check receipts and this index are regenerated release metadata.",
+  "removed_original_paths": [],
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "status": "revised",
+      "prior_sha256": "8070b192d51f8235bc6f90212e7faa662a0992e0d50f65cccba69af06eeb9e45"
+    },
+    {
+      "path": "BIOPILOT_ATLAS_KO.md",
+      "status": "revised",
+      "prior_sha256": "870f1fa97fe28de768108c9709da52b4acc62bb8672d8e47bf069e5b3f2ae2a1"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "status": "added",
+      "prior_sha256": null
+    },
+    {
+      "path": "OPEN_ISSUES.md",
+      "status": "added",
+      "prior_sha256": null
+    },
+    {
+      "path": "README.md",
+      "status": "revised",
+      "prior_sha256": "90f7cf7854efe2e021ec73758c3e2414f5e33d5a752ed180be7e0d0d00be83f7"
+    },
+    {
+      "path": "SOURCES.md",
+      "status": "revised",
+      "prior_sha256": "90bed3fa85e20f55ce66d6aaf3250fe05de4d663c9fcfce74f2215cb632d04d8"
+    },
+    {
+      "path": "START_HERE_KO.md",
+      "status": "added",
+      "prior_sha256": null
+    },
+    {
+      "path": "VALIDATION.md",
+      "status": "revised",
+      "prior_sha256": "af556578149439469c7851c76ade781829dcf1e4613162ede8c5cf649934281f"
+    },
+    {
+      "path": "checks/science_contracts.py",
+      "status": "added",
+      "prior_sha256": null
+    },
+    {
+      "path": "checks/validate_package.py",
+      "status": "added",
+      "prior_sha256": null
+    },
+    {
+      "path": "config/development.yaml",
+      "status": "revised",
+      "prior_sha256": "594d58908ac071ee942eebe162a99e775302b400d36a9b6d93835064c90e6552"
+    },
+    {
+      "path": "diagrams/architecture.mmd",
+      "status": "revised",
+      "prior_sha256": "79aeaf4808db5a9a5b2b42ddacee376c22c82ea9fdee6cd371908d3dfcfc44c8"
+    },
+    {
+      "path": "diagrams/run_states.mmd",
+      "status": "unchanged",
+      "prior_sha256": "956331b74ce00b30ce168d094997f7b073ed84114ffc43d07a7cb147cae9278d"
+    },
+    {
+      "path": "docs/01_product_spec.md",
+      "status": "revised",
+      "prior_sha256": "85e1f61ebeb2af72e98d5c84be5953f9aff6c6a43f80821d6e2317c1415d376f"
+    },
+    {
+      "path": "docs/02_system_design.md",
+      "status": "revised",
+      "prior_sha256": "59897bb9e1537386b91b68373f2d16e1dc6280a63db096d3875003e98f955545"
+    },
+    {
+      "path": "docs/03_meta_integration.md",
+      "status": "revised",
+      "prior_sha256": "472cc35ff99c22cdc9ea118b1c5b3881d7b1b11ceca0cb534465abd7bf3d02a6"
+    },
+    {
+      "path": "docs/04_science_and_evaluation.md",
+      "status": "revised",
+      "prior_sha256": "7a9afad0aeb17e1db9fa078f7e67b90f34fa186da8e55b5d36578223001feb5a"
+    },
+    {
+      "path": "docs/05_security_and_budget.md",
+      "status": "revised",
+      "prior_sha256": "f9590a762c416a4297914d1abb698367ebab7f6756709ff9614217eb6da54dff"
+    },
+    {
+      "path": "docs/06_ui_and_demo.md",
+      "status": "revised",
+      "prior_sha256": "584f30694e46e1c9aee12719b49824a45e04742908218e5b336a5a6faa3ca818"
+    },
+    {
+      "path": "docs/07_decisions_and_risks.md",
+      "status": "revised",
+      "prior_sha256": "ca76246641ec0afcc9a616f205b8b2b7d8e93b7f55db5d63b01f97365c780ea3"
+    },
+    {
+      "path": "docs/08_review_checklist.md",
+      "status": "revised",
+      "prior_sha256": "e1b6f88602adc00f2f349fa6c646ffd96498d4d0c6630714050d021d67b28f3c"
+    },
+    {
+      "path": "docs/09_contracts_and_template_usage.md",
+      "status": "revised",
+      "prior_sha256": "ae541026c85f361c5e5de10dbc908936cbab0d26327c00b9e9c9e90993cb1162"
+    },
+    {
+      "path": "docs/10_biology_corrections.md",
+      "status": "added",
+      "prior_sha256": null
+    },
+    {
+      "path": "docs/11_target_registration.md",
+      "status": "added",
+      "prior_sha256": null
+    },
+    {
+      "path": "docs/12_biological_readiness.md",
+      "status": "added",
+      "prior_sha256": null
+    },
+    {
+      "path": "docs/13_WORK_handoff.md",
+      "status": "added",
+      "prior_sha256": null
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-24-biopilot-atlas.md",
+      "status": "revised",
+      "prior_sha256": "1c3b820d5e65e2cf55bdbf4df67a0a8716497ea5aa7f9fca6df6e49d29c86542"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-26-biopilot-atlas-v2.md",
+      "status": "added",
+      "prior_sha256": null
+    },
+    {
+      "path": "evaluation_private/assay_protocol.json",
+      "status": "added",
+      "prior_sha256": null
+    },
+    {
+      "path": "evaluation_private/dataset_reconciliation.json",
+      "status": "added",
+      "prior_sha256": null
+    },
+    {
+      "path": "examples/lipase_assay_metadata.json",
+      "status": "revised",
+      "prior_sha256": "f7b76bd24a4f2a494b36963be33bce9b76016f1d443fcddb0da6e1d70a783bc6"
+    },
+    {
+      "path": "examples/lipase_run_input.json",
+      "status": "added",
+      "prior_sha256": null
+    },
+    {
+      "path": "examples/meta_execute_request.json",
+      "status": "revised",
+      "prior_sha256": "5455d0acad61f0ce3cc73a3182e5a593eb1256e00e9831ca50799b635dbad107"
+    },
+    {
+      "path": "examples/meta_plan_request.json",
+      "status": "revised",
+      "prior_sha256": "f59d6aa13b9aa2c2144b61ce413b5b5e45ddeebde47b53df9c3c56b3d77c6e97"
+    },
+    {
+      "path": "examples/meta_report_request.json",
+      "status": "revised",
+      "prior_sha256": "72478634b23d94bf1d65f00ea7b92ab411e450f42204d1e4a44496086373f33e"
+    },
+    {
+      "path": "examples/plan_response.json",
+      "status": "revised",
+      "prior_sha256": "4ba4bb95b309c0a02105db54e67a07104cfffd7d86496cd4c86caa9a68d495c3"
+    },
+    {
+      "path": "examples/report_narrative.json",
+      "status": "revised",
+      "prior_sha256": "db30828d23b3548034211f4c07023687b90fa497b4545053852e15f905475689"
+    },
+    {
+      "path": "examples/run_input.json",
+      "status": "revised",
+      "prior_sha256": "043d143964b183fb1fafa1772f9862caf355d3fe7aeea737c1013c978c50dbcd"
+    },
+    {
+      "path": "examples/tool_result_blocked.json",
+      "status": "unchanged",
+      "prior_sha256": "2cb251d8a18015b82fee04f30cc32e17d95d8b80648a5766f1cb5a80c1fb6413"
+    },
+    {
+      "path": "prompts/coding/00_bootstrap.txt",
+      "status": "revised",
+      "prior_sha256": "3bea940fae30a805d42c0bf8fc7dd12008b100e3f1a3ef63a2977d71aeb22fb3"
+    },
+    {
+      "path": "prompts/coding/00_bootstrap_ko.txt",
+      "status": "revised",
+      "prior_sha256": "89eff53064bb1d2d4d1e1012db9ac41b84de24a440ad062849941adb3f047aac"
+    },
+    {
+      "path": "prompts/coding/00a_biological_registration.txt",
+      "status": "added",
+      "prior_sha256": null
+    },
+    {
+      "path": "prompts/coding/01_contracts_and_budget.txt",
+      "status": "revised",
+      "prior_sha256": "fc63cbfed2795f2c2d5ed73f42c86817533534855121a5f305b87e7461285167"
+    },
+    {
+      "path": "prompts/coding/02_esm_scoring.txt",
+      "status": "revised",
+      "prior_sha256": "73809162ef9bd03128e50ee19f172aaced365cf23eb55cc44a33b5db06f74da2"
+    },
+    {
+      "path": "prompts/coding/02b_biological_baseline_gate.txt",
+      "status": "added",
+      "prior_sha256": null
+    },
+    {
+      "path": "prompts/coding/03_atlas_evidence.txt",
+      "status": "revised",
+      "prior_sha256": "5a68b0fc312ae62f52e11a1ff404c760f9bd2d13e03b10b0cd30f1fc44704418"
+    },
+    {
+      "path": "prompts/coding/04_meta_agent.txt",
+      "status": "revised",
+      "prior_sha256": "1a857065f1fbe27192ae3cce2ae529bb28f0400e3a890880add6c663c8542c40"
+    },
+    {
+      "path": "prompts/coding/05_workbench_ui.txt",
+      "status": "revised",
+      "prior_sha256": "260504236ad8a45ba9b816e2b9258daa8158ceee352c9153dbf184d93d887e18"
+    },
+    {
+      "path": "prompts/coding/06_frozen_evaluation.txt",
+      "status": "revised",
+      "prior_sha256": "450c21018b81bf8c270d0bd5bea2cfa48263d969172dca079855b74487645283"
+    },
+    {
+      "path": "prompts/coding/07_optional_fold_and_release.txt",
+      "status": "revised",
+      "prior_sha256": "bfb1fe1854fc159b4b79062949e7a548ef0462e568fa6631015d7df59a373758"
+    },
+    {
+      "path": "prompts/coding/08_resume.txt",
+      "status": "revised",
+      "prior_sha256": "1376be9a33760cf25f8fb452184cfaf22bdb89c8e8b75806de3721e00384baa3"
+    },
+    {
+      "path": "prompts/coding/09_debug.txt",
+      "status": "revised",
+      "prior_sha256": "400c31badd39486dbd6254da58efdccd879dd90f6aeaf5581916acdbddcbc19d"
+    },
+    {
+      "path": "prompts/demo/10_judge_pitch.txt",
+      "status": "revised",
+      "prior_sha256": "3ca6fe039f68cd8cea7c934d14faacf8a7d1fbccd3748055a1b1fca0fd852b74"
+    },
+    {
+      "path": "prompts/review/10_scientific_integrity.txt",
+      "status": "revised",
+      "prior_sha256": "04bc61d66ad0f63f30f35f7d4575cf176bd27041d27836e454dbb5006aa85b48"
+    },
+    {
+      "path": "prompts/review/20_security_and_release.txt",
+      "status": "revised",
+      "prior_sha256": "a3aa8d9c1fc75c72d338ec1304b1b5ee92b1a8497f04e752eec707f5fbb325ca"
+    },
+    {
+      "path": "prompts/runtime/00_developer.txt",
+      "status": "revised",
+      "prior_sha256": "d513845aab96b2d4dc390b615e35bbf96fde8d96c243aa83a3b4177ee5ae44c1"
+    },
+    {
+      "path": "prompts/runtime/10_plan_user.txt",
+      "status": "revised",
+      "prior_sha256": "57d0960ee2fb8d405ca486cc07f023530a93cfed029dbe83484c0f1a5cb2a64d"
+    },
+    {
+      "path": "prompts/runtime/20_next_step_user.txt",
+      "status": "revised",
+      "prior_sha256": "76b42347a18a92f6e9db8515a5746ebe4902b59b70341f8a6ab38fcae6fe3cd2"
+    },
+    {
+      "path": "prompts/runtime/30_report_user.txt",
+      "status": "revised",
+      "prior_sha256": "92c37a3e198989bbada3bf043feaba450cce56dde70b0b4af026bc2480851a84"
+    },
+    {
+      "path": "reference/1ISP_A_deposited_181.fasta",
+      "status": "added",
+      "prior_sha256": null
+    },
+    {
+      "path": "reference/lipase_full_212.fasta",
+      "status": "added",
+      "prior_sha256": null
+    },
+    {
+      "path": "reference/residue_map.json",
+      "status": "added",
+      "prior_sha256": null
+    },
+    {
+      "path": "reference/source_snapshot.json",
+      "status": "added",
+      "prior_sha256": null
+    },
+    {
+      "path": "reference/target_profile.json",
+      "status": "added",
+      "prior_sha256": null
+    },
+    {
+      "path": "requirements-checks.txt",
+      "status": "added",
+      "prior_sha256": null
+    },
+    {
+      "path": "schemas/evidence.schema.json",
+      "status": "revised",
+      "prior_sha256": "551e5a8320dae2f56660d7422f59fd71af97c502427dbf0466e4fffcf3c4eb89"
+    },
+    {
+      "path": "schemas/plan.schema.json",
+      "status": "revised",
+      "prior_sha256": "65fb810807922a9d1840e22047b6792203edd48afa3181b260a134e8fd921455"
+    },
+    {
+      "path": "schemas/report_narrative.schema.json",
+      "status": "revised",
+      "prior_sha256": "26462cc1faf410c2a2f5506b5f5ddcf5502b04da8bfcf6c6fc74a476ee85fd95"
+    },
+    {
+      "path": "schemas/run_input.schema.json",
+      "status": "revised",
+      "prior_sha256": "a1394da4273d2a59d23851ce9d6c04a54799088df7acbd0eb43c7128031ecf6c"
+    },
+    {
+      "path": "schemas/tool_result.schema.json",
+      "status": "unchanged",
+      "prior_sha256": "5efcbe0a296b8f9f4535f5139785058c85f4088bd42a73ca71de4bb3d6d7a81d"
+    },
+    {
+      "path": "schemas/tools.chat_completions.json",
+      "status": "unchanged",
+      "prior_sha256": "5c46a77e1fd3a6824e3ae113b0105d1c1d4ccae615d51ef8ff5e8993c918a1c0"
+    },
+    {
+      "path": "sources.json",
+      "status": "revised",
+      "prior_sha256": "3ae34f1dd98c206de3d78e0ae061d6d20f5d9240402cc78950d1807a78a41b36"
+    },
+    {
+      "path": "templates/.env.example",
+      "status": "revised",
+      "prior_sha256": "ba044ee8c44482d005ba36c12b3af31605d22e9344d7eeb94f8c51801e669eaa"
+    },
+    {
+      "path": "tests/test_science_contracts.py",
+      "status": "added",
+      "prior_sha256": null
+    },
+    {
+      "path": "validation/REVISION_PLAN.md",
+      "status": "added",
+      "prior_sha256": null
+    },
+    {
+      "path": "validation/revision_coverage.json",
+      "status": "added",
+      "prior_sha256": null
+    },
+    {
+      "path": "validation/science_tests.txt",
+      "status": "added",
+      "prior_sha256": null
+    },
+    {
+      "path": "validation/tdd_initial_red.txt",
+      "status": "added",
+      "prior_sha256": null
+    }
+  ]
+}

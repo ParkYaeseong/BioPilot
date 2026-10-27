@@ -1,0 +1,10 @@
+Implement C2 only. Keep the registered ESM masked-marginal definition and full_212 context.
+First test BOS/mask offsets, WT checks, protected positions, common checkpoint/context and cache
+identity. Reuse the position distribution for substitutions at that same position. A later 650M
+annotation cannot overwrite selected 150M values in the common ranking. Perform a tiny actual
+checkpoint run only after explicit permission; label fixtures and report inference status honestly.
+
+Read AGENTS.md, docs/04_science_and_evaluation.md and docs/10-12. Preserve the v2 biological
+contract. Follow the v3 plan; earlier plans are superseded. No paid call, GPU allocation, upload,
+publication or submission is authorized by this prompt alone. Test the real application boundary,
+not only the offline helper. Report actual, mock, replay and unverified integrations separately.

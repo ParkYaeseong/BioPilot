@@ -1,0 +1,10 @@
+Implement B0 only. Verify the supplied full/mature sequence mapping and registered goal
+capability. Integrate protected-site and reference-residue checks at the actual core boundary.
+Unknown PDB atom correspondence stays unknown. Write failing tests for mismatched frames, incorrect
+WT residues, protected substitutions and unsupported goals. Do not infer a T50 predictor from a goal.
+Outcome-bearing assay preparation stays in a separate evaluator environment.
+
+Read AGENTS.md, docs/04_science_and_evaluation.md and docs/10-12. Preserve the v2 biological
+contract. Follow the v3 plan; earlier plans are superseded. No paid call, GPU allocation, upload,
+publication or submission is authorized by this prompt alone. Test the real application boundary,
+not only the offline helper. Report actual, mock, replay and unverified integrations separately.

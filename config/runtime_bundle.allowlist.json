@@ -1,0 +1,25 @@
+{
+  "status": "design_allowlist_not_a_built_bundle",
+  "content_review_required": true,
+  "symlink_resolution_required": true,
+  "sources": [
+    "reference/target_profile.json",
+    "reference/residue_map.json",
+    "reference/lipase_full_212.fasta",
+    "reference/1ISP_A_deposited_181.fasta",
+    "prompts/runtime/00_developer.txt",
+    "prompts/runtime/10_plan_user.txt",
+    "prompts/runtime/20_next_step_user.txt",
+    "prompts/runtime/30_report_user.txt"
+  ],
+  "excluded_roots": [
+    "evaluation_private",
+    "tests",
+    "validation",
+    "docs",
+    "submission",
+    "demo",
+    "compliance"
+  ],
+  "notes": "Do not mount the package root. Whitelist membership alone does not verify file content. Runtime server code and approved model weights are separately provisioned without labels."
+}

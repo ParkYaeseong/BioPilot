@@ -1,0 +1,27 @@
+Review this BioPilot Atlas implementation and its actual result artifacts as a skeptical scientific reviewer. Do not change code initially. Check the fixed science protocol and freeze manifest before interpreting any metric.
+
+Prioritize: experimental-label leakage; reference/mutation/structure offsets; masked versus WT scoring confusion; incorrect tokenizer residue mapping; stale checkpoint caches; partial-model score mixing; pLDDT or Atlas similarity mislabeled as thermostability; a nonrandom favorable cohort; omitted failures; warm-cache costs presented as fresh; unpublished or institutional content in the demo.
+
+Check that metrics use a common cohort and exact definitions, that splitting groups substitutions by residue position, and that reported raw units match the actual assay transformation. Confirm that an agent with the same deterministic rank is not falsely credited with ranking gains. Public benchmark pretraining contamination cannot be ruled out by filesystem isolation alone.
+
+Return prioritized findings with file/line or artifact references, affected claims, a minimal repair and a reproducible test. Separate blockers from suggestions. Say what was not verified. Do not invent results or tune against held-out labels.
+
+
+V2 BIOLOGICAL CONTRACT (authoritative)
+Read docs/04_science_and_evaluation.md, docs/10_biology_corrections.md,
+docs/11_target_registration.md and docs/12_biological_readiness.md.
+The baseline is an uncalibrated ESM sequence preference, not a T50/activity predictor.
+Only sequence_plausibility_review and lipase_T50_hypothesis_review are supported.
+Use full-reference 1-based coordinates and full_212 scoring context. Verified sequence
+correspondence is not verified PDB atom numbering. Protect full S108/D164/H187 for the
+registered interactive target, but do not claim preserved function.
+T50 refers to the registered assay endpoint, not Tm. A median-bin label is not WT improvement.
+No coordinate-derived statement is allowed with null/unverified coordinates. No partial
+checkpoint/context mixing. Reconcile raw/curated cohorts and preserve missing predictions.
+Meta and Biohub Atlas providers are distinct. Atlas/structure evidence does not automatically
+change the baseline rank. Identical fixed ranks cannot establish agent-driven biological gain.
+Run B0 before general implementation and B1 development-only baseline evaluation before UI
+expansion. Do not expose evaluator files or paper outcome tables to the prediction agent.
+Provider settings inherited from v1 require current documentation/account verification.
+Package guards are reference helpers, not an already wired application. No paid/cloud/public
+operation is authorized merely by these instructions. Report real, mock and unverified work separately.

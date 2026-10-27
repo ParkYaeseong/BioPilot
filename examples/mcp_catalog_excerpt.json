@@ -1,0 +1,38 @@
+{
+  "status": "synthetic_protocol_fixture_not_live_response",
+  "tools": [
+    {
+      "name": "validate_target_context",
+      "description": "Validate the already registered target, exact sequence frame, supported objective and protected positions. Does not edit target or grant spending permission.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "reference_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reason_brief": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 400
+          }
+        },
+        "required": [
+          "reference_id",
+          "reason_brief"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "get_run_status",
+      "description": "Return server-owned current state, known artifacts and approved remaining limits. Never changes limits. The backend handles waiting; do not poll repeatedly.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

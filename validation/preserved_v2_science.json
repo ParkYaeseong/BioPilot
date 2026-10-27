@@ -1,0 +1,61 @@
+{
+  "scope": "Byte equality with original v2 archive; not a fresh biological validation",
+  "all_identical": true,
+  "files": [
+    {
+      "path": "checks/science_contracts.py",
+      "unchanged": true,
+      "sha256": "6c8f11f9391f3afc6aed089ebf8a7406fea4374866831f207a3db16795dde4a9"
+    },
+    {
+      "path": "tests/test_science_contracts.py",
+      "unchanged": true,
+      "sha256": "23d8d702623307e647ccc6967325070f42b1ef707a2f668277e53999530fee10"
+    },
+    {
+      "path": "docs/10_biology_corrections.md",
+      "unchanged": true,
+      "sha256": "850b197c66bd7ca965054f067ecbc85e429f2b5f54f1f6e46b2b9a14376c9f54"
+    },
+    {
+      "path": "docs/11_target_registration.md",
+      "unchanged": true,
+      "sha256": "89f80525504707cdd783b54bb4ad72365ff6098edbcb1cc7564dbe857ef44e5d"
+    },
+    {
+      "path": "reference/1ISP_A_deposited_181.fasta",
+      "unchanged": true,
+      "sha256": "fe38a44e4ac2956adb602b67e5fcfcb0e6a63e8a9b982319cba80ad4039978e2"
+    },
+    {
+      "path": "reference/lipase_full_212.fasta",
+      "unchanged": true,
+      "sha256": "4e2e245c83cd98fdc7c31e1a35890715c5cf120f722e31720640acb5e5d73068"
+    },
+    {
+      "path": "reference/residue_map.json",
+      "unchanged": true,
+      "sha256": "e7260d1c29807ea6adf68cff70dc235408533446ad328f608d45dedb5e5011fb"
+    },
+    {
+      "path": "reference/source_snapshot.json",
+      "unchanged": true,
+      "sha256": "16977b705c70cffa84e04f6413a70c624b5d4d077135a655cdbaf6a3c3d9cbe8"
+    },
+    {
+      "path": "reference/target_profile.json",
+      "unchanged": true,
+      "sha256": "f4aa73a3dab1cb5317017bf074432f96b5f1d4ecb4e2b32e5c5a9188fae29c22"
+    },
+    {
+      "path": "evaluation_private/assay_protocol.json",
+      "unchanged": true,
+      "sha256": "289c5fe319a12148bb0569bf06a801fdfa23ceed3e2f9d445ffca0def30fcc22"
+    },
+    {
+      "path": "evaluation_private/dataset_reconciliation.json",
+      "unchanged": true,
+      "sha256": "e5b5f378ab90b15bec07c884d6460ea908a5bf450cfaccc05206e95df6b5513b"
+    }
+  ]
+}

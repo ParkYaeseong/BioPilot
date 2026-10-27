@@ -1,0 +1,16 @@
+{
+  "retrieval_date": "2026-10-26",
+  "capture_method": "manual_transcription_of_web_tool_text_not_raw_source_download",
+  "reference_sequence_source": "https://raw.githubusercontent.com/OATML-Markslab/ProteinGym/main/reference_files/DMS_substitutions.csv",
+  "deposited_sequence_source": "https://www.rcsb.org/fasta/entry/1ISP/display",
+  "structure_metadata_source": "https://www.rcsb.org/structure/1ISP",
+  "assay_source": "https://doi.org/10.1021/acs.jcim.9b00954",
+  "upstream_commit": null,
+  "upstream_raw_bytes_sha256": null,
+  "limits": [
+    "Container network could not download original source bytes.",
+    "PDF text was readable; PDF screenshot tool failed.",
+    "No coordinate file or assay measurements are bundled.",
+    "Local SHA256 identifies bundled sequence content, not an upstream source-file revision."
+  ]
+}

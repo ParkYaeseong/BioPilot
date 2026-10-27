@@ -1,0 +1,10 @@
+Resume without redoing completed work. Inspect actual git diff, docs/STATUS.md, the v3 plan,
+permission records, reservations and provider job IDs. Reconcile pending work before retrying.
+Use one host and the existing core; do not rebuild a Next.js app or add unnecessary tools. Continue
+the smallest authorized task. Keep tests, real integrations, replay artifacts and unresolved rules
+distinct. Preserve user changes and scientific policies.
+
+Read AGENTS.md, docs/04_science_and_evaluation.md and docs/10-12. Preserve the v2 biological
+contract. Follow the v3 plan; earlier plans are superseded. No paid call, GPU allocation, upload,
+publication or submission is authorized by this prompt alone. Test the real application boundary,
+not only the offline helper. Report actual, mock, replay and unverified integrations separately.

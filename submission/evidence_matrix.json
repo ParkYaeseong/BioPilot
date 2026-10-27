@@ -1,0 +1,34 @@
+{
+  "status": "targets_not_results",
+  "rows": [
+    {
+      "criterion": "impact",
+      "weight": 0.3,
+      "required_evidence": "Defined research task and measured workflow comparison",
+      "artifact": null,
+      "verified": false
+    },
+    {
+      "criterion": "meta_tooling",
+      "weight": 0.25,
+      "required_evidence": "Actual Meta-driven MCP decisions and scientific tool outputs",
+      "artifact": null,
+      "verified": false
+    },
+    {
+      "criterion": "technical_execution",
+      "weight": 0.2,
+      "required_evidence": "Application-level guards, real integration, persistence and reproducibility",
+      "artifact": null,
+      "verified": false
+    },
+    {
+      "criterion": "demo",
+      "weight": 0.25,
+      "required_evidence": "Actual working three-minute video and accessible project materials",
+      "artifact": null,
+      "verified": false
+    }
+  ],
+  "package_tests_are_not_live_application_evidence": true
+}

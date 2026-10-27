@@ -1,0 +1,7 @@
+# Verified installed versions for the first local implementation.
+pytest==9.0.1
+jsonschema==4.25.1
+PyYAML==6.0.3
+mcp==1.25.0
+python-dotenv==1.2.1
+httpx==0.28.1

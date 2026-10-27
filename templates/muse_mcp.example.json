@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "biopilot": {
+      "command": "__ABSOLUTE_PATH_TO_VERIFIED_RUNTIME_PYTHON__",
+      "args": [
+        "-m",
+        "biopilot.mcp_server"
+      ],
+      "env": {
+        "BIOPILOT_RUNTIME_BUNDLE": "__ABSOLUTE_PATH_TO_REVIEWED_RUNTIME_BUNDLE__",
+        "BIOPILOT_SESSION_CONFIG": "__ABSOLUTE_PATH_TO_TRUSTED_SESSION_CONFIG__"
+      }
+    }
+  }
+}

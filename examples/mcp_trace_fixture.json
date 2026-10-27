@@ -1,0 +1,30 @@
+{
+  "source_mode": "synthetic_fixture",
+  "actual_meta_call": false,
+  "actual_esm_call": false,
+  "events": [
+    {
+      "actor": "meta_model",
+      "type": "tool_requested",
+      "tool": "get_run_status",
+      "tool_call_id": "fixture_call_1",
+      "arguments": {}
+    },
+    {
+      "actor": "mcp_server",
+      "type": "tool_completed",
+      "tool": "get_run_status",
+      "tool_call_id": "fixture_call_1",
+      "status": "success",
+      "artifact_ids": []
+    },
+    {
+      "actor": "policy",
+      "type": "tool_blocked",
+      "tool": "predict_structure",
+      "reason": "disabled_feature",
+      "artifact_ids": []
+    }
+  ],
+  "warning": "Interface fixture only; must not be used as scientific or Meta integration evidence."
+}

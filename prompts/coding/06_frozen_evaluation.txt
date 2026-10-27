@@ -1,0 +1,11 @@
+Implement E1. Keep biological evaluation and workflow evaluation separate. Compare a strong fixed
+workflow and an operator workflow with Meta using identical candidate sets, guards, cache state and
+resource ceilings. Retain failures and missing outputs. Freeze methods before held-out outcomes.
+A common deterministic rank may produce identical biological recommendations; report that honestly.
+Measure task completion, intervention, evidence coverage, time and cost with actual denominators.
+Never expose evaluator results to the prediction agent as a tool or future context.
+
+Read AGENTS.md, docs/04_science_and_evaluation.md and docs/10-12. Preserve the v2 biological
+contract. Follow the v3 plan; earlier plans are superseded. No paid call, GPU allocation, upload,
+publication or submission is authorized by this prompt alone. Test the real application boundary,
+not only the offline helper. Report actual, mock, replay and unverified integrations separately.

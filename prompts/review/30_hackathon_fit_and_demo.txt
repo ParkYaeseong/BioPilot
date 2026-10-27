@@ -1,0 +1,8 @@
+Review the actual implementation against docs/14-18 and the captured rubric: Impact 30%, Meta tooling
+25%, Technical execution 20%, Demo 25%. Separate rule text, interpretation and unverified questions.
+Check that the chosen theme is supported by a real scientific workflow, not an unsupported breakthrough.
+Inspect actual Meta/MCP/ESM traces, the workflow comparison, candidate provenance and the demo video.
+Do not equate a complete script, unit tests or this package with a functioning submission.
+Check no outcome data reaches the agent, no earlier code is presented as new event work, no fixture
+is displayed as a real result, and no irrelevant model was added solely for a bonus. Report blocking
+issues with exact evidence. Do not invent scores, submit the project or contact organizers.

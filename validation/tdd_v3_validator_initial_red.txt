@@ -1,0 +1,55 @@
+test_catalog_schema_drift_is_detected (test_package_validator_v3.PackageValidatorV3Tests.test_catalog_schema_drift_is_detected) ... FAIL
+test_current_v3_package_is_accepted (test_package_validator_v3.PackageValidatorV3Tests.test_current_v3_package_is_accepted) ... FAIL
+test_overlong_recording_plan_is_detected (test_package_validator_v3.PackageValidatorV3Tests.test_overlong_recording_plan_is_detected) ... FAIL
+test_runtime_allowlist_cannot_expose_evaluator (test_package_validator_v3.PackageValidatorV3Tests.test_runtime_allowlist_cannot_expose_evaluator) ... FAIL
+test_wrong_rubric_is_detected (test_package_validator_v3.PackageValidatorV3Tests.test_wrong_rubric_is_detected) ... FAIL
+
+======================================================================
+FAIL: test_catalog_schema_drift_is_detected (test_package_validator_v3.PackageValidatorV3Tests.test_catalog_schema_drift_is_detected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_package_validator_v3.py", line 34, in test_catalog_schema_drift_is_detected
+    self.assertIn('MCP/native catalog parity',report['failures'])
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'MCP/native catalog parity' not found in ['twenty prompt files']
+
+======================================================================
+FAIL: test_current_v3_package_is_accepted (test_package_validator_v3.PackageValidatorV3Tests.test_current_v3_package_is_accepted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_package_validator_v3.py", line 24, in test_current_v3_package_is_accepted
+    self.assertEqual(code,0,report['failures'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : ['twenty prompt files']
+
+======================================================================
+FAIL: test_overlong_recording_plan_is_detected (test_package_validator_v3.PackageValidatorV3Tests.test_overlong_recording_plan_is_detected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_package_validator_v3.py", line 62, in test_overlong_recording_plan_is_detected
+    self.assertIn('recording plan within 180 seconds',report['failures'])
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'recording plan within 180 seconds' not found in ['twenty prompt files']
+
+======================================================================
+FAIL: test_runtime_allowlist_cannot_expose_evaluator (test_package_validator_v3.PackageValidatorV3Tests.test_runtime_allowlist_cannot_expose_evaluator)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_package_validator_v3.py", line 53, in test_runtime_allowlist_cannot_expose_evaluator
+    self.assertIn('runtime source allowlist guarded',report['failures'])
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'runtime source allowlist guarded' not found in ['twenty prompt files']
+
+======================================================================
+FAIL: test_wrong_rubric_is_detected (test_package_validator_v3.PackageValidatorV3Tests.test_wrong_rubric_is_detected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_package_validator_v3.py", line 44, in test_wrong_rubric_is_detected
+    self.assertIn('captured rubric weights match contract',report['failures'])
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'captured rubric weights match contract' not found in ['twenty prompt files']
+
+----------------------------------------------------------------------
+Ran 5 tests in 10.504s
+
+FAILED (failures=5)

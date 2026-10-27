@@ -1,0 +1,15 @@
+{
+  "run_id": "fixture_run_001",
+  "status": "blocked",
+  "summary": "This is a synthetic narrative contract fixture, not a scientific report.",
+  "claims": [],
+  "limitations": [
+    "No live Meta, Atlas or GPU computation was performed."
+  ],
+  "next_actions": [
+    "Confirm rules and permissions before any live test."
+  ],
+  "objective_profile_id": "sequence_plausibility_review",
+  "ranking_scope": "unavailable",
+  "biological_efficacy_established": false
+}

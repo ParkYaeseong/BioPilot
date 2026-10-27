@@ -1,0 +1,124 @@
+{
+  "type": "object",
+  "properties": {
+    "reference_id": {
+      "type": "string"
+    },
+    "goal": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4000
+    },
+    "protected_positions": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 512
+      },
+      "maxItems": 512
+    },
+    "allowed_region": {
+      "type": "object",
+      "properties": {
+        "start_1based": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 512
+        },
+        "end_1based": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 512
+        }
+      },
+      "required": [
+        "start_1based",
+        "end_1based"
+      ],
+      "additionalProperties": false
+    },
+    "top_k": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 20
+    },
+    "output_language": {
+      "type": "string",
+      "enum": [
+        "ko",
+        "en"
+      ]
+    },
+    "requested_budget": {
+      "type": "object",
+      "properties": {
+        "usd_micros": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_meta_requests": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 12
+        },
+        "max_gpu_seconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_verifier_positions": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 24
+        },
+        "max_structure_predictions": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        }
+      },
+      "required": [
+        "usd_micros",
+        "max_meta_requests",
+        "max_gpu_seconds",
+        "max_verifier_positions",
+        "max_structure_predictions"
+      ],
+      "additionalProperties": false
+    },
+    "consent_to_external_sequence_upload": {
+      "type": "boolean"
+    },
+    "objective_profile_id": {
+      "type": "string",
+      "enum": [
+        "sequence_plausibility_review",
+        "lipase_T50_hypothesis_review"
+      ]
+    },
+    "reference_numbering": {
+      "type": "string",
+      "const": "full_reference_1based"
+    },
+    "assay_endpoint_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "reference_id",
+    "goal",
+    "protected_positions",
+    "allowed_region",
+    "top_k",
+    "output_language",
+    "requested_budget",
+    "consent_to_external_sequence_upload",
+    "objective_profile_id",
+    "reference_numbering",
+    "assay_endpoint_id"
+  ],
+  "additionalProperties": false
+}

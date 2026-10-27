@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "check_count": 422,
+  "failed_count": 0,
+  "prompt_count": 20,
+  "scope": "offline package contracts and source-sequence consistency, not biological efficacy",
+  "failures": []
+}

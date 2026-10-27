@@ -1,0 +1,31 @@
+{
+  "status": "public_metadata_only_not_assay_labels",
+  "assay_id": "ESTA_BACSU_Nutschel_2020",
+  "reference_sequence": "MKFVKRRIIALVTILMLSVTSLFALQPSAKAAEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQKVLDETGAKKVDIVAHSMGGANTLYYIKNLDGGNKVANVVTLGGANRLTTGKALPGTDPNQKILYTSIYSSADMIVMNYLSRLDGARNVQIHGVGHIGLLYSSQVNSLIKEGLNGGGQNTN",
+  "sequence_length": 212,
+  "reference_sequence_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+  "reported_single_mutant_count": 2172,
+  "reported_assayed_region_1based": {
+    "start": 32,
+    "end": 205
+  },
+  "raw_phenotype_name": "T50",
+  "raw_directionality": 1,
+  "source_id": "S11",
+  "source_url": "https://raw.githubusercontent.com/OATML-Markslab/ProteinGym/main/reference_files/DMS_substitutions.csv",
+  "source_revision": null,
+  "actual_assay_data_included": false,
+  "verified_protected_positions": [
+    108,
+    164,
+    187
+  ],
+  "warning": "Sequence-to-deposited-chain mapping is locally verified. Author/atom numbering is not verified. Full sequence is the baseline scoring context; no calibrated T50 model exists.",
+  "target_profile": "reference/target_profile.json",
+  "reported_assayed_region_interpretation": "metadata_range_not_the_full_mature_protein_and_not_a_universal_design_constraint",
+  "mature_region_full_1based": {
+    "start": 32,
+    "end": 212
+  },
+  "revision_status": "web_metadata_read_but_upstream_release_not_pinned"
+}

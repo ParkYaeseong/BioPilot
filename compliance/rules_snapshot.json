@@ -1,0 +1,51 @@
+{
+  "captured_source": "S21",
+  "source_url": "https://cerebralvalley.ai/e/meta-ai-developer-hackathon/details",
+  "source_kind": "official_guide_text_previously_read_in_this_conversation",
+  "conversation_capture_date_kst": "2026-10-27",
+  "revision_attempt_date": "2026-10-27",
+  "fresh_authenticated_retrieval": false,
+  "retrieval_limit": "Browser tool returned originating browser context required; public detail-page retrieval failed.",
+  "known_from_snapshot": {
+    "themes": [
+      "Build for Your World",
+      "Push the Frontier"
+    ],
+    "tracks": [
+      "Indie Developer",
+      "Startup"
+    ],
+    "rubric_weights": {
+      "impact": 0.3,
+      "meta_tooling": 0.25,
+      "technical_execution": 0.2,
+      "demo": 0.25
+    },
+    "video_minutes": 3,
+    "repository": "public",
+    "team_max": 4,
+    "solo_allowed": true,
+    "deadline": {
+      "local": "2026-11-04T21:00:00-05:00",
+      "timezone": "America/New_York",
+      "kst": "2026-11-05T11:00:00+09:00"
+    },
+    "new_work_disclosure_required": true
+  },
+  "interpretations_not_official_rulings": [
+    "MCP-first local product appears consistent with captured guide, but final product-access requirements must be checked.",
+    "ESM and Atlas can be external tools/sources with permissions; ESM alone is not assumed to satisfy event model or bonus criteria.",
+    "No explicit third-party coding-assistant ban was observed; unrestricted permission is not established."
+  ],
+  "unresolved": [
+    "participant_eligibility",
+    "pre_event_design_and_helper_reuse",
+    "exact_coding_start",
+    "final_live_product_access_requirement",
+    "video_language_and_duration_details",
+    "bonus_stacking",
+    "partner_credit_workload_terms",
+    "current_model_account_capabilities"
+  ],
+  "eligibility_email_status": "user_already_sent_in_prior_conversation_reply_not_checked_do_not_resend"
+}

@@ -1,0 +1,206 @@
+[
+  {
+    "id": "S01",
+    "title": "Meta Global AI Developer Hackathon",
+    "url": "https://events.cerebralvalley.ai/e/meta-ai-developer-hackathon",
+    "use": "Event tools, tracks, conditional partner credits, pending official rules and eligibility. Public page; not a ruling on this applicant.",
+    "prior_checked_on": "2026-10-24",
+    "revision_verification_status": "inherited_not_reverified_in_v2",
+    "v3_status": "inherited_from_v2_no_fresh_biology_or_account_verification"
+  },
+  {
+    "id": "S02",
+    "title": "Muse Spark 1.3 model page",
+    "url": "https://dev.meta.ai/models/muse-spark",
+    "use": "Provisional v1 integration reference. Verify current authenticated documentation and account capability; no live acceptance was checked in v2.",
+    "prior_checked_on": "2026-10-24",
+    "revision_verification_status": "inherited_not_reverified_in_v2",
+    "v3_status": "inherited_from_v2_no_fresh_biology_or_account_verification"
+  },
+  {
+    "id": "S03",
+    "title": "Meta Chat Completions cookbook",
+    "url": "https://dev.meta.ai/docs/cookbook/quickstart-chat-completions",
+    "use": "Provisional v1 integration reference. Verify current authenticated documentation and account capability; no live acceptance was checked in v2.",
+    "prior_checked_on": "2026-10-24",
+    "revision_verification_status": "inherited_not_reverified_in_v2",
+    "v3_status": "inherited_from_v2_no_fresh_biology_or_account_verification"
+  },
+  {
+    "id": "S04",
+    "title": "Meta tool calling",
+    "url": "https://dev.meta.ai/docs/tool-calling",
+    "use": "Provisional v1 integration reference. Verify current authenticated documentation and account capability; no live acceptance was checked in v2.",
+    "prior_checked_on": "2026-10-24",
+    "revision_verification_status": "inherited_not_reverified_in_v2",
+    "v3_status": "inherited_from_v2_no_fresh_biology_or_account_verification"
+  },
+  {
+    "id": "S05",
+    "title": "Meta structured output",
+    "url": "https://dev.meta.ai/docs/structured-output",
+    "use": "Provisional v1 integration reference. Verify current authenticated documentation and account capability; no live acceptance was checked in v2.",
+    "prior_checked_on": "2026-10-24",
+    "revision_verification_status": "inherited_not_reverified_in_v2",
+    "v3_status": "inherited_from_v2_no_fresh_biology_or_account_verification"
+  },
+  {
+    "id": "S06",
+    "title": "Meta reasoning guide",
+    "url": "https://dev.meta.ai/docs/reasoning",
+    "use": "Provisional v1 integration reference. Verify current authenticated documentation and account capability; no live acceptance was checked in v2.",
+    "prior_checked_on": "2026-10-24",
+    "revision_verification_status": "inherited_not_reverified_in_v2",
+    "v3_status": "inherited_from_v2_no_fresh_biology_or_account_verification"
+  },
+  {
+    "id": "S07",
+    "title": "Muse Code announcement",
+    "url": "https://dev.meta.ai/resources/blog/build-with-muse-code",
+    "use": "Provisional v1 integration reference. Verify current authenticated documentation and account capability; no live acceptance was checked in v2.",
+    "prior_checked_on": "2026-10-24",
+    "revision_verification_status": "inherited_not_reverified_in_v2",
+    "v3_status": "inherited_from_v2_no_fresh_biology_or_account_verification"
+  },
+  {
+    "id": "S08",
+    "title": "Meta ESM repository",
+    "url": "https://github.com/facebookresearch/esm",
+    "use": "ESM-2, ESMFold, model loading, archived repository and dependency caveats.",
+    "prior_checked_on": "2026-10-24",
+    "revision_verification_status": "inherited_not_reverified_in_v2",
+    "v3_status": "inherited_from_v2_no_fresh_biology_or_account_verification"
+  },
+  {
+    "id": "S09",
+    "title": "Official ESM variant scoring implementation",
+    "url": "https://raw.githubusercontent.com/facebookresearch/esm/main/examples/variant-prediction/predict.py",
+    "use": "WT/masked marginal scoring. Position-level reuse is our engineering deduction from the scoring definition.",
+    "prior_checked_on": "2026-10-24",
+    "revision_verification_status": "web_text_read_2026-10-26_upstream_bytes_not_downloaded",
+    "v3_status": "inherited_from_v2_no_fresh_biology_or_account_verification"
+  },
+  {
+    "id": "S10",
+    "title": "ESM Atlas documentation",
+    "url": "https://esmatlas.com/about",
+    "use": "Legacy Meta Atlas only. JS page did not expose content in this revision; no live API contract verified. Not the current Biohub Atlas.",
+    "prior_checked_on": "2026-10-24",
+    "revision_verification_status": "inherited_not_reverified_in_v2",
+    "v3_status": "inherited_from_v2_no_fresh_biology_or_account_verification"
+  },
+  {
+    "id": "S11",
+    "title": "ProteinGym assay metadata",
+    "url": "https://raw.githubusercontent.com/OATML-Markslab/ProteinGym/main/reference_files/DMS_substitutions.csv",
+    "use": "ESTA_BACSU_Nutschel_2020: 212-residue reference, 2172 single mutants, region 32-205, raw phenotype T50, direction +1. Dataset release must be pinned before evaluation.",
+    "prior_checked_on": "2026-10-24",
+    "revision_verification_status": "web_text_read_2026-10-26_upstream_bytes_not_downloaded",
+    "v3_status": "inherited_from_v2_no_fresh_biology_or_account_verification"
+  },
+  {
+    "id": "S12",
+    "title": "ProteinGym repository",
+    "url": "https://github.com/OATML-Markslab/ProteinGym",
+    "use": "Public benchmark definitions, data access and evaluation conventions.",
+    "prior_checked_on": "2026-10-24",
+    "revision_verification_status": "inherited_not_reverified_in_v2",
+    "v3_status": "inherited_from_v2_no_fresh_biology_or_account_verification"
+  },
+  {
+    "id": "S13",
+    "title": "Modal GPU documentation",
+    "url": "https://modal.com/docs/guide/gpu",
+    "use": "GPU function execution and configuration; no allocation, price or credit receipt is assumed.",
+    "prior_checked_on": "2026-10-24",
+    "revision_verification_status": "inherited_not_reverified_in_v2",
+    "v3_status": "inherited_from_v2_no_fresh_biology_or_account_verification"
+  },
+  {
+    "id": "S14",
+    "title": "Meta API overview",
+    "url": "https://dev.meta.ai/docs/overview",
+    "use": "Provisional v1 integration reference. Verify current authenticated documentation and account capability; no live acceptance was checked in v2.",
+    "prior_checked_on": "2026-10-24",
+    "revision_verification_status": "inherited_not_reverified_in_v2",
+    "v3_status": "inherited_from_v2_no_fresh_biology_or_account_verification"
+  },
+  {
+    "id": "S15",
+    "title": "Meta Chat Completions protocol",
+    "url": "https://dev.meta.ai/docs/protocols/chat-completions",
+    "use": "Provisional v1 integration reference. Verify current authenticated documentation and account capability; no live acceptance was checked in v2.",
+    "prior_checked_on": "2026-10-24",
+    "revision_verification_status": "inherited_not_reverified_in_v2",
+    "v3_status": "inherited_from_v2_no_fresh_biology_or_account_verification"
+  },
+  {
+    "id": "S16",
+    "title": "Modal budgets",
+    "url": "https://modal.com/docs/guide/budgets",
+    "use": "Workspace usage budget versus net spend limit. Actual account settings remain unchecked.",
+    "prior_checked_on": "2026-10-24",
+    "revision_verification_status": "inherited_not_reverified_in_v2",
+    "v3_status": "inherited_from_v2_no_fresh_biology_or_account_verification"
+  },
+  {
+    "id": "S17",
+    "title": "Nutschel et al. (2020), Lipase A assay",
+    "url": "https://doi.org/10.1021/acs.jcim.9b00954",
+    "revision_verification_status": "web_text_read_2026-10-26",
+    "use": "Paper text, methods 2.1-2.2 and 2.5: assay definition, triad and library design. PDF screenshots failed; no full paper included.",
+    "v3_status": "inherited_from_v2_no_fresh_biology_or_account_verification"
+  },
+  {
+    "id": "S18",
+    "title": "RCSB PDB 1ISP structure record",
+    "url": "https://www.rcsb.org/structure/1ISP",
+    "revision_verification_status": "web_text_read_2026-10-26",
+    "use": "Experimental reference structure, 1.30 A, 181 deposited/179 modeled residues. Coordinate mapping not acquired.",
+    "v3_status": "inherited_from_v2_no_fresh_biology_or_account_verification"
+  },
+  {
+    "id": "S19",
+    "title": "RCSB deposited FASTA for 1ISP",
+    "url": "https://www.rcsb.org/fasta/entry/1ISP/display",
+    "revision_verification_status": "web_text_read_2026-10-26",
+    "use": "181-aa deposited sequence transcribed from web text; local exact-match verification to ProteinGym reference.",
+    "v3_status": "inherited_from_v2_no_fresh_biology_or_account_verification"
+  },
+  {
+    "id": "S20",
+    "title": "Biohub ESM documentation and Atlas",
+    "url": "https://biohub.ai/esm/protein/get-started",
+    "revision_verification_status": "web_text_read_2026-10-26",
+    "use": "Current Biohub Atlas/ESMC/ESMFold2 documentation; distinct provider from legacy Meta ESM Atlas. No live adapter executed.",
+    "v3_status": "inherited_from_v2_no_fresh_biology_or_account_verification"
+  },
+  {
+    "id": "S21",
+    "title": "Official hackathon participant guide, conversation-captured text",
+    "url": "https://cerebralvalley.ai/e/meta-ai-developer-hackathon/details",
+    "revision_verification_status": "primary_text_captured_earlier_in_conversation_2026-10-27_not_freshly_retrieved",
+    "use": "Themes, rubric 30/25/20/25, public repository, 3-minute video, tracks/prizes, deadlines and partner offers. Does not resolve individual eligibility or final form access requirements."
+  },
+  {
+    "id": "S22",
+    "title": "Model Context Protocol architecture overview",
+    "url": "https://modelcontextprotocol.io/docs/learn/architecture",
+    "revision_verification_status": "web_primary_text_read_2026-10-27",
+    "use": "Host/client/server separation and tool discovery/call concepts. Use a mutually compatible SDK/protocol; no live integration tested."
+  },
+  {
+    "id": "S23",
+    "title": "Muse Code official changelog",
+    "url": "https://dev.meta.ai/docs/muse-code/changelog",
+    "revision_verification_status": "official_search_excerpt_read_2026-10-27_no_account_or_local_version_verified",
+    "use": "Evidence of MCP host/configuration support. Specific flags, provider/model, subscriptions and installed behavior must be verified locally."
+  },
+  {
+    "id": "S24",
+    "title": "Hackathon Model API credit claim form, user-provided text",
+    "url": "https://docs.google.com/forms/d/e/1FAIpQLScam78z7tHsNYibiFyJQVFzEgr0coyBTiY568SxxNbsPa3jiw/viewform",
+    "revision_verification_status": "user_provided_form_text_in_conversation_not_freshly_retrieved",
+    "use": "Own-account single claim and stated two-business-day processing. No credit balance/card verification performed."
+  }
+]

@@ -1,0 +1,11 @@
+Implement optional C5 only after the baseline claim scope is reviewed. Use a thin local Streamlit
+viewer, not a new multi-page SaaS. Show four areas: goal/constraints, actual tool trace, deterministic
+candidate results, evidence/export. In native-host mode, viewer can be read-only. In controlled-host
+mode, inputs/approval use the same services. Test rerenders never duplicate a job, ownership checks,
+HTML/CSV escaping, unknown costs, and LIVE/REPLAY/SNAPSHOT/FIXTURE badges. Inspect the rendered
+page. Do not deploy or claim a website/installer is required without checking the final form.
+
+Read AGENTS.md, docs/04_science_and_evaluation.md and docs/10-12. Preserve the v2 biological
+contract. Follow the v3 plan; earlier plans are superseded. No paid call, GPU allocation, upload,
+publication or submission is authorized by this prompt alone. Test the real application boundary,
+not only the offline helper. Report actual, mock, replay and unverified integrations separately.

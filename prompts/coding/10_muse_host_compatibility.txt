@@ -1,0 +1,12 @@
+Verify native Muse Code hosting as an optional route, not assumed functionality. Read official
+documentation for the installed version, inspect its actual model/provider and tool permissions,
+and replace the non-runnable configuration shape only after the server exists.
+Run it in an isolated runtime workspace without evaluation/private/outcome files. Demonstrate tool
+discovery, one harmless call and a permitted scientific call after spend approval. Confirm billing
+source separately from hackathon API credits. If the host cannot meet filesystem/tool/cost controls,
+record that limit and use the controlled Python host. Do not enable broad shell or web tools.
+
+Read AGENTS.md, docs/04_science_and_evaluation.md and docs/10-12. Preserve the v2 biological
+contract. Follow the v3 plan; earlier plans are superseded. No paid call, GPU allocation, upload,
+publication or submission is authorized by this prompt alone. Test the real application boundary,
+not only the offline helper. Report actual, mock, replay and unverified integrations separately.

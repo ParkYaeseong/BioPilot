@@ -1,0 +1,75 @@
+{
+  "profile_id": "lipase_bs_a_v2",
+  "status": "sequence_mapping_verified_coordinates_pending",
+  "reference_id": "ESTA_BACSU_Nutschel_2020",
+  "reference_sequence": "MKFVKRRIIALVTILMLSVTSLFALQPSAKAAEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQKVLDETGAKKVDIVAHSMGGANTLYYIKNLDGGNKVANVVTLGGANRLTTGKALPGTDPNQKILYTSIYSSADMIVMNYLSRLDGARNVQIHGVGHIGLLYSSQVNSLIKEGLNGGGQNTN",
+  "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+  "reference_length": 212,
+  "reference_indexing": "full_reference_1based",
+  "mature_sequence": "AEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQKVLDETGAKKVDIVAHSMGGANTLYYIKNLDGGNKVANVVTLGGANRLTTGKALPGTDPNQKILYTSIYSSADMIVMNYLSRLDGARNVQIHGVGHIGLLYSSQVNSLIKEGLNGGGQNTN",
+  "mature_sha256": "90914bba8255e2e85de3277fe0d5ffdfdeb8e5b741ff593dde001f73c413a065",
+  "mature_length": 181,
+  "mature_region_full_1based": {
+    "start": 32,
+    "end": 212
+  },
+  "mapping_method": "unique_exact_sequence_match_not_assumed_signal_peptide_offset",
+  "protected_sites": [
+    {
+      "mature_position": 77,
+      "full_position": 108,
+      "residue": "S",
+      "source_id": "S17"
+    },
+    {
+      "mature_position": 133,
+      "full_position": 164,
+      "residue": "D",
+      "source_id": "S17"
+    },
+    {
+      "mature_position": 156,
+      "full_position": 187,
+      "residue": "H",
+      "source_id": "S17"
+    }
+  ],
+  "structure": {
+    "pdb_id": "1ISP",
+    "entity_id": "1",
+    "deposited_chain": "A",
+    "method": "X_RAY_DIFFRACTION",
+    "resolution_angstrom": 1.3,
+    "deposited_residue_count": 181,
+    "modeled_residue_count": 179,
+    "coordinate_status": "not_downloaded_or_verified",
+    "coordinate_file_sha256": null,
+    "author_numbering_verified": false,
+    "missing_residue_ids": null,
+    "source_ids": [
+      "S18",
+      "S19"
+    ]
+  },
+  "assay_endpoint": {
+    "endpoint_id": "lipase_T50_after_20min",
+    "label": "Apparent T50 after 20 min thermal treatment",
+    "units": "degC",
+    "scope": "residual_activity_curve_under_reported_assay_conditions",
+    "not_equivalent_to": [
+      "Tm",
+      "folding_free_energy",
+      "catalytic_efficiency",
+      "industrial_process_lifetime"
+    ],
+    "source_id": "S17"
+  },
+  "baseline": {
+    "score_type": "masked_marginal_log_likelihood_ratio",
+    "phenotype_calibrated": false,
+    "inference_context": "full_212_reference",
+    "weights_verified": false
+  },
+  "scientific_validation_status": "not_run",
+  "limits": "Protecting the triad does not prove retained activity. PDB evidence describes the reference, not a mutant."
+}

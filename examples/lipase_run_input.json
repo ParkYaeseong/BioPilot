@@ -1,0 +1,26 @@
+{
+  "reference_id": "ESTA_BACSU_Nutschel_2020",
+  "goal": "Review candidate substitutions as unvalidated T50 hypotheses, not measured improvements.",
+  "protected_positions": [
+    108,
+    164,
+    187
+  ],
+  "allowed_region": {
+    "start_1based": 32,
+    "end_1based": 212
+  },
+  "top_k": 10,
+  "output_language": "ko",
+  "requested_budget": {
+    "usd_micros": 2000000,
+    "max_meta_requests": 12,
+    "max_gpu_seconds": 900,
+    "max_verifier_positions": 24,
+    "max_structure_predictions": 0
+  },
+  "consent_to_external_sequence_upload": false,
+  "objective_profile_id": "lipase_T50_hypothesis_review",
+  "reference_numbering": "full_reference_1based",
+  "assay_endpoint_id": "lipase_T50_after_20min"
+}

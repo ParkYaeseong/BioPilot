@@ -1,0 +1,12 @@
+Implement C4 with one primary route: controlled Meta API host + MCP bridge, or practically
+verified Muse Code host. Verify actual provider/model, installed SDK/protocol, schema and usage
+settings; do not invent endpoints or claim compatibility from offline conversion tests.
+Test call-ID matching, loop budgets, schema validation, no-tool report, injected content and label
+isolation. The native host must not read the development repo/outcomes via generic tools.
+If native-host request limits cannot be enforced, use the controlled host for strict-budget claims.
+Record one approved actual Meta-to-MCP scientific trace. Never hide a non-Meta fallback.
+
+Read AGENTS.md, docs/04_science_and_evaluation.md and docs/10-12. Preserve the v2 biological
+contract. Follow the v3 plan; earlier plans are superseded. No paid call, GPU allocation, upload,
+publication or submission is authorized by this prompt alone. Test the real application boundary,
+not only the offline helper. Report actual, mock, replay and unverified integrations separately.

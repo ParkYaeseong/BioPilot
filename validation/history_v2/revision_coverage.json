@@ -1,0 +1,73 @@
+{
+  "package_version": "2.0",
+  "revision_date": "2026-10-26",
+  "scope": "eight reviewed biological/design risks; not an exhaustive biological validation",
+  "application_integration_tested": false,
+  "biological_efficacy_validated": false,
+  "issues": [
+    {
+      "id": "BIO-01",
+      "correction": "Separate ESM sequence preference from phenotype-calibrated predictions; unsupported goals fail closed.",
+      "files": ["docs/01_product_spec.md", "docs/04_science_and_evaluation.md", "config/development.yaml", "schemas/report_narrative.schema.json", "prompts/runtime/00_developer.txt", "checks/science_contracts.py"],
+      "tests": ["test_generic_objective_not_calibrated", "test_t50_objective_remains_hypothesis", "test_unsupported_activity_objective_blocked", "test_mixed_model_rejected", "test_mixed_full_mature_context_rejected"],
+      "status": "documents_and_offline_guards_revised",
+      "remaining": "Real checkpoint inference, application integration and target-specific held-out evaluation."
+    },
+    {
+      "id": "BIO-02",
+      "correction": "T50 denotes the registered residual-activity assay; median bins are not WT improvement and cannot replace a matched-WT uncertainty rule.",
+      "files": ["evaluation_private/assay_protocol.json", "docs/04_science_and_evaluation.md", "docs/11_target_registration.md", "checks/science_contracts.py"],
+      "tests": ["test_median_bin_is_not_wt_improvement", "test_missing_wt_is_unknown", "test_unverified_error_rule_is_unknown", "test_mismatched_assay_is_unknown", "test_equal_error_boundary_not_above"],
+      "status": "definitions_and_offline_guards_revised",
+      "remaining": "Raw experimental values, transformation audit, matched WT and pre-registered uncertainty threshold."
+    },
+    {
+      "id": "BIO-03",
+      "correction": "Explicit full/mature sequence map, protected triad and unknown atom-level mappings; do not apply a generic offset to arbitrary proteins.",
+      "files": ["reference/target_profile.json", "reference/residue_map.json", "reference/lipase_full_212.fasta", "reference/1ISP_A_deposited_181.fasta", "docs/11_target_registration.md", "checks/science_contracts.py"],
+      "tests": ["test_exact_mapping_finds_start_32", "test_mapping_is_not_assumed_offset", "test_ambiguous_mapping_rejected", "test_wrong_protected_residue_rejected", "test_mature_number_not_silently_used_as_full", "test_catalytic_site_blocked"],
+      "status": "exact_sequence_match_checked_atom_mapping_unverified",
+      "remaining": "Download and join mmCIF sequence/author/label/atom tables, resolve missing residues and prose-numbering discrepancy."
+    },
+    {
+      "id": "BIO-04",
+      "correction": "Experimental reference evidence and predicted mutant evidence are different; geometry is unavailable without an atom mapping and model confidence is not stability.",
+      "files": ["docs/02_system_design.md", "docs/04_science_and_evaluation.md", "schemas/evidence.schema.json", "config/development.yaml", "prompts/runtime/00_developer.txt", "checks/science_contracts.py"],
+      "tests": ["test_unknown_coordinate_not_zero", "test_unobserved_coordinate_blocked"],
+      "status": "reference_scope_explicit_geometry_disabled",
+      "remaining": "Raw coordinates and any candidate structural calculation are not present."
+    },
+    {
+      "id": "BIO-05",
+      "correction": "Keep raw-library and curated-row counts separate; preserve missingness and evaluation denominators, with labels isolated from the predictor.",
+      "files": ["evaluation_private/dataset_reconciliation.json", "docs/04_science_and_evaluation.md", "config/development.yaml", "prompts/coding/02b_biological_baseline_gate.txt", "checks/science_contracts.py"],
+      "tests": ["test_missing_prediction_is_not_dropped", "test_exact_cohort_passes", "test_duplicate_prediction_rejected"],
+      "status": "audit_requirements_and_cohort_guard_supplied",
+      "remaining": "The 3,439 versus 2,172 row difference is unresolved; no reason for exclusion is invented."
+    },
+    {
+      "id": "BIO-06",
+      "correction": "Measure workflow utility separately from ranking quality; additional annotations do not change a fixed ESM baseline rank.",
+      "files": ["docs/01_product_spec.md", "docs/04_science_and_evaluation.md", "docs/06_ui_and_demo.md", "prompts/demo/10_judge_pitch.txt", "checks/science_contracts.py"],
+      "tests": ["test_rank_ties_deterministic_annotations_ignored", "test_mixed_model_rejected"],
+      "status": "claims_and_offline_rank_policy_revised",
+      "remaining": "Actual controlled workflow and frozen biological benchmark comparisons."
+    },
+    {
+      "id": "BIO-07",
+      "correction": "Keep legacy Meta Atlas and current Biohub Atlas provider identities distinct; no invented live API or account capability.",
+      "files": ["docs/03_meta_integration.md", "docs/04_science_and_evaluation.md", "schemas/evidence.schema.json", "config/development.yaml", "prompts/coding/03_atlas_evidence.txt", "sources.json"],
+      "tests": [],
+      "status": "documentation_and_configuration_revised",
+      "remaining": "Live provider, endpoint, license and account checks; current Meta API contract is unverified."
+    },
+    {
+      "id": "BIO-08",
+      "correction": "Distinguish file/contract tests, sequence checks, true model evaluation and experimental validation.",
+      "files": ["VALIDATION.md", "START_HERE_KO.md", "docs/12_biological_readiness.md", "docs/superpowers/plans/2026-10-26-biopilot-atlas-v2.md", "validation/revision_coverage.json"],
+      "tests": [],
+      "status": "verification_scope_explicit",
+      "remaining": "No benchmark, application or wet-lab validation has been performed."
+    }
+  ]
+}

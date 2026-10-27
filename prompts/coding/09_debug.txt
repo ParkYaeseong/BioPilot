@@ -1,0 +1,10 @@
+Investigate the observed failure before proposing a fix. Inspect the schema, bound run context,
+source mode and sanitized provider/MCP messages. Reproduce a minimal failing test. Check numbering,
+checkpoint, mask offset, session binding, protocol version and timeout reconciliation. Do not bypass
+guards, remove failures, read labels, invent scores or change providers to obtain a green result.
+If account/network access is missing, report that external boundary rather than claiming code fixed it.
+
+Read AGENTS.md, docs/04_science_and_evaluation.md and docs/10-12. Preserve the v2 biological
+contract. Follow the v3 plan; earlier plans are superseded. No paid call, GPU allocation, upload,
+publication or submission is authorized by this prompt alone. Test the real application boundary,
+not only the offline helper. Report actual, mock, replay and unverified integrations separately.

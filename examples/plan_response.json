@@ -1,0 +1,42 @@
+{
+  "summary": "Synthetic contract fixture only. No scientific computation has run.",
+  "missing_inputs": [
+    "Confirmed execution permission and live service access."
+  ],
+  "steps": [
+    {
+      "step_id": "p1",
+      "action": "validate_input",
+      "purpose": "Check reference and protected positions in code.",
+      "optional": false
+    },
+    {
+      "step_id": "p2",
+      "action": "score_baseline",
+      "purpose": "Compute the registered baseline only after execution authorization.",
+      "optional": false
+    },
+    {
+      "step_id": "p3",
+      "action": "retrieve_atlas_evidence",
+      "purpose": "Acquire traceable context if a legitimate route or snapshot is available.",
+      "optional": true
+    },
+    {
+      "step_id": "p4",
+      "action": "render_report",
+      "purpose": "Render actual results and missing evidence.",
+      "optional": false
+    }
+  ],
+  "expected_outputs": [
+    "Candidate review",
+    "Evidence catalog",
+    "Limitations"
+  ],
+  "limitations": [
+    "This fixture contains no experimental result."
+  ],
+  "needs_execution_approval": true,
+  "scientific_scope": "sequence_model_review"
+}

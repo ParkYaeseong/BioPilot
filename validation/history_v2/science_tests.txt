@@ -1,0 +1,44 @@
+test_allowed_variant_keeps_reference_mapping (test_science_contracts.ScienceContractTests.test_allowed_variant_keeps_reference_mapping) ... ok
+test_ambiguous_mapping_rejected (test_science_contracts.ScienceContractTests.test_ambiguous_mapping_rejected) ... ok
+test_catalytic_site_blocked (test_science_contracts.ScienceContractTests.test_catalytic_site_blocked) ... ok
+test_duplicate_candidates_rejected (test_science_contracts.ScienceContractTests.test_duplicate_candidates_rejected) ... ok
+test_duplicate_prediction_rejected (test_science_contracts.ScienceContractTests.test_duplicate_prediction_rejected) ... ok
+test_equal_error_boundary_not_above (test_science_contracts.ScienceContractTests.test_equal_error_boundary_not_above) ... ok
+test_exact_cohort_passes (test_science_contracts.ScienceContractTests.test_exact_cohort_passes) ... ok
+test_exact_mapping_finds_start_32 (test_science_contracts.ScienceContractTests.test_exact_mapping_finds_start_32) ... ok
+test_full_length_terminal_variant_valid (test_science_contracts.ScienceContractTests.test_full_length_terminal_variant_valid) ... ok
+test_generic_objective_not_calibrated (test_science_contracts.ScienceContractTests.test_generic_objective_not_calibrated) ... ok
+test_mapping_is_not_assumed_offset (test_science_contracts.ScienceContractTests.test_mapping_is_not_assumed_offset) ... ok
+test_mature_number_not_silently_used_as_full (test_science_contracts.ScienceContractTests.test_mature_number_not_silently_used_as_full) ... ok
+test_median_bin_is_not_wt_improvement (test_science_contracts.ScienceContractTests.test_median_bin_is_not_wt_improvement) ... ok
+test_mismatched_assay_is_unknown (test_science_contracts.ScienceContractTests.test_mismatched_assay_is_unknown) ... ok
+test_missing_prediction_is_not_dropped (test_science_contracts.ScienceContractTests.test_missing_prediction_is_not_dropped) ... ok
+test_missing_wt_is_unknown (test_science_contracts.ScienceContractTests.test_missing_wt_is_unknown) ... ok
+test_mixed_full_mature_context_rejected (test_science_contracts.ScienceContractTests.test_mixed_full_mature_context_rejected) ... ok
+test_mixed_model_rejected (test_science_contracts.ScienceContractTests.test_mixed_model_rejected) ... ok
+test_multimutant_rejected (test_science_contracts.ScienceContractTests.test_multimutant_rejected) ... ok
+test_nan_score_rejected (test_science_contracts.ScienceContractTests.test_nan_score_rejected) ... ok
+test_negative_error_margin_rejected (test_science_contracts.ScienceContractTests.test_negative_error_margin_rejected) ... ok
+test_noncanonical_sequence_rejected (test_science_contracts.ScienceContractTests.test_noncanonical_sequence_rejected) ... ok
+test_nonfinite_phenotype_rejected (test_science_contracts.ScienceContractTests.test_nonfinite_phenotype_rejected) ... ok
+test_nonmatching_mapping_rejected (test_science_contracts.ScienceContractTests.test_nonmatching_mapping_rejected) ... ok
+test_prefix_outside_mature_region_blocked (test_science_contracts.ScienceContractTests.test_prefix_outside_mature_region_blocked) ... ok
+test_rank_ties_deterministic_annotations_ignored (test_science_contracts.ScienceContractTests.test_rank_ties_deterministic_annotations_ignored) ... ok
+test_registered_target_verifies (test_science_contracts.ScienceContractTests.test_registered_target_verifies) ... ok
+test_synonymous_rejected (test_science_contracts.ScienceContractTests.test_synonymous_rejected) ... ok
+test_t50_objective_remains_hypothesis (test_science_contracts.ScienceContractTests.test_t50_objective_remains_hypothesis) ... ok
+test_unknown_binary_rule_not_guessed (test_science_contracts.ScienceContractTests.test_unknown_binary_rule_not_guessed) ... ok
+test_unknown_coordinate_not_zero (test_science_contracts.ScienceContractTests.test_unknown_coordinate_not_zero) ... ok
+test_unobserved_coordinate_blocked (test_science_contracts.ScienceContractTests.test_unobserved_coordinate_blocked) ... ok
+test_unsupported_activity_objective_blocked (test_science_contracts.ScienceContractTests.test_unsupported_activity_objective_blocked) ... ok
+test_unverified_error_rule_is_unknown (test_science_contracts.ScienceContractTests.test_unverified_error_rule_is_unknown) ... ok
+test_verified_change_is_not_experimental_proof (test_science_contracts.ScienceContractTests.test_verified_change_is_not_experimental_proof) ... ok
+test_wrong_protected_numbering_rejected (test_science_contracts.ScienceContractTests.test_wrong_protected_numbering_rejected) ... ok
+test_wrong_protected_residue_rejected (test_science_contracts.ScienceContractTests.test_wrong_protected_residue_rejected) ... ok
+test_wrong_reference_hash_rejected (test_science_contracts.ScienceContractTests.test_wrong_reference_hash_rejected) ... ok
+test_zero_position_rejected (test_science_contracts.ScienceContractTests.test_zero_position_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 39 tests in 0.046s
+
+OK

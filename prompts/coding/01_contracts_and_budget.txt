@@ -1,0 +1,9 @@
+Implement C1 only: durable runs, human approval, plan digests, session ownership, tasks, artifacts
+and integer budget reservations. Write failures for cross-run access, duplicate dispatch, changed
+limits and unknown provider status after timeout. All future MCP calls must use this same policy core.
+A model cannot approve a plan, choose an owner or raise budgets. Unknown cost is not zero.
+
+Read AGENTS.md, docs/04_science_and_evaluation.md and docs/10-12. Preserve the v2 biological
+contract. Follow the v3 plan; earlier plans are superseded. No paid call, GPU allocation, upload,
+publication or submission is authorized by this prompt alone. Test the real application boundary,
+not only the offline helper. Report actual, mock, replay and unverified integrations separately.

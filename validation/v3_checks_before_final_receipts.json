@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "check_count": 518,
+  "failed_count": 0,
+  "prompt_count": 24,
+  "scope": "offline package/science/MCP-catalog/rubric/recording-plan consistency; no live app, transport, model efficacy or video verification",
+  "failures": []
+}

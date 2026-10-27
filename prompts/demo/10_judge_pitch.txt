@@ -1,0 +1,8 @@
+Prepare the BioPilot Atlas recording using demo/storyboard.json and demo/NARRATION_EN.md.
+Use only features that actually work and actual artifacts. Target the three-minute captured format;
+recheck final language/duration/access requirements. Keep English narration understandable and
+provide Korean presenter notes. Show a real Meta-to-MCP call, true scientific outputs and one useful
+constraint/recovery branch. Identify new event contributions and source dependencies.
+Never claim improved enzyme performance, calibrated T50, guaranteed function, time savings or an
+agent advantage without the corresponding measured evidence. Label replay and edited waiting.
+If a result is missing, use the honest not-measured statement. Do not fabricate a finished video.

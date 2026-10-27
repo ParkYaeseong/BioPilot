@@ -1,0 +1,77 @@
+{
+  "revision": "3.0",
+  "scope": "Design/prompt coverage, not completed application requirements",
+  "rows": [
+    {
+      "requirement": "Track/theme/rubric/prizes/deadline",
+      "files": [
+        "config/hackathon.yaml",
+        "docs/14_hackathon_rules_and_strategy.md"
+      ],
+      "limit": "Captured guide; final rule/form not reverified"
+    },
+    {
+      "requirement": "MCP-first architecture and one Meta host",
+      "files": [
+        "docs/02_system_design.md",
+        "docs/15_mcp_contract_and_hosts.md",
+        "schemas/tools.mcp.json"
+      ],
+      "limit": "Live server/host not implemented"
+    },
+    {
+      "requirement": "Biological corrections retained",
+      "files": [
+        "reference/target_profile.json",
+        "checks/science_contracts.py",
+        "docs/10_biology_corrections.md"
+      ],
+      "limit": "Sequence-level guards only; actual phenotype not evaluated"
+    },
+    {
+      "requirement": "Private evaluator separation",
+      "files": [
+        "config/runtime_bundle.allowlist.json",
+        "templates/evaluator.env.example",
+        "docs/16_impact_and_agent_evaluation.md"
+      ],
+      "limit": "Future host filesystem sandbox must be verified"
+    },
+    {
+      "requirement": "Three-minute demonstrable product",
+      "files": [
+        "demo/storyboard.json",
+        "demo/NARRATION_EN.md",
+        "demo/PRESENTER_NOTES_KO.md"
+      ],
+      "limit": "No actual recording or live product yet"
+    },
+    {
+      "requirement": "Measured impact versus biological prediction",
+      "files": [
+        "submission/evidence_matrix.json",
+        "submission/workflow_results.template.csv",
+        "docs/16_impact_and_agent_evaluation.md"
+      ],
+      "limit": "All measurements intentionally unset"
+    },
+    {
+      "requirement": "New work and source attribution",
+      "files": [
+        "compliance/originality_ledger.csv",
+        "compliance/rules_snapshot.json",
+        "submission/README.template.md"
+      ],
+      "limit": "Individual eligibility/reuse ruling unknown"
+    },
+    {
+      "requirement": "Implementation handoff",
+      "files": [
+        "prompts/coding/00_bootstrap_ko.txt",
+        "prompts/inventory.json",
+        "docs/superpowers/plans/2026-10-27-v3-mcp-hackathon.md"
+      ],
+      "limit": "No product implementation claimed"
+    }
+  ]
+}

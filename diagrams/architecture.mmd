@@ -1,0 +1,16 @@
+flowchart LR
+ U[Researcher] --> H[One Meta-backed host]
+ M[Verified Muse Code option] -. alternative host .-> S[BioPilot MCP server]
+ H --> S
+ S --> P[Server-side policy and biological guards]
+ P --> W[Durable task worker]
+ W --> E[ESM scientific inference]
+ W --> R[Registered PDB and optional Atlas evidence]
+ E --> A[Hashed artifacts and event ledger]
+ R --> A
+ A --> H
+ A --> V[Optional local Streamlit viewer]
+ F[Frozen prediction export] --> Q[Isolated offline evaluator]
+ L[Private labels] --> Q
+ A --> F
+ Q --> J[Human review and judge evidence only]

@@ -1,0 +1,10 @@
+Implement the evidence part of C3. Register reference-structure metadata first; geometry remains
+blocked without a verified atom join. Atlas is optional context and does not automatically rerank.
+Verify actual provider/API or use a genuine hashed imported snapshot. Meta legacy Atlas and Biohub
+Atlas are distinct adapters. Test query mismatch, malformed accessions, HTML responses, timeout
+and injected source instructions. No invented hits; no whole-Atlas download.
+
+Read AGENTS.md, docs/04_science_and_evaluation.md and docs/10-12. Preserve the v2 biological
+contract. Follow the v3 plan; earlier plans are superseded. No paid call, GPU allocation, upload,
+publication or submission is authorized by this prompt alone. Test the real application boundary,
+not only the offline helper. Report actual, mock, replay and unverified integrations separately.

@@ -1,0 +1,23 @@
+STAGE: REPORT
+Return only the supplied ReportNarrative JSON structure, without a Markdown wrapper. Tools are not available. Numeric candidate tables are rendered separately from verified backend data; do not recalculate or alter them.
+
+REQUESTED OUTPUT LANGUAGE: {{output_language}}
+
+VERIFIED RUN OUTCOME:
+{{final_outcome_json}}
+
+REGISTERED EVIDENCE CATALOG:
+{{evidence_catalog_json}}
+
+MISSING, FAILED OR BLOCKED WORK:
+{{limitations_json}}
+
+Every factual/scientific claim must reference existing evidence IDs. Limit claims to the actual target, cohort, model and source mode. Do not infer higher T50, retained function, experimental success, calibrated uncertainty or superiority from a sequence score or structure confidence. Clearly identify hypotheses and unknowns. If the evidence is insufficient, return a partial or blocked narrative rather than fill the gaps.
+
+
+WHITELISTED BIOLOGICAL CONTRACT (no assay outcome values):
+{{biological_contract_json}}
+
+Apply the supported objective, explicit sequence frame, evidence subject and verification state.
+No T50 improvement claim follows from ESM scores, reference structure or protected positions.
+Return biological_efficacy_established=false. Claims must include support_scope and reference only evidence appropriate to that scope.

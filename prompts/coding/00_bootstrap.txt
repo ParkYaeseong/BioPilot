@@ -1,0 +1,11 @@
+Read the package and any existing implementation before changing code. This is a design pack,
+not a built server. Run the offline suite and package validator; inspect the v3 plan and rules snapshot.
+Report existing implementation, source/rule/permission gaps and the first authorized task.
+MCP-first with one actual Meta host is the core. Streamlit is an optional thin viewer; do not start a
+large Next.js app. No account or cloud action. Preserve pre-event preparation provenance.
+First bootstrap is read-only unless implementation was explicitly requested. Do not repeat answered questions.
+
+Read AGENTS.md, docs/04_science_and_evaluation.md and docs/10-12. Preserve the v2 biological
+contract. Follow the v3 plan; earlier plans are superseded. No paid call, GPU allocation, upload,
+publication or submission is authorized by this prompt alone. Test the real application boundary,
+not only the offline helper. Report actual, mock, replay and unverified integrations separately.

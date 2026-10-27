@@ -1,0 +1,395 @@
+test_allowed_variant_keeps_reference_mapping (test_science_contracts.ScienceContractTests.test_allowed_variant_keeps_reference_mapping) ... FAIL
+test_ambiguous_mapping_rejected (test_science_contracts.ScienceContractTests.test_ambiguous_mapping_rejected) ... FAIL
+test_catalytic_site_blocked (test_science_contracts.ScienceContractTests.test_catalytic_site_blocked) ... FAIL
+test_duplicate_candidates_rejected (test_science_contracts.ScienceContractTests.test_duplicate_candidates_rejected) ... FAIL
+test_duplicate_prediction_rejected (test_science_contracts.ScienceContractTests.test_duplicate_prediction_rejected) ... FAIL
+test_equal_error_boundary_not_above (test_science_contracts.ScienceContractTests.test_equal_error_boundary_not_above) ... FAIL
+test_exact_cohort_passes (test_science_contracts.ScienceContractTests.test_exact_cohort_passes) ... FAIL
+test_exact_mapping_finds_start_32 (test_science_contracts.ScienceContractTests.test_exact_mapping_finds_start_32) ... FAIL
+test_full_length_terminal_variant_valid (test_science_contracts.ScienceContractTests.test_full_length_terminal_variant_valid) ... FAIL
+test_generic_objective_not_calibrated (test_science_contracts.ScienceContractTests.test_generic_objective_not_calibrated) ... FAIL
+test_mapping_is_not_assumed_offset (test_science_contracts.ScienceContractTests.test_mapping_is_not_assumed_offset) ... FAIL
+test_mature_number_not_silently_used_as_full (test_science_contracts.ScienceContractTests.test_mature_number_not_silently_used_as_full) ... FAIL
+test_median_bin_is_not_wt_improvement (test_science_contracts.ScienceContractTests.test_median_bin_is_not_wt_improvement) ... FAIL
+test_mismatched_assay_is_unknown (test_science_contracts.ScienceContractTests.test_mismatched_assay_is_unknown) ... FAIL
+test_missing_prediction_is_not_dropped (test_science_contracts.ScienceContractTests.test_missing_prediction_is_not_dropped) ... FAIL
+test_missing_wt_is_unknown (test_science_contracts.ScienceContractTests.test_missing_wt_is_unknown) ... FAIL
+test_mixed_full_mature_context_rejected (test_science_contracts.ScienceContractTests.test_mixed_full_mature_context_rejected) ... FAIL
+test_mixed_model_rejected (test_science_contracts.ScienceContractTests.test_mixed_model_rejected) ... FAIL
+test_multimutant_rejected (test_science_contracts.ScienceContractTests.test_multimutant_rejected) ... FAIL
+test_nan_score_rejected (test_science_contracts.ScienceContractTests.test_nan_score_rejected) ... FAIL
+test_negative_error_margin_rejected (test_science_contracts.ScienceContractTests.test_negative_error_margin_rejected) ... FAIL
+test_noncanonical_sequence_rejected (test_science_contracts.ScienceContractTests.test_noncanonical_sequence_rejected) ... FAIL
+test_nonfinite_phenotype_rejected (test_science_contracts.ScienceContractTests.test_nonfinite_phenotype_rejected) ... FAIL
+test_nonmatching_mapping_rejected (test_science_contracts.ScienceContractTests.test_nonmatching_mapping_rejected) ... FAIL
+test_prefix_outside_mature_region_blocked (test_science_contracts.ScienceContractTests.test_prefix_outside_mature_region_blocked) ... FAIL
+test_rank_ties_deterministic_annotations_ignored (test_science_contracts.ScienceContractTests.test_rank_ties_deterministic_annotations_ignored) ... FAIL
+test_registered_target_verifies (test_science_contracts.ScienceContractTests.test_registered_target_verifies) ... FAIL
+test_synonymous_rejected (test_science_contracts.ScienceContractTests.test_synonymous_rejected) ... FAIL
+test_t50_objective_remains_hypothesis (test_science_contracts.ScienceContractTests.test_t50_objective_remains_hypothesis) ... FAIL
+test_unknown_binary_rule_not_guessed (test_science_contracts.ScienceContractTests.test_unknown_binary_rule_not_guessed) ... FAIL
+test_unknown_coordinate_not_zero (test_science_contracts.ScienceContractTests.test_unknown_coordinate_not_zero) ... FAIL
+test_unobserved_coordinate_blocked (test_science_contracts.ScienceContractTests.test_unobserved_coordinate_blocked) ... FAIL
+test_unsupported_activity_objective_blocked (test_science_contracts.ScienceContractTests.test_unsupported_activity_objective_blocked) ... FAIL
+test_unverified_error_rule_is_unknown (test_science_contracts.ScienceContractTests.test_unverified_error_rule_is_unknown) ... FAIL
+test_verified_change_is_not_experimental_proof (test_science_contracts.ScienceContractTests.test_verified_change_is_not_experimental_proof) ... FAIL
+test_wrong_protected_numbering_rejected (test_science_contracts.ScienceContractTests.test_wrong_protected_numbering_rejected) ... FAIL
+test_wrong_protected_residue_rejected (test_science_contracts.ScienceContractTests.test_wrong_protected_residue_rejected) ... FAIL
+test_wrong_reference_hash_rejected (test_science_contracts.ScienceContractTests.test_wrong_reference_hash_rejected) ... FAIL
+test_zero_position_rejected (test_science_contracts.ScienceContractTests.test_zero_position_rejected) ... FAIL
+
+======================================================================
+FAIL: test_allowed_variant_keeps_reference_mapping (test_science_contracts.ScienceContractTests.test_allowed_variant_keeps_reference_mapping)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_ambiguous_mapping_rejected (test_science_contracts.ScienceContractTests.test_ambiguous_mapping_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_catalytic_site_blocked (test_science_contracts.ScienceContractTests.test_catalytic_site_blocked)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_duplicate_candidates_rejected (test_science_contracts.ScienceContractTests.test_duplicate_candidates_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_duplicate_prediction_rejected (test_science_contracts.ScienceContractTests.test_duplicate_prediction_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_equal_error_boundary_not_above (test_science_contracts.ScienceContractTests.test_equal_error_boundary_not_above)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_exact_cohort_passes (test_science_contracts.ScienceContractTests.test_exact_cohort_passes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_exact_mapping_finds_start_32 (test_science_contracts.ScienceContractTests.test_exact_mapping_finds_start_32)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_full_length_terminal_variant_valid (test_science_contracts.ScienceContractTests.test_full_length_terminal_variant_valid)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_generic_objective_not_calibrated (test_science_contracts.ScienceContractTests.test_generic_objective_not_calibrated)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_mapping_is_not_assumed_offset (test_science_contracts.ScienceContractTests.test_mapping_is_not_assumed_offset)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_mature_number_not_silently_used_as_full (test_science_contracts.ScienceContractTests.test_mature_number_not_silently_used_as_full)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_median_bin_is_not_wt_improvement (test_science_contracts.ScienceContractTests.test_median_bin_is_not_wt_improvement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_mismatched_assay_is_unknown (test_science_contracts.ScienceContractTests.test_mismatched_assay_is_unknown)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_missing_prediction_is_not_dropped (test_science_contracts.ScienceContractTests.test_missing_prediction_is_not_dropped)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_missing_wt_is_unknown (test_science_contracts.ScienceContractTests.test_missing_wt_is_unknown)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_mixed_full_mature_context_rejected (test_science_contracts.ScienceContractTests.test_mixed_full_mature_context_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_mixed_model_rejected (test_science_contracts.ScienceContractTests.test_mixed_model_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_multimutant_rejected (test_science_contracts.ScienceContractTests.test_multimutant_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_nan_score_rejected (test_science_contracts.ScienceContractTests.test_nan_score_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_negative_error_margin_rejected (test_science_contracts.ScienceContractTests.test_negative_error_margin_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_noncanonical_sequence_rejected (test_science_contracts.ScienceContractTests.test_noncanonical_sequence_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_nonfinite_phenotype_rejected (test_science_contracts.ScienceContractTests.test_nonfinite_phenotype_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_nonmatching_mapping_rejected (test_science_contracts.ScienceContractTests.test_nonmatching_mapping_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_prefix_outside_mature_region_blocked (test_science_contracts.ScienceContractTests.test_prefix_outside_mature_region_blocked)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_rank_ties_deterministic_annotations_ignored (test_science_contracts.ScienceContractTests.test_rank_ties_deterministic_annotations_ignored)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_registered_target_verifies (test_science_contracts.ScienceContractTests.test_registered_target_verifies)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_synonymous_rejected (test_science_contracts.ScienceContractTests.test_synonymous_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_t50_objective_remains_hypothesis (test_science_contracts.ScienceContractTests.test_t50_objective_remains_hypothesis)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_unknown_binary_rule_not_guessed (test_science_contracts.ScienceContractTests.test_unknown_binary_rule_not_guessed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_unknown_coordinate_not_zero (test_science_contracts.ScienceContractTests.test_unknown_coordinate_not_zero)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_unobserved_coordinate_blocked (test_science_contracts.ScienceContractTests.test_unobserved_coordinate_blocked)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_unsupported_activity_objective_blocked (test_science_contracts.ScienceContractTests.test_unsupported_activity_objective_blocked)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_unverified_error_rule_is_unknown (test_science_contracts.ScienceContractTests.test_unverified_error_rule_is_unknown)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_verified_change_is_not_experimental_proof (test_science_contracts.ScienceContractTests.test_verified_change_is_not_experimental_proof)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_wrong_protected_numbering_rejected (test_science_contracts.ScienceContractTests.test_wrong_protected_numbering_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_wrong_protected_residue_rejected (test_science_contracts.ScienceContractTests.test_wrong_protected_residue_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_wrong_reference_hash_rejected (test_science_contracts.ScienceContractTests.test_wrong_reference_hash_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+======================================================================
+FAIL: test_zero_position_rejected (test_science_contracts.ScienceContractTests.test_zero_position_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_revision/BioPilot_Atlas_v2/tests/test_science_contracts.py", line 14, in setUp
+    self.assertTrue(path.exists(), 'Scientific guard implementation is not present yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Scientific guard implementation is not present yet
+
+----------------------------------------------------------------------
+Ran 39 tests in 0.006s
+
+FAILED (failures=39)

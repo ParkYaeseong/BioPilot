@@ -1,0 +1,6 @@
+component,origin_category,first_created_at,source_path_or_url,event_new_changes,rights_status,organizer_reuse_ruling,notes
+prior_v2_pack,pre_event_preparation,2026-10-26,BioPilot_Atlas_v2_Biology_Revised_Full.zip,,review_required,pending,Do not call this newly created event product code
+v3_pack,planning_revision,2026-10-27,BioPilot_Atlas_v3,,review_required,pending,Package revision not a completed application
+esm_dependency,third_party_model,,https://github.com/facebookresearch/esm,,review_required,not_applicable,Separate code and weights terms
+public_reference_data,third_party_data,,reference/source_snapshot.json,,review_required,not_applicable,Keep source and data terms distinct
+event_application,event_implementation,,,,pending,pending,Record actual new files and commits when built

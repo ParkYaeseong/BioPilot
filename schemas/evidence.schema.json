@@ -1,0 +1,98 @@
+{
+  "type": "object",
+  "properties": {
+    "evidence_id": {
+      "type": "string"
+    },
+    "reference_id": {
+      "type": "string"
+    },
+    "source_kind": {
+      "type": "string",
+      "enum": [
+        "atlas_prediction",
+        "atlas_sequence",
+        "esm_score",
+        "dataset_metadata",
+        "execution_event",
+        "synthetic_fixture",
+        "pdb_reference_structure",
+        "sequence_mapping",
+        "assay_definition"
+      ]
+    },
+    "source_uri": {
+      "type": "string"
+    },
+    "source_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_accession": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "retrieved_at": {
+      "type": "string"
+    },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "source_mode": {
+      "type": "string",
+      "enum": [
+        "live",
+        "imported_snapshot",
+        "replay",
+        "synthetic_fixture"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "source_provider": {
+      "type": "string"
+    },
+    "biological_subject": {
+      "type": "string",
+      "enum": [
+        "reference",
+        "homolog",
+        "candidate",
+        "not_applicable"
+      ]
+    },
+    "evidence_level": {
+      "type": "string",
+      "enum": [
+        "experimental_reference_structure",
+        "predicted_structure",
+        "sequence_model_output",
+        "metadata",
+        "workflow",
+        "synthetic"
+      ]
+    }
+  },
+  "required": [
+    "evidence_id",
+    "reference_id",
+    "source_kind",
+    "source_uri",
+    "source_version",
+    "source_accession",
+    "retrieved_at",
+    "content_sha256",
+    "source_mode",
+    "description",
+    "source_provider",
+    "biological_subject",
+    "evidence_level"
+  ],
+  "additionalProperties": false
+}

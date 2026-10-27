@@ -1,0 +1,11 @@
+Implement the MCP part of C3 using docs/15 and the canonical tools.mcp.json. Verify and pin a
+compatible official Python SDK. Local stdio only initially. Bind session/run authority outside
+model arguments and enforce the same policy core on every direct or host-mediated call.
+Test discovery plus a real spawned-server call, empty/duplicate positions, unavailable backends,
+disabled verifier/fold, foreign references, unknown tools and pending jobs. No evaluator tools,
+arbitrary files, shell, URLs or SQL. Tool annotations never replace authorization.
+
+Read AGENTS.md, docs/04_science_and_evaluation.md and docs/10-12. Preserve the v2 biological
+contract. Follow the v3 plan; earlier plans are superseded. No paid call, GPU allocation, upload,
+publication or submission is authorized by this prompt alone. Test the real application boundary,
+not only the offline helper. Report actual, mock, replay and unverified integrations separately.

@@ -1,0 +1,51 @@
+package_version: '3.0'
+rule_source: S21
+rule_verification: conversation_captured_primary_text_not_freshly_retrieved
+track: Indie Developer
+theme: Push the Frontier
+alternate_theme: Build for Your World
+rubric_weights:
+  impact: 0.3
+  meta_tooling: 0.25
+  technical_execution: 0.2
+  demo: 0.25
+score_scale:
+  min: 0
+  max: 10
+finalists_per_track: 5
+submission_deadline:
+  local: '2026-11-04T21:00:00-05:00'
+  timezone: America/New_York
+  kst: '2026-11-05T11:00:00+09:00'
+planned_video_seconds: 180
+public_repository_required: true
+one_submission_per_team: true
+team_size_max_from_guide: 4
+eligibility_confirmed: false
+new_work_scope_confirmed: false
+final_submission_form_verified: false
+website_mandate: not_stated_in_captured_guide_recheck_form
+primary_bonus_focus: Best Agentic Use-Case
+bonus_eligibility_assumed: false
+open_weight_bonus_named_models:
+- Muse Glimmer
+- Muse Spark Open
+prizes_usd:
+  indie:
+  - 150000
+  - 100000
+  - 75000
+  - 50000
+  - 25000
+  startup:
+  - 250000
+  - 150000
+  - 75000
+  - 50000
+  - 25000
+  bonuses:
+    viral: 20000
+    meta_open_weight: 10000
+    community: 10000
+    agentic: 5000
+    creative: 5000

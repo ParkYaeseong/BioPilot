@@ -1,0 +1,87 @@
+{
+  "type": "object",
+  "properties": {
+    "summary": {
+      "type": "string"
+    },
+    "missing_inputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 10
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "step_id": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "validate_input",
+              "score_baseline",
+              "retrieve_atlas_evidence",
+              "score_verifier",
+              "fetch_atlas_structure",
+              "predict_structure",
+              "render_report"
+            ]
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "optional": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "step_id",
+          "action",
+          "purpose",
+          "optional"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 8
+    },
+    "expected_outputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 8
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 10
+    },
+    "needs_execution_approval": {
+      "type": "boolean"
+    },
+    "scientific_scope": {
+      "type": "string",
+      "enum": [
+        "sequence_model_review",
+        "T50_hypothesis_only",
+        "unsupported"
+      ]
+    }
+  },
+  "required": [
+    "summary",
+    "missing_inputs",
+    "steps",
+    "expected_outputs",
+    "limitations",
+    "needs_execution_approval",
+    "scientific_scope"
+  ],
+  "additionalProperties": false
+}

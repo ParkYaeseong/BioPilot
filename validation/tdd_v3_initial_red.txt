@@ -1,0 +1,255 @@
+test_180_second_timeline_accepted (test_hackathon_contracts.HackathonContractsTests.test_180_second_timeline_accepted) ... FAIL
+test_arbitrary_unlisted_runtime_file_rejected (test_hackathon_contracts.HackathonContractsTests.test_arbitrary_unlisted_runtime_file_rejected) ... FAIL
+test_bundle_only_contains_explicit_runtime_files (test_hackathon_contracts.HackathonContractsTests.test_bundle_only_contains_explicit_runtime_files) ... FAIL
+test_catalog_filter_does_not_mutate_shared_schema (test_hackathon_contracts.HackathonContractsTests.test_catalog_filter_does_not_mutate_shared_schema) ... FAIL
+test_default_catalog_disallows_verifier_checkpoint (test_hackathon_contracts.HackathonContractsTests.test_default_catalog_disallows_verifier_checkpoint) ... FAIL
+test_default_catalog_omits_optional_fold (test_hackathon_contracts.HackathonContractsTests.test_default_catalog_omits_optional_fold) ... FAIL
+test_duplicate_bundle_paths_rejected (test_hackathon_contracts.HackathonContractsTests.test_duplicate_bundle_paths_rejected) ... FAIL
+test_duplicate_catalog_tool_names_rejected (test_hackathon_contracts.HackathonContractsTests.test_duplicate_catalog_tool_names_rejected) ... FAIL
+test_evaluator_paths_cannot_be_allowed_by_config (test_hackathon_contracts.HackathonContractsTests.test_evaluator_paths_cannot_be_allowed_by_config) ... FAIL
+test_evaluator_tool_rejected_even_when_claimed_available (test_hackathon_contracts.HackathonContractsTests.test_evaluator_tool_rejected_even_when_claimed_available) ... FAIL
+test_explicit_optional_capabilities_preserve_requested_tools (test_hackathon_contracts.HackathonContractsTests.test_explicit_optional_capabilities_preserve_requested_tools) ... FAIL
+test_native_conversion_preserves_schema (test_hackathon_contracts.HackathonContractsTests.test_native_conversion_preserves_schema) ... FAIL
+test_replay_is_not_labeled_live (test_hackathon_contracts.HackathonContractsTests.test_replay_is_not_labeled_live) ... FAIL
+test_synthetic_fixture_is_not_evidence (test_hackathon_contracts.HackathonContractsTests.test_synthetic_fixture_is_not_evidence) ... FAIL
+test_timeline_empty_rejected (test_hackathon_contracts.HackathonContractsTests.test_timeline_empty_rejected) ... FAIL
+test_timeline_gap_rejected (test_hackathon_contracts.HackathonContractsTests.test_timeline_gap_rejected) ... FAIL
+test_timeline_overlap_rejected (test_hackathon_contracts.HackathonContractsTests.test_timeline_overlap_rejected) ... FAIL
+test_timeline_overlong_rejected (test_hackathon_contracts.HackathonContractsTests.test_timeline_overlong_rejected) ... FAIL
+test_traversal_and_absolute_paths_rejected (test_hackathon_contracts.HackathonContractsTests.test_traversal_and_absolute_paths_rejected) ... FAIL
+test_unknown_source_mode_rejected (test_hackathon_contracts.HackathonContractsTests.test_unknown_source_mode_rejected) ... FAIL
+test_unknown_tool_cannot_be_whitelisted (test_hackathon_contracts.HackathonContractsTests.test_unknown_tool_cannot_be_whitelisted) ... FAIL
+test_weighted_score_missing_category_is_not_zero (test_hackathon_contracts.HackathonContractsTests.test_weighted_score_missing_category_is_not_zero) ... FAIL
+test_weighted_score_mixed_values (test_hackathon_contracts.HackathonContractsTests.test_weighted_score_mixed_values) ... FAIL
+test_weighted_score_rejects_out_of_range_and_nonfinite (test_hackathon_contracts.HackathonContractsTests.test_weighted_score_rejects_out_of_range_and_nonfinite) ... FAIL
+test_weighted_score_uses_latest_rubric (test_hackathon_contracts.HackathonContractsTests.test_weighted_score_uses_latest_rubric) ... FAIL
+
+======================================================================
+FAIL: test_180_second_timeline_accepted (test_hackathon_contracts.HackathonContractsTests.test_180_second_timeline_accepted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_hackathon_contracts.py", line 13, in setUp
+    self.assertTrue(path.exists(), 'Planned offline contract helper is not implemented')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Planned offline contract helper is not implemented
+
+======================================================================
+FAIL: test_arbitrary_unlisted_runtime_file_rejected (test_hackathon_contracts.HackathonContractsTests.test_arbitrary_unlisted_runtime_file_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_hackathon_contracts.py", line 13, in setUp
+    self.assertTrue(path.exists(), 'Planned offline contract helper is not implemented')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Planned offline contract helper is not implemented
+
+======================================================================
+FAIL: test_bundle_only_contains_explicit_runtime_files (test_hackathon_contracts.HackathonContractsTests.test_bundle_only_contains_explicit_runtime_files)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_hackathon_contracts.py", line 13, in setUp
+    self.assertTrue(path.exists(), 'Planned offline contract helper is not implemented')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Planned offline contract helper is not implemented
+
+======================================================================
+FAIL: test_catalog_filter_does_not_mutate_shared_schema (test_hackathon_contracts.HackathonContractsTests.test_catalog_filter_does_not_mutate_shared_schema)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_hackathon_contracts.py", line 13, in setUp
+    self.assertTrue(path.exists(), 'Planned offline contract helper is not implemented')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Planned offline contract helper is not implemented
+
+======================================================================
+FAIL: test_default_catalog_disallows_verifier_checkpoint (test_hackathon_contracts.HackathonContractsTests.test_default_catalog_disallows_verifier_checkpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_hackathon_contracts.py", line 13, in setUp
+    self.assertTrue(path.exists(), 'Planned offline contract helper is not implemented')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Planned offline contract helper is not implemented
+
+======================================================================
+FAIL: test_default_catalog_omits_optional_fold (test_hackathon_contracts.HackathonContractsTests.test_default_catalog_omits_optional_fold)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_hackathon_contracts.py", line 13, in setUp
+    self.assertTrue(path.exists(), 'Planned offline contract helper is not implemented')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Planned offline contract helper is not implemented
+
+======================================================================
+FAIL: test_duplicate_bundle_paths_rejected (test_hackathon_contracts.HackathonContractsTests.test_duplicate_bundle_paths_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_hackathon_contracts.py", line 13, in setUp
+    self.assertTrue(path.exists(), 'Planned offline contract helper is not implemented')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Planned offline contract helper is not implemented
+
+======================================================================
+FAIL: test_duplicate_catalog_tool_names_rejected (test_hackathon_contracts.HackathonContractsTests.test_duplicate_catalog_tool_names_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_hackathon_contracts.py", line 13, in setUp
+    self.assertTrue(path.exists(), 'Planned offline contract helper is not implemented')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Planned offline contract helper is not implemented
+
+======================================================================
+FAIL: test_evaluator_paths_cannot_be_allowed_by_config (test_hackathon_contracts.HackathonContractsTests.test_evaluator_paths_cannot_be_allowed_by_config)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_hackathon_contracts.py", line 13, in setUp
+    self.assertTrue(path.exists(), 'Planned offline contract helper is not implemented')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Planned offline contract helper is not implemented
+
+======================================================================
+FAIL: test_evaluator_tool_rejected_even_when_claimed_available (test_hackathon_contracts.HackathonContractsTests.test_evaluator_tool_rejected_even_when_claimed_available)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_hackathon_contracts.py", line 13, in setUp
+    self.assertTrue(path.exists(), 'Planned offline contract helper is not implemented')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Planned offline contract helper is not implemented
+
+======================================================================
+FAIL: test_explicit_optional_capabilities_preserve_requested_tools (test_hackathon_contracts.HackathonContractsTests.test_explicit_optional_capabilities_preserve_requested_tools)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_hackathon_contracts.py", line 13, in setUp
+    self.assertTrue(path.exists(), 'Planned offline contract helper is not implemented')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Planned offline contract helper is not implemented
+
+======================================================================
+FAIL: test_native_conversion_preserves_schema (test_hackathon_contracts.HackathonContractsTests.test_native_conversion_preserves_schema)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_hackathon_contracts.py", line 13, in setUp
+    self.assertTrue(path.exists(), 'Planned offline contract helper is not implemented')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Planned offline contract helper is not implemented
+
+======================================================================
+FAIL: test_replay_is_not_labeled_live (test_hackathon_contracts.HackathonContractsTests.test_replay_is_not_labeled_live)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_hackathon_contracts.py", line 13, in setUp
+    self.assertTrue(path.exists(), 'Planned offline contract helper is not implemented')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Planned offline contract helper is not implemented
+
+======================================================================
+FAIL: test_synthetic_fixture_is_not_evidence (test_hackathon_contracts.HackathonContractsTests.test_synthetic_fixture_is_not_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_hackathon_contracts.py", line 13, in setUp
+    self.assertTrue(path.exists(), 'Planned offline contract helper is not implemented')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Planned offline contract helper is not implemented
+
+======================================================================
+FAIL: test_timeline_empty_rejected (test_hackathon_contracts.HackathonContractsTests.test_timeline_empty_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_hackathon_contracts.py", line 13, in setUp
+    self.assertTrue(path.exists(), 'Planned offline contract helper is not implemented')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Planned offline contract helper is not implemented
+
+======================================================================
+FAIL: test_timeline_gap_rejected (test_hackathon_contracts.HackathonContractsTests.test_timeline_gap_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_hackathon_contracts.py", line 13, in setUp
+    self.assertTrue(path.exists(), 'Planned offline contract helper is not implemented')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Planned offline contract helper is not implemented
+
+======================================================================
+FAIL: test_timeline_overlap_rejected (test_hackathon_contracts.HackathonContractsTests.test_timeline_overlap_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_hackathon_contracts.py", line 13, in setUp
+    self.assertTrue(path.exists(), 'Planned offline contract helper is not implemented')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Planned offline contract helper is not implemented
+
+======================================================================
+FAIL: test_timeline_overlong_rejected (test_hackathon_contracts.HackathonContractsTests.test_timeline_overlong_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_hackathon_contracts.py", line 13, in setUp
+    self.assertTrue(path.exists(), 'Planned offline contract helper is not implemented')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Planned offline contract helper is not implemented
+
+======================================================================
+FAIL: test_traversal_and_absolute_paths_rejected (test_hackathon_contracts.HackathonContractsTests.test_traversal_and_absolute_paths_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_hackathon_contracts.py", line 13, in setUp
+    self.assertTrue(path.exists(), 'Planned offline contract helper is not implemented')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Planned offline contract helper is not implemented
+
+======================================================================
+FAIL: test_unknown_source_mode_rejected (test_hackathon_contracts.HackathonContractsTests.test_unknown_source_mode_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_hackathon_contracts.py", line 13, in setUp
+    self.assertTrue(path.exists(), 'Planned offline contract helper is not implemented')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Planned offline contract helper is not implemented
+
+======================================================================
+FAIL: test_unknown_tool_cannot_be_whitelisted (test_hackathon_contracts.HackathonContractsTests.test_unknown_tool_cannot_be_whitelisted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_hackathon_contracts.py", line 13, in setUp
+    self.assertTrue(path.exists(), 'Planned offline contract helper is not implemented')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Planned offline contract helper is not implemented
+
+======================================================================
+FAIL: test_weighted_score_missing_category_is_not_zero (test_hackathon_contracts.HackathonContractsTests.test_weighted_score_missing_category_is_not_zero)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_hackathon_contracts.py", line 13, in setUp
+    self.assertTrue(path.exists(), 'Planned offline contract helper is not implemented')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Planned offline contract helper is not implemented
+
+======================================================================
+FAIL: test_weighted_score_mixed_values (test_hackathon_contracts.HackathonContractsTests.test_weighted_score_mixed_values)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_hackathon_contracts.py", line 13, in setUp
+    self.assertTrue(path.exists(), 'Planned offline contract helper is not implemented')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Planned offline contract helper is not implemented
+
+======================================================================
+FAIL: test_weighted_score_rejects_out_of_range_and_nonfinite (test_hackathon_contracts.HackathonContractsTests.test_weighted_score_rejects_out_of_range_and_nonfinite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_hackathon_contracts.py", line 13, in setUp
+    self.assertTrue(path.exists(), 'Planned offline contract helper is not implemented')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Planned offline contract helper is not implemented
+
+======================================================================
+FAIL: test_weighted_score_uses_latest_rubric (test_hackathon_contracts.HackathonContractsTests.test_weighted_score_uses_latest_rubric)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/biopilot_v3_work/BioPilot_Atlas_v3/tests/test_hackathon_contracts.py", line 13, in setUp
+    self.assertTrue(path.exists(), 'Planned offline contract helper is not implemented')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Planned offline contract helper is not implemented
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.004s
+
+FAILED (failures=25)
