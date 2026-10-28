@@ -1,0 +1,55 @@
+{
+  "verified_date_kst": "2026-10-29",
+  "scope": "English tutorial presentation and actual local screen captures; no new scientific inference",
+  "language": "en",
+  "initial_failing_test": {
+    "command": ".venv/Scripts/python.exe -m pytest tests_app/test_tour_spotlight.py -q -p no:cacheprovider --basetemp=.cache/english_tour_red --tb=short",
+    "failed": 1,
+    "passed": 2,
+    "failure": "Rendered spotlight title was Korean rather than the English default"
+  },
+  "focused_tests": {
+    "passed": 15,
+    "elapsed_seconds": 3.28
+  },
+  "regression": {
+    "command": ".venv/Scripts/python.exe -m pytest tests_app/test_viewer.py tests_app/test_viewer_polish.py tests_app/test_viewer_contrast.py tests_app/test_viewer_structure.py tests_app/test_provenance_integrity.py tests_app/test_guided_tour.py tests_app/test_tour_spotlight.py tests_app/test_workspace_flow.py -q -p no:cacheprovider --basetemp=.cache/english_tour_regression --tb=short",
+    "passed": 104,
+    "elapsed_seconds": 12.42
+  },
+  "browser_verification": {
+    "url": "http://127.0.0.1:8522/?appearance=Light",
+    "browser": "Existing Chrome workbench tab through CUA",
+    "appearance": "Light",
+    "all_eight_steps_english": true,
+    "next_changes_actual_views": true,
+    "finish_closes_overlay": true,
+    "finish_restores_previous_view": true,
+    "preview_restarted_to_clear_cached_python_copy": true,
+    "light_and_dark_generated_documents_checked_by_tests": true,
+    "dark_visual_recheck_performed": false
+  },
+  "refreshed_images": [
+    {
+      "path": "app/assets/tour/compare.png",
+      "sha256": "6b44456501f8060049fd09d3e4df552dba05d6b2b9defc218b1ad63c052d94eb"
+    },
+    {
+      "path": "docs/images/guided-tutorial.png",
+      "sha256": "21bd1fb2ac58ac74e87b4d5a34c983760c1d1ff84e94a1c48ff10bb1d6b8765c"
+    }
+  ],
+  "new_provider_calls": 0,
+  "new_gpu_calls": 0,
+  "prior_video_preserved": true,
+  "video_rerecorded_for_english_tutorial": false,
+  "video_note": "The existing Oct28 local video remains a historical draft showing the earlier tutorial language.",
+  "repository_visibility_changed": false,
+  "contest_submission_performed": false,
+  "package_verification": {
+    "command": ".venv/Scripts/python.exe checks/validate_package.py",
+    "status": "PASS",
+    "checks": 1947,
+    "failures": 0
+  }
+}

@@ -31,14 +31,14 @@
   </style>
   <svg aria-hidden="true"><defs><mask id="bio-tour-mask"><rect width="100%" height="100%" fill="white"/><rect id="bio-tour-hole" fill="black" rx="12"/></mask></defs><rect width="100%" height="100%" fill="rgba(20,31,49,.57)" mask="url(#bio-tour-mask)"/></svg>
   <div class="tour-ring"></div>${'<div class="tour-block"></div>'.repeat(4)}
-  <section id="bio-tour-card" role="dialog" aria-modal="true" aria-label="화면 튜토리얼" tabindex="-1">
-  <div class="tour-head"><span class="tour-counter"></span><button data-action="exit_demo" aria-label="튜토리얼 닫기">닫기</button></div>
-  <h2></h2><p class="tour-body"></p><figure hidden><img alt="해당 단계의 실제 화면 예시"/><figcaption>실제 화면 예시</figcaption></figure><div class="tour-tip"></div>
-  <div class="tour-dots"></div><div class="tour-foot"><button data-action="exit_demo">건너뛰기</button><div class="tour-actions"><button data-action="tour_play">${data.playing?'일시정지':'자동재생'}</button><button data-action="tour_back">이전</button><button class="tour-primary" data-action="${data.index===data.count-1?'exit_demo':'tour_next'}">${data.index===data.count-1?'완료':'다음'}</button></div></div>
-  <p class="tour-replay">REPLAY · 실제 로컬 검사와 저장 결과 안내 · 새 모델 호출 없음</p>
+  <section id="bio-tour-card" role="dialog" aria-modal="true" aria-label="Guided tutorial" lang="en" tabindex="-1">
+  <div class="tour-head"><span class="tour-counter"></span><button data-action="exit_demo" aria-label="Close tutorial">Close</button></div>
+  <h2></h2><p class="tour-body"></p><figure hidden><img alt="Actual screen for this step"/><figcaption>Actual screen example</figcaption></figure><div class="tour-tip"></div>
+  <div class="tour-dots"></div><div class="tour-foot"><button data-action="exit_demo">Skip</button><div class="tour-actions"><button data-action="tour_play">${data.playing?'Pause':'Autoplay'}</button><button data-action="tour_back">Back</button><button class="tour-primary" data-action="${data.index===data.count-1?'exit_demo':'tour_next'}">${data.index===data.count-1?'Finish':'Next'}</button></div></div>
+  <p class="tour-replay">REPLAY · real local checks and saved results · no new model calls</p>
   </section>`;
   const card=root.querySelector('#bio-tour-card');
-  card.querySelector('.tour-counter').textContent=`${data.index+1}/${data.count} 단계`;
+  card.querySelector('.tour-counter').textContent=`Step ${data.index+1} of ${data.count}`;
   card.querySelector('h2').textContent=data.title;
   card.querySelector('.tour-body').textContent=data.body;
   card.querySelector('.tour-tip').textContent=data.tip;

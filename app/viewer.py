@@ -229,7 +229,9 @@ def _guided_tour(view):
                        args=('stop', view['candidates']), width='stretch')
         st.caption(('Walkthrough complete. Exit restores your previous controls.'
                     if st.session_state.get('tour_complete') else
-                    'Guided demo · REPLAY + real local checks · 7 seconds per step · no new inference'))
+                    'Guided demo · REPLAY + real local checks · '
+                    + ('Autoplay · 7 seconds per step' if playing else 'Use Next to continue')
+                    + ' · no new inference'))
 
 
 @st.fragment(run_every=1)

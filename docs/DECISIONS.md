@@ -517,3 +517,15 @@ inventory counts are explicitly scoped to that commit, avoiding self-referential
 counts as verification documentation changes. No full chat export or artificial
 commit cadence is added. Final metadata documentation and one EOF whitespace
 cleanup receive a current-date follow-up commit.
+
+## 2026-10-29 — use English consistently in the tutorial
+
+The RAPID screenshot specified an interaction pattern, not a Korean-language
+submission UI. Correct the separate spotlight copy to English, including buttons,
+accessible labels and image captions. Keep its existing local-only actions and
+scientific limits. Replace the one thumbnail with captured Korean overlay text
+and the README tutorial image using actual screens. Test both generated themes
+for English copy and verify the eight-step flow in the browser. Preserve earlier
+recordings and receipts with their historical meaning; do not claim the old video
+has been re-recorded. Upload this correction through the existing authorized
+repository workflow without changing its visibility or submitting to the event.

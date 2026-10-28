@@ -75,5 +75,21 @@
         "y": 113.875
       }
     }
-  ]
+  ],
+  "refresh_20261029": {
+    "reason": "Remove Korean overlay text accidentally captured in the comparison thumbnail",
+    "refreshed_steps": [
+      "compare"
+    ],
+    "language": "en",
+    "method": "CUA capture of the actual selected three-candidate table, without an active tutorial overlay",
+    "clip": {
+      "x": 17,
+      "y": 412,
+      "width": 555,
+      "height": 158
+    },
+    "sha256": "6b44456501f8060049fd09d3e4df552dba05d6b2b9defc218b1ad63c052d94eb",
+    "other_seven_original_step_images_preserved": true
+  }
 }

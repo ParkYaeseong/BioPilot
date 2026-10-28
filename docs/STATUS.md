@@ -1,5 +1,33 @@
 # Current status
 
+## English tutorial correction — 2026-10-29
+
+The user identified Korean copy in the otherwise English submission UI. The
+spotlight overlay had its own Korean text despite the English base walkthrough.
+Translated all eight descriptions, tips, controls, screen captions and accessible
+labels; declared the dialog language as English. Manual playback now says to use
+Next, with the seven-second cadence shown only during autoplay.
+
+Changed app/tour_spotlight.py, app/tour_spotlight.js, app/viewer.py and the existing
+spotlight regression test. Replaced the comparison thumbnail and README screenshot
+with actual English local UI captures; retained the other seven source images.
+Updated the capture manifest and validation/english_tutorial_20261029.json.
+
+The English requirement first failed against the Korean overlay (1 failed, 2
+passed), then focused tests passed (15). Related viewer, tutorial, structure and
+provenance regression: 104 passed in 12.42s. CUA verified all eight English steps,
+actual Next navigation, Finish dismissal and restoration to the prior view. The
+8522 saved-result preview was restarted because imported Python copy was cached.
+Package verification: 1,947 checks passed, 0 failures. Exact commands and
+screenshot hashes are in the verification receipt. No new
+Meta/GPU calls, scientific results, visibility changes or contest submission.
+
+The Oct28 video is preserved as a historical draft and still shows the earlier
+tutorial language. A final English recording, full human review, public visibility
+approval, rights/contributors, final form and eligibility/reuse ruling remain
+open. Next allowed action: record/review the corrected English demo and resolve
+the remaining submission gates with the owner.
+
 ## GitHub main upload verified — 2026-10-29
 
 Source uploaded to https://github.com/ParkYaeseong/BioPilot, main commit 457890b0e6bbf0cfba8c050024847a23a017ce41.
