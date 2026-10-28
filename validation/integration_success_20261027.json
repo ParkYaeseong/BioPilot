@@ -1,0 +1,112 @@
+{
+  "attempt": 3,
+  "result": "SUCCESS",
+  "workspace": ".runtime/real_integration3_20261027",
+  "run_id": "5b7c92bc2d364680809713bf8c332f66",
+  "started_at_utc": "2026-10-27T06:52:22Z",
+  "ended_at_utc": "2026-10-27T06:53:02Z",
+  "elapsed_seconds_wall": 40,
+  "returncode": 0,
+  "status": "sequence_review_complete",
+  "stop_reason": "sequence_review_complete",
+  "fix_under_test": "reasoning_effort set explicitly per examples/meta_*_request.json: tool_stage=medium, final_report=low",
+  "approved_max_requests": 3,
+  "approved_local_reservation_micros": 150000,
+  "meta_request_attempts": 3,
+  "usage": [
+    {
+      "prompt_tokens": 1136,
+      "completion_tokens": 313,
+      "total_tokens": 1449
+    },
+    {
+      "prompt_tokens": 1431,
+      "completion_tokens": 214,
+      "total_tokens": 1645
+    },
+    {
+      "prompt_tokens": 1341,
+      "completion_tokens": 395,
+      "total_tokens": 1736
+    }
+  ],
+  "final_report_max_tokens": 1024,
+  "reasoning_effort": {
+    "tool_stage": "medium",
+    "final_report": "low"
+  },
+  "one_execution_evidence_chain": [
+    {
+      "step": 1,
+      "kind": "meta_response",
+      "finish": "tool_calls",
+      "completion_tokens": 313
+    },
+    {
+      "step": 2,
+      "kind": "mcp_tool",
+      "tool": "validate_target_context",
+      "result": "ok"
+    },
+    {
+      "step": 3,
+      "kind": "meta_response",
+      "finish": "tool_calls",
+      "completion_tokens": 214
+    },
+    {
+      "step": 4,
+      "kind": "mcp_tool",
+      "tool": "score_positions",
+      "result": "completed",
+      "artifact_sha256": "63a1c3752407d96a54f33b735d72e700839e4b0e9363894597738f6e8531157f"
+    },
+    {
+      "step": 5,
+      "kind": "meta_response",
+      "finish": "stop",
+      "completion_tokens": 395,
+      "content_chars": 313
+    }
+  ],
+  "mcp_protocol_version": "2025-11-25",
+  "bundle_sha256": "f13c52887406f0882e64182966ac87f43245ad56ea314d87c1518f488df7f0d3",
+  "esm_source_mode": "live",
+  "esm_cached_positions": [],
+  "esm_recomputed_in_this_run": true,
+  "esm_provenance": {
+    "checkpoint": "esm2_t30_150M_UR50D",
+    "checkpoint_revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+    "config_sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+    "device": "cpu",
+    "ignored_nonpersistent_buffers": [
+      "esm.embeddings.position_ids"
+    ],
+    "implementation": "transformers-5.2.0/torch-2.9.1",
+    "model_key": "esm150",
+    "precision": "float32",
+    "rank_policy": "esm150_masked_v1",
+    "reference_id": "ESTA_BACSU_Nutschel_2020",
+    "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+    "score_kind": "masked_marginal_log_likelihood_ratio",
+    "sequence_context": "full_212",
+    "source_mode": "live",
+    "tokenizer_sha256": "28bae4e8d8b0225381da7978ca8b341f5ac46cc4f0ca62ad459c7955608b6ea2",
+    "upstream_authenticity": "trusted_launcher_supplied_pins",
+    "weight_file_hashes": {
+      "model.safetensors": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566"
+    },
+    "weights_sha256": "377f67e27c559ef9db8eac8296e0961ba68a98b08d32da9072af3853d193549b"
+  },
+  "candidates": 19,
+  "ranking_scope": "esm150_masked_v1",
+  "ranks_rendered_by": "code, not model prose",
+  "scientific_scope": "unvalidated_sequence_evidence_assistant",
+  "biological_efficacy_established": false,
+  "actual_invoice_cost_micros": null,
+  "cost_status": "unknown",
+  "automatic_retries": 0,
+  "GPU_jobs": 0,
+  "cumulative_local_reservation_micros_across_3_attempts": 450000,
+  "note": "Artifact sha256 is identical across three independent fresh workspaces, which demonstrates deterministic local ESM computation rather than cache reuse (cached_positions_1based is empty)."
+}

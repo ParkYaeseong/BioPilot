@@ -1,4 +1,4 @@
-BioPilot Atlas v3 폴더를 확인하고, 수정된 생물학적 설계에 따라 개발 준비를 진행해 주세요.
+BioPilot Bench v3 폴더를 확인하고, 수정된 생물학적 설계에 따라 개발 준비를 진행해 주세요.
 
 먼저 START_HERE_KO.md, AGENTS.md, BIOPILOT_ATLAS_KO.md, docs/04_science_and_evaluation.md, docs/10_biology_corrections.md, docs/11_target_registration.md, docs/12_biological_readiness.md와 docs/superpowers/plans/2026-10-27-v3-mcp-hackathon.md를 읽으세요.
 

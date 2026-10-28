@@ -1,0 +1,85 @@
+{
+  "capture_safety": {
+    "desktop_or_other_windows_captured": false,
+    "esm_inference_during_capture": 0,
+    "method": "Loopback Streamlit driven by the installed browser, application viewport only",
+    "provider_calls_during_capture": 0
+  },
+  "comparison_artifact_caveat": "validation/workflow_comparison_20261028.json was written before a further limitation line was added to evaluation/workflow_suite.py stating that the fixed and Meta wall_seconds are not comparable (one is a local function call, the other includes provider latency) and their ratio is not a speed result. The executed artifact is kept unmodified as the record of what ran; the caveat is carried in docs/STATUS.md, docs/DECISIONS.md, the demo frame, and any future report.",
+  "date_kst": "2026-10-28",
+  "evaluator_isolation": {
+    "allowlisted_path_count": 27,
+    "enforced_by": [
+      "build_meta_request build-time rejection of any payload containing 'expected'",
+      "tests_app/test_workflow_suite.py::test_meta_payload_never_contains_expected_outcomes"
+    ],
+    "evaluation_or_validation_paths_in_workspace": [],
+    "frozen_expected_outcomes_location": "evaluation/workflow_protocol_meta_v2.json (outside the workspace)",
+    "mechanism": "Explicit default-deny allowlist in app/core/runtime_bundle.py",
+    "model_request_contains_expected_outcome": false
+  },
+  "not_performed": [
+    "GitHub publication",
+    "external deployment",
+    "contest submission",
+    "manual workflow arm",
+    "GPU or Modal execution",
+    "biological efficacy claim"
+  ],
+  "rendering_defect_found_and_fixed": {
+    "defect": "app/viewer.py painted the sidebar before injecting the palette",
+    "measured_after": "sidebar peak 255",
+    "measured_before": "sidebar peak glyph brightness 105 vs main 237",
+    "method": "Pillow luminance percentiles over the sidebar and main bands of the real capture"
+  },
+  "repeat_billing_on_refresh": {
+    "conclusion": "Structurally impossible rather than conventionally avoided: no module in the render path can open a socket, spawn a process or read credentials.",
+    "enforced_by_test": true,
+    "method": "AST import graph of the whole viewer stack",
+    "modules": {
+      "app/review_checks.py": [
+        "app",
+        "dataclasses"
+      ],
+      "app/viewer.py": [
+        "app",
+        "argparse",
+        "pathlib",
+        "streamlit",
+        "sys"
+      ],
+      "app/viewer_data.py": [
+        "csv",
+        "hashlib",
+        "io",
+        "json",
+        "math",
+        "pathlib"
+      ]
+    },
+    "network_or_subprocess_imports": [],
+    "question": "Can a browser refresh, filter change or candidate selection trigger a paid call?",
+    "residual_risk": "Closed in this turn: tests_app/test_viewer.py::test_whole_viewer_render_path_cannot_reach_a_provider now asserts the real import graph of all three render-path modules against a forbidden set (urllib, http, requests, httpx, socket, subprocess, os, dotenv, modal, torch, transformers)."
+  },
+  "scope": "Viewer, isolation and billing-safety verification after the Meta arm and provenance work",
+  "secret_exposure": {
+    "artifacts_scanned": [
+      "validation\\workflow_comparison_20261028.json",
+      "validation\\workflow_meta_arm_20261028.json",
+      "validation\\workflow_meta_arm_attempt1_length_failure.json",
+      "validation\\workflow_meta_arm_success_20261028.json",
+      "validation\\workflow_meta_probe_20261028.json",
+      "validation\\workflow_meta_remainder_20261028.json",
+      "validation\\workflow_policy_baseline_20261028.json"
+    ],
+    "key_bytes_found": false,
+    "method": "Byte-compared the live MODEL_API_KEY value against every new workflow artifact and the capture receipt",
+    "note": "The key was read for comparison only and never written to any artifact or log"
+  },
+  "ui_artifact_consistency": {
+    "absent_stage_surfaced": true,
+    "mechanism": "app/viewer_data.provenance_chain verifies each stored commitment rather than displaying digests decoratively",
+    "mismatch_surfaced": true,
+    "tests": "tests_app/test_viewer.py 36 passed, including a broken-commitment and an absent-stage case"
+  }
+}

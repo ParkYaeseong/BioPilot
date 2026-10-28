@@ -7,6 +7,8 @@
     "reference/residue_map.json",
     "reference/lipase_full_212.fasta",
     "reference/1ISP_A_deposited_181.fasta",
+    "reference/atlas_snapshot_policy.json",
+    "reference/atlas_registered_reference_20261028.json",
     "prompts/runtime/00_developer.txt",
     "prompts/runtime/10_plan_user.txt",
     "prompts/runtime/20_next_step_user.txt",

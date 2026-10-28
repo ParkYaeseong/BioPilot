@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-28",
+  "status": "two_actual_gpu_predictions_verified",
+  "models": [
+    {
+      "model": "esmfold2",
+      "variant": "WT",
+      "status": "actual_gpu_prediction_verified",
+      "receipt_path": "demo/artifacts/structures/esmfold2_WT/receipt.json",
+      "receipt_sha256": "c47c70d4e1ec5db3a8dc1b282f9d942878e04b2f3638782bbc6cbf92525b09af",
+      "structure_sha256": "c57df67894a5d6d5c9ca4e65cc0d2688f7aa1a43dc5a5e081a39c8e762629bcf",
+      "elapsed_seconds": 44.776,
+      "runtime_provenance": {
+        "esm": "3.4.1.post1",
+        "torch": "2.11.0",
+        "transformers": "4.57.6",
+        "cuda_runtime": "13.0",
+        "gpu_name": "NVIDIA L40S",
+        "pytorch_memory_fraction": 0.8,
+        "peak_pytorch_allocated_bytes": 26654082048
+      },
+      "checkpoint_revision": "69869f737beffec5294845ede23db5fc0b4f509e",
+      "checkpoint_manifest_sha256": "85e9c3e34d47533a9ad001efd6aab28238c5be2ccdb4f30f01caec0f9bb3a497",
+      "predicted_sequence_verified": true,
+      "atom_geometry_validated": false,
+      "experimental_validation": false
+    },
+    {
+      "model": "esm3",
+      "variant": "A32V",
+      "status": "actual_gpu_prediction_verified",
+      "receipt_path": "demo/artifacts/structures/esm3_A32V/receipt.json",
+      "receipt_sha256": "1324bbf39ad75a0900e97b254e48c048f4539171e9f82816c358954562d41ee8",
+      "structure_sha256": "c9431ffe520daf1158db0d99f1880cd6fc2d363ce74b978f07829e6817138613",
+      "elapsed_seconds": 6.478,
+      "runtime_provenance": {
+        "esm": "3.4.1.post1",
+        "torch": "2.11.0",
+        "transformers": "4.57.6",
+        "cuda_runtime": "13.0",
+        "gpu_name": "NVIDIA L40S",
+        "pytorch_memory_fraction": 0.8,
+        "peak_pytorch_allocated_bytes": 5450721792
+      },
+      "checkpoint_revision": "47f0545b2b6daf26a93439a3cd610f4f7f3d5478",
+      "checkpoint_manifest_sha256": "6939771f6da31f450c729c262b1ab9e9769c109095256be65783f823c4d8aa99",
+      "predicted_sequence_verified": true,
+      "atom_geometry_validated": false,
+      "experimental_validation": false
+    }
+  ],
+  "comparison_scope": "Different model/input pairs; not a measured variant-effect or model-accuracy comparison.",
+  "baseline_ranks_changed": false,
+  "new_meta_calls": 0,
+  "provider_fallback": false,
+  "actual_gpu_cost": null,
+  "cost_status": "not_verified",
+  "publication_or_submission": false
+}

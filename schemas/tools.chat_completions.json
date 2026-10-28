@@ -30,7 +30,7 @@
     "type": "function",
     "function": {
       "name": "retrieve_atlas_evidence",
-      "description": "Retrieve evidence for an existing reference through a verified live-search route or approved imported snapshot. Never fabricate hits. The server binds ownership, source mode and budget.",
+        "description": "Read the pinned sanitized Biohub Atlas snapshot for the exact registered WT full_212 reference only. No live search, variant upload or folding occurs. Returns one existing record, not homolog hits or variant-effect evidence; optional context never changes baseline ranking.",
       "strict": true,
       "parameters": {
         "type": "object",
@@ -62,7 +62,7 @@
     "type": "function",
     "function": {
       "name": "score_positions",
-      "description": "Request masked marginal scores at registered reference positions. Reuse all substitutions at a position. The verifier is optional annotation, not an automatic mixed-model rerank.",
+      "description": "Request masked marginal scores at registered reference positions. Reuse all substitutions at a position. The verifier is optional annotation, not an automatic mixed-model rerank. One run keeps one checkpoint: the model is chosen once per run and cannot be switched mid-run, so verifier scores are never blended into a baseline ranking.",
       "strict": true,
       "parameters": {
         "type": "object",

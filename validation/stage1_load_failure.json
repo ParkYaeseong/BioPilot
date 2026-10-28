@@ -1,0 +1,14 @@
+{
+  "recorded_date": "2026-10-27",
+  "stage": "first_actual_local_checkpoint_load",
+  "model_id": "facebook/esm2_t30_150M_UR50D",
+  "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+  "transformers_version": "5.2.0",
+  "status": "blocked_before_forward",
+  "unexpected_keys_observed": ["esm.embeddings.position_ids"],
+  "score_artifact_created": false,
+  "model_substitution": false,
+  "checkpoint_modified": false,
+  "resolution": "Exact known nonlearned legacy buffer verified as int64 shape [1,1026] arange under rotary config; every other loading issue stays blocked.",
+  "regression_receipts": ["validation/stage1_buffer_red.txt", "validation/stage1_buffer_green.txt"]
+}

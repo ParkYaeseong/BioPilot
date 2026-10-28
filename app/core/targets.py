@@ -1,6 +1,9 @@
 """Product registry gate, preserving the supplied v2 exact-map/WT algorithms.
 
-Only sequence correspondence is verified. No evaluator imports or geometry guesses.
+Two coordinate facts are kept apart on purpose. The index join - deposited position
+to PDB author numbering, and which residues carry atoms - is verified against a
+pinned mmCIF. Atom geometry is NOT validated, and this gate refuses any profile that
+claims otherwise. No evaluator imports or geometry guesses.
 Reuse provenance: checks/science_contracts.py, supplied v2/v3 preparation package.
 """
 from dataclasses import dataclass
@@ -18,6 +21,12 @@ REFERENCE_SHA256 = '8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee49
 MATURE_SHA256 = '90914bba8255e2e85de3277fe0d5ffdfdeb8e5b741ff593dde001f73c413a065'
 FRAME = 'full_reference_1based'
 PROTECTED = ((77, 108, 'S'), (133, 164, 'D'), (156, 187, 'H'))
+PROFILE_ID = 'lipase_bs_a_v3'
+# The exact 1ISP bytes the registered index join was derived from.
+COORDINATE_SOURCE_SHA256 = '7ab626e5c5c1bec8ed8acdd4675f105939ef982542a559084860d16e4b07cc10'
+COORDINATE_STATUS = 'index_join_verified_geometry_unvalidated'
+# Deposited but unmodelled: full 32 (auth 1 ALA) and full 212 (auth 181 ASN).
+UNMODELLED_FULL_POSITIONS = (32, 212)
 
 @dataclass(frozen=True)
 class ValidatedTarget:
@@ -74,7 +83,7 @@ def validate_target(profile: Mapping[str, Any], objective_id: str, *, reference_
     capability = objective_capability(objective_id)
     try:
         full, mature = profile['reference_sequence'], profile['mature_sequence']
-        if (profile['profile_id'] != 'lipase_bs_a_v2' or profile['reference_id'] != REFERENCE_ID
+        if (profile['profile_id'] != PROFILE_ID or profile['reference_id'] != REFERENCE_ID
                 or profile['reference_indexing'] != FRAME
                 or profile['baseline']['inference_context'] != 'full_212_reference'
                 or profile['baseline']['score_type'] != 'masked_marginal_log_likelihood_ratio'
@@ -96,10 +105,15 @@ def validate_target(profile: Mapping[str, Any], objective_id: str, *, reference_
         if sites != PROTECTED or any(full[fp-1] != aa or mature[mp-1] != aa for mp, fp, aa in sites):
             raise ValueError('Registered catalytic protection cannot be removed or changed')
         structure = profile['structure']
-        if (structure['coordinate_file_sha256'] is not None
-                or structure['author_numbering_verified'] is not False
-                or structure['coordinate_status'] != 'not_downloaded_or_verified'):
-            raise ValueError('Unverified coordinates cannot be enabled by a profile')
+        if (structure['geometry_validated'] is not False
+                or structure['author_numbering_verified'] is not True
+                or structure['coordinate_file_sha256'] != COORDINATE_SOURCE_SHA256
+                or structure['coordinate_status'] != COORDINATE_STATUS
+                or tuple(row['full_position'] for row in structure['missing_residue_ids'])
+                != UNMODELLED_FULL_POSITIONS):
+            raise ValueError(
+                'Coordinate state must match the registered verified index join against the '
+                'pinned source file; geometry stays unvalidated and no profile may enable it')
     except (KeyError, TypeError, UnicodeError) as error:
         raise ValueError('Invalid registered target profile') from error
     return ValidatedTarget(REFERENCE_ID, full, REFERENCE_SHA256, objective_id, capability['claim_level'])
@@ -127,4 +141,12 @@ def validate_variant(profile, variant: str, *, reference_numbering=FRAME) -> Var
     return Variant(variant, pos, pos-31, wt, alt)
 
 def require_coordinates(target, positions):
-    raise ValueError('Atom coordinates and author/label correspondence are not verified')
+    """Still fails closed. The index join is verified; atom geometry is not.
+
+    Knowing that full 108 is author 77 and carries atoms does not establish side-chain
+    geometry, conformer policy or any structural claim about a variant.
+    """
+    raise ValueError(
+        'Atom geometry is not validated for this target; the registered index join '
+        'records author numbering and which residues carry coordinates, and it does '
+        'not establish geometry')

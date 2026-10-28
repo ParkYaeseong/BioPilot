@@ -83,3 +83,423 @@ The package checker now prunes local credentials/environments/helpers before sou
 reads and uses explicit UTF-8 on Windows. Original distribution manifest and history
 remain preserved; the current source manifest is intentionally regenerated for changed
 source. Final test receipt and next gates are in STATUS.md and IMPLEMENTATION_KO.md.
+
+2026-10-27 final-report continuation launcher: the existing `app/host/final_report.py`
+had no reachable entry point, so the approved single request could not be spent through
+an audited command. Chose a `final-report` subcommand in `app/cli.py` rather than
+extending `app/host/runner.py`, because the continuation performs no MCP dispatch and
+no scientific inference; it needs no provisioned product bundle or stdio sandbox, and
+widening the runner's workflow choices would imply tool access it must never have.
+
+Preparation and execution stay separate commands. `--prepare` creates the plan and the
+`final_report_plan.json` receipt while sending nothing, and refuses to overwrite an
+existing receipt so a second preparation cannot silently create a duplicate
+continuation run. Execution requires both `--live --ack-single-report`, verified before
+a credential-reading client is constructed, and requires the exact prepared
+continuation run id; there is no flag that both prepares and sends.
+
+The 512-token sequence-review contract was deliberately left unchanged. The earlier
+3-request run failed only because its reserved final narrative hit that 512-token cap
+and returned `finish_reason=length`. Raising the shared cap would have altered an
+already-executed workflow's contract and invited a re-run; the continuation instead
+reuses the saved scores at the separate 1024-token report cap that `MetaClient` already
+accepted as an explicit opt-in. Scores are replayed, never recomputed, so the report
+carries `scores_reused_from_saved_artifact` and `esm_source_mode: replay`.
+
+The continuation run lives in the source workspace database, since
+`prepare_final_report` requires the artifact store and run service to bind to the same
+owned database. Codex had already prepared run `2ff6d7ee66234d58823d518525af1b4b`;
+re-preparing would have orphaned a second run, so the existing one was executed. An
+independent dry run on a copied workspace reproduced `request_sha256`
+`f5c1546e655a0bbe087ebc84ac3ee0cdabdb587ac749cdf10da35cc638a33de3` and the 1709-byte
+body exactly, confirming the request was deterministic and unmodified.
+
+Cost remains unresolved by design: the local reservation committed 50000 micros, but
+`actual_cost_micros` is null and `cost_status` is `unknown`. A reservation is a local
+ceiling, not evidence of billing. The pre-existing `MANIFEST.sha256` drift failure was
+left untouched rather than masked by regenerating the manifest inside this change.
+
+2026-10-27 sequence_review reasoning_effort and report cap: the one-execution integration
+failed twice before the real cause was found, and both failures are preserved as receipts
+rather than overwritten. The first diagnosis (512-token cap) and the second (missing length
+instruction) were both wrong, and each cost a live attempt. The actual defect was that
+`_run_sequence_review` never sent `reasoning_effort`, although the package's own
+`examples/meta_execute_request.json` and `examples/meta_report_request.json` specify
+`medium` and `low`, and `app/host/final_report.py` already followed that design and had
+completed live. Reasoning tokens therefore consumed the entire completion budget and the
+provider returned `length` with no content.
+
+Lesson recorded deliberately: when a live request behaves unexpectedly, compare it against
+the package's own design examples and against any request shape already proven to work
+before changing limits. Raising a budget is not a diagnosis.
+
+Chose `tool_stage=medium` and `final_report=low` to match the design examples exactly
+rather than inventing values, and made both explicit instead of relying on an unverified
+provider default. The reserved report keeps its own 1024-token cap, separate from the
+unchanged 512-token tool-stage and validation-smoke contracts; an incapable client raises
+instead of silently sending a narrower request. `content_chars` is now recorded per
+response so an empty `length` stop is distinguishable from a truncated sentence without
+spending another live request, which is what the first two failures lacked.
+
+Each attempt used a fresh workspace so ESM is genuinely recomputed rather than replayed.
+The resulting score artifact sha256 is identical across all three independent workspaces,
+which is evidence of deterministic local computation, not cache reuse. The integration
+receipt deliberately records `actual_cost_micros: null`; 450000 micros were reserved
+locally across the three attempts and the invoiced amount remains unverified.
+
+2026-10-27 site bootstrap and the claim it withdraws: the resampling unit is the site,
+not the variant, because alternatives at one position share a residue environment and
+variant-level resampling would have produced a falsely narrow interval. With 9 measured
+sites the 95% interval for the complete-case Spearman is [-0.058, 0.536] and includes
+zero, so the 0.288 point estimate is reported as not statistically distinguishable from
+no association. This is recorded as the finding rather than buried: the honest claim is
+a reproducible, guard-enforced evidence pipeline, not demonstrated predictive skill.
+recall@20 was not separately bootstrapped and inherits the same uncertainty.
+
+Originals were preserved rather than regenerated in place; the interval lives in new
+files beside them. The interval is computed on the complete-case set only and inherits
+every caveat of that metric, including that missing measurements are not inactivity.
+
+2026-10-27 viewer scope and binding: the viewer is split into a pure read model
+(`app/viewer_data.py`, importing only json and pathlib, asserted by an AST test) and a
+thin Streamlit presentation file, so the testable logic cannot reach a provider, GPU,
+credential or run database. Numbers render from the stored artifact and never from model
+prose; LIVE, REPLAY and SYNTHETIC_FIXTURE are labelled distinctly; an unsettled cost
+renders as unknown rather than zero.
+
+The first launch bound Streamlit to every interface and advertised a routable External
+URL, which would have exposed run and model provenance off-machine. `.streamlit/config.toml`
+now pins the address to loopback, verified by relaunching and checking the listening
+socket rather than trusting the setting. Verification used `streamlit.testing.v1.AppTest`,
+which executes the script, because an HTTP 200 on the shell page proves only that the
+server started; Streamlit runs the script on websocket connect.
+
+2026-10-27 capacity: this machine (14 cores, 31.4 GB RAM, no CUDA) is sufficient for all
+currently scoped work, so no external compute host was introduced. Adding one would have
+been unnecessary infrastructure. CUDA-dependent work remains stage 3 Modal, which is
+remote by design and still unauthorized.
+
+2026-10-28 submission preparation: use the functioning local CPU/controlled-host
+path as the submitted product scope. Remote GPU, Atlas, folding and native Muse
+Code stay unverified/unavailable, so no extra infrastructure or new provider call
+was introduced to make the draft appear more complete. The CLI's 900 GPU-second
+cap and 1022-second conservative reservation conflict is recorded as an optional
+remote-path limitation; no gate was weakened to bypass it.
+
+A portable derived report is clearly REPLAY and preserves the complete original
+score artifact plus raw-source/canonical hashes. Source filtering is allowlisted;
+it is not a promise to scrub secrets embedded in arbitrary free-form strings.
+The exporter accepts explicitly selected saved local reports, never a model-chosen
+file or a new product MCP tool. Independent review caught a nested-fixture source
+mode that could have been relabeled real; failing behavioral tests now require
+consistent real/replay provenance, rank, checkpoint and scoring context.
+
+A saved view now always identifies playback. A top-level live Meta source is
+insufficient evidence of ESM computation; missing ESM artifacts show UNAVAILABLE.
+Fixture provenance is never promoted to scientific evidence. The actual replay
+sample keeps unknown billing and no biological efficacy claim.
+
+Current evidence lives in submission/*.current.json, separately from preserved
+blank templates and original design-rule snapshots. Documentation distinguishes
+old package state from the existing application without changing history/dates.
+Source MANIFEST.sha256 is regenerated because the current authorized task includes
+local submission packaging; compliance/original_package_manifest.sha256 remains
+untouched. The original source report is never overwritten.
+
+The local recording draft uses edited real UI still captures and receipt-rendered
+cards with disclosed offline synthetic narration. It must not imply fresh Meta
+execution, continuous screen recording, measured workflow benefit or final public
+access. A local video file does not settle final contest requirements or eligibility.
+
+Exact verification: 477 passed, 2 Windows symlink skips, 2 installed-Modal warnings,
+12 subtests passed with --basetemp=.cache/submission_final_20261028. The scoped local
+MCP/guard receipt made no external requests. Scientific scope and unresolved
+permission gates are in STATUS.md and submission/FINAL_CHECKLIST_KO.md.
+
+2026-10-28 final inventory review: source inventory previously traversed ignored
+local evaluator runs, so updating a source manifest could pull raw assay data and
+final evaluator outputs into a distribution. Source inventory now retains exactly
+the two original evaluator scaffold files and prunes all private run directories
+before descent. It also excludes model weights and SQLite/DB artifacts regardless
+of location. This source-package rule supplements the independent runtime allowlist;
+it does not make evaluation summaries acceptable product-agent input.
+The original evaluator files were not changed or printed. Eleven failing synthetic
+tree tests preceded the fix; final full regression is 488 passed, 2 skipped,
+2 installed-Modal warnings, 12 subtests passed in 40.76 seconds. The local source
+ZIP and video remain private drafts. Manifest text uses LF so source diff checks
+remain meaningful on Windows.
+
+2026-10-28 Meta contribution arm: the fixed local guard arm alone could not show what the
+model itself contributes, so a second protocol version was frozen (policy_intake_meta_20261028_v2,
+sha256 9e06c12f…) that permits provider calls while still forbidding ESM inference, GPU jobs,
+sequence upload and labels. The arm asks the product model to decide each of the six frozen
+intake scenarios and scores its own reported answer. Two design rules make the result honest:
+the frozen expected outcome is never placed in the request (a build-time check rejects any
+payload containing it, and the task text names no reason code), and the deterministic guard
+verdict is recorded beside each model answer rather than substituted for it, so code's
+determinism is never credited to the model.
+
+Attempt 1 sent reasoning_effort=medium with a 512-token completion cap and failed all six
+cells with finish_reason=length: reasoning consumed the budget before the structured decision.
+This is a different defect from the 2026-10-27 missing-reasoning_effort failure, and the
+earlier wrong diagnosis pattern repeated — the design example (examples/meta_execute_request.json,
+4096 tokens at medium) should have been consulted before sending. The failed run and its
+receipt are preserved. Attempt 2 probed one scenario at effort=low with a 1024-token cap
+(348 completion tokens, 224 of them reasoning) and succeeded; attempt 3 ran the remaining five.
+
+Observed: fixed 6/6, Meta 5/6, manual not run at the user's decision. Meta's single error is
+the informative one: for G32V it answered accepted/validated, reasoning that the frame,
+objective and protected positions were all satisfied, without verifying the reference residue
+identity at position 32. The deterministic guard returned wt_mismatch. This is recorded as the
+reason the guard is not delegated to the model. Claim bounds stay attached to the artifact: a
+closed-set choice among six enumerated codes has 1/6 chance accuracy per cell, the registered
+rules were supplied in context so this measures rule application rather than rule discovery,
+and with no manual arm there is no completion-rate, intervention, time or cost comparison.
+
+2026-10-28 viewer provenance: the saved artifacts already commit to their inputs, so the
+Evidence tab now renders that lineage as a checked chain — registered reference and pinned
+model files, the score artifact carrying those digests, the MCP tool result returning it, the
+replay export naming its source, and the bytes on screen. Each link is verified against the
+record rather than displayed as decoration, and a mismatch or absent stage is reported as such.
+The scope line states plainly that these are recorded commitments only: not signed, not
+externally anchored, not tamper-proof. A 3D structure viewer was considered and declined,
+because highlighting residues by number would depend on the full_212 to 181-aa mapping that the
+registered contract marks unverified, and 1ISP is the wild-type reference rather than a mutant
+prediction. Style follows Vercel Geist conventions (tabular numerals, monospace identifiers,
+high-contrast neutral surfaces) using local system fonts only; no remote asset is fetched.
+Rendering order was also corrected: the sidebar previously painted before the palette was
+injected and measured roughly half the intended glyph brightness.
+
+2026-10-28 user follow-up polish: inspection of the actual 8520 viewer showed native
+Streamlit light-theme foregrounds inheriting onto dark CSS panels. Matching native
+base/theme plus explicit text/selection tokens fixes the cause; ornamental motion
+alone would not repair readability. Local preview 8521 preserves the user's server.
+Example guards, candidate presets and saved-event navigation provide real filmed
+interactions. Reduced-motion and visible sidebar/focus controls remain supported.
+
+The five-stage evidence display now distinguishes local consistency from recorded
+commitments. Hash presence is insufficient: score payload/candidate rows are checked,
+scoring-tool outputs matched, missing/unopened sources marked recorded-only, corrupt
+envelopes rejected. No unsigned local file is called externally authenticated or
+tamper-proof. Existing report files and scientific ranks are not rewritten.
+
+The new 180s movie is edited sampled browser interaction capture with offline voice;
+340 source samples/28 logged actions remain timestamped,278 samples are used. Long
+capture/tool idle waits are edited, with no inference-latency claim. Actual final
+CSV contains two selected candidates; no successful A32V menu-add is invented.
+Existing fixed/Meta six-case outcomes are a separate video annotation, never product
+agent input. Preserve old movies, receipts, failed calls and source ZIPs.
+
+Verification:588 passed,2 Windows skips,2 installed Modal warnings,12 subtests,
+47.51s using --basetemp=.cache/polished_full_20261028; local color checks and encoded
+video inspection are in validation/polished_verification_20261028.json and the new
+video receipt. Human full audio/video review and external release gates stay open.
+
+Clarification of the earlier 3D discussion: the registered full 32–212 to mature 1–181
+sequence correspondence IS locally verified. What remains unverified is the exact
+atom/author/label numbering join and geometry; sequence mapping must not be described
+as missing or used to infer coordinates. No structure feature was enabled by UI polish.
+
+2026-10-28 coordinate join derived; Meta handoffs surfaced; 3D viewer declined again on
+stronger evidence. The user approved one read-only fetch of the official 1ISP mmCIF into
+gitignored `local_artifacts/`; URL, HTTP status, server date, byte count and sha256
+`7ab626e5…cc10` are recorded in that folder's `fetch_provenance.json`. A committed importer,
+`app/core/coordinate_join.py`, derives the join by the docs/11 procedure: `_pdbx_poly_seq_scheme`
+joined to `_atom_site` on chain/label_seq_id, with auth numbering, insertion codes, model
+numbers and alternate conformers kept as distinct fields, and residue identities verified
+rather than counted. Chain A result: 181 polymer rows, zero residue-identity disagreements
+against the registered deposited FASTA, `auth_seq_id − label_seq_id` uniformly 0, no insertion
+codes. Deposited positions 1 and 181 — full positions 32 and 212 — carry no ATOM records;
+`_pdbx_poly_seq_scheme`, `_atom_site` and `_pdbx_unobs_or_zero_occ_residues` agree
+independently. docs/04 records that 1ISP metadata "does not identify the missing positions
+for us"; this derivation identifies them. The catalytic triad (full 108/164/187 → auth
+77/133/156) is modelled.
+
+The 3D viewer stays declined, now on evidence rather than on an unverified mapping. All 19
+saved candidates are A32X and full position 32 has no modelled atoms, so candidate-linked
+highlighting would render nothing for the entire demo cohort. A naive residue-index selection
+would instead resolve to auth 32 SER = full position 63, a silent 31-residue error presented
+as evidence. No 3D library, JS component or structure asset was added.
+
+Surfaced instead: the recorded Meta↔MCP alternation, which was already in the saved trace but
+filtered out of the read model. `public_decision_steps` keeps its own numbering beside the
+unchanged tool-only timeline, so neither renumbers the other. Model turns expose public
+accounting only — finish reason, model, token usage, elapsed, reply length — never reply text
+or reasoning.
+
+2026-10-28 step 6 completed on an explicit user ruling: register the index join on a separate
+axis from geometry. The ruling matters because `app/core/targets.py` previously treated "a
+coordinate file hash exists" as "coordinates are enabled", so promoting the join naively would
+have unlocked geometry claims that remain unvalidated. The two axes are now distinct —
+`author_numbering_verified` (true) against `geometry_validated` and the long-standing
+`coordinate_mapping_verified` (both false). `coordinate_mapping_verified` was deliberately left
+alone: it already means geometry across final reports, MCP results, the viewer and saved
+validation artifacts, so reusing it would have rewritten the meaning of existing records.
+
+`checks/emit_coordinate_map.py` emits the map from an operator-supplied path and never fetches
+anything; re-running it is byte-identical. The registry gate was rewritten from forbidding
+coordinates to pinning them: exact source sha256, exact status string, and unmodelled positions
+exactly (32, 212). Six parametrised drift cases — claiming validated geometry, unsetting author
+numbering, repointing the source hash, reverting the status — are all rejected. The package
+validator went from 1483 to 1702 checks because every residue row is now checked against the
+join rule instead of merely asserted null.
+
+The RCSB file is not vendored. Redistribution rights are recorded nowhere, so the map pins its
+hash and the integration test skips where the file is absent. `require_coordinates` still fails
+closed and `coordinate_features_enabled` stays false; nothing in the product consumes the new
+fields yet, and no 3D panel was built.
+
+One latent defect surfaced: `evaluation/workflow_suite.py` classified the geometry guard by
+matching its exact message text, so rewording the message silently reclassified the atom-geometry
+scenario as `unexpected_guard_error` and three suite tests failed at a distance. The needle was
+corrected and the coupling is now pinned by a targeted test.
+
+Verification: 609 passed, 12 subtests, 38.90s; `checks/validate_package.py` PASS with 1702
+checks and 0 failures; `MANIFEST.sha256` regenerated to 323 files; `app.cli validate` still
+accepts A32V and blocks S108A.
+
+2026-10-28 verifier enabled, product renamed, guided tour added. The optional 650M verifier is
+now provisioned and wired, but "enabling" it was never a single flag. Three things blocked it:
+pins were built for one model key only, a run's immutable input froze a single model, and the
+local backend was bound to one checkpoint directory. All three were addressed — `ESM_VERIFIER_*`
+settings absent by default, pins for both checkpoints validated before any backend is built,
+`RoutingLocalProvider` dispatching by model key with each provider still checking its own pins,
+and runs able to approve an explicit model set. A fail-open was found and closed on the way: an
+unrecognised run-input key made the model restriction skip entirely.
+
+One guard was deliberately left intact. `inference_service.py` refuses two checkpoints inside one
+run, implementing "Do not mix selected 650M scores with 150M scores". A test initially asserted
+the opposite; the test was corrected rather than the guard. The verifier is therefore a separate
+run, and the tool description now says so, so the model is not invited to switch mid-run. The
+offered `model_key` enum is derived from configured pins, so an unprovisioned checkpoint can
+never be offered merely because the catalog lists it.
+
+The two checkpoints disagree at rank 1 on the saved cohort: esm150 ranks A32E first, esm650 ranks
+A32S first. This is recorded as evidence for why optional annotation must not rerank, not as a
+claim that either ordering is biologically better. Neither is calibrated to any phenotype.
+
+Renamed BioPilot Atlas to BioPilot Bench because the Atlas integration was declined and the old
+name promised a capability the product does not have. The rename covered 23 forward-looking
+product surfaces. Records of what happened were preserved on purpose: recorded narration scripts
+and SRTs, video receipts, pre-event plans and specs, the compliance original-package manifest and
+originality ledger, and every reference to the preserved `BioPilot_Atlas_Local_Start` directory
+and the repository folder itself. `BIOPILOT_ATLAS_KO.md` keeps its filename because the original
+package manifest records that exact name. The MCP server identifier changed to `biopilot-bench`
+and therefore differs from the saved integration receipts; that difference is intentional and
+recorded here rather than hidden by leaving a misleading identifier in place.
+
+A guided tour was added to the viewer after a reader reported not knowing what to do. It is four
+dismissible steps, each naming the next tab and what to look for. Reported honestly: the
+explanation-block count is unchanged at 46, so this added a path rather than reducing density.
+
+Verification: 636 passed, 12 subtests; `checks/validate_package.py` PASS with 1717 checks and 0
+failures. Recorded demo assets are now stale because the audio still says the old product name.
+
+2026-10-28 live session built as a separate program, not a button in the viewer. The replay
+viewer's guarantee is that opening a saved run cannot dispatch work, and it is asserted by
+parsing the import graph of every module on its render path for network and subprocess
+capability. Adding a run button there would have ended that guarantee. Routing the call through
+a helper module would have kept the test green while removing the property it exists to protect,
+which is worse than removing the test. So the capability lives in `app/session.py`, a separate
+entry point that states on screen that it can spend, while `app/viewer.py` stays provably unable
+to. `app/viewer_render.py` holds the presentation both surfaces share, and it is covered by the
+same no-capability assertion.
+
+`app/session_exec.py` separates command construction from execution so the safety properties are
+testable without dispatching anything: preparation never carries a live flag, the review command
+gains `--live --ack-small-test` only when explicitly armed, and `validate_session_request` refuses
+protected sites, out-of-region positions, duplicates, oversized batches and unknown checkpoints
+before a process is created. A refused request therefore costs nothing, which is also the
+clearest way to show on screen that the guard is local rather than a model's good behaviour.
+`SessionBudget` is a hard ceiling the surface cannot raise.
+
+A first paid run was made with the user's explicit credit approval, capped at four requests, to
+confirm the rename and the prompt and tool-description edits had not broken the live path. It
+completed: `muse-spark-1.3` requested and returned, three model requests, 4,733 total tokens,
+nineteen candidates, MCP protocol 2025-11-25. The score artifact sha256 is byte-identical to the
+saved replay, so local ESM computation remains deterministic across a substantial refactor.
+Actual billing stays `unknown`: token counts are known, a provider invoice was not read, and a
+local reservation is not an invoice. Receipt: `validation/live_meta_review_20261028.json`.
+
+
+## 2026-10-28 — ordered workspace and actual optional evidence
+
+The user explicitly requested Light repair, an acting guided tour, cleaner UX,
+ordered file input and ESM3/ESMFold2/Atlas implementation. Retain Streamlit rather
+than adding the out-of-scope Next.js service. Connect two isolated entry points
+through a shared shell; replay retains no provider/subprocess import capability.
+Move diagnostics into Input and use semantic tables rather than an unthemed native
+canvas. Eight timed presentation steps manipulate real local controls, with clear
+REPLAY labeling and prior-state restoration. This supersedes the explanatory-only
+tour design. No simulation is presented as fresh Meta or scientific computation.
+
+Revisit the earlier Atlas deferral under the user's new request: actual Biohub
+exact-WT GET with fold_on_miss=false was verified and projected to a strict pinned
+snapshot. Only that snapshot enters the runtime allowlist/MCP. No general upstream
+MCP, similarity search, arbitrary URL or compute-on-miss route is exposed. Its
+source is Biohub, not the product Meta model; original saved traces are unchanged.
+
+Official esm v3.4.1.post1 supports ESM3 and ESMFold2 with a dedicated compatible
+environment. Implement bounded optional workers and exact input/output sequence,
+model/SDK/file-hash pins. Do not mix their structure annotations into ESM2 rank.
+The user approved the existing BOP GPU route and a concrete minimal public-reference
+source transfer. SSH/account and egress auto-review refusals were reported, then
+addressed only through explicit additional user approval. Standard existing user
+SSH identity resolved access; original key files/settings were preserved. GPU
+environment setup is real, inference pending as of this milestone. Do not claim
+all optional integrations have run until actual receipts validate them.
+
+Changed files/tests and the exact733-pass suite are in STATUS and the refinement
+design/plan. Earlier videos are preserved and now document an older UI. No external
+publication, submission or eligibility/rule ruling is inferred from this work.
+
+## 2026-10-28 — user correction: spotlight, actual pictures, actual GPU evidence
+
+The explanation-strip tour misread the user's RAPID reference. Their attached
+screenshot and explicit correction authorize a spotlight with dimmed surroundings,
+floating card, real per-step pictures and actual view changes. Implement original
+local SVG/CSS/JavaScript around existing Streamlit state callbacks. No new dependency,
+external image, simulated inference or paid control enters the tutorial. Manual
+steps by default, optional clearly labeled autoplay, keyboard/skip/restore supported.
+
+Both optional models now have actual approved BOP L40S runs and verified exact
+full_212 outputs: ESMFold2 WT and ESM3 A32V. Preserve the experimental1ISP reference
+and common ESM2 rank. Display the two predicted structures as separate stored
+annotations, not as a matched variant-effect/model-accuracy experiment. Record
+versions, official checkpoint pins, output hashes, memory and scoped elapsed time.
+An actual operator CLI execution is not a live Meta fold-tool integration; product
+automatic folding remains disabled. Atlas snapshot MCP is available separately.
+
+Fix live-chat workspace collision and intake WT/frame loss discovered in review,
+using behavioral failures first. User data/state and original recordings remain
+preserved. Do not mark final video, public access or contest submission complete.
+
+## 2026-10-28 — updated video and source handoff
+
+Preserve all previous recordings; export a new180s local draft under the Bench
+name. Use802 actual CUA screen samples, actual spotlight transitions and camera
+rotation, with disclosed timing edits and offline synthetic narration. Burn and
+embed English captions. Keep replay labels and distinguish the two previously
+computed GPU artifacts from the historical Meta trace. Technical verification and
+decoded-frame review do not replace full human listening/viewing or authorize
+publication. Update mutable current submission pointers while retaining older
+metadata and receipts. Final regression744passed; see current verification JSON.
+
+
+## 2026-10-29 — truthful source publication
+
+The user authorized uploading to their specified GitHub repository. Preserve the
+existing Oct27 planning and implementation commits; do not backdate, squash away
+prior work, or manufacture daily history. Disclose substantial Codex/Claude help
+through concise source-linked documentation. Full private chats are not uploaded.
+Fresh authenticated Participant Guide inspection found no raw-chat/minimum-commit
+requirement; the final form remains unverified. Keep individual rights/reuse and
+eligibility questions pending rather than claiming compliance from a Git timestamp.
+
+The target is empty/private. Upload source and small proof artifacts, excluding
+large weights/environments/captures and secrets. Existing scope grants the upload;
+public visibility is handled explicitly after a reviewable commit exists. Use Git
+CLI for transporting genuine local Git history; connected GitHub metadata confirmed
+repository ownership and push permission. No force push. Preserve evidence bytes
+through Git attributes and verify staged file inventory/hashes. No project license
+is assigned without the owner selecting one.

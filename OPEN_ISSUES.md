@@ -10,7 +10,7 @@
 | Muse Code host | Actual compatibility, isolated workspace and request controls untested | Controlled host is the reference fallback |
 | Credits | Actual balances and eligible workloads unverified | No assumed free API/GPU/subscription usage |
 | ESM | No checkpoint inference performed in this revision | No real score or performance claim |
-| Biology | Dataset/WT audit, atom mapping and actual evaluation pending | No WT improvement or geometry claims |
+| Biology | Dataset/WT audit and actual evaluation pending; atom-numbering join verified 2026-10-28, geometry not | No WT improvement or geometry claims |
 | Atlas | Live provider/API and available snapshot not verified | Optional tool unavailable instead of invented output |
 | Impact | No operator/fixed/agent trial measured | No quantitative time-saving or ranking-gain claim |
 | Submission | No video/repo/product link or receipt validated | Not ready to claim submitted/completed entry |

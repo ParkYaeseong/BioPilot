@@ -1,0 +1,270 @@
+/* Local workbench styles. Theme tokens come from the selected appearance.
+   Cover both Streamlit's legacy BaseWeb and current React Aria controls. */
+.tour-overlay-active .st-key-tour_card{display:none!important;}
+.stApp,[data-testid="stAppViewContainer"],[data-testid="stMain"]{background:var(--bg)!important;color:var(--text);}
+.stApp{background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color-scheme:var(--scheme);}
+header[data-testid="stHeader"]{background:var(--bg)!important;color:var(--text);}
+[data-testid="stMainBlockContainer"]{padding:2rem 2.6rem 3rem;max-width:1440px;}
+[data-testid="stSidebar"]{background:var(--panel);border-right:1px solid var(--line);color:var(--text)!important;}
+[data-testid="stSidebarUserContent"]{padding:1.6rem 1.25rem;}
+[data-testid="stSidebarHeader"]{height:2rem;min-height:2rem;padding:.25rem .75rem;}
+[data-testid="stSidebarCollapseButton"],[data-testid="stExpandSidebarButton"]{opacity:1!important;visibility:visible!important;}
+[data-testid="stSidebar"] [data-testid="stHorizontalBlock"]{gap:.35rem;}
+[data-testid="stSidebar"] button{padding:.4rem .35rem;}
+.stApp h1,.stApp h2,.stApp h3,.stApp h4,.stApp label,.stApp summary,[data-testid="stWidgetLabel"],[data-testid="stMarkdownContainer"],[data-testid="stMetricValue"],[data-testid="stText"]{color:var(--text)!important;}
+.stApp h1{font-size:2rem!important;letter-spacing:-.045em;font-weight:650!important;line-height:1.2!important;padding:0!important;margin:.6rem 0 .8rem;}
+.stApp h2,.stApp h3{font-size:1.08rem!important;letter-spacing:-.025em;font-weight:600!important;}
+[data-testid="stCaptionContainer"],[data-testid="stCaptionContainer"] p,[data-testid="stMetricLabel"]{color:var(--muted)!important;font-size:.8rem;line-height:1.5;}
+[data-testid="stMetric"]{background:transparent;border:0;border-left:1px solid var(--line);border-radius:0;padding:.35rem 1rem;}
+[data-testid="stMetricValue"]{font-size:1.2rem;letter-spacing:-.025em;font-weight:550;font-variant-numeric:tabular-nums;}
+[data-testid="stVerticalBlock"]{gap:.7rem;}
+[data-testid="stText"]{font-size:.85rem;line-height:1.5;overflow-wrap:anywhere;}
+[data-testid="stAlert"]{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:.45rem .7rem;color:var(--text)!important;}
+[data-testid="stAlert"] [data-testid="stMarkdownContainer"] p{color:var(--text)!important;font-size:.8rem;}
+[data-testid="stAlert"] svg{color:var(--accent);}
+[data-testid="stAlertContainer"]{color:var(--text)!important;background:transparent!important;}
+[data-testid="stExpander"]{background:var(--panel);border-color:var(--line);border-radius:8px;}
+[data-testid="stExpander"] summary{background:var(--panel);font-size:.85rem;transition:background .16s ease,color .16s ease;}
+[data-testid="stExpander"] summary:hover{background:var(--raised);color:var(--accent)!important;}
+[data-testid="stForm"]{border:0;padding:0;}
+[data-testid="stTabs"] [role="tablist"]{border-bottom:1px solid var(--line);gap:1.8rem;}
+[data-testid="stTabs"] [role="tab"]{color:var(--muted);font-size:.85rem;padding:.75rem 0;}
+[data-testid="stTabs"] [role="tab"][aria-selected="true"]{color:var(--text);}
+[data-baseweb="tab-highlight"]{background:var(--accent)!important;height:2px;}
+[role="tabpanel"]{animation:panel-arrive .18s ease-out;}
+[data-baseweb="select"]>div,[data-baseweb="input"],[data-testid="stTextInput"] input{background:var(--input)!important;color:var(--text)!important;border-color:var(--edge)!important;}
+[data-baseweb="select"] span,[data-baseweb="select"] input,[role="combobox"]{color:var(--text)!important;}
+[role="listbox"],[role="option"]{background:var(--panel)!important;color:var(--text)!important;}
+[data-testid="stMultiSelectTagsContainer"] [data-tag]{background:var(--accent-soft)!important;border:1px solid var(--accent)!important;}
+[data-testid="stMultiSelectTagsContainer"] [data-tag] span,[data-testid="stMultiSelectTagsContainer"] [data-tag] button{color:var(--accent)!important;}
+button[kind="secondary"],button[kind="primary"],button[kind="secondaryFormSubmit"],button[kind="primaryFormSubmit"],a[kind="secondary"],a[kind="primary"]{background:var(--raised)!important;color:var(--text)!important;border:1px solid var(--edge)!important;border-radius:6px;font-size:.8rem;font-weight:500;transition:background .15s ease,border-color .15s ease;box-shadow:none!important;}
+button[kind="primary"],button[kind="primaryFormSubmit"],a[kind="primary"]{background:var(--accent-soft)!important;color:var(--accent)!important;border-color:var(--accent)!important;}
+button[kind="tertiary"],button[kind="link"]{background:transparent!important;color:var(--text)!important;border-color:transparent!important;}
+button[kind]:hover,a[kind]:hover{background:var(--accent-soft)!important;border-color:var(--accent)!important;color:var(--accent)!important;}
+button:disabled{opacity:.5;cursor:not-allowed;}
+/* Native button labels are markdown nodes. They must inherit their control's
+   foreground, including primary/hover state, instead of the page foreground. */
+.stApp button [data-testid="stMarkdownContainer"],.stApp button [data-testid="stMarkdownContainer"] p,.stApp a[kind] [data-testid="stMarkdownContainer"],.stApp a[kind] [data-testid="stMarkdownContainer"] p{color:inherit!important;}
+button:focus-visible,input:focus-visible,[role="combobox"]:focus-visible,[role="tab"]:focus-visible{outline:2px solid var(--accent)!important;outline-offset:3px!important;}
+[data-testid="stDataFrame"]{border:1px solid var(--line);border-radius:8px;font-variant-numeric:tabular-nums;font-size:.85rem;overflow:hidden;}
+code,pre,[data-testid="stJson"]{font-family:ui-monospace,SFMono-Regular,Consolas,monospace!important;}
+[data-testid="stJson"]{font-size:.8rem;}
+hr,[data-testid="stSidebar"] hr{border-color:var(--line);margin:.8rem 0;}
+strong{font-weight:600;}
+.brand{display:flex;align-items:center;gap:.7rem;margin:0 0 1rem;color:var(--text);}
+.brand-mark{display:grid;place-items:center;width:34px;height:34px;border:1px solid var(--accent);border-radius:9px;background:var(--accent-soft);color:var(--accent);font-size:1.2rem;font-weight:750;}
+.brand strong{display:block;font-size:1rem;letter-spacing:-.03em;}
+.brand small{display:block;color:var(--muted);font-size:.6rem;letter-spacing:.13em;margin-top:4px;}
+.guard-chips{display:flex;gap:6px;}
+.guard-chips span{padding:4px 8px;border:1px solid var(--edge);border-radius:5px;background:var(--raised);color:var(--text);font:500 .7rem ui-monospace,monospace;}
+.workspace-kicker{display:flex;align-items:center;gap:.6rem;color:var(--muted);font-size:.64rem;font-weight:600;letter-spacing:.12em;}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);}
+.workspace-mode{margin-left:auto;padding:5px 9px;border:1px solid var(--line);border-radius:5px;color:var(--accent);font-size:.6rem;letter-spacing:.07em;}
+.trace-heading{display:flex;align-items:center;gap:.8rem;margin:0 0 .6rem;color:var(--text);}
+.step-number{display:grid;place-items:center;border:1px solid var(--line);border-radius:8px;width:32px;height:32px;font:500 .8rem ui-monospace,monospace;color:var(--accent);background:var(--accent-soft);}
+.trace-label{font-size:.9rem;font-weight:600;}
+.state-pill{margin-left:auto;border:1px solid var(--line);border-radius:5px;padding:4px 8px;color:var(--muted);font-size:.7rem;}
+[class*="st-key-trace_card_"]{border-color:var(--line);background:var(--panel);border-radius:9px;padding:1rem;}
+@keyframes panel-arrive{from{opacity:.55;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important;}}
+@media(max-width:800px){[data-testid="stMainBlockContainer"]{padding:1.1rem 1rem;}.stApp h1{font-size:1.5rem!important;}[data-testid="stTabs"] [role="tablist"]{gap:1rem;}.workspace-kicker{font-size:.56rem;}}
+.ladder{list-style:none;margin:.3rem 0 .2rem;padding:0;display:flex;flex-direction:column;gap:.4rem;}
+.rung{display:flex;align-items:flex-start;gap:.75rem;padding:.6rem .8rem;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--line);border-radius:8px;}
+.rung-model{border-left-color:var(--accent);}
+.rung-code{border-left-color:var(--muted);}
+.rung-step{flex:none;display:grid;place-items:center;width:26px;height:26px;border:1px solid var(--edge);border-radius:6px;background:var(--raised);color:var(--muted);font:500 .7rem ui-monospace,monospace;}
+.rung-model .rung-step{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);}
+.rung-body{display:flex;flex-direction:column;gap:2px;min-width:0;}
+.rung-actor{color:var(--muted);font-size:.6rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;}
+.rung-label{color:var(--text);font-size:.88rem;font-weight:600;overflow-wrap:anywhere;}
+.rung-detail{color:var(--muted);font-size:.76rem;line-height:1.45;overflow-wrap:anywhere;}
+.tour{list-style:none;margin:.2rem 0 .1rem;padding:0;display:flex;flex-direction:column;gap:.3rem;}
+.tour li{display:flex;align-items:flex-start;gap:.7rem;padding:.42rem .5rem;border-radius:7px;border:1px solid transparent;}
+.tour .tour-step{flex:none;display:grid;place-items:center;width:22px;height:22px;border-radius:50%;border:1px solid var(--edge);background:var(--raised);color:var(--muted);font:600 .68rem ui-monospace,monospace;}
+.tour-on{background:var(--accent-soft);border-color:var(--accent);}
+.tour-on .tour-step{background:var(--accent);border-color:var(--accent);color:var(--bg);}
+.tour-on .tour-title{color:var(--accent)!important;}
+.tour-off{opacity:.72;}
+.tour-body{display:flex;flex-direction:column;gap:1px;min-width:0;}
+.tour-title{color:var(--text);font-size:.82rem;font-weight:600;}
+.tour-detail{color:var(--muted);font-size:.75rem;line-height:1.45;overflow-wrap:anywhere;}
+[class*="st-key-tour_card"]{border-color:var(--line);background:var(--panel);border-radius:9px;padding:.85rem .9rem;}
+
+/* Stable semantic selectors, including Streamlit 1.66's React Aria widgets. */
+[data-testid="stSelectbox"] [data-rac][role="group"],
+[data-testid="stMultiSelect"] [data-rac][role="group"],
+[data-testid="stSelectbox"] [role="combobox"],
+[data-testid="stMultiSelect"] [role="combobox"],
+[data-testid="stTextArea"] textarea,
+[data-testid="stNumberInput"] input,
+[data-testid="stTextInput"] input,
+[data-testid="stChatInput"] textarea{
+  background:var(--input)!important;color:var(--text)!important;
+  caret-color:var(--accent);border-color:var(--edge)!important;
+  -webkit-text-fill-color:var(--text)!important;
+}
+[data-testid="stSelectbox"] [data-rac][role="group"],
+[data-testid="stMultiSelect"] [data-rac][role="group"]{
+  border:1px solid var(--edge)!important;border-radius:6px;box-shadow:none!important;
+}
+[data-testid="stSelectbox"] button,[data-testid="stMultiSelect"] button{
+  background:transparent!important;color:var(--muted)!important;
+}
+[data-testid="stSelectbox"] [role="combobox"],
+[data-testid="stMultiSelect"] [role="combobox"]{border:0!important;}
+input::placeholder,textarea::placeholder{color:var(--muted)!important;opacity:1!important;}
+[data-rac][role="listbox"],[data-rac][role="option"],
+[data-rac][role="dialog"],div[data-rac][data-placement],
+[data-baseweb="popover"] [role="listbox"]{
+  background:var(--panel)!important;color:var(--text)!important;
+  border-color:var(--line)!important;
+}
+[role="option"][aria-selected="true"],[role="option"][data-focused],
+[role="option"][data-selected]{background:var(--accent-soft)!important;color:var(--accent)!important;}
+[data-testid="stMultiSelect"] [data-rac][role="row"],
+[data-testid="stMultiSelect"] [data-rac][role="gridcell"]{
+  background:var(--accent-soft)!important;color:var(--accent)!important;
+}
+.stApp button[data-variant="segmented_control"],
+.stApp button[data-variant="pills"]{
+  background:var(--panel)!important;color:var(--muted)!important;
+  border:1px solid var(--line)!important;border-radius:6px!important;
+  box-shadow:none!important;min-height:2.5rem;padding:.55rem .85rem;
+  font-size:.8rem;font-weight:500;
+}
+.stApp button[data-variant][role="radio"][aria-checked="true"],
+.stApp button[data-variant][aria-pressed="true"]{
+  background:var(--accent-soft)!important;color:var(--accent)!important;
+  border-color:var(--accent)!important;
+}
+.stApp button[data-variant]:hover{background:var(--raised)!important;color:var(--text)!important;}
+[data-testid="stSegmentedControl"] [role="radiogroup"]{gap:.4rem;flex-wrap:wrap;}
+[data-testid="stCheckbox"] label,[data-testid="stToggle"] label{color:var(--text)!important;}
+[data-testid="stCheckbox"] input,[data-testid="stToggle"] input{accent-color:var(--accent);}
+[data-testid="stCheckbox"] [data-rac], [data-testid="stToggle"] [data-rac]{border-color:var(--edge);}
+
+/* File intake and conversation use the same surfaces as the rest of the app. */
+[data-testid="stFileUploaderDropzone"]{
+  background:var(--panel)!important;border:1px dashed var(--edge)!important;
+  border-radius:8px;color:var(--text)!important;padding:1.25rem;
+}
+[data-testid="stFileUploaderDropzone"] small,
+[data-testid="stFileUploaderFileData"] small{color:var(--muted)!important;}
+[data-testid="stFileUploaderDropzoneInstructions"]>span,
+[data-testid="stFileUploaderFileData"]{color:var(--text)!important;}
+[data-testid="stChatMessage"], [data-testid="stChatInput"],
+[data-testid="stChatInput"]>div{
+  background:var(--panel)!important;color:var(--text)!important;
+  border-color:var(--line)!important;border-radius:8px;box-shadow:none!important;
+}
+[data-testid="stChatMessage"]{padding:1rem 1.1rem;border:1px solid var(--line);}
+[data-testid="stChatInput"]{border:1px solid var(--edge)!important;}
+[data-testid="stChatInputSubmitButton"],
+[data-testid="stChatInput"] button{background:var(--accent-soft)!important;color:var(--accent)!important;}
+[data-testid="stBottom"], [data-testid="stBottomBlockContainer"]{background:var(--bg)!important;}
+[data-testid="stBottom"]>div{background:var(--bg)!important;}
+
+/* Read-only artifact tables are semantic HTML, so theme switching reaches every
+   header and cell instead of leaving a dark canvas controlled by native props. */
+[data-testid="stTable"], .review-table{
+  border:1px solid var(--line)!important;border-radius:8px;overflow:hidden;
+  background:var(--panel)!important;color:var(--text)!important;
+  font-size:.83rem;font-variant-numeric:tabular-nums;
+}
+[data-testid="stTable"] table,.review-table table{
+  width:100%;border-collapse:collapse;background:var(--panel)!important;
+}
+[data-testid="stTable"] th,.review-table th{
+  background:var(--raised)!important;color:var(--muted)!important;
+  border-color:var(--line)!important;font-size:.74rem;font-weight:600;
+  padding:.75rem .85rem;white-space:nowrap;
+}
+[data-testid="stTable"] td,.review-table td{
+  background:var(--panel)!important;color:var(--text)!important;
+  border-color:var(--line)!important;padding:.7rem .85rem;
+}
+[data-testid="stTable"] tbody tr:last-child td,.review-table tbody tr:last-child td{border-bottom:0!important;}
+[data-testid="stTable"] tbody tr:hover td,.review-table tbody tr:hover td{background:var(--accent-soft)!important;}
+[data-testid="stDataFrameResizable"]{border-color:var(--line)!important;}
+[data-testid="stElementToolbar"]{background:var(--panel)!important;border-color:var(--line)!important;}
+button[kind="elementToolbar"],button[kind="header"],button[kind="headerNoPadding"],
+[data-testid="stSidebarCollapseButton"] button,[data-testid="stExpandSidebarButton"] button{
+  color:var(--muted)!important;background:transparent!important;border-color:transparent!important;
+}
+
+/* Code, JSON, popovers and modal surfaces previously inherited a fixed dark
+   native theme even after the workbench's Appearance control changed. */
+.stApp pre,.stApp code,[data-testid="stCode"],
+[data-testid="stCodeBlock"],[data-testid="stCodeBlock"] pre,
+[data-testid="stCodeBlock"] code,[data-testid="stJson"],
+[data-testid="stJson"]>div,[data-testid="stJson"] ul,
+[data-testid="stJson"] li,[data-testid="stJson"] span{
+  background:var(--panel)!important;color:var(--text)!important;
+}
+.stApp p code{background:var(--raised)!important;color:var(--accent)!important;padding:.1em .3em;border-radius:4px;}
+[data-testid="stDialog"] [role="dialog"],
+[data-testid="stPopoverBody"], [role="tooltip"]{
+  background:var(--panel)!important;color:var(--text)!important;border-color:var(--line)!important;
+}
+.stApp a:not([kind]),[data-testid="stCaptionContainer"] a{color:var(--accent)!important;text-decoration-color:var(--line);}
+.stApp a:not([kind]):hover{text-decoration-color:var(--accent);}
+[data-testid="stSpinner"]{color:var(--muted)!important;}
+::selection{background:var(--accent-soft);color:var(--accent);}
+
+/* Native text and icons have their own explicit foreground; captions also ship
+   with opacity .6, which would attenuate an otherwise accessible muted token. */
+[data-testid="stText"] span{color:inherit!important;}
+[data-testid="stCaptionContainer"]{opacity:1!important;}
+[data-testid="stIconMaterial"]{color:inherit!important;}
+[data-testid="stCheckbox"] label:has(input[role="switch"])>div:not([data-testid]){
+  background:var(--raised)!important;border:1px solid var(--edge)!important;
+}
+[data-testid="stCheckbox"] label:has(input[role="switch"])>div:not([data-testid])>div{
+  background:var(--text)!important;
+}
+[data-testid="stCheckbox"] label:has(input[role="switch"]:checked)>div:not([data-testid]){
+  background:var(--accent)!important;border-color:var(--accent)!important;
+}
+[data-testid="stCheckbox"] label:has(input[role="switch"]:checked)>div:not([data-testid])>div{
+  background:var(--panel)!important;
+}
+[data-testid="stCheckbox"] label:has(input[type="checkbox"]:not([role="switch"]))>div:not([data-testid]){
+  background:var(--input)!important;border:1px solid var(--edge)!important;
+}
+[data-testid="stCheckbox"] label:has(input[type="checkbox"]:not([role="switch"]):checked)>div:not([data-testid]){
+  background:var(--accent)!important;border-color:var(--accent)!important;color:var(--panel)!important;
+}
+button[aria-label^="Help for "]{color:var(--muted)!important;background:transparent!important;opacity:1!important;}
+button[aria-label^="Help for "] svg{color:inherit!important;stroke:currentColor!important;}
+
+/* Shared shell: clear workflow order, compact metadata, one active step. */
+.workspace-nav{display:flex;align-items:center;gap:.35rem;flex-wrap:wrap;margin:1rem 0 1.4rem;padding:.4rem 0;border-bottom:1px solid var(--line);}
+.workspace-nav a{
+  display:inline-flex;align-items:center;gap:.55rem;padding:.65rem .85rem;
+  color:var(--muted)!important;text-decoration:none;border:1px solid transparent;
+  border-radius:6px;font-size:.82rem;font-weight:500;
+}
+.workspace-nav a.active{color:var(--accent)!important;background:var(--accent-soft);border-color:var(--accent);}
+.workspace-nav a:hover{background:var(--raised);color:var(--text)!important;}
+.workspace-nav a span:first-child{font-size:.7rem;font-variant-numeric:tabular-nums;}
+.run-summary{display:flex;align-items:center;gap:1.3rem;flex-wrap:wrap;border-bottom:1px solid var(--line);padding:.7rem 0;color:var(--muted);font-size:.78rem;}
+.run-summary strong{color:var(--text);font-weight:550;}
+.section-kicker{color:var(--muted);font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.45rem;}
+.tour-compact{display:flex;align-items:center;gap:.85rem;padding:.85rem 1rem;background:var(--accent-soft);border:1px solid var(--accent);border-radius:8px;margin:.2rem 0 .8rem;}
+.tour-count{flex:none;font:600 .72rem ui-monospace,monospace;color:var(--accent);}
+.tour-compact strong{color:var(--text);font-size:.85rem;}
+.tour-compact p{color:var(--muted);font-size:.78rem;line-height:1.5;margin:.2rem 0 0;}
+.st-key-tour_card [data-testid="stHorizontalBlock"]{flex-wrap:nowrap!important;gap:.4rem!important;}
+.st-key-tour_card [data-testid="stColumn"]{min-width:0!important;flex:1 1 0!important;}
+.st-key-tour_card button{padding:.4rem .2rem!important;font-size:.76rem!important;}
+.st-key-tour_card{padding:.65rem!important;}
+.st-key-tour_card .tour-compact{margin:0;padding:.6rem .75rem;border:0;}
+.input-summary{padding:.75rem 1rem;border-left:2px solid var(--accent);background:var(--panel);color:var(--muted);font-size:.8rem;line-height:1.6;}
+.input-summary strong{color:var(--text);}
+
+@media(max-width:800px){
+  [data-testid="stMainBlockContainer"]{padding:1.2rem 1rem 2rem;}
+  .workspace-nav{gap:.2rem;}.workspace-nav a{padding:.6rem .55rem;font-size:.75rem;}
+  .run-summary{gap:.65rem;}.tour-compact{align-items:flex-start;}
+  [data-testid="stTable"]{overflow-x:auto;}[data-testid="stTable"] th,[data-testid="stTable"] td{padding:.6rem .65rem;}
+}

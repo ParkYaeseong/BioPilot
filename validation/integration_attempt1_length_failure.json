@@ -1,0 +1,44 @@
+{
+  "attempt": 1,
+  "workspace": ".runtime/real_integration_20261027",
+  "run_id": "75704247b1a5497288c9afa123b4a80c",
+  "started_at_utc": "2026-10-27T06:39:28Z",
+  "elapsed_seconds_wall": 20,
+  "returncode": 2,
+  "status": "partial",
+  "stop_reason": "invalid_or_forbidden_model_output",
+  "approved_max_requests": 3,
+  "approved_local_reservation_micros": 150000,
+  "meta_request_attempts": 3,
+  "usage": [
+    {
+      "prompt_tokens": 1136,
+      "completion_tokens": 334,
+      "total_tokens": 1470
+    },
+    {
+      "prompt_tokens": 1417,
+      "completion_tokens": 183,
+      "total_tokens": 1600
+    },
+    {
+      "prompt_tokens": 1237,
+      "completion_tokens": 1024,
+      "total_tokens": 2261
+    }
+  ],
+  "final_report_max_tokens": 1024,
+  "tool_calls_succeeded": [
+    "validate_target_context",
+    "score_positions"
+  ],
+  "esm_source_mode": "live",
+  "score_artifacts": 1,
+  "candidates": 19,
+  "ranking_scope": "esm150_masked_v1",
+  "actual_invoice_cost_micros": null,
+  "cost_status": "unknown",
+  "diagnosis": "Third response filled the full 1024-token cap and returned finish_reason=length. The cap was not the only constraint: the sequence_review final turn carried no length instruction, unlike the continuation report which stopped at 575 tokens.",
+  "automatic_retries": 0,
+  "GPU_jobs": 0
+}

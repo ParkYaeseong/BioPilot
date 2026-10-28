@@ -29,7 +29,7 @@ def make_context(tmp_path):
 
 def test_catalog_contains_only_available_tools(tmp_path):
     executor = ToolExecutor(make_context(tmp_path))
-    assert {t['name'] for t in executor.list_tools()} == {'validate_target_context', 'get_run_status'}
+    assert {t['name'] for t in executor.list_tools()} == {'validate_target_context', 'get_run_status', 'retrieve_atlas_evidence'}
     canonical = json.loads((ROOT / 'schemas/tools.mcp.json').read_text())['tools']
     assert all(tool in canonical for tool in executor.list_tools())
 
@@ -80,13 +80,19 @@ def test_real_stdio_discovery_call_and_no_resources(tmp_path):
                 initialized = await session.initialize()
                 assert initialized.protocolVersion
                 catalog = await session.list_tools()
-                assert {t.name for t in catalog.tools} == {'validate_target_context', 'get_run_status'}
+                assert {t.name for t in catalog.tools} == {'validate_target_context', 'get_run_status', 'retrieve_atlas_evidence'}
                 response = await session.call_tool('validate_target_context', {
                     'reference_id': REFERENCE_ID, 'reason_brief': 'Verify registered target'})
                 assert response.isError is False
                 data = response.structuredContent or json.loads(response.content[0].text)
                 assert data['status'] == 'ok'
                 assert data['target']['reference_sha256']
+                atlas = await session.call_tool('retrieve_atlas_evidence', {
+                    'reference_id': REFERENCE_ID, 'max_hits': 1, 'reason_brief': 'Inspect stored WT context'})
+                assert atlas.isError is False
+                assert atlas.structuredContent['source_mode'] == 'imported_snapshot'
+                assert atlas.structuredContent['baseline_rank_changed'] is False
+                assert atlas.structuredContent['upstream_authenticity_verified'] is False
                 assert (await session.list_resources()).resources == []
                 denied = await session.call_tool('read_file', {'path': '../evaluation_private/assay_protocol.json'})
                 assert denied.isError is True

@@ -36,6 +36,16 @@ interactive mature-enzyme scope; that is not a general rule for all secretion bi
 The supplied `require_coordinate_row` guard blocks null/absent mappings; it does not itself parse
 or validate mmCIF. A production importer and its real-coordinate integration test are still to build.
 
+Built 2026-10-28: `app/core/coordinate_join.py` performs the step 2-5 derivation and
+`checks/emit_coordinate_map.py` performs step 6, emitting `reference/residue_map.json` with the
+source sha256 pinned; re-running the emitter is byte-identical. Tests are in
+`tests_app/test_coordinate_join.py` — a synthetic fixture that runs everywhere plus a
+real-file integration test that skips when the approved local copy is absent. The profile was
+versioned `lipase_bs_a_v2` -> `lipase_bs_a_v3`. The coordinate file itself is NOT vendored into
+this package; redistribution rights were never established, so the registered map pins its hash
+instead. Index correspondence is now verified; atom geometry is not, and the two remain separate
+fields (`author_numbering_verified` vs `geometry_validated`).
+
 ## Inference context
 
 Use the full 212-aa sequence for the initial masked-marginal baseline and log that choice.

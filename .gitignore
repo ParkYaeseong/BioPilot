@@ -16,3 +16,9 @@ local_artifacts/
 *.safetensors
 *.pt
 *.pth
+.ssh/
+*.pem
+*.key
+*.ppk
+*.p12
+*.pfx

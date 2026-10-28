@@ -1,0 +1,3 @@
+# Optional local read-only viewer. Installing it does not authorize any provider,
+# GPU or network action; the viewer reads saved artifacts only.
+streamlit==1.66.1

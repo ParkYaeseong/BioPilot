@@ -30,7 +30,10 @@ science:
   max_candidates: 200
   max_top_k: 20
   candidate_seed: 42
-  verifier_enabled: false
+  # Provisioned 2026-10-28 with pinned public weights. The offered model choice is
+  # derived from the configured checkpoint pins, so an unprovisioned checkpoint is
+  # never offered. One run still keeps one checkpoint; the verifier never reranks.
+  verifier_enabled: true
   verifier_model_family: esm2_t33_650M_UR50D
   max_verifier_positions: 24
   fold_enabled: false
@@ -49,16 +52,23 @@ science:
   - 164
   - 187
 atlas:
+  # One actual exact-WT response was sanitized and pinned on 2026-10-28.
+  # The product tool reads this snapshot; it never calls the live API or folds.
   source_mode: imported_snapshot
   live_search_endpoint: null
   api_base_url: null
   max_hits: 100
-  source_manifest: null
+  source_manifest: reference/atlas_snapshot_policy.json
   live_endpoint_verified: false
-  provider: meta_esm_atlas_2023
+  provider: biohub_esm_atlas
+  provider_status: pinned_exact_wt_snapshot_available
+  provider_status_evidence: reference/atlas_registered_reference_20261028.json; HTTP 200; fold_on_miss=false; raw response SHA256 recorded
   optional_context_only: true
-  alternative_provider: biohub_esm_atlas
+  alternative_provider: meta_esm_atlas_2023
+  alternative_provider_status: upstream_archived_2024_08_01
+  alternative_provider_evidence: facebookresearch/esm archived read-only 2024-08-01; legacy route is separate from current Biohub Atlas
   alternative_provider_enabled: false
+  not_enabled_reason: Live search, compute-on-miss, and structure fetch remain disabled; only the pinned sanitized exact-WT snapshot is offered. Biohub is not the Meta model provider.
 budget:
   proposed_usd_micros_per_run: 2000000
   max_gpu_seconds_per_run: 900

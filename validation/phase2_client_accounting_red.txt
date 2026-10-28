@@ -1,0 +1,44 @@
+.........................................FF                              [100%]
+================================== FAILURES ===================================
+_____ test_local_body_rejection_is_not_an_unknown_provider_charge[False] ______
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.cache/pytest_meta_client_guard/test_local_body_rejection_is_n0')
+review = False
+
+    @pytest.mark.parametrize('review',[False,True])
+    def test_local_body_rejection_is_not_an_unknown_provider_charge(tmp_path,review):
+        from app.host.meta_client import RequestBodyLimitError
+        client=Client([RequestBodyLimitError('local oversized body')])
+        host,runs,rid,bridge=setup_review(tmp_path,client) if review else setup(tmp_path,client)
+        result=asyncio.run(host.run())
+        assert result['status']=='partial'
+>       assert result['stop_reason']=='local_request_body_limit_no_network'
+E       AssertionError: assert 'provider_out...nown_no_retry' == 'local_reques...it_no_network'
+E         
+E         - local_request_body_limit_no_network
+E         + provider_outcome_unknown_no_retry
+
+tests_app\test_meta_loop.py:467: AssertionError
+______ test_local_body_rejection_is_not_an_unknown_provider_charge[True] ______
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.cache/pytest_meta_client_guard/test_local_body_rejection_is_n1')
+review = True
+
+    @pytest.mark.parametrize('review',[False,True])
+    def test_local_body_rejection_is_not_an_unknown_provider_charge(tmp_path,review):
+        from app.host.meta_client import RequestBodyLimitError
+        client=Client([RequestBodyLimitError('local oversized body')])
+        host,runs,rid,bridge=setup_review(tmp_path,client) if review else setup(tmp_path,client)
+        result=asyncio.run(host.run())
+        assert result['status']=='partial'
+>       assert result['stop_reason']=='local_request_body_limit_no_network'
+E       AssertionError: assert 'provider_out...nown_no_retry' == 'local_reques...it_no_network'
+E         
+E         - local_request_body_limit_no_network
+E         + provider_outcome_unknown_no_retry
+
+tests_app\test_meta_loop.py:467: AssertionError
+=========================== short test summary info ===========================
+FAILED tests_app/test_meta_loop.py::test_local_body_rejection_is_not_an_unknown_provider_charge[False]
+FAILED tests_app/test_meta_loop.py::test_local_body_rejection_is_not_an_unknown_provider_charge[True]
+2 failed, 41 passed in 3.40s

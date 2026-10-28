@@ -1,0 +1,500 @@
+{
+  "comparison_status": "descriptive_policy_coverage_only_no_benefit_inference",
+  "failed_cells": 0,
+  "format": "biopilot-policy-intake-report-v1",
+  "limitations": [
+    "Six policy-intake tasks, not completed ESM or scientific reviews",
+    "Manual and Meta are not executed by this runner; missing cells remain in denominators",
+    "Local guard wall time is not operator time, inference latency or a time-saving comparison",
+    "Unknown operator effort, interventions and costs remain null",
+    "Prior Meta scientific integration is separate descriptive evidence, never a matched arm",
+    "No biological efficacy, retained-function or Meta workflow advantage established"
+  ],
+  "matched_scenario_count": 0,
+  "meta_benefit": null,
+  "methods": {
+    "fixed": {
+      "correct_count": 6,
+      "correct_outcome_coverage_fraction": 1.0,
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "failed_count": 0,
+      "human_interventions": null,
+      "incorrect_count": 0,
+      "missing_count": 0,
+      "observed_correct_fraction": 1.0,
+      "observed_count": 6,
+      "observed_coverage_fraction": 1.0,
+      "operator_seconds": null,
+      "source_modes": [
+        "actual_local_policy"
+      ],
+      "status": "observed",
+      "task_denominator": 6,
+      "wall_seconds": 0.011129099992103875
+    },
+    "manual": {
+      "correct_count": 0,
+      "correct_outcome_coverage_fraction": 0.0,
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "failed_count": 0,
+      "human_interventions": null,
+      "incorrect_count": 0,
+      "missing_count": 6,
+      "observed_correct_fraction": null,
+      "observed_count": 0,
+      "observed_coverage_fraction": 0.0,
+      "operator_seconds": null,
+      "source_modes": [],
+      "status": "not_run",
+      "task_denominator": 6,
+      "wall_seconds": null
+    },
+    "meta": {
+      "correct_count": 0,
+      "correct_outcome_coverage_fraction": 0.0,
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "failed_count": 0,
+      "human_interventions": null,
+      "incorrect_count": 0,
+      "missing_count": 6,
+      "observed_correct_fraction": null,
+      "observed_count": 0,
+      "observed_coverage_fraction": 0.0,
+      "operator_seconds": null,
+      "source_modes": [],
+      "status": "not_run",
+      "task_denominator": 6,
+      "wall_seconds": null
+    }
+  },
+  "missing_cells": 12,
+  "observations": [
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "not_run",
+      "human_interventions": null,
+      "method_id": "manual",
+      "operator_seconds": null,
+      "outcome": null,
+      "protocol_sha256": "4c43fa36367edd337959bf3df01c35853bd24c913b10a8590ac57e83a09a87e1",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "variant_intake",
+        "variant": "A32V"
+      },
+      "scenario_id": "validA32V",
+      "source_mode": "not_run",
+      "wall_seconds": null
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "not_run",
+      "human_interventions": null,
+      "method_id": "manual",
+      "operator_seconds": null,
+      "outcome": null,
+      "protocol_sha256": "4c43fa36367edd337959bf3df01c35853bd24c913b10a8590ac57e83a09a87e1",
+      "request": {
+        "frame": "mature_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "variant_intake",
+        "variant": "A1V"
+      },
+      "scenario_id": "matureframeA1V",
+      "source_mode": "not_run",
+      "wall_seconds": null
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "not_run",
+      "human_interventions": null,
+      "method_id": "manual",
+      "operator_seconds": null,
+      "outcome": null,
+      "protocol_sha256": "4c43fa36367edd337959bf3df01c35853bd24c913b10a8590ac57e83a09a87e1",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "variant_intake",
+        "variant": "S108A"
+      },
+      "scenario_id": "protectedS108A",
+      "source_mode": "not_run",
+      "wall_seconds": null
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "not_run",
+      "human_interventions": null,
+      "method_id": "manual",
+      "operator_seconds": null,
+      "outcome": null,
+      "protocol_sha256": "4c43fa36367edd337959bf3df01c35853bd24c913b10a8590ac57e83a09a87e1",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "variant_intake",
+        "variant": "G32V"
+      },
+      "scenario_id": "WTmismatchG32V",
+      "source_mode": "not_run",
+      "wall_seconds": null
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "not_run",
+      "human_interventions": null,
+      "method_id": "manual",
+      "operator_seconds": null,
+      "outcome": null,
+      "protocol_sha256": "4c43fa36367edd337959bf3df01c35853bd24c913b10a8590ac57e83a09a87e1",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "activity_optimization",
+        "operation": "variant_intake",
+        "variant": "A32V"
+      },
+      "scenario_id": "unsupportedactivityobjective",
+      "source_mode": "not_run",
+      "wall_seconds": null
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "not_run",
+      "human_interventions": null,
+      "method_id": "manual",
+      "operator_seconds": null,
+      "outcome": null,
+      "protocol_sha256": "4c43fa36367edd337959bf3df01c35853bd24c913b10a8590ac57e83a09a87e1",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "atom_geometry",
+        "variant": "A32V"
+      },
+      "scenario_id": "unavailableatomgeometry",
+      "source_mode": "not_run",
+      "wall_seconds": null
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "completed",
+      "human_interventions": null,
+      "method_id": "fixed",
+      "operator_seconds": null,
+      "outcome": {
+        "guard_code": "validated",
+        "guard_error": null,
+        "status": "accepted",
+        "variant_context": {
+          "candidate_id": "A32V",
+          "coordinate_observed": null,
+          "full_position": 32,
+          "mature_position": 1,
+          "mutant": "V",
+          "pdb_auth_seq_id": null,
+          "pdb_label_seq_id": null,
+          "wild_type": "A"
+        }
+      },
+      "protocol_sha256": "4c43fa36367edd337959bf3df01c35853bd24c913b10a8590ac57e83a09a87e1",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "variant_intake",
+        "variant": "A32V"
+      },
+      "scenario_id": "validA32V",
+      "source_mode": "actual_local_policy",
+      "wall_seconds": 0.009244900007615797
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "completed",
+      "human_interventions": null,
+      "method_id": "fixed",
+      "operator_seconds": null,
+      "outcome": {
+        "guard_code": "frame_required",
+        "guard_error": "Explicit full_reference_1based frame required; numbering is never auto-corrected",
+        "status": "rejected",
+        "variant_context": null
+      },
+      "protocol_sha256": "4c43fa36367edd337959bf3df01c35853bd24c913b10a8590ac57e83a09a87e1",
+      "request": {
+        "frame": "mature_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "variant_intake",
+        "variant": "A1V"
+      },
+      "scenario_id": "matureframeA1V",
+      "source_mode": "actual_local_policy",
+      "wall_seconds": 0.0002547999902162701
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "completed",
+      "human_interventions": null,
+      "method_id": "fixed",
+      "operator_seconds": null,
+      "outcome": {
+        "guard_code": "protected_site",
+        "guard_error": "Protected catalytic site",
+        "status": "rejected",
+        "variant_context": null
+      },
+      "protocol_sha256": "4c43fa36367edd337959bf3df01c35853bd24c913b10a8590ac57e83a09a87e1",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "variant_intake",
+        "variant": "S108A"
+      },
+      "scenario_id": "protectedS108A",
+      "source_mode": "actual_local_policy",
+      "wall_seconds": 0.0004888999974355102
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "completed",
+      "human_interventions": null,
+      "method_id": "fixed",
+      "operator_seconds": null,
+      "outcome": {
+        "guard_code": "wt_mismatch",
+        "guard_error": "WT residue mismatch; numbering is not auto-corrected",
+        "status": "rejected",
+        "variant_context": null
+      },
+      "protocol_sha256": "4c43fa36367edd337959bf3df01c35853bd24c913b10a8590ac57e83a09a87e1",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "variant_intake",
+        "variant": "G32V"
+      },
+      "scenario_id": "WTmismatchG32V",
+      "source_mode": "actual_local_policy",
+      "wall_seconds": 0.0004661999992094934
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "completed",
+      "human_interventions": null,
+      "method_id": "fixed",
+      "operator_seconds": null,
+      "outcome": {
+        "guard_code": "unsupported_objective",
+        "guard_error": "Unsupported scientific objective: no registered predictor",
+        "status": "rejected",
+        "variant_context": null
+      },
+      "protocol_sha256": "4c43fa36367edd337959bf3df01c35853bd24c913b10a8590ac57e83a09a87e1",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "activity_optimization",
+        "operation": "variant_intake",
+        "variant": "A32V"
+      },
+      "scenario_id": "unsupportedactivityobjective",
+      "source_mode": "actual_local_policy",
+      "wall_seconds": 0.00021980000019539148
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "completed",
+      "human_interventions": null,
+      "method_id": "fixed",
+      "operator_seconds": null,
+      "outcome": {
+        "guard_code": "coordinates_unverified",
+        "guard_error": "Atom coordinates and author/label correspondence are not verified",
+        "status": "unavailable",
+        "variant_context": {
+          "candidate_id": "A32V",
+          "coordinate_observed": null,
+          "full_position": 32,
+          "mature_position": 1,
+          "mutant": "V",
+          "pdb_auth_seq_id": null,
+          "pdb_label_seq_id": null,
+          "wild_type": "A"
+        }
+      },
+      "protocol_sha256": "4c43fa36367edd337959bf3df01c35853bd24c913b10a8590ac57e83a09a87e1",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "atom_geometry",
+        "variant": "A32V"
+      },
+      "scenario_id": "unavailableatomgeometry",
+      "source_mode": "actual_local_policy",
+      "wall_seconds": 0.00045449999743141234
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "not_run",
+      "human_interventions": null,
+      "method_id": "meta",
+      "operator_seconds": null,
+      "outcome": null,
+      "protocol_sha256": "4c43fa36367edd337959bf3df01c35853bd24c913b10a8590ac57e83a09a87e1",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "variant_intake",
+        "variant": "A32V"
+      },
+      "scenario_id": "validA32V",
+      "source_mode": "not_run",
+      "wall_seconds": null
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "not_run",
+      "human_interventions": null,
+      "method_id": "meta",
+      "operator_seconds": null,
+      "outcome": null,
+      "protocol_sha256": "4c43fa36367edd337959bf3df01c35853bd24c913b10a8590ac57e83a09a87e1",
+      "request": {
+        "frame": "mature_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "variant_intake",
+        "variant": "A1V"
+      },
+      "scenario_id": "matureframeA1V",
+      "source_mode": "not_run",
+      "wall_seconds": null
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "not_run",
+      "human_interventions": null,
+      "method_id": "meta",
+      "operator_seconds": null,
+      "outcome": null,
+      "protocol_sha256": "4c43fa36367edd337959bf3df01c35853bd24c913b10a8590ac57e83a09a87e1",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "variant_intake",
+        "variant": "S108A"
+      },
+      "scenario_id": "protectedS108A",
+      "source_mode": "not_run",
+      "wall_seconds": null
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "not_run",
+      "human_interventions": null,
+      "method_id": "meta",
+      "operator_seconds": null,
+      "outcome": null,
+      "protocol_sha256": "4c43fa36367edd337959bf3df01c35853bd24c913b10a8590ac57e83a09a87e1",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "variant_intake",
+        "variant": "G32V"
+      },
+      "scenario_id": "WTmismatchG32V",
+      "source_mode": "not_run",
+      "wall_seconds": null
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "not_run",
+      "human_interventions": null,
+      "method_id": "meta",
+      "operator_seconds": null,
+      "outcome": null,
+      "protocol_sha256": "4c43fa36367edd337959bf3df01c35853bd24c913b10a8590ac57e83a09a87e1",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "activity_optimization",
+        "operation": "variant_intake",
+        "variant": "A32V"
+      },
+      "scenario_id": "unsupportedactivityobjective",
+      "source_mode": "not_run",
+      "wall_seconds": null
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "not_run",
+      "human_interventions": null,
+      "method_id": "meta",
+      "operator_seconds": null,
+      "outcome": null,
+      "protocol_sha256": "4c43fa36367edd337959bf3df01c35853bd24c913b10a8590ac57e83a09a87e1",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "atom_geometry",
+        "variant": "A32V"
+      },
+      "scenario_id": "unavailableatomgeometry",
+      "source_mode": "not_run",
+      "wall_seconds": null
+    }
+  ],
+  "observed_cells": 6,
+  "operator_time_savings_seconds": null,
+  "planned_cells": 18,
+  "protocol_id": "policy_intake_20261028_v1",
+  "protocol_sha256": "4c43fa36367edd337959bf3df01c35853bd24c913b10a8590ac57e83a09a87e1",
+  "report_sha256": "26ed8e8637dd3eaff45540ce1519ba49d61004343bf594a016121f125596e88c",
+  "run": {
+    "cache_state": "not_applicable_no_model_or_score_cache",
+    "case_timing_scope": "guard_import_registry_read_and_validation_only",
+    "esm_inference_calls": 0,
+    "external_sequence_uploads": 0,
+    "finished_at_utc": "2026-10-28T02:06:02.583072Z",
+    "gpu_jobs": 0,
+    "platform": "Windows-11-10.0.26300-SP0",
+    "protocol_frozen_before_run": true,
+    "provider_calls": 0,
+    "python_version": "3.14.0",
+    "run_timing_scope": "source_hashing_guard_loop_and_report_aggregation",
+    "source_mode": "actual_local_policy",
+    "source_sha256": {
+      "app/core/capabilities.py": "25561ddcf57602233fa461515e559aa450101fdeb6dd652e03ea51781e500036",
+      "app/core/targets.py": "4caeaa0ccc806b5414c708ced79ebe53d35c0f08c377856313ca663a3f4513d4",
+      "evaluation/workflow_suite.py": "8e3cfab3cf30def22592d6203185d812da90870456cd0689654c00faf3c258f7",
+      "reference/target_profile.json": "f4aa73a3dab1cb5317017bf074432f96b5f1d4ecb4e2b32e5c5a9188fae29c22"
+    },
+    "started_at_utc": "2026-10-28T02:06:02.567743Z",
+    "wall_seconds": 0.01532500000030268
+  },
+  "scenario_denominator": 6,
+  "scientific_evidence": false,
+  "scientific_review_completed": false,
+  "source_mode": "actual_policy_observations",
+  "task_scope": "policy_intake_only_not_scientific_review",
+  "workflow_gain_supported": false
+}

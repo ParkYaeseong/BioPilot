@@ -1,4 +1,4 @@
-# BioPilot Atlas
+# BioPilot Bench
 
 **Submission draft - replace every bracketed field with verified information.**
 Track: Indie Developer. Theme: Push the Frontier.

@@ -1,0 +1,46 @@
+{
+  "attempt": 2,
+  "workspace": ".runtime/real_integration2_20261027",
+  "run_id": "86b60d59bc6a4bc2acb1f4d699c4e818",
+  "started_at_utc": "2026-10-27T06:45:38Z",
+  "elapsed_seconds_wall": 78,
+  "returncode": 2,
+  "status": "partial",
+  "stop_reason": "invalid_or_forbidden_model_output",
+  "change_under_test": "FINAL_REPORT_INSTRUCTION added to the final turn (prompt_tokens 1237 -> 1325 confirms it was sent)",
+  "approved_max_requests": 3,
+  "approved_local_reservation_micros": 150000,
+  "meta_request_attempts": 3,
+  "usage": [
+    {
+      "prompt_tokens": 1136,
+      "completion_tokens": 385,
+      "total_tokens": 1521
+    },
+    {
+      "prompt_tokens": 1417,
+      "completion_tokens": 195,
+      "total_tokens": 1612
+    },
+    {
+      "prompt_tokens": 1325,
+      "completion_tokens": 1024,
+      "total_tokens": 2349
+    }
+  ],
+  "final_report_max_tokens": 1024,
+  "tool_calls_succeeded": [
+    "validate_target_context",
+    "score_positions"
+  ],
+  "esm_source_mode": "live",
+  "esm_recomputed_in_this_run": true,
+  "score_artifacts": 1,
+  "candidates": 19,
+  "model_narrative_present": false,
+  "actual_invoice_cost_micros": null,
+  "cost_status": "unknown",
+  "diagnosis": "Length instruction alone did not help: the third response again filled 1024 and returned no content at all. Root cause identified as a missing reasoning_effort field. examples/meta_execute_request.json specifies medium and examples/meta_report_request.json specifies low, and final_report.py (which sets low) completed live in 575 tokens. _run_sequence_review sent no reasoning_effort, so reasoning consumed the completion budget.",
+  "automatic_retries": 0,
+  "GPU_jobs": 0
+}

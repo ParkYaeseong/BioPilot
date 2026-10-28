@@ -1,4 +1,4 @@
-Review BioPilot Atlas for security, spend and release readiness using actual files and sanitized logs. Start read-only. Check secret handling, frontend bundles, arbitrary URL/shell surfaces, prompt injection, run ownership, untrusted structure parsing, artifact downloads, HTML/CSV injection, disabled paid mode, transactional reservations, cancellation and timeout reconciliation.
+Review BioPilot Bench for security, spend and release readiness using actual files and sanitized logs. Start read-only. Check secret handling, frontend bundles, arbitrary URL/shell surfaces, prompt injection, run ownership, untrusted structure parsing, artifact downloads, HTML/CSV injection, disabled paid mode, transactional reservations, cancellation and timeout reconciliation.
 
 Confirm that coding-agent permissions do not leak into product tools, labels are inaccessible to the app, and public demo mode cannot start billed jobs. Check source licenses/attribution, institutional-code boundaries and missing event-rule permissions. Standard API mode is not proof of zero retention.
 

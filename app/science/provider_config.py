@@ -13,6 +13,10 @@ DEFAULTS={
     'ESM_LOCAL_CHECKPOINT_DIR':None,'ESM_WEIGHTS_SHA256':None,'ESM_TOKENIZER_SHA256':None,
     'ESM_REMOTE_EXECUTION_APPROVED':False,'ESM_REMOTE_ESTIMATE_MICROS':0,
     'ESM_REMOTE_TIMEOUT_SECONDS':900,'ESM_PROVIDER_BINDING':None,
+    # Optional second checkpoint. Absent by default: a verifier is extra evidence,
+    # never a reranker, and it must carry its own trusted pins.
+    'ESM_VERIFIER_MODEL_KEY':None,'ESM_VERIFIER_CHECKPOINT_DIR':None,
+    'ESM_VERIFIER_WEIGHTS_SHA256':None,'ESM_VERIFIER_TOKENIZER_SHA256':None,
     'MODAL_APP_NAME':None,'MODAL_FUNCTION_NAME':None,'MODAL_ENVIRONMENT':None,
     'MODAL_SDK_VERSION':None,'MODAL_COMPATIBILITY_VERIFIED':False,
 }
@@ -36,6 +40,11 @@ def load_esm_settings(env_file=None, environ=None):
     if selected['ESM_DEVICE'] not in {'cpu','cuda'}:
         raise ValueError('ESM_DEVICE must explicitly select cpu or cuda')
     get_model_spec(selected['ESM_MODEL_KEY'])
+    verifier=selected['ESM_VERIFIER_MODEL_KEY']
+    if verifier is not None:
+        get_model_spec(verifier)
+        if verifier==selected['ESM_MODEL_KEY']:
+            raise ValueError('The verifier checkpoint must differ from the baseline model')
     for key in ('ESM_REMOTE_EXECUTION_APPROVED','MODAL_COMPATIBILITY_VERIFIED'):
         selected[key]=_boolean(selected[key])
     for key in ('ESM_REMOTE_TIMEOUT_SECONDS','ESM_REMOTE_ESTIMATE_MICROS'):
@@ -47,22 +56,80 @@ def load_esm_settings(env_file=None, environ=None):
         raise ValueError('Remote job timeout must be 1..900 seconds')
     return selected
 
+class RoutingLocalProvider:
+    """Dispatch to the local provider that owns the requested checkpoint.
+
+    Each wrapped provider still verifies its own pins and checkpoint identity, so
+    routing cannot smuggle one checkpoint's weights under another model key.
+    """
+
+    def __init__(self, providers):
+        self._providers=dict(providers)
+        self._routes={}
+
+    def ensure_ready(self):
+        for provider in self._providers.values():
+            provider.ensure_ready()
+
+    def _for(self, model_key):
+        provider=self._providers.get(model_key)
+        if provider is None:
+            from app.science.providers import UnconfiguredBackendError
+            raise UnconfiguredBackendError('No configured local checkpoint for the requested model')
+        return provider
+
+    def submit(self, request):
+        provider=self._for(request.model_key)
+        submission=provider.submit(request)
+        self._routes[submission.job_id]=request.model_key
+        return submission
+
+    def poll(self, job_id, timeout_seconds):
+        model_key=self._routes.get(job_id)
+        if model_key is None:
+            from app.science.providers import ProviderError
+            raise ProviderError('Unknown local job for this provider')
+        return self._providers[model_key].poll(job_id, timeout_seconds)
+
+
 def make_inference_service(context, settings):
     from app.science.providers import LocalESMProvider, ModalESMProvider, UnconfiguredBackendError, canonical_digest
     from app.science.inference_service import InferenceService
     backend_key=settings['ESM_BACKEND']
     if backend_key=='runpod':
         raise UnconfiguredBackendError('RunPod is explicitly unconfigured')
-    pins={settings['ESM_MODEL_KEY']:{'expected_weights_sha256':settings['ESM_WEIGHTS_SHA256'],
-                                  'expected_tokenizer_sha256':settings['ESM_TOKENIZER_SHA256']}}
+    baseline_key=settings['ESM_MODEL_KEY']
+    verifier_key=settings['ESM_VERIFIER_MODEL_KEY']
+    pins={baseline_key:{'expected_weights_sha256':settings['ESM_WEIGHTS_SHA256'],
+                        'expected_tokenizer_sha256':settings['ESM_TOKENIZER_SHA256']}}
+    if verifier_key is not None:
+        pins[verifier_key]={'expected_weights_sha256':settings['ESM_VERIFIER_WEIGHTS_SHA256'],
+                            'expected_tokenizer_sha256':settings['ESM_VERIFIER_TOKENIZER_SHA256']}
+    # Validate every pin before a checkpoint is touched: a malformed pin must never
+    # reach the point of loading weights.
+    if any(not isinstance(value,str) or re.fullmatch('[0-9a-f]{64}',value) is None
+           for entry in pins.values() for value in entry.values()):
+        raise UnconfiguredBackendError('Trusted checkpoint/tokenizer pins are required before exposing ESM capability')
+    if verifier_key is not None:
+        if backend_key!='local':
+            raise UnconfiguredBackendError('The optional verifier checkpoint is only wired for the local backend')
+        if not settings['ESM_VERIFIER_CHECKPOINT_DIR']:
+            raise UnconfiguredBackendError('Verifier checkpoint directory is not configured; downloads are disabled')
     if backend_key=='local':
         from app.science.esm_engine import ESMEngine,LocalHFBackend
         if not settings['ESM_LOCAL_CHECKPOINT_DIR']:
             raise UnconfiguredBackendError('Local checkpoint is not configured; downloads are disabled')
-        backend=LocalHFBackend(settings['ESM_LOCAL_CHECKPOINT_DIR'],
-            expected_weights_sha256=settings['ESM_WEIGHTS_SHA256'],expected_tokenizer_sha256=settings['ESM_TOKENIZER_SHA256'],
-            checkpoint_key=settings['ESM_MODEL_KEY'],device=settings['ESM_DEVICE'])
-        provider=LocalESMProvider(ESMEngine(backend,Path(context.db_path).parent/'esm_cache'))
+        cache=Path(context.db_path).parent/'esm_cache'
+        def _local(directory,key,weights,tokenizer):
+            return LocalESMProvider(ESMEngine(LocalHFBackend(directory,
+                expected_weights_sha256=weights,expected_tokenizer_sha256=tokenizer,
+                checkpoint_key=key,device=settings['ESM_DEVICE']),cache))
+        provider=_local(settings['ESM_LOCAL_CHECKPOINT_DIR'],baseline_key,
+            settings['ESM_WEIGHTS_SHA256'],settings['ESM_TOKENIZER_SHA256'])
+        if verifier_key is not None:
+            provider=RoutingLocalProvider({baseline_key:provider,
+                verifier_key:_local(settings['ESM_VERIFIER_CHECKPOINT_DIR'],verifier_key,
+                    settings['ESM_VERIFIER_WEIGHTS_SHA256'],settings['ESM_VERIFIER_TOKENIZER_SHA256'])})
         estimate=0
     else:
         config={key:settings[key] for key in ('ESM_BACKEND','MODAL_APP_NAME','MODAL_FUNCTION_NAME',
@@ -72,9 +139,6 @@ def make_inference_service(context, settings):
         estimate=settings['ESM_REMOTE_ESTIMATE_MICROS']
         if estimate<=0:
             raise UnconfiguredBackendError('Remote work needs an approved conservative cost estimate')
-    if any(not isinstance(value,str) or re.fullmatch('[0-9a-f]{64}',value) is None
-           for value in pins[settings['ESM_MODEL_KEY']].values()):
-        raise UnconfiguredBackendError('Trusted checkpoint/tokenizer pins are required before exposing ESM capability')
     binding=settings['ESM_PROVIDER_BINDING'] or canonical_digest({k:v for k,v in settings.items()
         if k not in {'ESM_LOCAL_CHECKPOINT_DIR','ESM_REMOTE_EXECUTION_APPROVED'}})
     return InferenceService(context.db_path,provider,backend_key,binding,estimate_micros=estimate,

@@ -1,4 +1,4 @@
-Review this BioPilot Atlas implementation and its actual result artifacts as a skeptical scientific reviewer. Do not change code initially. Check the fixed science protocol and freeze manifest before interpreting any metric.
+Review this BioPilot Bench implementation and its actual result artifacts as a skeptical scientific reviewer. Do not change code initially. Check the fixed science protocol and freeze manifest before interpreting any metric.
 
 Prioritize: experimental-label leakage; reference/mutation/structure offsets; masked versus WT scoring confusion; incorrect tokenizer residue mapping; stale checkpoint caches; partial-model score mixing; pLDDT or Atlas similarity mislabeled as thermostability; a nonrandom favorable cohort; omitted failures; warm-cache costs presented as fresh; unpublished or institutional content in the demo.
 

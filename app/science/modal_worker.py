@@ -5,9 +5,9 @@ download weights, build an image or deploy. ``execute_request`` is the same boun
 callable used in worker fixture tests. The deployment factory is deliberately
 blocked until separate deployment and existing-volume approvals are supplied.
 
-SDK API references were read on 2026-10-27; no installed/live SDK compatibility is
-claimed by this source. A matching installed SDK must construct the definition,
-and actual deployment/inference still require separate operational verification.
+SDK API references and installed 1.6.2 signatures/docstrings were inspected on
+2026-10-27. Actual SDK factory construction, authentication, deployed limits and
+inference remain unverified and require separate operational approval.
 """
 from __future__ import annotations
 
@@ -43,6 +43,18 @@ WORKER_ROOT = "/opt/biopilot"
 MODEL_MOUNT = "/models"
 IMAGE_PACKAGES = ("torch==2.9.1", "transformers==5.2.0", "safetensors==0.7.0")
 MANIFEST_FIELDS = frozenset({"checkpoint_dir", "expected_weights_sha256", "expected_tokenizer_sha256"})
+WORKER_EXECUTION_CEILING_SECONDS = 900
+WORKER_STARTUP_TIMEOUT_SECONDS = 120
+WORKER_SCALEDOWN_SECONDS = 2
+WORKER_CPU_BOUNDS = (1.0, 1.0)
+WORKER_MEMORY_MIB_BOUNDS = (4096, 4096)
+
+
+def remote_reservation_components():
+    """Offline definition bounds; no claim that a deployed worker was inspected."""
+    return {"execution_seconds": WORKER_EXECUTION_CEILING_SECONDS,
+            "startup_seconds": WORKER_STARTUP_TIMEOUT_SECONDS,
+            "idle_seconds": WORKER_SCALEDOWN_SECONDS}
 
 
 def _models_manifest(models_manifest):
@@ -133,6 +145,18 @@ class ModalWorkerDefinition:
     sdk_version: str
     source_manifest_sha256: str
     compatibility_status: str = "definition_only_not_deployed"
+    execution_timeout_seconds: int = WORKER_EXECUTION_CEILING_SECONDS
+
+    @property
+    def resource_bounds(self):
+        return {"cpu_request": WORKER_CPU_BOUNDS[0], "cpu_limit": WORKER_CPU_BOUNDS[1],
+                "memory_request_mib": WORKER_MEMORY_MIB_BOUNDS[0],
+                "memory_limit_mib": WORKER_MEMORY_MIB_BOUNDS[1],
+                "execution_timeout_seconds": self.execution_timeout_seconds,
+                "startup_timeout_seconds": WORKER_STARTUP_TIMEOUT_SECONDS,
+                "scaledown_window_seconds": WORKER_SCALEDOWN_SECONDS,
+                "reservation_components": remote_reservation_components(),
+                "deployment_verified": False}
 
 
 def create_modal_app(models_manifest, *, project_root, expected_sdk_version,
@@ -182,8 +206,12 @@ def create_modal_app(models_manifest, *, project_root, expected_sdk_version,
     volume = modal.Volume.from_name(existing_volume_name, create_if_missing=False)
     _supports_keywords(volume.with_mount_options, {"read_only"})
     volume = volume.with_mount_options(read_only=True)
-    app = modal.App("biopilot-atlas-worker", include_source=False)
+    app = modal.App("biopilot-bench-worker", include_source=False)
     options = {"image": image, "gpu": gpu, "max_containers": 1, "min_containers": 0,
+               "buffer_containers": 0, "cpu": WORKER_CPU_BOUNDS,
+               "memory": WORKER_MEMORY_MIB_BOUNDS,
+               "startup_timeout": WORKER_STARTUP_TIMEOUT_SECONDS,
+               "scaledown_window": WORKER_SCALEDOWN_SECONDS,
                "retries": 0, "timeout": timeout_seconds, "volumes": {MODEL_MOUNT: volume},
                "secrets": [], "include_source": False, "serialized": True, "block_network": True}
     _supports_keywords(app.function, options)
@@ -195,4 +223,5 @@ def create_modal_app(models_manifest, *, project_root, expected_sdk_version,
         _verify_worker_sources(source_hashes, WORKER_ROOT)
         return execute_request(payload, frozen_manifest)
 
-    return ModalWorkerDefinition(app, infer_positions, actual_sdk_version, canonical_digest(source_hashes))
+    return ModalWorkerDefinition(app, infer_positions, actual_sdk_version, canonical_digest(source_hashes),
+                                 execution_timeout_seconds=timeout_seconds)

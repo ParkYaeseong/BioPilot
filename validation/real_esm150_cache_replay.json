@@ -1,0 +1,10 @@
+{
+  "status": "verified",
+  "source_mode": "replay",
+  "forward_calls": 0,
+  "source_live_artifact_sha256": "63a1c3752407d96a54f33b735d72e700839e4b0e9363894597738f6e8531157f",
+  "replay_artifact_sha256": "2338be57b12dc75c1e91d10f7f3dd9fceccec5905dbbd0436dba63deed70e71b",
+  "candidate_count": 19,
+  "scores_exactly_equal": true,
+  "elapsed_seconds": 14.682837500000005
+}

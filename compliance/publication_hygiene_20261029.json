@@ -1,0 +1,59 @@
+{
+  "prepared_date_kst": "2026-10-29",
+  "scope": "Source allowlist and read-only Git history audit; not a full security or rights certification",
+  "file_count": 392,
+  "total_bytes": 3534818,
+  "largest_files": [
+    {
+      "bytes": 524222,
+      "path": "app/vendor/3Dmol-min.js"
+    },
+    {
+      "bytes": 196038,
+      "path": "reference/1ISP.cif"
+    },
+    {
+      "bytes": 129923,
+      "path": "demo/artifacts/structures/esmfold2_WT/prediction.pdb"
+    },
+    {
+      "bytes": 77399,
+      "path": "docs/images/guided-tutorial.png"
+    },
+    {
+      "bytes": 75605,
+      "path": "docs/images/workbench-light.png"
+    },
+    {
+      "bytes": 68606,
+      "path": "demo/artifacts/structures/esm3_A32V/prediction.pdb"
+    },
+    {
+      "bytes": 66284,
+      "path": "docs/images/live-session-light.png"
+    },
+    {
+      "bytes": 62493,
+      "path": "reference/residue_map.json"
+    }
+  ],
+  "high_confidence_credential_findings_current_and_prior_history": 0,
+  "historical_blob_count_inspected": 230,
+  "excluded": [
+    "credentials",
+    "SSH keys",
+    "model weights",
+    "virtual environments",
+    "runtime caches/databases",
+    "raw videos/captures",
+    "actual private evaluator run data"
+  ],
+  "old_external_address_redacted": true,
+  "non_evidence_source_files_normalized_to_LF": 7,
+  "recorded_scientific_evidence_normalized": false,
+  "repository_initial_visibility": "private",
+  "repository_initially_empty": true,
+  "existing_history_preserved": true,
+  "backdated_or_fabricated_history": false,
+  "full_private_ai_chats_uploaded": false
+}

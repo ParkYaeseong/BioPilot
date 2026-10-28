@@ -1,0 +1,81 @@
+{
+  "date_kst": "2026-10-28",
+  "scope": "Offline application/package regression and actual local MCP/guard smoke; no new provider/model/GPU request",
+  "baseline": {
+    "command": ".venv/Scripts/python.exe -m pytest tests tests_app -q -rs -p no:cacheprovider",
+    "passed": 449,
+    "failed": 1,
+    "skipped": 2,
+    "subtests_passed": 12,
+    "only_failure": "MANIFEST.sha256 hash and inventory drift"
+  },
+  "final_regression": {
+    "command": ".venv/Scripts/python.exe -m pytest tests tests_app -q -rs -p no:cacheprovider --basetemp=.cache/submission_inventory_final_20261028",
+    "returncode": 0,
+    "passed": 488,
+    "failed": 0,
+    "skipped": 2,
+    "warnings": 2,
+    "subtests_passed": 12,
+    "elapsed_seconds": 40.76,
+    "skip_reasons": [
+      "Windows account lacks symlink creation rights",
+      "Symlink creation requires an OS privilege"
+    ],
+    "warning_scope": "Installed Modal SDK uses asyncio event-loop policy APIs deprecated for Python 3.16"
+  },
+  "behavioral_red_green": {
+    "viewer": {
+      "red_failed": 4,
+      "green_passed": 18
+    },
+    "portable_replay_initial": {
+      "red_failed": 3,
+      "green_with_viewer_passed": 27
+    },
+    "portable_replay_provenance_fix": {
+      "red_failed": 13,
+      "green_with_viewer_runtime_bundle_passed": 44,
+      "skipped": 1
+    },
+    "package_inventory": {
+      "red_failed": 11,
+      "green_with_runtime_bundle_passed": 14,
+      "skipped": 1,
+      "scope": "Synthetic temp trees; evaluator private directories pruned before descent, model weights/databases excluded, LF manifest"
+    }
+  },
+  "actual_local_protocol_and_guards": "validation/submission_local_smoke_20261028.json",
+  "source_hygiene": "validation/submission_source_hygiene_20261028.json",
+  "real_vs_mocked": {
+    "this_turn_meta_calls": 0,
+    "this_turn_esm_inference": 0,
+    "this_turn_gpu_jobs": 0,
+    "local_mcp_smoke": "actual spawned stdio server",
+    "demo_report": "replay of saved real 2026-10-27 execution",
+    "automated_provider_tests": "mocked/synthetic fixtures explicitly labeled"
+  },
+  "clean_install_verified": false,
+  "biological_efficacy_established": false,
+  "public_repo_or_video_access_verified": false,
+  "submitted": false,
+  "application_replay_before_inventory_hardening": {
+    "command": ".venv/Scripts/python.exe -m pytest tests tests_app -q -rs -p no:cacheprovider --basetemp=.cache/submission_final_20261028",
+    "returncode": 0,
+    "passed": 477,
+    "failed": 0,
+    "skipped": 2,
+    "warnings": 2,
+    "subtests_passed": 12,
+    "elapsed_seconds": 43.28,
+    "skip_reasons": [
+      "Windows account lacks symlink creation rights",
+      "Symlink creation requires an OS privilege"
+    ],
+    "warning_scope": "Installed Modal SDK uses asyncio event-loop policy APIs deprecated for Python 3.16"
+  },
+  "local_video_draft_receipt": {
+    "path": "submission/video_draft_receipt.json",
+    "sha256": "384ac2267ce26410f8355148b0cf795941bcee8970b738796a27172bc7695bba"
+  }
+}

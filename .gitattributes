@@ -1,2 +1,17 @@
-# Preserve exact supplied/source artifact bytes for SHA256 manifests.
-* -text
+# Keep source text identical on Windows and Linux.
+* text=auto eol=lf
+
+# Preserve recorded scientific evidence and upstream assets byte for byte.
+*.json -text
+reference/** -text
+validation/** -text
+demo/artifacts/** -text
+app/assets/** -text
+app/vendor/** -text
+compliance/** -text
+compliance/original_package_manifest.sha256 -text
+compliance/rules_snapshot.json -text
+*.png -text
+*.jpg -text
+*.mp4 -text
+*.zip -text

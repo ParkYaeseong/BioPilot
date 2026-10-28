@@ -1,6 +1,6 @@
 {
-  "profile_id": "lipase_bs_a_v2",
-  "status": "sequence_mapping_verified_coordinates_pending",
+  "profile_id": "lipase_bs_a_v3",
+  "status": "sequence_and_index_join_verified_geometry_pending",
   "reference_id": "ESTA_BACSU_Nutschel_2020",
   "reference_sequence": "MKFVKRRIIALVTILMLSVTSLFALQPSAKAAEHNPVVMVHGIGGASFNFAGIKSYLVSQGWSRDKLYAVDFWDKTGTNYNNGPVLSRFVQKVLDETGAKKVDIVAHSMGGANTLYYIKNLDGGNKVANVVTLGGANRLTTGKALPGTDPNQKILYTSIYSSADMIVMNYLSRLDGARNVQIHGVGHIGLLYSSQVNSLIKEGLNGGGQNTN",
   "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
@@ -42,10 +42,30 @@
     "resolution_angstrom": 1.3,
     "deposited_residue_count": 181,
     "modeled_residue_count": 179,
-    "coordinate_status": "not_downloaded_or_verified",
-    "coordinate_file_sha256": null,
-    "author_numbering_verified": false,
-    "missing_residue_ids": null,
+    "coordinate_status": "index_join_verified_geometry_unvalidated",
+    "coordinate_file_sha256": "7ab626e5c5c1bec8ed8acdd4675f105939ef982542a559084860d16e4b07cc10",
+    "coordinate_source_url": "https://files.rcsb.org/download/1ISP.cif",
+    "coordinate_retrieved_utc": "2026-10-28T05:29:09Z",
+    "coordinate_join_method": "_pdbx_poly_seq_scheme x _atom_site on chain/label_seq_id",
+    "author_numbering_verified": true,
+    "author_minus_label_offset": 0,
+    "insertion_codes_present": false,
+    "geometry_validated": false,
+    "missing_residue_ids": [
+      {
+        "pdb_auth_seq_id": "1",
+        "full_position": 32,
+        "residue": "A",
+        "evidence": "no ATOM records; _pdbx_poly_seq_scheme, _atom_site and _pdbx_unobs_or_zero_occ_residues agree"
+      },
+      {
+        "pdb_auth_seq_id": "181",
+        "full_position": 212,
+        "residue": "N",
+        "evidence": "no ATOM records; _pdbx_poly_seq_scheme, _atom_site and _pdbx_unobs_or_zero_occ_residues agree"
+      }
+    ],
+    "coordinate_limits": "Verified index correspondence only. Atom geometry, side-chain completeness and conformer policy remain unvalidated, and no mutant structure is implied.",
     "source_ids": [
       "S18",
       "S19"

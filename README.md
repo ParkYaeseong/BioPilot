@@ -1,71 +1,110 @@
-# BioPilot Atlas v3 | MCP-first hackathon design and prompt pack
+# BioPilot Bench v3 | Guarded protein-variant review through MCP
 
-**2026-10-27 local implementation:** Python product code now exists under `app/`.
-See [Korean execution instructions](docs/IMPLEMENTATION_KO.md) and [actual status](docs/STATUS.md).
-Real ESM/Modal/independent biological validation are still pending. The supplied package description follows.
+**Publication snapshot: 2026-10-29. Owner: Yaeseong Park.**
 
-**Version:** 3.0 / 2026-10-27. **Owner:** Yaeseong Park.
+A controlled Meta host calls BioPilot MCP tools to review single substitutions of a public
+Lipase A reference. Code enforces numbering, protected sites, budgets and one common ESM ranking
+policy. The product is an **unvalidated sequence evidence assistant**. It does not predict calibrated
+T50, activity, solubility or Tm, or establish retained function.
 
-**A verifiable protein-variant review agent, not a validated enzyme optimizer.**
-A Meta model requests bounded scientific tools through MCP. Deterministic code checks biological
-constraints, runs ESM, records provenance and ranks candidates. A thin local result viewer is optional.
+## What actually runs
 
-This ZIP is a **complete replacement for v2**. It includes design documents, prompts, proposed
-contracts, source-traceable reference metadata and runnable **offline guard examples**.
-It does **not** contain a working MCP server, a production host, a completed UI, live API integration,
-measured ESM performance, a demo video or a submitted contest entry.
+- A real saved execution completed Meta → MCP validation → local ESM scoring → a no-tool Meta
+  explanation in one run. The requested and returned model was `muse-spark-1.3`; the negotiated
+  MCP protocol was `2025-11-25`.
+- That execution recomputed ESM-2 150M on CPU, using pinned weights/tokenizer and the registered
+  `full_212` context. Code ranked 19 alternatives at full-reference position 32 using
+  `esm150_masked_v1`. Receipt: [integration_success_20261027.json](validation/integration_success_20261027.json).
+- A local read-only Streamlit viewer renders saved artifacts. Opening a saved execution is
+  **REPLAY**; it does not call Meta or recompute ESM. See [the demo guide](demo/README_KO.md).
+- Local stdio MCP, persistent run/budget controls, constrained model tool calls and guarded
+  failure paths have offline tests. Test results are recorded in [STATUS](docs/STATUS.md).
+- ESM3 A32V and ESMFold2 WT have actual, separately recorded L40S executions with verified
+  full-reference output sequences. The viewer displays the stored predictions alongside
+  the experimental reference, with their provenance and limits. [GPU evidence](validation/optional_science_runtime_20261028.json).
+- A real exact-WT Atlas response is available as a sanitized, pinned MCP snapshot. This
+  bounded tool does not make a live search or automatically fold a missing result.
 
-## Start
+The recorded integration took 40 seconds and three Meta requests. Its actual provider bill is
+**unknown**; the local reservation is not a verified charge. This single run does not measure
+workflow time savings. Automatic remote folding through the product MCP, RunPod, deployed Modal
+and native Muse Code hosting remain disabled or unverified. Separate approved worker executions
+are distinguished from the historical Meta trace.
 
-1. Read `START_HERE_KO.md`, `docs/14_hackathon_rules_and_strategy.md` and `docs/15_mcp_contract_and_hosts.md`.
-2. Run `python -m unittest discover -s tests -v` and `python checks/validate_package.py`.
-3. Pass `prompts/coding/00_bootstrap_ko.txt` to WORK, Muse Code, Codex or Claude Code in this folder.
-4. Follow `docs/superpowers/plans/2026-10-27-v3-mcp-hackathon.md`.
-5. Use the application implementation only after its own tests and permission gates pass.
+## Review workspace
 
-## Product decisions
+The workbench has readable light/dark controls, ordered input and file diagnostics, candidate
+comparison, reference/predicted structures, recorded-event navigation and an eight-step spotlight
+tutorial with actual screen examples. The linked live session starts unarmed.
+See [the workspace guide](docs/WORKSPACE_REFINEMENT_KO.md), [optional science guide](docs/OPTIONAL_SCIENCE_KO.md)
+and [three-minute recording guide](demo/RECORD_SPOTLIGHT_KO.md).
+Actual saved scientific output remains REPLAY; no new model call is made by viewing.
 
-| Decision | v3 default |
-|---|---|
-| Track / theme | Indie Developer / Push the Frontier; Build for Your World is an honest fallback positioning |
-| Core product | Reusable guarded MCP tools + one Meta-driven host |
-| Reliable reference host | Small Python host with Meta API and an MCP client; no arbitrary shell or label access |
-| Existing host option | Muse Code calling BioPilot MCP, only after actual compatibility, permissions and isolation checks |
-| Demo interface | Optional Streamlit viewer of the same events/artifacts; no Next.js platform or installer required by this plan |
-| Scientific scope | Public Lipase A, single substitutions, ESM-ranked hypotheses; no calibrated T50 prediction |
-| Evidence for judges | Real Meta tool calls, real ESM results, constraint handling, source lineage and honest workflow comparison |
-| Recording | Planned 180-second demo, English narration/subtitle draft and Korean guide |
+![Actual local spotlight tutorial; saved scientific results are replayed](docs/images/guided-tutorial.png)
 
-A hosted website/desktop installer is **not specified as mandatory in the participant-guide snapshot
-available in this conversation**. This is not an official exemption: recheck the final submission
-form, demo access requirements and any later rules. A replay is a fallback, not a working-product substitute.
+## Meta use, authorship and development evidence
 
-## Latest rule basis and limits
+- [Actual Meta runtime evidence](compliance/META_RUNTIME_EVIDENCE.md): provider/model, permitted calls and source artifacts.
+- [AI-assisted development disclosure](compliance/AI_DEVELOPMENT.md): Codex/Claude roles, verification and what is shared.
+- [Development history](compliance/DEVELOPMENT_HISTORY.md) and [reuse ledger](compliance/originality_ledger.csv): earlier preparation and new contributions, with original commits preserved.
+- [Current rules check](compliance/HACKATHON_READINESS_KO.md): verified guide requirements and remaining form/reuse questions.
 
-The directly-read official participant guide in the conversation lists Impact 30%, Meta tooling 25%,
-Technical execution 20%, Demo 25%; public repository; three-minute video; and the November 4, 21:00
-America/New_York deadline (November 5, 11:00 Asia/Seoul). This revision could not reopen the
-connected browser or retrieve the event detail page. These facts are marked **conversation-captured
-primary-source text**, not freshly authenticated rules. See `compliance/rules_snapshot.json`.
+Private assistant conversations, keys, runtime databases, model weights and raw video/capture
+directories are excluded. The code, small reference/prediction artifacts, test records and hashes
+are sufficient to inspect the implemented flow. Current-date publication commits do not pretend
+to be earlier development commits.
 
-## Preserved scientific safeguards
+## Start locally
 
-The exact full-212/mature-181 sequence correspondence and protected full S108/D164/H187 remain.
-Sequence mapping is not PDB atom mapping. ESM preference is not thermal stability; pLDDT is not
-fitness; median-bin labels are not WT improvements. Dataset/WT audit and actual model evaluation
-remain pending. `checks/science_contracts.py`, its 39 original tests, and source reference/evaluator
-files are preserved byte-for-byte. No labels may be exposed as MCP tools, resources or files.
+Use the existing project environment from PowerShell:
 
-## Key folders
+```powershell
+.venv/Scripts/python.exe -m app.cli validate --variant A32V
+.venv/Scripts/python.exe -m app.cli validate --variant S108A
+.venv/Scripts/python.exe -m pytest tests tests_app -q -rs -p no:cacheprovider
+.venv/Scripts/python.exe checks/validate_package.py
+```
 
-- `docs/`: product, architecture, biology, rules, MCP, evidence, budget and submission plan.
-- `prompts/`: coding, runtime, review and bilingual recording/host instructions.
-- `reference/`: public sequences and conservative target registry, no actual candidate labels.
-- `evaluation_private/`: evaluator-only protocol metadata; excluded from every runtime bundle.
-- `schemas/`, `examples/`, `config/`, `templates/`: proposed contracts and clearly labeled scaffolding.
-- `demo/`, `submission/`, `compliance/`: storyboard, blank evidence records and rule/provenance ledgers.
-- `checks/`, `tests/`, `validation/`: runnable offline checks and actual verification receipts.
+`S108A` must be blocked because it changes a protected site. These commands do not send provider
+requests. For local MCP workspace creation, saved-run viewing and separately gated inference, read
+[the Korean execution guide](docs/IMPLEMENTATION_KO.md). The installed environment is Windows,
+Python 3.14.0, MCP 1.25.0, PyTorch 2.9.1, Transformers 5.2.0 and Streamlit 1.66.1. A clean installation
+on another machine has not been verified; pinned requirement files record the installed versions.
 
-Do not give the prediction agent this whole repository. A coding assistant can work on development
-files, but a scientific evaluation session must use a separate allowlisted workspace with no outcome
-material. Never publish this design package unchanged as proof of in-event implementation.
+## Evidence and submission scope
+
+[The submission draft](submission/README.md) maps implemented behavior to saved evidence and
+remaining gates. A local 180-second edited replay video draft with disclosed synthetic English voice and captions
+is available through the submission draft. Human review, public/judge-access verification and a
+submission receipt remain pending. The intended track/theme remain Indie Developer / Push the Frontier, subject to the final
+rules, eligibility and prior-work ruling. [The captured rules](compliance/rules_snapshot.json) are a
+historical snapshot, not a newly verified final rulebook.
+
+An evaluator-only retrospective subset has a complete-case Spearman of 0.288 with a 95% site-bootstrap
+interval of [-0.058, 0.536], spanning zero, over 117 measured variants at nine sites. It does not
+establish useful T50 prediction or general performance. See [the evaluator summary](validation/site_bootstrap_summary.json)
+and [biological readiness](docs/12_biological_readiness.md). Evaluator outputs never belong in a
+prediction-agent workspace or MCP catalog.
+
+## Boundaries and provenance
+
+Inputs use full-reference 1-based coordinates, the `full_212` scoring context and interactive
+protection of S108/D164/H187. Sequence correspondence is not verified PDB atom geometry; unknown
+coordinates stay null. Optional evidence cannot silently rerank the common baseline.
+
+Do not connect the prediction agent to this whole repository. Build the allowlisted runtime workspace;
+exclude labels, evaluator outputs, outcome-bearing papers and generic shell/file/URL tools. New live
+provider calls, downloads, GPU work, sequence uploads, publication, deployment and submission require
+their corresponding explicit approval.
+
+The project began as a v3 design/prompt package dated 2026-10-27, replacing v2. Its original statement
+that it contained only plans and guard examples describes that source package, before the local
+implementation. The original package manifest and the [originality ledger](compliance/originality_ledger.csv)
+preserve this history. Neither earlier design/helpers nor dependencies may be presented as newly
+authored event work. See [the original implementation plan](docs/superpowers/plans/2026-10-27-v3-mcp-hackathon.md)
+and [the decision log](docs/DECISIONS.md).
+
+## Licensing
+
+A project-wide license has not been assigned. Bundled third-party material has its own terms
+and retained notices; see [attribution and rights status](compliance/THIRD_PARTY_NOTICES.md).

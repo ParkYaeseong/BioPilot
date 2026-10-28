@@ -31,6 +31,14 @@ null, never zero, false-without-evidence, or an assumed offset. No coordinate-de
 may run until an exact mmCIF join is verified. 1ISP metadata says 181 deposited and 179 modeled
 residues, but it does not identify the missing positions for us [S18].
 
+Updated 2026-10-28: the join was verified from the pinned mmCIF (sha256 `7ab626e5…cc10`) by
+`app/core/coordinate_join.py`, so the label_seq_id, auth_seq_id, insertion-code and
+observed-coordinate fields are now registered rather than null. The metadata still does not
+name the missing positions; the coordinate file does, and they are full 32 (auth 1 ALA) and
+full 212 (auth 181 ASN). This verifies index correspondence only. Atom geometry stays
+unvalidated, `coordinate_mapping_verified` stays false, and the sentence above continues to
+govern every geometry-dependent feature.
+
 The curated metadata range 32-205 is not the mature domain boundary. Do not exclude 206-212
 from biological design solely because of that metadata. Conversely, do not add unmeasured
 variants to a benchmark denominator. Audit the actual data rows before establishing a cohort.

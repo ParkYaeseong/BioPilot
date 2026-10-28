@@ -18,6 +18,7 @@ CODE_ALLOWLIST = (
     'app/core/artifacts.py',
     'app/core/runtime_bundle.py',
     'app/core/tool_executor.py',
+    'app/core/atlas_snapshot.py',
     'app/science/__init__.py',
     'app/science/esm_engine.py',
     'app/science/ranking.py',
@@ -30,6 +31,7 @@ CODE_ALLOWLIST = (
     'app/host/meta_client.py',
     'app/host/mcp_bridge.py',
     'app/host/runner.py',
+    'app/host/final_report.py',
 )
 DATA_ALLOWLIST = (
     'reference/target_profile.json',
@@ -37,6 +39,8 @@ DATA_ALLOWLIST = (
     'reference/lipase_full_212.fasta',
     'reference/1ISP_A_deposited_181.fasta',
     'schemas/tools.mcp.json',
+    'reference/atlas_snapshot_policy.json',
+    'reference/atlas_registered_reference_20261028.json',
 )
 
 def _check_file(source_root: Path, relative: str) -> Path:
@@ -62,6 +66,9 @@ def build_runtime_bundle(source_root, destination):
         raise ValueError('Runtime destination must be a dedicated new directory')
     sources = [(relative, _check_file(source_root, relative))
                for relative in CODE_ALLOWLIST + DATA_ALLOWLIST]
+    # A changed pin or outcome-bearing extra field cannot enter the model workspace.
+    from app.core.atlas_snapshot import load_registered_atlas_snapshot
+    load_registered_atlas_snapshot(source_root, require_enabled=False)
     destination.mkdir(parents=True, exist_ok=False)
     records = []
     for relative, source in sources:

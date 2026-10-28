@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "source_mode": "computed_prediction",
+  "request": {
+    "schema_version": 1,
+    "model_key": "esm3",
+    "variant": "A32V",
+    "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+    "reference_numbering": "full_reference_1based",
+    "sequence_context": "full_212"
+  },
+  "candidate_sequence_sha256": "8dfd7fe1c86d5d92329748e8da0bd2e1386244bb45b0ecf72107611e820a4d01",
+  "checkpoint_manifest_sha256": "6939771f6da31f450c729c262b1ab9e9769c109095256be65783f823c4d8aa99",
+  "model_repository": "biohub/esm3-sm-open-v1",
+  "checkpoint_revision": "47f0545b2b6daf26a93439a3cd610f4f7f3d5478",
+  "esm_version": "3.4.1.post1",
+  "device": "cuda",
+  "seed": 0,
+  "runtime_provenance": {
+    "esm": "3.4.1.post1",
+    "torch": "2.11.0",
+    "transformers": "4.57.6",
+    "cuda_runtime": "13.0",
+    "gpu_name": "NVIDIA L40S",
+    "pytorch_memory_fraction": 0.8,
+    "peak_pytorch_allocated_bytes": 5450721792
+  },
+  "runtime_verification": "official_sdk_execution",
+  "structure_sha256": "c9431ffe520daf1158db0d99f1880cd6fc2d363ce74b978f07829e6817138613",
+  "structure_path": "prediction.pdb",
+  "created_at": "2026-10-28T11:53:21.193289+00:00",
+  "elapsed_seconds": 6.478,
+  "annotation_only": true,
+  "baseline_rank_changed": false,
+  "experimental_validation": false,
+  "atom_geometry_validated": false,
+  "predicted_sequence_verified": true,
+  "sampling": {
+    "track": "structure",
+    "num_steps": 8
+  },
+  "numbering_note": "Prediction residue 1 corresponds to full-reference position 1; this is the full_212 prediction, not the mature 1ISP construct.",
+  "confidence_metrics": null,
+  "phenotype_claim": null
+}

@@ -1,0 +1,68 @@
+{
+  "status": "downloaded_verified",
+  "repository": "biohub/ESMFold2",
+  "revision": "69869f737beffec5294845ede23db5fc0b4f509e",
+  "metadata_url": "https://huggingface.co/api/models/biohub/ESMFold2/revision/69869f737beffec5294845ede23db5fc0b4f509e?blobs=true",
+  "metadata_sha256": "bb5585a9f890c25c5b03c2b69bf2ce835c7554b3111e0b71d0f8a6c2cae5bd2b",
+  "manifest_sha256": "85e9c3e34d47533a9ad001efd6aab28238c5be2ccdb4f30f01caec0f9bb3a497",
+  "files": [
+    {
+      "path": "config.json",
+      "bytes": 8214,
+      "sha256": "72054c1af92f432ac2d8e0628ba08b377d04c6a8679b5128b798dbc7f644ddc8",
+      "upstream_sha256": null,
+      "upstream_git_blob_sha1": "5242643af42df9a5a4643865f1441e552734f9e8"
+    },
+    {
+      "path": "model-00001-of-00006.safetensors",
+      "bytes": 4955672788,
+      "sha256": "a24f050e2a2f9746b43b435c53719afc575a374fa302731b6911356a3d8b5cac",
+      "upstream_sha256": "a24f050e2a2f9746b43b435c53719afc575a374fa302731b6911356a3d8b5cac",
+      "upstream_git_blob_sha1": "4a43222d2ca1e01fb469ed7ae9cb023b203ad2e6"
+    },
+    {
+      "path": "model-00002-of-00006.safetensors",
+      "bytes": 4971194264,
+      "sha256": "1af1615f6f6d1b3c0a24a63d9052a0ecad5b3831d1513c1a5fea73870c1bec73",
+      "upstream_sha256": "1af1615f6f6d1b3c0a24a63d9052a0ecad5b3831d1513c1a5fea73870c1bec73",
+      "upstream_git_blob_sha1": "6d1276eaca3988e5bf47f690e8911b77202916aa"
+    },
+    {
+      "path": "model-00003-of-00006.safetensors",
+      "bytes": 4997460576,
+      "sha256": "357b55ec56192fd01a1cfc39a5260caf2242503ac7c554f614e43c7a469f0ced",
+      "upstream_sha256": "357b55ec56192fd01a1cfc39a5260caf2242503ac7c554f614e43c7a469f0ced",
+      "upstream_git_blob_sha1": "115aaffcb7112c65a06eeb25b7c6a578852b0aa3"
+    },
+    {
+      "path": "model-00004-of-00006.safetensors",
+      "bytes": 4979069192,
+      "sha256": "f065aca1a13308bce41b78f728c28a0a29e3a9db6af531a74a258dbb06f8721b",
+      "upstream_sha256": "f065aca1a13308bce41b78f728c28a0a29e3a9db6af531a74a258dbb06f8721b",
+      "upstream_git_blob_sha1": "bb6f56fd7b0eee8af40304caf2f59eae73903548"
+    },
+    {
+      "path": "model-00005-of-00006.safetensors",
+      "bytes": 4934556472,
+      "sha256": "e0c507dce5b2ddb22f77305607b4332506137850c5378e98e9729345264668b7",
+      "upstream_sha256": "e0c507dce5b2ddb22f77305607b4332506137850c5378e98e9729345264668b7",
+      "upstream_git_blob_sha1": "c4eed7c0df3c93619e01ce76369d94535fc03922"
+    },
+    {
+      "path": "model-00006-of-00006.safetensors",
+      "bytes": 1481396616,
+      "sha256": "90015eb13bbeab54237b18d6748dbd47f4bfd108fdf45704d66e5c3a93f8df7c",
+      "upstream_sha256": "90015eb13bbeab54237b18d6748dbd47f4bfd108fdf45704d66e5c3a93f8df7c",
+      "upstream_git_blob_sha1": "965c8471c0c73726b4510217058f57b33bbd6535"
+    },
+    {
+      "path": "model.safetensors.index.json",
+      "bytes": 245594,
+      "sha256": "5e1f94eb5cd4b0ff0bfdeae3dbf64be564ba34352fe6ef3a6ee9830f584134b2",
+      "upstream_sha256": null,
+      "upstream_git_blob_sha1": "8dbe0f5cad6fb060f83a1b441a323b3940fd5ac6"
+    }
+  ],
+  "elapsed_seconds": 370.095,
+  "gpu_execution": false
+}

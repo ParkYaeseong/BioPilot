@@ -1,0 +1,57 @@
+{
+  "model_id": "facebook/esm2_t30_150M_UR50D",
+  "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+  "started_at_utc": "2026-10-27T05:46:05.944680+00:00",
+  "metadata_source": "https://huggingface.co/api/models/facebook/esm2_t30_150M_UR50D",
+  "metadata_sha256": "5b4005d8f881d7abc9cf2648f5bd6096039ac65f5dc7cd9657d5816674c66951",
+  "files": [
+    {
+      "name": "config.json",
+      "size": 779,
+      "sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+      "source": "https://huggingface.co/facebook/esm2_t30_150M_UR50D/resolve/a695f6045e2e32885fa60af20c13cb35398ce30c/config.json",
+      "verification": "official_git_blob_sha1_plus_local_sha256",
+      "reused_verified_attempt1": true
+    },
+    {
+      "name": "model.safetensors",
+      "size": 595257706,
+      "sha256": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566",
+      "source": "https://huggingface.co/facebook/esm2_t30_150M_UR50D/resolve/a695f6045e2e32885fa60af20c13cb35398ce30c/model.safetensors",
+      "verification": "official_lfs_sha256"
+    },
+    {
+      "name": "special_tokens_map.json",
+      "size": 125,
+      "sha256": "3aedcd4211c0d43aec4e607ff60a63255f3174ead795e997350f09a5f8cd9ee1",
+      "source": "https://huggingface.co/facebook/esm2_t30_150M_UR50D/resolve/a695f6045e2e32885fa60af20c13cb35398ce30c/special_tokens_map.json",
+      "verification": "official_git_blob_sha1_plus_local_sha256"
+    },
+    {
+      "name": "tokenizer_config.json",
+      "size": 95,
+      "sha256": "7e9161ecdb548ec45a41cbc6b24aa4476fdd418461f491c4207baa99419a29ad",
+      "source": "https://huggingface.co/facebook/esm2_t30_150M_UR50D/resolve/a695f6045e2e32885fa60af20c13cb35398ce30c/tokenizer_config.json",
+      "verification": "official_git_blob_sha1_plus_local_sha256"
+    },
+    {
+      "name": "vocab.txt",
+      "size": 93,
+      "sha256": "0b82cc0a7c7cf9e567b1e5892d793285b9fbae822c964ca48696f7db44598e03",
+      "source": "https://huggingface.co/facebook/esm2_t30_150M_UR50D/resolve/a695f6045e2e32885fa60af20c13cb35398ce30c/vocab.txt",
+      "verification": "official_git_blob_sha1_plus_local_sha256"
+    }
+  ],
+  "command": ".venv/Scripts/python.exe .cache/stage1_download_esm150.py",
+  "installer_sha256": "4c2904dd4a09227dcc34eae5883a9d6053a8ce1d985a673749980c89d08eb10c",
+  "status": "installed_verified",
+  "request_retries": 0,
+  "credentials_used": false,
+  "gpu_allocations": 0,
+  "provider_inference_calls": 0,
+  "cost_micros": null,
+  "weights_sha256": "377f67e27c559ef9db8eac8296e0961ba68a98b08d32da9072af3853d193549b",
+  "tokenizer_sha256": "28bae4e8d8b0225381da7978ca8b341f5ac46cc4f0ca62ad459c7955608b6ea2",
+  "checkpoint_directory": "C:\\Users\\user\\Desktop\\BioPilot_Atlas_v3\\.cache\\models\\facebook\\esm2_t30_150M_UR50D\\a695f6045e2e32885fa60af20c13cb35398ce30c",
+  "completed_at_utc": "2026-10-27T05:46:43.657251+00:00"
+}

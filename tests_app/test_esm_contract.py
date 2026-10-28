@@ -339,3 +339,81 @@ def test_cuda_unavailable_blocks_without_falling_back_to_cpu(tmp_path, monkeypat
 def test_local_device_is_explicit_with_no_fallback(device, tmp_path):
     with pytest.raises(ValueError, match='device'):
         LocalHFBackend(tmp_path, device=device)
+
+
+def _legacy_buffer_checkpoint(tmp_path, monkeypatch, *, config_changes=None,
+                              tensor_change=None, loading_changes=None):
+    """Tiny safetensors buffer and mocked model loader; never real ESM weights."""
+    import numpy as np
+    from safetensors.numpy import save_file
+    from app.science.esm_engine import _digest, _file_hash
+    key='esm.embeddings.position_ids'
+    config={'model_type':'esm','num_hidden_layers':30,'hidden_size':640,
+            'num_attention_heads':20,'position_embedding_type':'rotary',
+            'max_position_embeddings':1026,**(config_changes or {})}
+    (tmp_path/'config.json').write_text(json.dumps(config))
+    (tmp_path/'vocab.txt').write_text('synthetic loader fixture')
+    tensors={key:np.arange(1026,dtype=np.int64).reshape(1,1026)}
+    if tensor_change:
+        tensors=tensor_change(tensors)
+    save_file(tensors,str(tmp_path/'model.safetensors'))
+    pins={'expected_weights_sha256':_digest({'model.safetensors':_file_hash(tmp_path/'model.safetensors')}),
+          'expected_tokenizer_sha256':_digest({name:_file_hash(tmp_path/name) for name in ('config.json','vocab.txt')})}
+    placed=[]
+    fake_model=SimpleNamespace(to=lambda **kwargs:(placed.append(kwargs) or SimpleNamespace(eval=lambda:SimpleNamespace())))
+    loading={'unexpected_keys':{key},'missing_keys':set(),'mismatched_keys':set(),
+             'error_msgs':[],**(loading_changes or {})}
+    monkeypatch.setitem(sys.modules,'transformers',SimpleNamespace(
+        AutoTokenizer=SimpleNamespace(from_pretrained=lambda *args,**kwargs:SimpleNamespace(mask_token_id=22)),
+        AutoModelForMaskedLM=SimpleNamespace(from_pretrained=lambda *args,**kwargs:(fake_model,loading))))
+    monkeypatch.setitem(sys.modules,'torch',SimpleNamespace(float32='float32'))
+    return pins,placed
+
+
+@pytest.mark.parametrize('reported_keys',[{'esm.embeddings.position_ids'},['esm.embeddings.position_ids']])
+def test_exact_legacy_nonpersistent_position_buffer_is_recorded(tmp_path,monkeypatch,reported_keys):
+    pins,placed=_legacy_buffer_checkpoint(tmp_path,monkeypatch,loading_changes={'unexpected_keys':reported_keys})
+    backend=LocalHFBackend(tmp_path,**pins)
+    assert placed==[{'device':'cpu','dtype':'float32'}]
+    assert backend.provenance['ignored_nonpersistent_buffers']==['esm.embeddings.position_ids']
+    assert backend.provenance['weights_sha256']==pins['expected_weights_sha256']
+
+
+@pytest.mark.parametrize('change',[
+    {'position_embedding_type':'absolute'}, {'max_position_embeddings':1025},
+    {'max_position_embeddings':True},
+])
+def test_legacy_position_buffer_requires_exact_rotary_configuration(tmp_path,monkeypatch,change):
+    pins,placed=_legacy_buffer_checkpoint(tmp_path,monkeypatch,config_changes=change)
+    with pytest.raises(ValueError):
+        LocalHFBackend(tmp_path,**pins)
+    assert placed==[]
+
+
+@pytest.mark.parametrize('kind',['wrong_dtype','wrong_shape','wrong_values','missing_tensor'])
+def test_legacy_position_buffer_contents_are_verified_before_acceptance(tmp_path,monkeypatch,kind):
+    import numpy as np
+    key='esm.embeddings.position_ids'
+    def change(tensors):
+        if kind=='wrong_dtype':tensors[key]=tensors[key].astype(np.int32)
+        elif kind=='wrong_shape':tensors[key]=tensors[key].reshape(1026)
+        elif kind=='wrong_values':tensors[key][0,-1]=0
+        else:tensors={'unrelated.fixture':np.zeros((1,),dtype=np.int64)}
+        return tensors
+    pins,placed=_legacy_buffer_checkpoint(tmp_path,monkeypatch,tensor_change=change)
+    with pytest.raises(ValueError):
+        LocalHFBackend(tmp_path,**pins)
+    assert placed==[]
+
+
+@pytest.mark.parametrize('change',[
+    {'unexpected_keys':{'esm.embeddings.position_ids','esm.encoder.layer.0.fake_weight'}},
+    {'missing_keys':{'esm.encoder.layer.0.weight'}},
+    {'mismatched_keys':{'esm.encoder.layer.0.weight'}},
+    {'error_msgs':['synthetic loader failure']},
+])
+def test_legacy_buffer_exception_does_not_relax_learned_weight_guards(tmp_path,monkeypatch,change):
+    pins,placed=_legacy_buffer_checkpoint(tmp_path,monkeypatch,loading_changes=change)
+    with pytest.raises(ValueError):
+        LocalHFBackend(tmp_path,**pins)
+    assert placed==[]

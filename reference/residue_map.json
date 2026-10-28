@@ -1,7 +1,25 @@
 {
-  "status": "sequence_only",
+  "status": "index_join_verified_geometry_unvalidated",
   "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
   "mature_sha256": "90914bba8255e2e85de3277fe0d5ffdfdeb8e5b741ff593dde001f73c413a065",
+  "coordinate_source": {
+    "pdb_id": "1ISP",
+    "chain": "A",
+    "sha256": "7ab626e5c5c1bec8ed8acdd4675f105939ef982542a559084860d16e4b07cc10",
+    "format": "mmCIF",
+    "join_method": "_pdbx_poly_seq_scheme x _atom_site on chain/label_seq_id",
+    "auth_minus_label_offsets": [
+      0
+    ],
+    "insertion_codes": [],
+    "deposited_residue_count": 181,
+    "modelled_residue_count": 179,
+    "unmodelled_full_positions": [
+      32,
+      212
+    ],
+    "residue_identity_mismatches": []
+  },
   "mapping": [
     {
       "full_position": 1,
@@ -349,10 +367,10 @@
       "residue": "A",
       "mature_position": 1,
       "deposited_sequence_position": 1,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 1,
+      "pdb_auth_seq_id": "1",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": false,
       "protected": false
     },
     {
@@ -360,10 +378,10 @@
       "residue": "E",
       "mature_position": 2,
       "deposited_sequence_position": 2,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 2,
+      "pdb_auth_seq_id": "2",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -371,10 +389,10 @@
       "residue": "H",
       "mature_position": 3,
       "deposited_sequence_position": 3,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 3,
+      "pdb_auth_seq_id": "3",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -382,10 +400,10 @@
       "residue": "N",
       "mature_position": 4,
       "deposited_sequence_position": 4,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 4,
+      "pdb_auth_seq_id": "4",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -393,10 +411,10 @@
       "residue": "P",
       "mature_position": 5,
       "deposited_sequence_position": 5,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 5,
+      "pdb_auth_seq_id": "5",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -404,10 +422,10 @@
       "residue": "V",
       "mature_position": 6,
       "deposited_sequence_position": 6,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 6,
+      "pdb_auth_seq_id": "6",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -415,10 +433,10 @@
       "residue": "V",
       "mature_position": 7,
       "deposited_sequence_position": 7,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 7,
+      "pdb_auth_seq_id": "7",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -426,10 +444,10 @@
       "residue": "M",
       "mature_position": 8,
       "deposited_sequence_position": 8,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 8,
+      "pdb_auth_seq_id": "8",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -437,10 +455,10 @@
       "residue": "V",
       "mature_position": 9,
       "deposited_sequence_position": 9,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 9,
+      "pdb_auth_seq_id": "9",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -448,10 +466,10 @@
       "residue": "H",
       "mature_position": 10,
       "deposited_sequence_position": 10,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 10,
+      "pdb_auth_seq_id": "10",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -459,10 +477,10 @@
       "residue": "G",
       "mature_position": 11,
       "deposited_sequence_position": 11,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 11,
+      "pdb_auth_seq_id": "11",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -470,10 +488,10 @@
       "residue": "I",
       "mature_position": 12,
       "deposited_sequence_position": 12,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 12,
+      "pdb_auth_seq_id": "12",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -481,10 +499,10 @@
       "residue": "G",
       "mature_position": 13,
       "deposited_sequence_position": 13,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 13,
+      "pdb_auth_seq_id": "13",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -492,10 +510,10 @@
       "residue": "G",
       "mature_position": 14,
       "deposited_sequence_position": 14,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 14,
+      "pdb_auth_seq_id": "14",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -503,10 +521,10 @@
       "residue": "A",
       "mature_position": 15,
       "deposited_sequence_position": 15,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 15,
+      "pdb_auth_seq_id": "15",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -514,10 +532,10 @@
       "residue": "S",
       "mature_position": 16,
       "deposited_sequence_position": 16,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 16,
+      "pdb_auth_seq_id": "16",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -525,10 +543,10 @@
       "residue": "F",
       "mature_position": 17,
       "deposited_sequence_position": 17,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 17,
+      "pdb_auth_seq_id": "17",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -536,10 +554,10 @@
       "residue": "N",
       "mature_position": 18,
       "deposited_sequence_position": 18,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 18,
+      "pdb_auth_seq_id": "18",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -547,10 +565,10 @@
       "residue": "F",
       "mature_position": 19,
       "deposited_sequence_position": 19,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 19,
+      "pdb_auth_seq_id": "19",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -558,10 +576,10 @@
       "residue": "A",
       "mature_position": 20,
       "deposited_sequence_position": 20,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 20,
+      "pdb_auth_seq_id": "20",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -569,10 +587,10 @@
       "residue": "G",
       "mature_position": 21,
       "deposited_sequence_position": 21,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 21,
+      "pdb_auth_seq_id": "21",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -580,10 +598,10 @@
       "residue": "I",
       "mature_position": 22,
       "deposited_sequence_position": 22,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 22,
+      "pdb_auth_seq_id": "22",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -591,10 +609,10 @@
       "residue": "K",
       "mature_position": 23,
       "deposited_sequence_position": 23,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 23,
+      "pdb_auth_seq_id": "23",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -602,10 +620,10 @@
       "residue": "S",
       "mature_position": 24,
       "deposited_sequence_position": 24,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 24,
+      "pdb_auth_seq_id": "24",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -613,10 +631,10 @@
       "residue": "Y",
       "mature_position": 25,
       "deposited_sequence_position": 25,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 25,
+      "pdb_auth_seq_id": "25",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -624,10 +642,10 @@
       "residue": "L",
       "mature_position": 26,
       "deposited_sequence_position": 26,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 26,
+      "pdb_auth_seq_id": "26",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -635,10 +653,10 @@
       "residue": "V",
       "mature_position": 27,
       "deposited_sequence_position": 27,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 27,
+      "pdb_auth_seq_id": "27",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -646,10 +664,10 @@
       "residue": "S",
       "mature_position": 28,
       "deposited_sequence_position": 28,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 28,
+      "pdb_auth_seq_id": "28",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -657,10 +675,10 @@
       "residue": "Q",
       "mature_position": 29,
       "deposited_sequence_position": 29,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 29,
+      "pdb_auth_seq_id": "29",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -668,10 +686,10 @@
       "residue": "G",
       "mature_position": 30,
       "deposited_sequence_position": 30,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 30,
+      "pdb_auth_seq_id": "30",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -679,10 +697,10 @@
       "residue": "W",
       "mature_position": 31,
       "deposited_sequence_position": 31,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 31,
+      "pdb_auth_seq_id": "31",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -690,10 +708,10 @@
       "residue": "S",
       "mature_position": 32,
       "deposited_sequence_position": 32,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 32,
+      "pdb_auth_seq_id": "32",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -701,10 +719,10 @@
       "residue": "R",
       "mature_position": 33,
       "deposited_sequence_position": 33,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 33,
+      "pdb_auth_seq_id": "33",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -712,10 +730,10 @@
       "residue": "D",
       "mature_position": 34,
       "deposited_sequence_position": 34,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 34,
+      "pdb_auth_seq_id": "34",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -723,10 +741,10 @@
       "residue": "K",
       "mature_position": 35,
       "deposited_sequence_position": 35,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 35,
+      "pdb_auth_seq_id": "35",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -734,10 +752,10 @@
       "residue": "L",
       "mature_position": 36,
       "deposited_sequence_position": 36,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 36,
+      "pdb_auth_seq_id": "36",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -745,10 +763,10 @@
       "residue": "Y",
       "mature_position": 37,
       "deposited_sequence_position": 37,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 37,
+      "pdb_auth_seq_id": "37",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -756,10 +774,10 @@
       "residue": "A",
       "mature_position": 38,
       "deposited_sequence_position": 38,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 38,
+      "pdb_auth_seq_id": "38",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -767,10 +785,10 @@
       "residue": "V",
       "mature_position": 39,
       "deposited_sequence_position": 39,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 39,
+      "pdb_auth_seq_id": "39",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -778,10 +796,10 @@
       "residue": "D",
       "mature_position": 40,
       "deposited_sequence_position": 40,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 40,
+      "pdb_auth_seq_id": "40",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -789,10 +807,10 @@
       "residue": "F",
       "mature_position": 41,
       "deposited_sequence_position": 41,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 41,
+      "pdb_auth_seq_id": "41",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -800,10 +818,10 @@
       "residue": "W",
       "mature_position": 42,
       "deposited_sequence_position": 42,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 42,
+      "pdb_auth_seq_id": "42",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -811,10 +829,10 @@
       "residue": "D",
       "mature_position": 43,
       "deposited_sequence_position": 43,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 43,
+      "pdb_auth_seq_id": "43",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -822,10 +840,10 @@
       "residue": "K",
       "mature_position": 44,
       "deposited_sequence_position": 44,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 44,
+      "pdb_auth_seq_id": "44",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -833,10 +851,10 @@
       "residue": "T",
       "mature_position": 45,
       "deposited_sequence_position": 45,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 45,
+      "pdb_auth_seq_id": "45",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -844,10 +862,10 @@
       "residue": "G",
       "mature_position": 46,
       "deposited_sequence_position": 46,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 46,
+      "pdb_auth_seq_id": "46",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -855,10 +873,10 @@
       "residue": "T",
       "mature_position": 47,
       "deposited_sequence_position": 47,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 47,
+      "pdb_auth_seq_id": "47",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -866,10 +884,10 @@
       "residue": "N",
       "mature_position": 48,
       "deposited_sequence_position": 48,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 48,
+      "pdb_auth_seq_id": "48",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -877,10 +895,10 @@
       "residue": "Y",
       "mature_position": 49,
       "deposited_sequence_position": 49,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 49,
+      "pdb_auth_seq_id": "49",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -888,10 +906,10 @@
       "residue": "N",
       "mature_position": 50,
       "deposited_sequence_position": 50,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 50,
+      "pdb_auth_seq_id": "50",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -899,10 +917,10 @@
       "residue": "N",
       "mature_position": 51,
       "deposited_sequence_position": 51,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 51,
+      "pdb_auth_seq_id": "51",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -910,10 +928,10 @@
       "residue": "G",
       "mature_position": 52,
       "deposited_sequence_position": 52,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 52,
+      "pdb_auth_seq_id": "52",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -921,10 +939,10 @@
       "residue": "P",
       "mature_position": 53,
       "deposited_sequence_position": 53,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 53,
+      "pdb_auth_seq_id": "53",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -932,10 +950,10 @@
       "residue": "V",
       "mature_position": 54,
       "deposited_sequence_position": 54,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 54,
+      "pdb_auth_seq_id": "54",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -943,10 +961,10 @@
       "residue": "L",
       "mature_position": 55,
       "deposited_sequence_position": 55,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 55,
+      "pdb_auth_seq_id": "55",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -954,10 +972,10 @@
       "residue": "S",
       "mature_position": 56,
       "deposited_sequence_position": 56,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 56,
+      "pdb_auth_seq_id": "56",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -965,10 +983,10 @@
       "residue": "R",
       "mature_position": 57,
       "deposited_sequence_position": 57,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 57,
+      "pdb_auth_seq_id": "57",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -976,10 +994,10 @@
       "residue": "F",
       "mature_position": 58,
       "deposited_sequence_position": 58,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 58,
+      "pdb_auth_seq_id": "58",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -987,10 +1005,10 @@
       "residue": "V",
       "mature_position": 59,
       "deposited_sequence_position": 59,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 59,
+      "pdb_auth_seq_id": "59",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -998,10 +1016,10 @@
       "residue": "Q",
       "mature_position": 60,
       "deposited_sequence_position": 60,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 60,
+      "pdb_auth_seq_id": "60",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1009,10 +1027,10 @@
       "residue": "K",
       "mature_position": 61,
       "deposited_sequence_position": 61,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 61,
+      "pdb_auth_seq_id": "61",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1020,10 +1038,10 @@
       "residue": "V",
       "mature_position": 62,
       "deposited_sequence_position": 62,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 62,
+      "pdb_auth_seq_id": "62",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1031,10 +1049,10 @@
       "residue": "L",
       "mature_position": 63,
       "deposited_sequence_position": 63,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 63,
+      "pdb_auth_seq_id": "63",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1042,10 +1060,10 @@
       "residue": "D",
       "mature_position": 64,
       "deposited_sequence_position": 64,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 64,
+      "pdb_auth_seq_id": "64",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1053,10 +1071,10 @@
       "residue": "E",
       "mature_position": 65,
       "deposited_sequence_position": 65,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 65,
+      "pdb_auth_seq_id": "65",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1064,10 +1082,10 @@
       "residue": "T",
       "mature_position": 66,
       "deposited_sequence_position": 66,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 66,
+      "pdb_auth_seq_id": "66",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1075,10 +1093,10 @@
       "residue": "G",
       "mature_position": 67,
       "deposited_sequence_position": 67,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 67,
+      "pdb_auth_seq_id": "67",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1086,10 +1104,10 @@
       "residue": "A",
       "mature_position": 68,
       "deposited_sequence_position": 68,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 68,
+      "pdb_auth_seq_id": "68",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1097,10 +1115,10 @@
       "residue": "K",
       "mature_position": 69,
       "deposited_sequence_position": 69,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 69,
+      "pdb_auth_seq_id": "69",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1108,10 +1126,10 @@
       "residue": "K",
       "mature_position": 70,
       "deposited_sequence_position": 70,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 70,
+      "pdb_auth_seq_id": "70",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1119,10 +1137,10 @@
       "residue": "V",
       "mature_position": 71,
       "deposited_sequence_position": 71,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 71,
+      "pdb_auth_seq_id": "71",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1130,10 +1148,10 @@
       "residue": "D",
       "mature_position": 72,
       "deposited_sequence_position": 72,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 72,
+      "pdb_auth_seq_id": "72",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1141,10 +1159,10 @@
       "residue": "I",
       "mature_position": 73,
       "deposited_sequence_position": 73,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 73,
+      "pdb_auth_seq_id": "73",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1152,10 +1170,10 @@
       "residue": "V",
       "mature_position": 74,
       "deposited_sequence_position": 74,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 74,
+      "pdb_auth_seq_id": "74",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1163,10 +1181,10 @@
       "residue": "A",
       "mature_position": 75,
       "deposited_sequence_position": 75,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 75,
+      "pdb_auth_seq_id": "75",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1174,10 +1192,10 @@
       "residue": "H",
       "mature_position": 76,
       "deposited_sequence_position": 76,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 76,
+      "pdb_auth_seq_id": "76",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1185,10 +1203,10 @@
       "residue": "S",
       "mature_position": 77,
       "deposited_sequence_position": 77,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 77,
+      "pdb_auth_seq_id": "77",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": true
     },
     {
@@ -1196,10 +1214,10 @@
       "residue": "M",
       "mature_position": 78,
       "deposited_sequence_position": 78,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 78,
+      "pdb_auth_seq_id": "78",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1207,10 +1225,10 @@
       "residue": "G",
       "mature_position": 79,
       "deposited_sequence_position": 79,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 79,
+      "pdb_auth_seq_id": "79",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1218,10 +1236,10 @@
       "residue": "G",
       "mature_position": 80,
       "deposited_sequence_position": 80,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 80,
+      "pdb_auth_seq_id": "80",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1229,10 +1247,10 @@
       "residue": "A",
       "mature_position": 81,
       "deposited_sequence_position": 81,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 81,
+      "pdb_auth_seq_id": "81",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1240,10 +1258,10 @@
       "residue": "N",
       "mature_position": 82,
       "deposited_sequence_position": 82,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 82,
+      "pdb_auth_seq_id": "82",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1251,10 +1269,10 @@
       "residue": "T",
       "mature_position": 83,
       "deposited_sequence_position": 83,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 83,
+      "pdb_auth_seq_id": "83",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1262,10 +1280,10 @@
       "residue": "L",
       "mature_position": 84,
       "deposited_sequence_position": 84,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 84,
+      "pdb_auth_seq_id": "84",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1273,10 +1291,10 @@
       "residue": "Y",
       "mature_position": 85,
       "deposited_sequence_position": 85,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 85,
+      "pdb_auth_seq_id": "85",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1284,10 +1302,10 @@
       "residue": "Y",
       "mature_position": 86,
       "deposited_sequence_position": 86,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 86,
+      "pdb_auth_seq_id": "86",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1295,10 +1313,10 @@
       "residue": "I",
       "mature_position": 87,
       "deposited_sequence_position": 87,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 87,
+      "pdb_auth_seq_id": "87",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1306,10 +1324,10 @@
       "residue": "K",
       "mature_position": 88,
       "deposited_sequence_position": 88,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 88,
+      "pdb_auth_seq_id": "88",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1317,10 +1335,10 @@
       "residue": "N",
       "mature_position": 89,
       "deposited_sequence_position": 89,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 89,
+      "pdb_auth_seq_id": "89",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1328,10 +1346,10 @@
       "residue": "L",
       "mature_position": 90,
       "deposited_sequence_position": 90,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 90,
+      "pdb_auth_seq_id": "90",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1339,10 +1357,10 @@
       "residue": "D",
       "mature_position": 91,
       "deposited_sequence_position": 91,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 91,
+      "pdb_auth_seq_id": "91",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1350,10 +1368,10 @@
       "residue": "G",
       "mature_position": 92,
       "deposited_sequence_position": 92,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 92,
+      "pdb_auth_seq_id": "92",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1361,10 +1379,10 @@
       "residue": "G",
       "mature_position": 93,
       "deposited_sequence_position": 93,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 93,
+      "pdb_auth_seq_id": "93",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1372,10 +1390,10 @@
       "residue": "N",
       "mature_position": 94,
       "deposited_sequence_position": 94,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 94,
+      "pdb_auth_seq_id": "94",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1383,10 +1401,10 @@
       "residue": "K",
       "mature_position": 95,
       "deposited_sequence_position": 95,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 95,
+      "pdb_auth_seq_id": "95",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1394,10 +1412,10 @@
       "residue": "V",
       "mature_position": 96,
       "deposited_sequence_position": 96,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 96,
+      "pdb_auth_seq_id": "96",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1405,10 +1423,10 @@
       "residue": "A",
       "mature_position": 97,
       "deposited_sequence_position": 97,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 97,
+      "pdb_auth_seq_id": "97",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1416,10 +1434,10 @@
       "residue": "N",
       "mature_position": 98,
       "deposited_sequence_position": 98,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 98,
+      "pdb_auth_seq_id": "98",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1427,10 +1445,10 @@
       "residue": "V",
       "mature_position": 99,
       "deposited_sequence_position": 99,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 99,
+      "pdb_auth_seq_id": "99",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1438,10 +1456,10 @@
       "residue": "V",
       "mature_position": 100,
       "deposited_sequence_position": 100,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 100,
+      "pdb_auth_seq_id": "100",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1449,10 +1467,10 @@
       "residue": "T",
       "mature_position": 101,
       "deposited_sequence_position": 101,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 101,
+      "pdb_auth_seq_id": "101",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1460,10 +1478,10 @@
       "residue": "L",
       "mature_position": 102,
       "deposited_sequence_position": 102,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 102,
+      "pdb_auth_seq_id": "102",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1471,10 +1489,10 @@
       "residue": "G",
       "mature_position": 103,
       "deposited_sequence_position": 103,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 103,
+      "pdb_auth_seq_id": "103",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1482,10 +1500,10 @@
       "residue": "G",
       "mature_position": 104,
       "deposited_sequence_position": 104,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 104,
+      "pdb_auth_seq_id": "104",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1493,10 +1511,10 @@
       "residue": "A",
       "mature_position": 105,
       "deposited_sequence_position": 105,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 105,
+      "pdb_auth_seq_id": "105",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1504,10 +1522,10 @@
       "residue": "N",
       "mature_position": 106,
       "deposited_sequence_position": 106,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 106,
+      "pdb_auth_seq_id": "106",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1515,10 +1533,10 @@
       "residue": "R",
       "mature_position": 107,
       "deposited_sequence_position": 107,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 107,
+      "pdb_auth_seq_id": "107",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1526,10 +1544,10 @@
       "residue": "L",
       "mature_position": 108,
       "deposited_sequence_position": 108,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 108,
+      "pdb_auth_seq_id": "108",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1537,10 +1555,10 @@
       "residue": "T",
       "mature_position": 109,
       "deposited_sequence_position": 109,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 109,
+      "pdb_auth_seq_id": "109",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1548,10 +1566,10 @@
       "residue": "T",
       "mature_position": 110,
       "deposited_sequence_position": 110,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 110,
+      "pdb_auth_seq_id": "110",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1559,10 +1577,10 @@
       "residue": "G",
       "mature_position": 111,
       "deposited_sequence_position": 111,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 111,
+      "pdb_auth_seq_id": "111",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1570,10 +1588,10 @@
       "residue": "K",
       "mature_position": 112,
       "deposited_sequence_position": 112,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 112,
+      "pdb_auth_seq_id": "112",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1581,10 +1599,10 @@
       "residue": "A",
       "mature_position": 113,
       "deposited_sequence_position": 113,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 113,
+      "pdb_auth_seq_id": "113",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1592,10 +1610,10 @@
       "residue": "L",
       "mature_position": 114,
       "deposited_sequence_position": 114,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 114,
+      "pdb_auth_seq_id": "114",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1603,10 +1621,10 @@
       "residue": "P",
       "mature_position": 115,
       "deposited_sequence_position": 115,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 115,
+      "pdb_auth_seq_id": "115",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1614,10 +1632,10 @@
       "residue": "G",
       "mature_position": 116,
       "deposited_sequence_position": 116,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 116,
+      "pdb_auth_seq_id": "116",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1625,10 +1643,10 @@
       "residue": "T",
       "mature_position": 117,
       "deposited_sequence_position": 117,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 117,
+      "pdb_auth_seq_id": "117",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1636,10 +1654,10 @@
       "residue": "D",
       "mature_position": 118,
       "deposited_sequence_position": 118,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 118,
+      "pdb_auth_seq_id": "118",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1647,10 +1665,10 @@
       "residue": "P",
       "mature_position": 119,
       "deposited_sequence_position": 119,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 119,
+      "pdb_auth_seq_id": "119",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1658,10 +1676,10 @@
       "residue": "N",
       "mature_position": 120,
       "deposited_sequence_position": 120,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 120,
+      "pdb_auth_seq_id": "120",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1669,10 +1687,10 @@
       "residue": "Q",
       "mature_position": 121,
       "deposited_sequence_position": 121,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 121,
+      "pdb_auth_seq_id": "121",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1680,10 +1698,10 @@
       "residue": "K",
       "mature_position": 122,
       "deposited_sequence_position": 122,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 122,
+      "pdb_auth_seq_id": "122",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1691,10 +1709,10 @@
       "residue": "I",
       "mature_position": 123,
       "deposited_sequence_position": 123,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 123,
+      "pdb_auth_seq_id": "123",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1702,10 +1720,10 @@
       "residue": "L",
       "mature_position": 124,
       "deposited_sequence_position": 124,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 124,
+      "pdb_auth_seq_id": "124",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1713,10 +1731,10 @@
       "residue": "Y",
       "mature_position": 125,
       "deposited_sequence_position": 125,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 125,
+      "pdb_auth_seq_id": "125",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1724,10 +1742,10 @@
       "residue": "T",
       "mature_position": 126,
       "deposited_sequence_position": 126,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 126,
+      "pdb_auth_seq_id": "126",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1735,10 +1753,10 @@
       "residue": "S",
       "mature_position": 127,
       "deposited_sequence_position": 127,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 127,
+      "pdb_auth_seq_id": "127",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1746,10 +1764,10 @@
       "residue": "I",
       "mature_position": 128,
       "deposited_sequence_position": 128,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 128,
+      "pdb_auth_seq_id": "128",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1757,10 +1775,10 @@
       "residue": "Y",
       "mature_position": 129,
       "deposited_sequence_position": 129,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 129,
+      "pdb_auth_seq_id": "129",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1768,10 +1786,10 @@
       "residue": "S",
       "mature_position": 130,
       "deposited_sequence_position": 130,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 130,
+      "pdb_auth_seq_id": "130",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1779,10 +1797,10 @@
       "residue": "S",
       "mature_position": 131,
       "deposited_sequence_position": 131,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 131,
+      "pdb_auth_seq_id": "131",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1790,10 +1808,10 @@
       "residue": "A",
       "mature_position": 132,
       "deposited_sequence_position": 132,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 132,
+      "pdb_auth_seq_id": "132",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1801,10 +1819,10 @@
       "residue": "D",
       "mature_position": 133,
       "deposited_sequence_position": 133,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 133,
+      "pdb_auth_seq_id": "133",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": true
     },
     {
@@ -1812,10 +1830,10 @@
       "residue": "M",
       "mature_position": 134,
       "deposited_sequence_position": 134,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 134,
+      "pdb_auth_seq_id": "134",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1823,10 +1841,10 @@
       "residue": "I",
       "mature_position": 135,
       "deposited_sequence_position": 135,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 135,
+      "pdb_auth_seq_id": "135",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1834,10 +1852,10 @@
       "residue": "V",
       "mature_position": 136,
       "deposited_sequence_position": 136,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 136,
+      "pdb_auth_seq_id": "136",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1845,10 +1863,10 @@
       "residue": "M",
       "mature_position": 137,
       "deposited_sequence_position": 137,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 137,
+      "pdb_auth_seq_id": "137",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1856,10 +1874,10 @@
       "residue": "N",
       "mature_position": 138,
       "deposited_sequence_position": 138,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 138,
+      "pdb_auth_seq_id": "138",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1867,10 +1885,10 @@
       "residue": "Y",
       "mature_position": 139,
       "deposited_sequence_position": 139,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 139,
+      "pdb_auth_seq_id": "139",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1878,10 +1896,10 @@
       "residue": "L",
       "mature_position": 140,
       "deposited_sequence_position": 140,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 140,
+      "pdb_auth_seq_id": "140",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1889,10 +1907,10 @@
       "residue": "S",
       "mature_position": 141,
       "deposited_sequence_position": 141,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 141,
+      "pdb_auth_seq_id": "141",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1900,10 +1918,10 @@
       "residue": "R",
       "mature_position": 142,
       "deposited_sequence_position": 142,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 142,
+      "pdb_auth_seq_id": "142",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1911,10 +1929,10 @@
       "residue": "L",
       "mature_position": 143,
       "deposited_sequence_position": 143,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 143,
+      "pdb_auth_seq_id": "143",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1922,10 +1940,10 @@
       "residue": "D",
       "mature_position": 144,
       "deposited_sequence_position": 144,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 144,
+      "pdb_auth_seq_id": "144",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1933,10 +1951,10 @@
       "residue": "G",
       "mature_position": 145,
       "deposited_sequence_position": 145,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 145,
+      "pdb_auth_seq_id": "145",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1944,10 +1962,10 @@
       "residue": "A",
       "mature_position": 146,
       "deposited_sequence_position": 146,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 146,
+      "pdb_auth_seq_id": "146",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1955,10 +1973,10 @@
       "residue": "R",
       "mature_position": 147,
       "deposited_sequence_position": 147,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 147,
+      "pdb_auth_seq_id": "147",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1966,10 +1984,10 @@
       "residue": "N",
       "mature_position": 148,
       "deposited_sequence_position": 148,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 148,
+      "pdb_auth_seq_id": "148",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1977,10 +1995,10 @@
       "residue": "V",
       "mature_position": 149,
       "deposited_sequence_position": 149,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 149,
+      "pdb_auth_seq_id": "149",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1988,10 +2006,10 @@
       "residue": "Q",
       "mature_position": 150,
       "deposited_sequence_position": 150,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 150,
+      "pdb_auth_seq_id": "150",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -1999,10 +2017,10 @@
       "residue": "I",
       "mature_position": 151,
       "deposited_sequence_position": 151,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 151,
+      "pdb_auth_seq_id": "151",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2010,10 +2028,10 @@
       "residue": "H",
       "mature_position": 152,
       "deposited_sequence_position": 152,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 152,
+      "pdb_auth_seq_id": "152",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2021,10 +2039,10 @@
       "residue": "G",
       "mature_position": 153,
       "deposited_sequence_position": 153,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 153,
+      "pdb_auth_seq_id": "153",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2032,10 +2050,10 @@
       "residue": "V",
       "mature_position": 154,
       "deposited_sequence_position": 154,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 154,
+      "pdb_auth_seq_id": "154",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2043,10 +2061,10 @@
       "residue": "G",
       "mature_position": 155,
       "deposited_sequence_position": 155,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 155,
+      "pdb_auth_seq_id": "155",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2054,10 +2072,10 @@
       "residue": "H",
       "mature_position": 156,
       "deposited_sequence_position": 156,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 156,
+      "pdb_auth_seq_id": "156",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": true
     },
     {
@@ -2065,10 +2083,10 @@
       "residue": "I",
       "mature_position": 157,
       "deposited_sequence_position": 157,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 157,
+      "pdb_auth_seq_id": "157",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2076,10 +2094,10 @@
       "residue": "G",
       "mature_position": 158,
       "deposited_sequence_position": 158,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 158,
+      "pdb_auth_seq_id": "158",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2087,10 +2105,10 @@
       "residue": "L",
       "mature_position": 159,
       "deposited_sequence_position": 159,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 159,
+      "pdb_auth_seq_id": "159",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2098,10 +2116,10 @@
       "residue": "L",
       "mature_position": 160,
       "deposited_sequence_position": 160,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 160,
+      "pdb_auth_seq_id": "160",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2109,10 +2127,10 @@
       "residue": "Y",
       "mature_position": 161,
       "deposited_sequence_position": 161,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 161,
+      "pdb_auth_seq_id": "161",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2120,10 +2138,10 @@
       "residue": "S",
       "mature_position": 162,
       "deposited_sequence_position": 162,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 162,
+      "pdb_auth_seq_id": "162",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2131,10 +2149,10 @@
       "residue": "S",
       "mature_position": 163,
       "deposited_sequence_position": 163,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 163,
+      "pdb_auth_seq_id": "163",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2142,10 +2160,10 @@
       "residue": "Q",
       "mature_position": 164,
       "deposited_sequence_position": 164,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 164,
+      "pdb_auth_seq_id": "164",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2153,10 +2171,10 @@
       "residue": "V",
       "mature_position": 165,
       "deposited_sequence_position": 165,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 165,
+      "pdb_auth_seq_id": "165",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2164,10 +2182,10 @@
       "residue": "N",
       "mature_position": 166,
       "deposited_sequence_position": 166,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 166,
+      "pdb_auth_seq_id": "166",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2175,10 +2193,10 @@
       "residue": "S",
       "mature_position": 167,
       "deposited_sequence_position": 167,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 167,
+      "pdb_auth_seq_id": "167",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2186,10 +2204,10 @@
       "residue": "L",
       "mature_position": 168,
       "deposited_sequence_position": 168,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 168,
+      "pdb_auth_seq_id": "168",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2197,10 +2215,10 @@
       "residue": "I",
       "mature_position": 169,
       "deposited_sequence_position": 169,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 169,
+      "pdb_auth_seq_id": "169",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2208,10 +2226,10 @@
       "residue": "K",
       "mature_position": 170,
       "deposited_sequence_position": 170,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 170,
+      "pdb_auth_seq_id": "170",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2219,10 +2237,10 @@
       "residue": "E",
       "mature_position": 171,
       "deposited_sequence_position": 171,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 171,
+      "pdb_auth_seq_id": "171",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2230,10 +2248,10 @@
       "residue": "G",
       "mature_position": 172,
       "deposited_sequence_position": 172,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 172,
+      "pdb_auth_seq_id": "172",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2241,10 +2259,10 @@
       "residue": "L",
       "mature_position": 173,
       "deposited_sequence_position": 173,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 173,
+      "pdb_auth_seq_id": "173",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2252,10 +2270,10 @@
       "residue": "N",
       "mature_position": 174,
       "deposited_sequence_position": 174,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 174,
+      "pdb_auth_seq_id": "174",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2263,10 +2281,10 @@
       "residue": "G",
       "mature_position": 175,
       "deposited_sequence_position": 175,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 175,
+      "pdb_auth_seq_id": "175",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2274,10 +2292,10 @@
       "residue": "G",
       "mature_position": 176,
       "deposited_sequence_position": 176,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 176,
+      "pdb_auth_seq_id": "176",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2285,10 +2303,10 @@
       "residue": "G",
       "mature_position": 177,
       "deposited_sequence_position": 177,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 177,
+      "pdb_auth_seq_id": "177",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2296,10 +2314,10 @@
       "residue": "Q",
       "mature_position": 178,
       "deposited_sequence_position": 178,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 178,
+      "pdb_auth_seq_id": "178",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2307,10 +2325,10 @@
       "residue": "N",
       "mature_position": 179,
       "deposited_sequence_position": 179,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 179,
+      "pdb_auth_seq_id": "179",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2318,10 +2336,10 @@
       "residue": "T",
       "mature_position": 180,
       "deposited_sequence_position": 180,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 180,
+      "pdb_auth_seq_id": "180",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": true,
       "protected": false
     },
     {
@@ -2329,12 +2347,14 @@
       "residue": "N",
       "mature_position": 181,
       "deposited_sequence_position": 181,
-      "pdb_label_seq_id": null,
-      "pdb_auth_seq_id": null,
+      "pdb_label_seq_id": 181,
+      "pdb_auth_seq_id": "181",
       "pdb_insertion_code": null,
-      "coordinate_observed": null,
+      "coordinate_observed": false,
       "protected": false
     }
   ],
-  "coordinate_join_verified": false
+  "coordinate_index_join_verified": true,
+  "geometry_validated": false,
+  "limits": "Verified correspondence of sequence index to PDB author numbering and to the presence of atoms. This is not validated atom geometry, not side-chain completeness, and not evidence about any mutant or about retained function."
 }

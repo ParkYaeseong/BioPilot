@@ -80,3 +80,46 @@ def test_normalize_single_fasta_without_cropping():
 def test_ambiguous_or_multi_record_sequence_rejected(text):
     with pytest.raises(ValueError):
         normalize_sequence(text)
+
+
+COORDINATE_SOURCE_SHA256 = '7ab626e5c5c1bec8ed8acdd4675f105939ef982542a559084860d16e4b07cc10'
+
+
+def test_registered_profile_records_verified_index_join_without_enabling_geometry():
+    """Two separate axes: the numbering join is verified, atom geometry is not."""
+    structure = registered_profile()['structure']
+    assert structure['author_numbering_verified'] is True
+    assert structure['coordinate_file_sha256'] == COORDINATE_SOURCE_SHA256
+    assert structure['coordinate_status'] == 'index_join_verified_geometry_unvalidated'
+    assert structure['geometry_validated'] is False
+    assert [row['full_position'] for row in structure['missing_residue_ids']] == [32, 212]
+    # Geometry must stay unverified in everything the product emits.
+    assert validate_target(registered_profile(), GOAL).coordinate_mapping_verified is False
+
+
+@pytest.mark.parametrize('field,value', [
+    ('geometry_validated', True),
+    ('author_numbering_verified', False),
+    ('coordinate_status', 'geometry_validated'),
+    ('coordinate_status', 'not_downloaded_or_verified'),
+    ('coordinate_file_sha256', None),
+    ('coordinate_file_sha256', 'f' * 64)])
+def test_profile_cannot_drift_from_the_registered_coordinate_state(field, value):
+    """A profile may neither unlock geometry nor quietly repoint the source file."""
+    profile = registered_profile()
+    profile['structure'][field] = value
+    with pytest.raises(ValueError, match='oordinate'):
+        validate_target(profile, GOAL)
+
+
+def test_require_coordinates_message_keeps_the_classified_fragment():
+    """evaluation/workflow_suite.py classifies this guard by message substring.
+
+    Rewording the message silently reclassifies the atom-geometry scenario as
+    unexpected_guard_error, so the coupling is pinned here rather than discovered
+    three suite tests away.
+    """
+    target = validate_target(registered_profile(), GOAL)
+    with pytest.raises(ValueError) as caught:
+        require_coordinates(target, [32])
+    assert 'Atom geometry is not validated' in str(caught.value)

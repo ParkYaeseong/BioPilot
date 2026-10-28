@@ -8,7 +8,7 @@ from pathlib import Path
 import subprocess
 import sys
 
-from app.core.artifacts import ArtifactStore
+from app.core.artifacts import ArtifactStore, canonical_hash
 from app.core.runs import RunService
 from app.core.runtime_bundle import build_runtime_bundle
 from app.core.targets import FRAME, normalize_sequence, registered_profile, validate_target, validate_variant
@@ -43,16 +43,28 @@ def main(argv=None):
     prepare.add_argument('--workspace',type=Path,required=True)
     prepare.add_argument('--objective',default='sequence_plausibility_review')
     prepare.add_argument('--review',action='store_true')
+    prepare.add_argument('--esm-env-file',type=Path,help='Trusted public ESM settings, separate from Meta secrets')
     prepare.add_argument('--positions',type=int,nargs='+',default=[32])
     prepare.add_argument('--model-key',choices=['esm35','esm150','esm650'],default='esm150')
     prepare.add_argument('--usd-micros',type=int)
     prepare.add_argument('--max-meta-requests',type=int)
+    prepare.add_argument('--goal-text',help='Operator sentence recorded as untrusted context; it cannot change the approved cohort')
     prepare.add_argument('--max-gpu-seconds',type=int,default=0)
     prepare.add_argument('--consent-public-reference-transfer',action='store_true')
     commands.add_parser('esm-status',help='Inspect selected public backend configuration, without dispatch')
+    report=commands.add_parser('final-report',
+        help='Explain an owned saved partial review in one request; the source stays immutable')
+    report.add_argument('--workspace',type=Path,required=True)
+    report.add_argument('--prepare',action='store_true',help='Build the one-call plan only; sends nothing')
+    report.add_argument('--source-artifact-id',help='Saved partial sequence_review artifact to explain')
+    report.add_argument('--continuation-run-id',help='Prepared continuation run to execute once')
+    report.add_argument('--live',action='store_true')
+    report.add_argument('--ack-single-report',action='store_true')
     for name in ('mcp-smoke','status','meta-smoke','meta-review','esm-score','esm-poll'):
         command=commands.add_parser(name)
         command.add_argument('--workspace',type=Path,required=True)
+        if name in ('meta-review','esm-score','esm-poll'):
+            command.add_argument('--esm-env-file',type=Path)
         if name in ('meta-smoke','meta-review'):
             command.add_argument('--live',action='store_true')
             command.add_argument('--ack-small-test',action='store_true')
@@ -66,6 +78,8 @@ def main(argv=None):
     score.add_argument('--tokenizer-sha256',required=True)
     score.add_argument('--positions',type=int,nargs='+',required=True)
     score.add_argument('--output',type=Path,required=True)
+    score.add_argument('--cache-dir',type=Path,
+                       help='Optional local score cache; cached results retain their source mode')
     args=parser.parse_args(argv)
     try:
         if args.command=='validate':
@@ -86,7 +100,7 @@ def main(argv=None):
                     or not 0<=args.max_gpu_seconds<=900):
                 raise ValueError('Invalid review position or GPU budget policy')
             from app.science.provider_config import load_esm_settings
-            settings=load_esm_settings(ROOT/'.env')
+            settings=load_esm_settings(args.esm_env_file or ROOT/'.env')
             plan={**target.summary(),'objective_profile_id':target.objective_id,
                   'protected_positions':list(target.protected_positions),
                   'allowed_region':{'start_1based':32,'end_1based':212},
@@ -94,6 +108,10 @@ def main(argv=None):
                      'max_meta_requests':args.max_meta_requests if args.max_meta_requests is not None else (4 if args.review else 2),
                      'max_gpu_seconds':args.max_gpu_seconds},
                   'consent_to_external_sequence_upload':args.consent_public_reference_transfer}
+            if getattr(args,'goal_text',None):
+                # Recorded as untrusted context only. Positions, model, protected
+                # sites and objective stay whatever the run already froze.
+                plan['user_goal_text']=str(args.goal_text)[:800]
             if args.review:
                 plan.update({'esm_model_key':args.model_key,'positions_1based':args.positions,
                     'model_pins':{args.model_key:{'expected_weights_sha256':settings['ESM_WEIGHTS_SHA256'],
@@ -119,16 +137,56 @@ def main(argv=None):
         elif args.command=='score-local':
             from app.science.esm_engine import ESMEngine, LocalHFBackend
             from app.science.ranking import rank_candidates
+            review_path=args.output.with_name(args.output.name+'.review.json')
+            if args.output.exists() or review_path.exists():
+                raise ValueError('Score or review output already exists; prior artifacts are preserved')
             target=validate_target(registered_profile(),'sequence_plausibility_review')
             backend=LocalHFBackend(args.checkpoint_dir,expected_weights_sha256=args.weights_sha256,
                                    expected_tokenizer_sha256=args.tokenizer_sha256)
-            artifact=ESMEngine(backend).score_positions(target,args.positions)
-            artifact['ranked_candidates']=rank_candidates(artifact['rows'])
+            artifact=ESMEngine(backend,args.cache_dir).score_positions(target,args.positions)
+            review={'score_artifact':str(args.output.resolve()),
+                    'score_artifact_sha256':artifact['artifact_sha256'],
+                    'source_mode':artifact['source_mode'],'rank_policy':artifact['rank_policy'],
+                    'phenotype_calibrated':False,
+                    'ranked_candidates':rank_candidates(artifact['rows'],artifact['rank_policy'])}
+            review['artifact_sha256']=canonical_hash(review)
             args.output.parent.mkdir(parents=True,exist_ok=True)
             with args.output.open('x',encoding='utf-8') as handle:
                 json.dump(artifact,handle,indent=2,allow_nan=False)
+            with review_path.open('x',encoding='utf-8') as handle:
+                json.dump(review,handle,indent=2,allow_nan=False)
             output={'status':'ok','artifact':str(args.output.resolve()),'source_mode':artifact['source_mode'],
+                    'artifact_sha256':artifact['artifact_sha256'],
+                    'review_artifact':str(review_path.resolve()),'review_artifact_sha256':review['artifact_sha256'],
                     'candidate_count':len(artifact['rows']),'external_request_attempts':0}
+        elif args.command=='final-report':
+            from app.host.final_report import REPORT_TOKEN_CAP, generate_final_report, prepare_final_report
+            workspace,data,runs=_load_workspace(args.workspace)
+            store=ArtifactStore(workspace/'artifacts',runs)
+            if args.prepare:
+                plan_path=workspace/'final_report_plan.json'
+                if plan_path.exists():
+                    raise ValueError('A final-report plan receipt already exists; prior plans are preserved')
+                if not args.source_artifact_id:
+                    raise ValueError('Preparation requires the exact saved source artifact id')
+                plan=prepare_final_report(runs,store,data['run_id'],args.source_artifact_id,data['owner_id'])
+                output={key:value for key,value in plan.items() if key not in ('payload','run_id')}
+                output.update({'continuation_run_id':plan['run_id'],
+                    'max_completion_tokens':REPORT_TOKEN_CAP,
+                    'request_body_bytes':len(json.dumps(plan['payload'],allow_nan=False).encode('utf-8')),
+                    'external_request_attempts':0})
+                with plan_path.open('x',encoding='utf-8') as handle:
+                    json.dump(output,handle,indent=2,allow_nan=False)
+            else:
+                # Both flags are checked before constructing a client able to read the key.
+                if not (args.live and args.ack_single_report):
+                    raise ValueError('Explicit single-report approval flags required; no secret read')
+                if not args.continuation_run_id:
+                    raise ValueError('Execution requires its exact prepared continuation run')
+                from app.host.meta_client import MetaClient
+                output=generate_final_report(MetaClient(env_file=ROOT/'.env',live=True,
+                    max_output_tokens=REPORT_TOKEN_CAP),runs,store,args.continuation_run_id,
+                    data['owner_id'],approved=True,source_mode='live')
         else:
             if args.command in ('meta-smoke','meta-review') and not (args.live and args.ack_small_test):
                 raise ValueError('Explicit live approval flags --live --ack-small-test required; no secret read')
@@ -143,7 +201,7 @@ def main(argv=None):
                 from app.core.tool_executor import SessionContext
                 from app.science.provider_config import load_esm_settings,make_inference_service
                 context=SessionContext(workspace/'state/runs.sqlite',data['run_id'],data['owner_id'])
-                settings=load_esm_settings(ROOT/'.env')
+                settings=load_esm_settings(args.esm_env_file or ROOT/'.env')
                 service=make_inference_service(context,settings)
                 if args.command=='esm-poll':
                     output=service.poll(context,args.task_id,timeout_seconds=0)
@@ -159,11 +217,14 @@ def main(argv=None):
             else:
                 state=runs.get(data['run_id'],data['owner_id'])
                 runs.approve(data['run_id'],state['plan_digest'],state['budget_version'],data['owner_id'])
-                proc=subprocess.run([sys.executable,'-m','app.host.runner','--db',str(workspace/'state/runs.sqlite'),
+                launch=[sys.executable,'-m','app.host.runner','--db',str(workspace/'state/runs.sqlite'),
                     '--run-id',data['run_id'],'--owner-id',data['owner_id'],'--env-file',str(ROOT/'.env'),
                     '--artifacts',str(workspace/'artifacts'),'--workflow',
                     'sequence_review' if args.command=='meta-review' else 'validation_smoke',
-                    '--live','--ack-small-test'],
+                    '--live','--ack-small-test']
+                if args.command=='meta-review' and args.esm_env_file is not None:
+                    launch.extend(['--esm-env-file',str(args.esm_env_file.resolve())])
+                proc=subprocess.run(launch,
                     cwd=workspace/'product',capture_output=True,text=True,
                     timeout=state['max_meta_requests']*50+30)
                 if proc.returncode not in (0,2):
@@ -171,9 +232,18 @@ def main(argv=None):
                 output=json.loads(proc.stdout)
         print(json.dumps(output,indent=2,ensure_ascii=False,allow_nan=False))
         return 0 if output.get('status') not in {'blocked','partial','unconfigured','unknown'} else 2
+    except RuntimeError as error:
+        if args.command!='score-local':
+            raise
+        print(json.dumps({'status':'blocked','reason':'Local inference runtime failed; no automatic retry',
+              'diagnostic':{'stage':'score-local','error_type':type(error).__name__,
+                            'code':'local_inference_runtime_error','automatic_retry':False}}))
+        return 2
     except (ValueError,OSError,KeyError,subprocess.TimeoutExpired):
+        missing_approval=((args.command in ('meta-smoke','meta-review') and not (args.live and args.ack_small_test))
+            or (args.command=='final-report' and not args.prepare and not (args.live and args.ack_single_report)))
         print(json.dumps({'status':'blocked','reason':
-            'Explicit live approval flags required' if args.command in ('meta-smoke','meta-review') and not (args.live and args.ack_small_test)
+            'Explicit live approval flags required' if missing_approval
             else 'Input, local prerequisite, workspace or policy check failed; no automatic retry'}))
         return 2
 

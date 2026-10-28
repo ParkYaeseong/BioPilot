@@ -1,0 +1,11 @@
+{
+  "checked_date_kst": "2026-10-28",
+  "official_page": "https://cerebralvalley.ai/e/meta-ai-developer-hackathon/details",
+  "retrieval_method": "read-only web open and in-app browser DOM after client rendering",
+  "observed_content": "Both retrievals stayed at Loading... / Event Details; browser also displayed Sign In. Final guide/form content was not available; no login or organizer message was performed.",
+  "fresh_rules_verified": false,
+  "final_form_verified": false,
+  "eligibility_or_reuse_ruling_verified": false,
+  "prior_snapshot_preserved": "compliance/rules_snapshot.json",
+  "action": "Keep previous snapshot explicitly provisional; do not infer eligibility, final access requirements or new permissions. No organizer message or submission was sent."
+}

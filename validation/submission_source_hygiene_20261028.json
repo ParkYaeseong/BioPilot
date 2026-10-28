@@ -1,0 +1,16 @@
+{
+  "date_kst": "2026-10-28",
+  "scope": "Exact long credential values from local .env compared against source inventory without printing values; not a comprehensive secret scanner",
+  "credential_values_printed": false,
+  "matching_source_paths": [],
+  "source_files_checked": 289,
+  "excluded_local_roots": [
+    ".env",
+    ".runtime",
+    ".venv",
+    ".cache",
+    "local_artifacts"
+  ],
+  "actual_evaluator_run_directories_excluded": true,
+  "weights_and_databases_excluded": true
+}

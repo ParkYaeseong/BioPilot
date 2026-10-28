@@ -1,0 +1,33 @@
+{
+  "status": "partial",
+  "stop_reason": "invalid_or_forbidden_model_output",
+  "source_run_id": "b7a1e675000f4c10b53fcb137fd2bcf2",
+  "actual_model": "muse-spark-1.3",
+  "meta_source_mode": "live",
+  "esm_source_mode": "live",
+  "requests": 3,
+  "input_tokens": 3789,
+  "output_tokens": 1184,
+  "total_tokens": 4973,
+  "estimated_cost_usd_assuming_no_cache_discount": 0.00976825,
+  "actual_invoice_cost_usd": null,
+  "score_artifact_sha256": "63a1c3752407d96a54f33b735d72e700839e4b0e9363894597738f6e8531157f",
+  "candidate_count": 19,
+  "score_device": "cpu",
+  "MCP_protocol": "2025-11-25",
+  "successful_tools": [
+    {
+      "call_id": "call_7352ee50-a50d-40f5-baae-b58aadce7250",
+      "tool": "validate_target_context",
+      "result_status": "ok"
+    },
+    {
+      "call_id": "call_91d504a9-5319-4f0a-b164-66cae83a2424",
+      "tool": "score_positions",
+      "result_status": "completed"
+    }
+  ],
+  "original_report_path": "C:\\Users\\user\\Desktop\\BioPilot_Atlas_v3\\.runtime\\real_meta_esm150_20261027\\artifacts\\b7a1e675000f4c10b53fcb137fd2bcf2\\a8984671afb094dc1ba900f422d9f68b39baf699143f7d6b044f248ba3860838.json",
+  "final_finish_reason": "not_retained_by_original_trace",
+  "automatic_retries": 0
+}

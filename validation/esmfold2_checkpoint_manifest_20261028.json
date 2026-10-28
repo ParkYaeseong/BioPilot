@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "model_key": "esmfold2",
+  "repository": "biohub/ESMFold2",
+  "revision": "69869f737beffec5294845ede23db5fc0b4f509e",
+  "esm_version": "3.4.1.post1",
+  "files": {
+    "config.json": "72054c1af92f432ac2d8e0628ba08b377d04c6a8679b5128b798dbc7f644ddc8",
+    "model-00001-of-00006.safetensors": "a24f050e2a2f9746b43b435c53719afc575a374fa302731b6911356a3d8b5cac",
+    "model-00002-of-00006.safetensors": "1af1615f6f6d1b3c0a24a63d9052a0ecad5b3831d1513c1a5fea73870c1bec73",
+    "model-00003-of-00006.safetensors": "357b55ec56192fd01a1cfc39a5260caf2242503ac7c554f614e43c7a469f0ced",
+    "model-00004-of-00006.safetensors": "f065aca1a13308bce41b78f728c28a0a29e3a9db6af531a74a258dbb06f8721b",
+    "model-00005-of-00006.safetensors": "e0c507dce5b2ddb22f77305607b4332506137850c5378e98e9729345264668b7",
+    "model-00006-of-00006.safetensors": "90015eb13bbeab54237b18d6748dbd47f4bfd108fdf45704d66e5c3a93f8df7c",
+    "model.safetensors.index.json": "5e1f94eb5cd4b0ff0bfdeae3dbf64be564ba34352fe6ef3a6ee9830f584134b2"
+  }
+}

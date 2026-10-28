@@ -1,0 +1,126 @@
+{
+  "date_kst": "2026-10-28",
+  "source_mode": "live_local_protocol_and_guards",
+  "external_provider_requests": 0,
+  "gpu_jobs": 0,
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "app.cli",
+        "validate",
+        "--variant",
+        "A32V"
+      ],
+      "returncode": 0,
+      "result": {
+        "status": "ok",
+        "target": {
+          "reference_id": "ESTA_BACSU_Nutschel_2020",
+          "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+          "objective_id": "sequence_plausibility_review",
+          "claim_level": "sequence_model_preference",
+          "protected_positions": [
+            108,
+            164,
+            187
+          ],
+          "reference_numbering": "full_reference_1based",
+          "sequence_context": "full_212",
+          "phenotype_calibrated": false,
+          "coordinate_mapping_verified": false
+        },
+        "external_request_attempts": 0,
+        "variant": {
+          "candidate_id": "A32V",
+          "full_position": 32,
+          "mature_position": 1,
+          "wild_type": "A",
+          "mutant": "V",
+          "pdb_auth_seq_id": null,
+          "pdb_label_seq_id": null,
+          "coordinate_observed": null
+        }
+      }
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "app.cli",
+        "validate",
+        "--variant",
+        "S108A"
+      ],
+      "returncode": 2,
+      "result": {
+        "status": "blocked",
+        "reason": "Input, local prerequisite, workspace or policy check failed; no automatic retry"
+      }
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "app.cli",
+        "prepare",
+        "--workspace",
+        ".runtime/submission_check_20261028"
+      ],
+      "returncode": 0,
+      "result": {
+        "status": "prepared",
+        "run_id": "9ed360fd4b874b1ab4df36cde8223844",
+        "owner_id": "local",
+        "reference_id": "ESTA_BACSU_Nutschel_2020",
+        "bundle_sha256": "f13c52887406f0882e64182966ac87f43245ad56ea314d87c1518f488df7f0d3",
+        "os_sandbox_verified": false,
+        "external_request_attempts": 0
+      }
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "app.cli",
+        "mcp-smoke",
+        "--workspace",
+        ".runtime/submission_check_20261028"
+      ],
+      "returncode": 0,
+      "result": {
+        "status": "ok",
+        "source_mode": "live_local_protocol",
+        "protocol_version": "2025-11-25",
+        "sdk_version": "1.25.0",
+        "tools": [
+          "validate_target_context",
+          "get_run_status"
+        ],
+        "result": {
+          "status": "ok",
+          "target": {
+            "reference_id": "ESTA_BACSU_Nutschel_2020",
+            "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+            "objective_id": "sequence_plausibility_review",
+            "claim_level": "sequence_model_preference",
+            "protected_positions": [
+              108,
+              164,
+              187
+            ],
+            "reference_numbering": "full_reference_1based",
+            "sequence_context": "full_212",
+            "phenotype_calibrated": false,
+            "coordinate_mapping_verified": false
+          },
+          "source_mode": "imported_snapshot",
+          "limitations": "Sequence mapping only; ESM is not a T50 predictor; retained activity is unverified."
+        },
+        "bundle_sha256": "f13c52887406f0882e64182966ac87f43245ad56ea314d87c1518f488df7f0d3",
+        "external_request_attempts": 0
+      }
+    }
+  ]
+}

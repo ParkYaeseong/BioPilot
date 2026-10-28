@@ -1,4 +1,4 @@
-# BioPilot Atlas v3 project instructions
+# BioPilot Bench v3 project instructions
 
 Read START_HERE_KO.md, docs/01-06, docs/10-18 and the 2026-10-27 implementation plan.
 This is a design/prompt package, not an existing application. Inspect any real repo before editing it.

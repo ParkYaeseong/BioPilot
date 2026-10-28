@@ -73,8 +73,20 @@ def main() -> int:
     for row in mapping['mapping']:
         i=row['full_position'];expected=i-31 if i>=32 else None
         check('sequence-map row '+str(i),row['residue']==p['reference_sequence'][i-1] and row['mature_position']==expected)
-    check('unknown coordinate values preserved',all(row[k] is None for row in mapping['mapping'] for k in ['pdb_label_seq_id','pdb_auth_seq_id','coordinate_observed']))
-    check('coordinate join not claimed',mapping['coordinate_join_verified'] is False)
+    unmodelled={row['full_position'] for row in p['structure']['missing_residue_ids']}
+    for row in mapping['mapping']:
+        i=row['full_position']
+        if i<32:
+            ok=all(row[k] is None for k in ['pdb_label_seq_id','pdb_auth_seq_id','pdb_insertion_code','coordinate_observed'])
+        else:
+            ok=(row['pdb_label_seq_id']==i-31 and row['pdb_auth_seq_id']==str(i-31)
+                and row['pdb_insertion_code'] is None and row['coordinate_observed'] is (i not in unmodelled))
+        check('coordinate-join row '+str(i),ok)
+    check('index join registered',mapping['coordinate_index_join_verified'] is True)
+    check('geometry still not claimed',mapping['geometry_validated'] is False and p['structure']['geometry_validated'] is False)
+    check('coordinate source pinned to one file',mapping['coordinate_source']['sha256']==p['structure']['coordinate_file_sha256'] and len(mapping['coordinate_source']['sha256'])==64)
+    check('unmodelled residues identified',sorted(unmodelled)==[32,212] and mapping['coordinate_source']['unmodelled_full_positions']==[32,212])
+    check('no insertion codes or author offset',mapping['coordinate_source']['insertion_codes']==[] and mapping['coordinate_source']['auth_minus_label_offsets']==[0])
     ap=load('evaluation_private/assay_protocol.json')
     check('median not WT',ap['proteingym_binary_method']=='median' and ap['wild_type_t50'] is None)
     check('no real assay labels',ap['actual_candidate_measurements_included'] is False)

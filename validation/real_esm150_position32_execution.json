@@ -1,0 +1,31 @@
+{
+  "command": [
+    "C:\\Users\\user\\Desktop\\BioPilot_Atlas_v3\\.venv\\Scripts\\python.exe",
+    "-m",
+    "app.cli",
+    "score-local",
+    "--checkpoint-dir",
+    "C:\\Users\\user\\Desktop\\BioPilot_Atlas_v3\\.cache\\models\\facebook\\esm2_t30_150M_UR50D\\a695f6045e2e32885fa60af20c13cb35398ce30c",
+    "--weights-sha256",
+    "377f67e27c559ef9db8eac8296e0961ba68a98b08d32da9072af3853d193549b",
+    "--tokenizer-sha256",
+    "28bae4e8d8b0225381da7978ca8b341f5ac46cc4f0ca62ad459c7955608b6ea2",
+    "--positions",
+    "32",
+    "--cache-dir",
+    "C:\\Users\\user\\Desktop\\BioPilot_Atlas_v3\\.runtime\\real_sequence_review_20261027\\state\\esm_cache",
+    "--output",
+    "C:\\Users\\user\\Desktop\\BioPilot_Atlas_v3\\.runtime\\real_sequence_review_20261027\\phase1\\scores.json"
+  ],
+  "started_at_utc": "2026-10-27T05:52:50.848608+00:00",
+  "elapsed_seconds": 24.400980000000118,
+  "returncode": 0,
+  "model_id": "facebook/esm2_t30_150M_UR50D",
+  "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+  "position_1based": 32,
+  "device": "cpu",
+  "precision": "float32",
+  "external_inference_requests": 0,
+  "actual_cost_micros": null,
+  "failed_prior_load_preserved": "validation/stage1_load_failure.json"
+}

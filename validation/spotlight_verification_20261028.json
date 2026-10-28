@@ -1,0 +1,42 @@
+{
+  "date_kst": "2026-10-28",
+  "scope": "RAPID-style local spotlight, actual optional GPU predictions and updated local demo",
+  "regression": {
+    "command": ".venv/Scripts/python.exe -m pytest tests tests_app -q -rs -p no:cacheprovider --basetemp=.cache/spotlight_final_regression_20261028 --tb=short",
+    "passed": 744,
+    "skipped": 2,
+    "warnings": 2,
+    "subtests_passed": 12,
+    "elapsed_seconds": 58.65,
+    "skip_scope": "Windows symlink privileges",
+    "warning_scope": "Installed Modal async deprecations"
+  },
+  "browser_checks": [
+    "Actual Light/Dark native control and SVG ink contrast",
+    "Eight-step dimmed spotlight with actual per-step screenshots",
+    "Actual next/back view transitions and Escape close",
+    "Tutorial exit restores pre-tour controls",
+    "Experimental reference fit/rotation",
+    "Actual stored ESMFold2 and ESM3 prediction selection and rotation",
+    "Unarmed live example fills draft; S108A refused locally without spend"
+  ],
+  "scientific_execution": {
+    "esmfold2_WT": "actual_L40S_execution_verified",
+    "esm3_A32V": "actual_L40S_execution_verified",
+    "atlas": "actual_exact_WT_HTTP_response_and_pinned_MCP_snapshot",
+    "new_meta_calls": 0,
+    "baseline_ranks_changed": false,
+    "atom_geometry_validated": false,
+    "biological_efficacy_established": false,
+    "comparison_of_model_accuracy_or_variant_effect": false,
+    "runtime_receipt": "validation/optional_science_runtime_20261028.json"
+  },
+  "video_receipt": "submission/video_spotlight_receipt.json",
+  "whole_video_human_review_complete": false,
+  "publication_or_submission": false,
+  "package": {
+    "status": "PASS",
+    "checks": 1909,
+    "failures": 0
+  }
+}

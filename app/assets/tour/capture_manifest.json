@@ -1,0 +1,79 @@
+{
+  "method": "CUA screenshots of actual local UI target regions",
+  "source_url": "http://127.0.0.1:8522/",
+  "mode": "saved real replay and actual local checks",
+  "steps": [
+    {
+      "id": "valid_input",
+      "clip": {
+        "height": 190,
+        "width": 492.0833435058594,
+        "x": 345.59375,
+        "y": 133.875
+      }
+    },
+    {
+      "id": "protected_input",
+      "clip": {
+        "height": 170,
+        "width": 492.0833435058594,
+        "x": 345.59375,
+        "y": 119.875
+      }
+    },
+    {
+      "id": "compare",
+      "clip": {
+        "height": 165.36459350585938,
+        "width": 600,
+        "x": 345.59375,
+        "y": 277.1770935058594
+      }
+    },
+    {
+      "id": "unmodelled_position",
+      "clip": {
+        "height": 170,
+        "width": 516.09375,
+        "x": 708.3125,
+        "y": 103.73958587646484
+      }
+    },
+    {
+      "id": "protected_structure",
+      "clip": {
+        "height": 170,
+        "width": 516.09375,
+        "x": 708.3125,
+        "y": 103.73958587646484
+      }
+    },
+    {
+      "id": "validation_trace",
+      "clip": {
+        "height": 170,
+        "width": 600,
+        "x": 345.59375,
+        "y": 223.1666717529297
+      }
+    },
+    {
+      "id": "scoring_trace",
+      "clip": {
+        "height": 170,
+        "width": 600,
+        "x": 345.59375,
+        "y": 172.5
+      }
+    },
+    {
+      "id": "provenance",
+      "clip": {
+        "height": 170,
+        "width": 600,
+        "x": 345.59375,
+        "y": 113.875
+      }
+    }
+  ]
+}

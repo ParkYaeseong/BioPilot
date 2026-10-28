@@ -1,0 +1,71 @@
+{
+  "actual_cost_micros": null,
+  "artifact_sha256": {
+    "evaluation/workflow_protocol_meta_v2.json": "dc5de973f362e972c2db4ad646f838cc9ac0eea50d044cd82e5afd78546b604d",
+    "validation/workflow_comparison_20261028.json": "ee888f1ff5701a253970d9572e6ea046198672fc54a7ded48b36ba4cd196dec9",
+    "validation/workflow_meta_arm_20261028.json": "65473ffbf71c9b83d7574058a125c95a575d8d19d52866904d69318dfe643533",
+    "validation/workflow_meta_probe_20261028.json": "f346a5cdcefcac89b2606f959306eb41c4d71aee5a57e7322120589fdcfb6fea",
+    "validation/workflow_meta_remainder_20261028.json": "0ea3ea92bb323b39d673a3660f3e29058ad067a1225b6ad453dbaa5a85ffa4f3",
+    "validation/workflow_policy_baseline_20261028.json": "61515cab42bbdae98c06bbb2933f2b05149e1ffa6ee07b3a91ca30ae01f83f8e"
+  },
+  "attempt_history": [
+    {
+      "artifact": "validation/workflow_meta_arm_20261028.json",
+      "attempt": 1,
+      "effort": "medium",
+      "max_completion_tokens": 512,
+      "provider_calls": 6,
+      "receipt": "validation/workflow_meta_arm_attempt1_length_failure.json",
+      "result": "all_six_failed_finish_reason_length"
+    },
+    {
+      "artifact": "validation/workflow_meta_probe_20261028.json",
+      "attempt": 2,
+      "effort": "low",
+      "max_completion_tokens": 1024,
+      "provider_calls": 1,
+      "result": "probe_succeeded_1_of_1_correct"
+    },
+    {
+      "artifact": "validation/workflow_meta_remainder_20261028.json",
+      "attempt": 3,
+      "effort": "low",
+      "max_completion_tokens": 1024,
+      "provider_calls": 5,
+      "result": "five_observed_four_correct"
+    }
+  ],
+  "claim_bounds": [
+    "Closed-set choice among six enumerated reason codes; chance accuracy is 1/6 per cell",
+    "Registered rules were supplied in context: this measures rule application, not rule discovery",
+    "Policy intake only; no ESM inference, scientific review or biological efficacy is established",
+    "Manual arm absent, so no completion-rate, intervention, time or cost comparison against a human",
+    "No time saving, T50 predictive power or model improvement is claimed or measured"
+  ],
+  "combined_artifact": "validation/workflow_comparison_20261028.json",
+  "cost_status": "unknown_every_response_returned_a_null_invoiced_amount",
+  "date_kst": "2026-10-28",
+  "esm_inference_calls": 0,
+  "expected_outcomes_supplied_to_model": false,
+  "external_sequence_uploads": 0,
+  "gpu_jobs": 0,
+  "labels_supplied_to_product_host": false,
+  "meta_single_error": {
+    "deterministic_guard": "rejected / wt_mismatch",
+    "frozen_expected": "rejected / wt_mismatch",
+    "interpretation": "The model applied frame, objective and protected-site rules correctly but did not verify the reference residue identity at position 32. Deterministic code caught it. This is why the guard is not delegated to the model.",
+    "model_said": "accepted / validated",
+    "scenario_id": "WTmismatchG32V"
+  },
+  "observed": {
+    "fixed": "6/6 correct",
+    "manual": "not_run (user declined)",
+    "meta": "5/6 correct"
+  },
+  "scope": "Meta arm executed live against the frozen policy-intake protocol v2",
+  "tests": {
+    "focused": "tests_app/test_workflow_suite.py 48 passed"
+  },
+  "total_provider_calls": 12,
+  "total_reserved_micros": 600000
+}

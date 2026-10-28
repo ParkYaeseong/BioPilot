@@ -10,7 +10,7 @@ def main():
         if path.name == 'MANIFEST.sha256':
             continue
         rows.append(f'{hashlib.sha256(path.read_bytes()).hexdigest()}  {path.relative_to(root).as_posix()}')
-    (root/'MANIFEST.sha256').write_text('\n'.join(rows)+'\n', encoding='utf-8')
+    (root/'MANIFEST.sha256').write_text('\n'.join(rows)+'\n', encoding='utf-8', newline='\n')
     print(f'Updated source manifest: {len(rows)} files (local credentials/environments excluded)')
 
 if __name__ == '__main__':

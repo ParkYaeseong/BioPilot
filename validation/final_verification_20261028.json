@@ -1,0 +1,79 @@
+{
+  "artifacts": {
+    "evaluation/workflow_protocol_meta_v2.json": "dc5de973f362e972c2db4ad646f838cc9ac0eea50d044cd82e5afd78546b604d",
+    "local_artifacts/workbench_demo_20261028/BioPilot_Atlas_Workbench_180s_LOCAL_DRAFT.mp4": "3f3c7cfb1fbd14e06723b807b9596f18a3c12f343cea5f69a9917d73e2196838",
+    "submission/video_workbench_receipt.json": "716f34faaaf5dad74723dc478a6ece4cbcacab3ca25c71d51f151dda70b69ccb",
+    "validation/verification_ui_isolation_20261028.json": "9b7d21fdc7c912835f6f30be596fbf6a6b4c54bdca4d3351a8e49865307bf06b",
+    "validation/workflow_comparison_20261028.json": "ee888f1ff5701a253970d9572e6ea046198672fc54a7ded48b36ba4cd196dec9",
+    "validation/workflow_meta_arm_20261028.json": "65473ffbf71c9b83d7574058a125c95a575d8d19d52866904d69318dfe643533",
+    "validation/workflow_meta_arm_attempt1_length_failure.json": "39d306afd664ac7226c518cc10c7f4ee0fafcbaaa1837fc1a45a1d37ccd8d762",
+    "validation/workflow_meta_arm_success_20261028.json": "535eb87d4ad2d9426f0d7c5170d7670a2cbb8af091382ae3a9bbc15655c25824",
+    "validation/workflow_meta_probe_20261028.json": "f346a5cdcefcac89b2606f959306eb41c4d71aee5a57e7322120589fdcfb6fea",
+    "validation/workflow_meta_remainder_20261028.json": "0ea3ea92bb323b39d673a3660f3e29058ad067a1225b6ad453dbaa5a85ffa4f3",
+    "validation/workflow_policy_baseline_20261028.json": "61515cab42bbdae98c06bbb2933f2b05149e1ffa6ee07b3a91ca30ae01f83f8e"
+  },
+  "date_kst": "2026-10-28",
+  "defects_found_and_fixed": [
+    "app/viewer.py painted the sidebar before injecting the palette (peak glyph brightness 105 -> 255)",
+    "evaluation/workflow_suite.py CLI left a zero-byte artifact when a run raised after claiming the path",
+    "Demo narration segment 6 asserted the Meta arm had not been run, which became false once it ran"
+  ],
+  "dependency_added": {
+    "browser_binary_downloaded": false,
+    "note": "Drives the browser already installed on this machine; not added to any requirements file and not used by the product or tests",
+    "package": "playwright",
+    "scope": "development capture only"
+  },
+  "encoding": "All new artifacts, docs and narration files decode as UTF-8",
+  "final_regression": {
+    "command": ".venv/Scripts/python.exe -m pytest tests tests_app -q -rf -p no:cacheprovider --basetemp=.cache/final_20261028",
+    "elapsed_seconds": 36.08,
+    "failed": 0,
+    "passed": 566,
+    "prior_manifest_failure_resolved_by": "checks/update_manifest.py regenerated 311 source entries",
+    "skip_reasons": [
+      "Windows account lacks symlink creation rights",
+      "Symlink creation requires an OS privilege"
+    ],
+    "skipped": 2,
+    "subtests_passed": 12,
+    "warning_scope": "Installed Modal SDK uses asyncio event-loop policy APIs deprecated for Python 3.16",
+    "warnings": 2
+  },
+  "focused_suites": {
+    "tests_app/test_viewer.py": 37,
+    "tests_app/test_workflow_suite.py": 49
+  },
+  "live_resource_use_this_turn": {
+    "actual_cost_micros": null,
+    "cost_status": "unknown",
+    "esm_inference_calls": 0,
+    "external_sequence_uploads": 0,
+    "gpu_jobs": 0,
+    "model_weight_downloads": 0,
+    "provider_calls": 12,
+    "reserved_micros": 600000
+  },
+  "not_performed_and_not_authorised": [
+    "GitHub publication",
+    "external deployment",
+    "contest submission",
+    "manual workflow arm",
+    "GPU or Modal execution",
+    "biological efficacy claim",
+    "T50 predictive claim",
+    "any time-saving or cost-saving measurement"
+  ],
+  "package_validator": {
+    "check_count": 1441,
+    "failed_count": 0
+  },
+  "scope": "Final verification after the Meta contribution arm, viewer provenance chain and demo recut",
+  "tdd_notes": [
+    "Meta arm: 8 tests written red before implementation, then 2 diagnostics tests, then 5 probe tests, then 2 CLI merge tests",
+    "Two merge-behaviour tests passed on first run without new implementation and are confirmatory, not red-green",
+    "Two of the original red tests encoded wrong expectations and were corrected: the enum vocabulary is inherently present in the payload, and a fake reply had used the wrong expected status for coordinates_unverified. The corrected isolation test asserts the stronger property that the task text names no reason code and the offered closed set is never narrowed",
+    "One test caught a real design defect: the task instruction had named the reason code 'validated'",
+    "One test caught a real CLI defect: a failed run left an empty output file behind"
+  ]
+}

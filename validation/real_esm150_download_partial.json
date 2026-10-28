@@ -1,0 +1,26 @@
+{
+  "model_id": "facebook/esm2_t30_150M_UR50D",
+  "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+  "started_at_utc": "2026-10-27T05:44:19.290035+00:00",
+  "metadata_source": "https://huggingface.co/api/models/facebook/esm2_t30_150M_UR50D",
+  "metadata_sha256": "5b4005d8f881d7abc9cf2648f5bd6096039ac65f5dc7cd9657d5816674c66951",
+  "files": [
+    {
+      "name": "config.json",
+      "size": 779,
+      "sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+      "source": "https://huggingface.co/facebook/esm2_t30_150M_UR50D/resolve/a695f6045e2e32885fa60af20c13cb35398ce30c/config.json",
+      "verification": "official_git_blob_sha1_plus_local_sha256"
+    }
+  ],
+  "command": ".venv/Scripts/python.exe .cache/stage1_download_esm150.py",
+  "installer_sha256": "619db3b481cbe97e52c78844d611444e70fa9b071dd01aa5228d39ae281634e0",
+  "status": "failed_partial_preserved",
+  "request_retries": 0,
+  "credentials_used": false,
+  "gpu_allocations": 0,
+  "provider_inference_calls": 0,
+  "cost_micros": null,
+  "error_type": "RuntimeError",
+  "error_message": "Public snapshot acquisition did not complete; no automatic retry"
+}

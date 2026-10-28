@@ -1,0 +1,144 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.0, pytest-9.0.1, pluggy-1.6.0 -- C:\Users\user\Desktop\BioPilot_Atlas_v3\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\user\Desktop\BioPilot_Atlas_v3
+configfile: pytest.ini
+plugins: hydra-core-1.3.4, asyncio-1.4.0, anyio-4.11.0, django-4.11.1
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 61 items / 48 deselected / 13 selected
+
+tests_app/test_esm_contract.py::test_exact_legacy_nonpersistent_position_buffer_is_recorded[reported_keys0] FAILED [  7%]
+tests_app/test_esm_contract.py::test_exact_legacy_nonpersistent_position_buffer_is_recorded[reported_keys1] FAILED [ 15%]
+tests_app/test_esm_contract.py::test_legacy_position_buffer_requires_exact_rotary_configuration[change0] PASSED [ 23%]
+tests_app/test_esm_contract.py::test_legacy_position_buffer_requires_exact_rotary_configuration[change1] PASSED [ 30%]
+tests_app/test_esm_contract.py::test_legacy_position_buffer_requires_exact_rotary_configuration[change2] PASSED [ 38%]
+tests_app/test_esm_contract.py::test_legacy_position_buffer_contents_are_verified_before_acceptance[wrong_dtype] PASSED [ 46%]
+tests_app/test_esm_contract.py::test_legacy_position_buffer_contents_are_verified_before_acceptance[wrong_shape] PASSED [ 53%]
+tests_app/test_esm_contract.py::test_legacy_position_buffer_contents_are_verified_before_acceptance[wrong_values] PASSED [ 61%]
+tests_app/test_esm_contract.py::test_legacy_position_buffer_contents_are_verified_before_acceptance[missing_tensor] PASSED [ 69%]
+tests_app/test_esm_contract.py::test_legacy_buffer_exception_does_not_relax_learned_weight_guards[change0] PASSED [ 76%]
+tests_app/test_esm_contract.py::test_legacy_buffer_exception_does_not_relax_learned_weight_guards[change1] PASSED [ 84%]
+tests_app/test_esm_contract.py::test_legacy_buffer_exception_does_not_relax_learned_weight_guards[change2] PASSED [ 92%]
+tests_app/test_esm_contract.py::test_legacy_buffer_exception_does_not_relax_learned_weight_guards[change3] PASSED [100%]
+
+================================== FAILURES ===================================
+_ test_exact_legacy_nonpersistent_position_buffer_is_recorded[reported_keys0] _
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.cache/pytest/test_exact_legacy_nonpersisten0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001F689DBA520>
+reported_keys = {'esm.embeddings.position_ids'}
+
+    @pytest.mark.parametrize('reported_keys',[{'esm.embeddings.position_ids'},['esm.embeddings.position_ids']])
+    def test_exact_legacy_nonpersistent_position_buffer_is_recorded(tmp_path,monkeypatch,reported_keys):
+        pins,placed=_legacy_buffer_checkpoint(tmp_path,monkeypatch,loading_changes={'unexpected_keys':reported_keys})
+>       backend=LocalHFBackend(tmp_path,**pins)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_esm_contract.py:376: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.science.esm_engine.LocalHFBackend object at 0x000001F6A516D010>
+checkpoint_dir = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.cache/pytest/test_exact_legacy_nonpersisten0')
+
+    def __init__(self, checkpoint_dir, *, expected_weights_sha256=None, expected_tokenizer_sha256=None,
+                 checkpoint_key='esm150', device='cpu'):
+        spec = get_model_spec(checkpoint_key)
+        if device not in ('cpu', 'cuda'):
+            raise ValueError('Explicit local device must be cpu or cuda; automatic fallback is disabled')
+        self.device = device
+        directory = Path(checkpoint_dir).resolve()
+        config_path = directory / 'config.json'
+        weight_paths = sorted(directory.glob('*.safetensors'))
+        if not config_path.is_file() or not weight_paths or not (directory / 'vocab.txt').is_file():
+            raise ValueError('A complete local checkpoint with safetensors and vocab.txt is required; downloads are disabled')
+        if (not isinstance(expected_weights_sha256, str) or re.fullmatch('[0-9a-f]{64}', expected_weights_sha256) is None
+                or not isinstance(expected_tokenizer_sha256, str) or re.fullmatch('[0-9a-f]{64}', expected_tokenizer_sha256) is None):
+            raise ValueError('Explicit trusted weight and tokenizer SHA256 pins are required before live checkpoint load')
+        config = json.loads(config_path.read_text(encoding='utf-8'))
+        if (config.get('model_type') != 'esm' or config.get('num_hidden_layers') != spec.num_hidden_layers
+                or config.get('hidden_size') != spec.hidden_size or config.get('num_attention_heads') != spec.num_attention_heads):
+            raise ValueError(f'Local checkpoint architecture is not {spec.checkpoint}')
+        tokenizer_paths = [p for p in sorted(directory.iterdir()) if p.is_file() and p.name in {
+            'vocab.txt', 'tokenizer.json', 'tokenizer_config.json', 'special_tokens_map.json', 'config.json',
+        }]
+        weight_hashes = {p.name: _file_hash(p) for p in weight_paths}
+        tokenizer_hashes = {p.name: _file_hash(p) for p in tokenizer_paths}
+        if _digest(weight_hashes) != expected_weights_sha256 or _digest(tokenizer_hashes) != expected_tokenizer_sha256:
+            raise ValueError('Local checkpoint hash differs from the trusted installation pins')
+        from importlib.metadata import version
+        import torch
+        if device == 'cuda' and not torch.cuda.is_available():
+            raise ValueError('CUDA device requested but unavailable; CPU fallback is disabled')
+        from transformers import AutoModelForMaskedLM, AutoTokenizer
+        self.tokenizer = AutoTokenizer.from_pretrained(str(directory), local_files_only=True, trust_remote_code=False)
+        model, loading_info = AutoModelForMaskedLM.from_pretrained(
+            str(directory), local_files_only=True, trust_remote_code=False, use_safetensors=True,
+            output_loading_info=True,
+        )
+        if any(loading_info.get(key) for key in ('missing_keys', 'unexpected_keys', 'mismatched_keys', 'error_msgs')):
+>           raise ValueError('Local checkpoint is incomplete or incompatible; randomly initialized weights are not ESM baseline evidence')
+E           ValueError: Local checkpoint is incomplete or incompatible; randomly initialized weights are not ESM baseline evidence
+
+app\science\esm_engine.py:222: ValueError
+_ test_exact_legacy_nonpersistent_position_buffer_is_recorded[reported_keys1] _
+
+tmp_path = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.cache/pytest/test_exact_legacy_nonpersisten1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001F6A517BD10>
+reported_keys = ['esm.embeddings.position_ids']
+
+    @pytest.mark.parametrize('reported_keys',[{'esm.embeddings.position_ids'},['esm.embeddings.position_ids']])
+    def test_exact_legacy_nonpersistent_position_buffer_is_recorded(tmp_path,monkeypatch,reported_keys):
+        pins,placed=_legacy_buffer_checkpoint(tmp_path,monkeypatch,loading_changes={'unexpected_keys':reported_keys})
+>       backend=LocalHFBackend(tmp_path,**pins)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_app\test_esm_contract.py:376: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.science.esm_engine.LocalHFBackend object at 0x000001F6A512FD90>
+checkpoint_dir = WindowsPath('C:/Users/user/Desktop/BioPilot_Atlas_v3/.cache/pytest/test_exact_legacy_nonpersisten1')
+
+    def __init__(self, checkpoint_dir, *, expected_weights_sha256=None, expected_tokenizer_sha256=None,
+                 checkpoint_key='esm150', device='cpu'):
+        spec = get_model_spec(checkpoint_key)
+        if device not in ('cpu', 'cuda'):
+            raise ValueError('Explicit local device must be cpu or cuda; automatic fallback is disabled')
+        self.device = device
+        directory = Path(checkpoint_dir).resolve()
+        config_path = directory / 'config.json'
+        weight_paths = sorted(directory.glob('*.safetensors'))
+        if not config_path.is_file() or not weight_paths or not (directory / 'vocab.txt').is_file():
+            raise ValueError('A complete local checkpoint with safetensors and vocab.txt is required; downloads are disabled')
+        if (not isinstance(expected_weights_sha256, str) or re.fullmatch('[0-9a-f]{64}', expected_weights_sha256) is None
+                or not isinstance(expected_tokenizer_sha256, str) or re.fullmatch('[0-9a-f]{64}', expected_tokenizer_sha256) is None):
+            raise ValueError('Explicit trusted weight and tokenizer SHA256 pins are required before live checkpoint load')
+        config = json.loads(config_path.read_text(encoding='utf-8'))
+        if (config.get('model_type') != 'esm' or config.get('num_hidden_layers') != spec.num_hidden_layers
+                or config.get('hidden_size') != spec.hidden_size or config.get('num_attention_heads') != spec.num_attention_heads):
+            raise ValueError(f'Local checkpoint architecture is not {spec.checkpoint}')
+        tokenizer_paths = [p for p in sorted(directory.iterdir()) if p.is_file() and p.name in {
+            'vocab.txt', 'tokenizer.json', 'tokenizer_config.json', 'special_tokens_map.json', 'config.json',
+        }]
+        weight_hashes = {p.name: _file_hash(p) for p in weight_paths}
+        tokenizer_hashes = {p.name: _file_hash(p) for p in tokenizer_paths}
+        if _digest(weight_hashes) != expected_weights_sha256 or _digest(tokenizer_hashes) != expected_tokenizer_sha256:
+            raise ValueError('Local checkpoint hash differs from the trusted installation pins')
+        from importlib.metadata import version
+        import torch
+        if device == 'cuda' and not torch.cuda.is_available():
+            raise ValueError('CUDA device requested but unavailable; CPU fallback is disabled')
+        from transformers import AutoModelForMaskedLM, AutoTokenizer
+        self.tokenizer = AutoTokenizer.from_pretrained(str(directory), local_files_only=True, trust_remote_code=False)
+        model, loading_info = AutoModelForMaskedLM.from_pretrained(
+            str(directory), local_files_only=True, trust_remote_code=False, use_safetensors=True,
+            output_loading_info=True,
+        )
+        if any(loading_info.get(key) for key in ('missing_keys', 'unexpected_keys', 'mismatched_keys', 'error_msgs')):
+>           raise ValueError('Local checkpoint is incomplete or incompatible; randomly initialized weights are not ESM baseline evidence')
+E           ValueError: Local checkpoint is incomplete or incompatible; randomly initialized weights are not ESM baseline evidence
+
+app\science\esm_engine.py:222: ValueError
+=========================== short test summary info ===========================
+FAILED tests_app/test_esm_contract.py::test_exact_legacy_nonpersistent_position_buffer_is_recorded[reported_keys0]
+FAILED tests_app/test_esm_contract.py::test_exact_legacy_nonpersistent_position_buffer_is_recorded[reported_keys1]
+================= 2 failed, 11 passed, 48 deselected in 0.51s =================

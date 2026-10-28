@@ -1,0 +1,18 @@
+{
+  "checked_date_kst": "2026-10-29",
+  "official_page": "https://cerebralvalley.ai/e/meta-ai-developer-hackathon/details",
+  "retrieval_method": "Read-only CUA inspection of existing authenticated Participant Guide tab",
+  "participant_guide_freshly_verified": true,
+  "final_submission_form_verified": false,
+  "full_legal_rulebook_verified": false,
+  "public_repository_required": true,
+  "meaningful_meta_model_api_or_open_weights_required": true,
+  "new_contributions_must_be_distinguished": true,
+  "raw_ai_chat_export_requirement_found_in_guide": false,
+  "minimum_commit_count_or_frequency_found_in_guide": false,
+  "numeric_upload_size_cap_found_in_guide": false,
+  "absence_claim_scope": "Participant Guide only; unverified submission-form fields may add requirements",
+  "individual_eligibility_or_reuse_ruling_verified": false,
+  "previous_record_preserved": "compliance/rules_recheck_20261028.json",
+  "login_change_agreement_acceptance_or_submission": false
+}

@@ -1,4 +1,12 @@
-# BioPilot Atlas v3 verification receipt
+# Current verification and preserved package receipt
+
+Current local implementation and submission preparation are recorded in
+[docs/STATUS.md](docs/STATUS.md) and [submission/README.md](submission/README.md).
+The receipt below describes the original 2026-10-27 design package before the
+later application, real integration and read-only viewer. Its historical claims
+and test counts are preserved; they are not the current product status.
+
+# BioPilot Bench v3 verification receipt
 
 Revision: 2026-10-27. Scope: the complete design/prompt/configuration pack and its offline helpers.
 **This is not a working application, a live MCP compatibility test, or evidence of protein improvement.**

@@ -1,0 +1,39 @@
+{
+  "sdk_version": "1.6.2",
+  "inspection_mode": "local_signature_and_docstring_only",
+  "function_parameters_present": {
+    "cpu": true,
+    "memory": true,
+    "startup_timeout": true,
+    "scaledown_window": true,
+    "timeout": true,
+    "buffer_containers": true,
+    "max_containers": true,
+    "min_containers": true,
+    "retries": true
+  },
+  "cpu_annotation": "float | tuple[float, float] | None",
+  "memory_annotation": "int | tuple[int, int] | None",
+  "factory_constructed": false,
+  "authenticated": false,
+  "network_calls": 0,
+  "gpu_allocated": false,
+  "volume_created_or_mounted": false,
+  "deployed": false,
+  "deployed_limits_verified": false,
+  "planned_bounds": {
+    "cpu_request": 1.0,
+    "cpu_limit": 1.0,
+    "memory_request_mib": 4096,
+    "memory_limit_mib": 4096,
+    "execution_seconds": 900,
+    "startup_seconds": 120,
+    "idle_seconds": 2,
+    "reservation_seconds": 1022
+  },
+  "cost_scope": {
+    "compute": "estimate_only",
+    "image_build": "unknown",
+    "storage": "unknown"
+  }
+}

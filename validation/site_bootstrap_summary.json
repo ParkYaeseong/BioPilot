@@ -1,0 +1,51 @@
+{
+  "generated_at_utc": "2026-10-27",
+  "evaluator_only": true,
+  "source_mode": "retrospective_public_evaluation",
+  "prediction_freeze_sha256": "8dd327ef24ad8ca9b5158d2186c58022f3c4e71d8719240ceac49a86ee5d7f03",
+  "cohort_sha256": "378897fb89235dab0325c63f5f0197d7b3a98a672856e5495a28c4756070a80a",
+  "complete_case": {
+    "measured_variants": 117,
+    "missing_from_cohort": 73,
+    "spearman": 0.288090126763616,
+    "recall_at_k": 0.35,
+    "top_k": 20,
+    "random_expected_recall_at_k": 0.17094017094017094
+  },
+  "site_bootstrap_interval": {
+    "calibrated_T50": false,
+    "ci_high": 0.5356029814553068,
+    "ci_low": -0.05828748885299088,
+    "confidence": 0.95,
+    "degenerate_resamples": 0,
+    "establishes_general_performance": false,
+    "excludes_zero": false,
+    "measured_variant_count": 117,
+    "method": "percentile_bootstrap",
+    "point_estimate": 0.288090126763616,
+    "resamples": 2000,
+    "resampling_unit": "site",
+    "seed": 20261027,
+    "site_count": 9,
+    "status": "ok",
+    "usable_resamples": 2000
+  },
+  "headline_finding": "The complete-case Spearman of 0.288 has a 95% site-bootstrap interval of [-0.058, 0.536], which includes zero. With 9 measured sites the correlation is NOT statistically distinguishable from no association. recall@20 of 0.35 against a 0.171 random expectation carries the same uncertainty and was not separately bootstrapped.",
+  "what_this_does_not_establish": [
+    "Not a T50 prediction and not calibrated to any temperature",
+    "Not evidence of retained function, activity, solubility or Tm",
+    "Not general performance: 9 sites of one assay cannot support that claim",
+    "Not a prospective or wet-lab result"
+  ],
+  "method": {
+    "resampling_unit": "site",
+    "why": "Alternatives at one position share a residue environment, so variant-level resampling would understate uncertainty",
+    "seed": 20261027,
+    "resamples": 2000,
+    "interval": "percentile"
+  },
+  "originals_preserved": [
+    "evaluation_report.json",
+    "evaluation_curated_report.json"
+  ]
+}

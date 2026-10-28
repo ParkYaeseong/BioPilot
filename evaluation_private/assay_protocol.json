@@ -1,0 +1,18 @@
+{
+  "access": "evaluator_only_not_product_prompt_context",
+  "assay_id": "ESTA_BACSU_Nutschel_2020",
+  "endpoint_id": "lipase_T50_after_20min",
+  "raw_label": "T50",
+  "raw_units": "degC",
+  "raw_direction": 1,
+  "endpoint_definition": "Sigmoid-curve inflection from residual activity following 20 min thermal challenge; activity normalized to the sample heated at 40 degC in the reported assay.",
+  "source_id": "S17",
+  "proteingym_binary_cutoff": 46.34,
+  "proteingym_binary_method": "median",
+  "binary_interpretation": "cohort_median_split_not_wild_type_improvement",
+  "wild_type_t50": null,
+  "wild_type_uncertainty": null,
+  "improvement_rule_status": "disabled_until_matched_WT_conditions_and_uncertainty_rule_verified",
+  "paper_rule_note": "The paper compares variant minus WT T50 to per-variant SD from three screenings. Do not call that rule a general p<0.05 test or substitute the cohort median.",
+  "actual_candidate_measurements_included": false
+}

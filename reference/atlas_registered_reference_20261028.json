@@ -1,0 +1,31 @@
+{
+  "status": "available",
+  "provider": "biohub_esm_atlas",
+  "source_url": "https://biohub.ai/esm/protein/api/v1alpha1/proteins/5003d8cdae76deeb4cce054dfa7a3b04",
+  "request_params": {
+    "fold_on_miss": "false",
+    "topk_features": 10,
+    "normalize_features": "true"
+  },
+  "http_status": 200,
+  "retrieved_at": "2026-10-28T08:14:59.573451+00:00",
+  "raw_response_sha256": "428a0a17235adc3a4074e1d6f875c2dc78b529fd4fbfb344dd7e0c3de6bb99b2",
+  "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+  "protein_hash_md5": "5003d8cdae76deeb4cce054dfa7a3b04",
+  "sequence_context": "full_212",
+  "identity": {
+    "accession": "2702335490",
+    "source": "img_m"
+  },
+  "confidence": {
+    "ptm": null,
+    "mean_plddt": null
+  },
+  "feature_count_recorded": 10,
+  "annotation_only": true,
+  "baseline_rank_changed": false,
+  "scientific_evidence": true,
+  "experimental_validation": false,
+  "folded_on_demand": false,
+  "raw_text_exposed": false
+}

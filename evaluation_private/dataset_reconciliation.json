@@ -1,0 +1,19 @@
+{
+  "status": "pending_row_level_audit",
+  "raw_library_reported_count": 3439,
+  "proteingym_metadata_reported_count": 2172,
+  "count_difference": 1267,
+  "difference_explanation": "unresolved_do_not_assume_all_missing_variants_are_inactive",
+  "raw_expected_space": "181 positions x 19 single substitutions",
+  "measured_dataset_present": false,
+  "required_audit": [
+    "pin_raw_and_curated_file_hashes",
+    "map_raw_mutations_to_full_reference",
+    "verify_WT_identity_and_mutated_sequence",
+    "categorize_duplicates_and_conflicting_values",
+    "separate_numeric_missing_unmeasurable_and_inactive",
+    "record_all_exclusion_reasons",
+    "verify_actual_curated_range_and_row_count",
+    "freeze_eligible_evaluation_cohort"
+  ]
+}

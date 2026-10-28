@@ -1,0 +1,130 @@
+1
+00:00:00,000 --> 00:00:04,062
+Reviewing a protein variant requires more than a model score.
+
+2
+00:00:04,212 --> 00:00:11,093
+BioPilot Atlas connects residue checks, bounded computation, and inspectable evidence through MCP.
+
+3
+00:00:11,243 --> 00:00:19,582
+This local draft uses edited still captures from a saved real run, with synthetic narration, not a
+continuous screen recording.
+
+4
+00:00:20,000 --> 00:00:26,223
+The example reviews a public Lipase A reference using full reference, one based positions.
+
+5
+00:00:26,373 --> 00:00:30,242
+The registered scoring context is the complete sequence.
+
+6
+00:00:30,392 --> 00:00:34,766
+Code protects the catalytic sites and enforces approved limits.
+
+7
+00:00:34,916 --> 00:00:42,469
+The language model cannot grant itself permission, change the reference, or silently convert residue
+numbering.
+
+8
+00:00:45,000 --> 00:00:49,694
+The saved execution used Muse Spark through the controlled Python host.
+
+9
+00:00:49,844 --> 00:00:54,557
+Meta requested target validation, then the permitted scoring tool.
+
+10
+00:00:54,707 --> 00:01:01,256
+The MCP server checked the requests and local ESM computed sequence preferences on the CPU.
+
+11
+00:01:01,406 --> 00:01:07,224
+The run finished with a separate explanation, while code generated the candidate ranking.
+
+12
+00:01:07,374 --> 00:01:10,748
+The original execution took forty seconds.
+
+13
+00:01:10,898 --> 00:01:15,162
+Viewing these saved results now sends no provider request.
+
+14
+00:01:20,000 --> 00:01:25,254
+Here is a separate local guard check, captured during submission preparation.
+
+15
+00:01:25,404 --> 00:01:31,112
+The valid variant passes, while a substitution at the protected serine is blocked.
+
+16
+00:01:31,262 --> 00:01:35,511
+This is actual command output, rendered from its receipt.
+
+17
+00:01:35,661 --> 00:01:40,079
+It is not a new Meta conversation or an adaptive model recovery.
+
+18
+00:01:40,229 --> 00:01:47,398
+The division of responsibility is explicit: Meta requests tools, and code enforces constraints.
+
+19
+00:01:50,000 --> 00:01:54,719
+The viewer displays the saved ranked candidates and their ESM scores.
+
+20
+00:01:54,869 --> 00:01:57,977
+The numbers come directly from the artifact.
+
+21
+00:01:58,127 --> 00:02:01,966
+One common score policy applies to every candidate.
+
+22
+00:02:02,116 --> 00:02:06,330
+The retained model and reference hashes make the result inspectable.
+
+23
+00:02:06,480 --> 00:02:11,873
+Actual provider cost remains unknown; a reservation is not an invoice.
+
+24
+00:02:12,023 --> 00:02:18,976
+ESM preferences do not establish thermal stability, activity, solubility, or retained function.
+
+25
+00:02:19,126 --> 00:02:22,510
+Atom geometry also remains unverified.
+
+26
+00:02:25,000 --> 00:02:30,443
+This demonstration establishes a saved working integration and tested local guards.
+
+27
+00:02:30,593 --> 00:02:35,337
+It does not establish biological improvement or a general time saving.
+
+28
+00:02:35,487 --> 00:02:41,300
+A controlled manual, fixed, and Meta workflow comparison has not been measured.
+
+29
+00:02:41,450 --> 00:02:44,589
+No experimental validation is claimed.
+
+30
+00:02:45,000 --> 00:02:50,200
+BioPilot contributes reusable guarded MCP tools and an inspectable Meta workflow.
+
+31
+00:02:50,350 --> 00:02:53,769
+Earlier design work and external models remain credited.
+
+32
+00:02:53,919 --> 00:02:59,592
+The repository, video access, eligibility, and final submission still need their own review.
+

@@ -1,0 +1,586 @@
+{
+  "rows": [
+    {
+      "checkpoint": "esm2_t30_150M_UR50D",
+      "model_key": "esm150",
+      "rank_policy": "esm150_masked_v1",
+      "weights_sha256": "377f67e27c559ef9db8eac8296e0961ba68a98b08d32da9072af3853d193549b",
+      "tokenizer_sha256": "28bae4e8d8b0225381da7978ca8b341f5ac46cc4f0ca62ad459c7955608b6ea2",
+      "config_sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+      "weight_file_hashes": {
+        "model.safetensors": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566"
+      },
+      "implementation": "transformers-5.2.0/torch-2.9.1",
+      "precision": "float32",
+      "source_mode": "live",
+      "device": "cpu",
+      "checkpoint_revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+      "upstream_authenticity": "trusted_launcher_supplied_pins",
+      "ignored_nonpersistent_buffers": [
+        "esm.embeddings.position_ids"
+      ],
+      "reference_id": "ESTA_BACSU_Nutschel_2020",
+      "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+      "sequence_context": "full_212",
+      "score_kind": "masked_marginal_log_likelihood_ratio",
+      "candidate_id": "A32C",
+      "full_position": 32,
+      "wild_type": "A",
+      "mutant": "C",
+      "score": -8.447082757949829
+    },
+    {
+      "checkpoint": "esm2_t30_150M_UR50D",
+      "model_key": "esm150",
+      "rank_policy": "esm150_masked_v1",
+      "weights_sha256": "377f67e27c559ef9db8eac8296e0961ba68a98b08d32da9072af3853d193549b",
+      "tokenizer_sha256": "28bae4e8d8b0225381da7978ca8b341f5ac46cc4f0ca62ad459c7955608b6ea2",
+      "config_sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+      "weight_file_hashes": {
+        "model.safetensors": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566"
+      },
+      "implementation": "transformers-5.2.0/torch-2.9.1",
+      "precision": "float32",
+      "source_mode": "live",
+      "device": "cpu",
+      "checkpoint_revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+      "upstream_authenticity": "trusted_launcher_supplied_pins",
+      "ignored_nonpersistent_buffers": [
+        "esm.embeddings.position_ids"
+      ],
+      "reference_id": "ESTA_BACSU_Nutschel_2020",
+      "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+      "sequence_context": "full_212",
+      "score_kind": "masked_marginal_log_likelihood_ratio",
+      "candidate_id": "A32D",
+      "full_position": 32,
+      "wild_type": "A",
+      "mutant": "D",
+      "score": -1.908064603805542
+    },
+    {
+      "checkpoint": "esm2_t30_150M_UR50D",
+      "model_key": "esm150",
+      "rank_policy": "esm150_masked_v1",
+      "weights_sha256": "377f67e27c559ef9db8eac8296e0961ba68a98b08d32da9072af3853d193549b",
+      "tokenizer_sha256": "28bae4e8d8b0225381da7978ca8b341f5ac46cc4f0ca62ad459c7955608b6ea2",
+      "config_sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+      "weight_file_hashes": {
+        "model.safetensors": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566"
+      },
+      "implementation": "transformers-5.2.0/torch-2.9.1",
+      "precision": "float32",
+      "source_mode": "live",
+      "device": "cpu",
+      "checkpoint_revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+      "upstream_authenticity": "trusted_launcher_supplied_pins",
+      "ignored_nonpersistent_buffers": [
+        "esm.embeddings.position_ids"
+      ],
+      "reference_id": "ESTA_BACSU_Nutschel_2020",
+      "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+      "sequence_context": "full_212",
+      "score_kind": "masked_marginal_log_likelihood_ratio",
+      "candidate_id": "A32E",
+      "full_position": 32,
+      "wild_type": "A",
+      "mutant": "E",
+      "score": -1.2544786930084229
+    },
+    {
+      "checkpoint": "esm2_t30_150M_UR50D",
+      "model_key": "esm150",
+      "rank_policy": "esm150_masked_v1",
+      "weights_sha256": "377f67e27c559ef9db8eac8296e0961ba68a98b08d32da9072af3853d193549b",
+      "tokenizer_sha256": "28bae4e8d8b0225381da7978ca8b341f5ac46cc4f0ca62ad459c7955608b6ea2",
+      "config_sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+      "weight_file_hashes": {
+        "model.safetensors": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566"
+      },
+      "implementation": "transformers-5.2.0/torch-2.9.1",
+      "precision": "float32",
+      "source_mode": "live",
+      "device": "cpu",
+      "checkpoint_revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+      "upstream_authenticity": "trusted_launcher_supplied_pins",
+      "ignored_nonpersistent_buffers": [
+        "esm.embeddings.position_ids"
+      ],
+      "reference_id": "ESTA_BACSU_Nutschel_2020",
+      "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+      "sequence_context": "full_212",
+      "score_kind": "masked_marginal_log_likelihood_ratio",
+      "candidate_id": "A32F",
+      "full_position": 32,
+      "wild_type": "A",
+      "mutant": "F",
+      "score": -3.845855474472046
+    },
+    {
+      "checkpoint": "esm2_t30_150M_UR50D",
+      "model_key": "esm150",
+      "rank_policy": "esm150_masked_v1",
+      "weights_sha256": "377f67e27c559ef9db8eac8296e0961ba68a98b08d32da9072af3853d193549b",
+      "tokenizer_sha256": "28bae4e8d8b0225381da7978ca8b341f5ac46cc4f0ca62ad459c7955608b6ea2",
+      "config_sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+      "weight_file_hashes": {
+        "model.safetensors": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566"
+      },
+      "implementation": "transformers-5.2.0/torch-2.9.1",
+      "precision": "float32",
+      "source_mode": "live",
+      "device": "cpu",
+      "checkpoint_revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+      "upstream_authenticity": "trusted_launcher_supplied_pins",
+      "ignored_nonpersistent_buffers": [
+        "esm.embeddings.position_ids"
+      ],
+      "reference_id": "ESTA_BACSU_Nutschel_2020",
+      "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+      "sequence_context": "full_212",
+      "score_kind": "masked_marginal_log_likelihood_ratio",
+      "candidate_id": "A32G",
+      "full_position": 32,
+      "wild_type": "A",
+      "mutant": "G",
+      "score": -3.4855246543884277
+    },
+    {
+      "checkpoint": "esm2_t30_150M_UR50D",
+      "model_key": "esm150",
+      "rank_policy": "esm150_masked_v1",
+      "weights_sha256": "377f67e27c559ef9db8eac8296e0961ba68a98b08d32da9072af3853d193549b",
+      "tokenizer_sha256": "28bae4e8d8b0225381da7978ca8b341f5ac46cc4f0ca62ad459c7955608b6ea2",
+      "config_sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+      "weight_file_hashes": {
+        "model.safetensors": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566"
+      },
+      "implementation": "transformers-5.2.0/torch-2.9.1",
+      "precision": "float32",
+      "source_mode": "live",
+      "device": "cpu",
+      "checkpoint_revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+      "upstream_authenticity": "trusted_launcher_supplied_pins",
+      "ignored_nonpersistent_buffers": [
+        "esm.embeddings.position_ids"
+      ],
+      "reference_id": "ESTA_BACSU_Nutschel_2020",
+      "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+      "sequence_context": "full_212",
+      "score_kind": "masked_marginal_log_likelihood_ratio",
+      "candidate_id": "A32H",
+      "full_position": 32,
+      "wild_type": "A",
+      "mutant": "H",
+      "score": -4.616792440414429
+    },
+    {
+      "checkpoint": "esm2_t30_150M_UR50D",
+      "model_key": "esm150",
+      "rank_policy": "esm150_masked_v1",
+      "weights_sha256": "377f67e27c559ef9db8eac8296e0961ba68a98b08d32da9072af3853d193549b",
+      "tokenizer_sha256": "28bae4e8d8b0225381da7978ca8b341f5ac46cc4f0ca62ad459c7955608b6ea2",
+      "config_sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+      "weight_file_hashes": {
+        "model.safetensors": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566"
+      },
+      "implementation": "transformers-5.2.0/torch-2.9.1",
+      "precision": "float32",
+      "source_mode": "live",
+      "device": "cpu",
+      "checkpoint_revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+      "upstream_authenticity": "trusted_launcher_supplied_pins",
+      "ignored_nonpersistent_buffers": [
+        "esm.embeddings.position_ids"
+      ],
+      "reference_id": "ESTA_BACSU_Nutschel_2020",
+      "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+      "sequence_context": "full_212",
+      "score_kind": "masked_marginal_log_likelihood_ratio",
+      "candidate_id": "A32I",
+      "full_position": 32,
+      "wild_type": "A",
+      "mutant": "I",
+      "score": -3.3707865476608276
+    },
+    {
+      "checkpoint": "esm2_t30_150M_UR50D",
+      "model_key": "esm150",
+      "rank_policy": "esm150_masked_v1",
+      "weights_sha256": "377f67e27c559ef9db8eac8296e0961ba68a98b08d32da9072af3853d193549b",
+      "tokenizer_sha256": "28bae4e8d8b0225381da7978ca8b341f5ac46cc4f0ca62ad459c7955608b6ea2",
+      "config_sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+      "weight_file_hashes": {
+        "model.safetensors": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566"
+      },
+      "implementation": "transformers-5.2.0/torch-2.9.1",
+      "precision": "float32",
+      "source_mode": "live",
+      "device": "cpu",
+      "checkpoint_revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+      "upstream_authenticity": "trusted_launcher_supplied_pins",
+      "ignored_nonpersistent_buffers": [
+        "esm.embeddings.position_ids"
+      ],
+      "reference_id": "ESTA_BACSU_Nutschel_2020",
+      "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+      "sequence_context": "full_212",
+      "score_kind": "masked_marginal_log_likelihood_ratio",
+      "candidate_id": "A32K",
+      "full_position": 32,
+      "wild_type": "A",
+      "mutant": "K",
+      "score": -2.1361669301986694
+    },
+    {
+      "checkpoint": "esm2_t30_150M_UR50D",
+      "model_key": "esm150",
+      "rank_policy": "esm150_masked_v1",
+      "weights_sha256": "377f67e27c559ef9db8eac8296e0961ba68a98b08d32da9072af3853d193549b",
+      "tokenizer_sha256": "28bae4e8d8b0225381da7978ca8b341f5ac46cc4f0ca62ad459c7955608b6ea2",
+      "config_sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+      "weight_file_hashes": {
+        "model.safetensors": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566"
+      },
+      "implementation": "transformers-5.2.0/torch-2.9.1",
+      "precision": "float32",
+      "source_mode": "live",
+      "device": "cpu",
+      "checkpoint_revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+      "upstream_authenticity": "trusted_launcher_supplied_pins",
+      "ignored_nonpersistent_buffers": [
+        "esm.embeddings.position_ids"
+      ],
+      "reference_id": "ESTA_BACSU_Nutschel_2020",
+      "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+      "sequence_context": "full_212",
+      "score_kind": "masked_marginal_log_likelihood_ratio",
+      "candidate_id": "A32L",
+      "full_position": 32,
+      "wild_type": "A",
+      "mutant": "L",
+      "score": -2.8797915168106556
+    },
+    {
+      "checkpoint": "esm2_t30_150M_UR50D",
+      "model_key": "esm150",
+      "rank_policy": "esm150_masked_v1",
+      "weights_sha256": "377f67e27c559ef9db8eac8296e0961ba68a98b08d32da9072af3853d193549b",
+      "tokenizer_sha256": "28bae4e8d8b0225381da7978ca8b341f5ac46cc4f0ca62ad459c7955608b6ea2",
+      "config_sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+      "weight_file_hashes": {
+        "model.safetensors": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566"
+      },
+      "implementation": "transformers-5.2.0/torch-2.9.1",
+      "precision": "float32",
+      "source_mode": "live",
+      "device": "cpu",
+      "checkpoint_revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+      "upstream_authenticity": "trusted_launcher_supplied_pins",
+      "ignored_nonpersistent_buffers": [
+        "esm.embeddings.position_ids"
+      ],
+      "reference_id": "ESTA_BACSU_Nutschel_2020",
+      "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+      "sequence_context": "full_212",
+      "score_kind": "masked_marginal_log_likelihood_ratio",
+      "candidate_id": "A32M",
+      "full_position": 32,
+      "wild_type": "A",
+      "mutant": "M",
+      "score": -3.8235995769500732
+    },
+    {
+      "checkpoint": "esm2_t30_150M_UR50D",
+      "model_key": "esm150",
+      "rank_policy": "esm150_masked_v1",
+      "weights_sha256": "377f67e27c559ef9db8eac8296e0961ba68a98b08d32da9072af3853d193549b",
+      "tokenizer_sha256": "28bae4e8d8b0225381da7978ca8b341f5ac46cc4f0ca62ad459c7955608b6ea2",
+      "config_sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+      "weight_file_hashes": {
+        "model.safetensors": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566"
+      },
+      "implementation": "transformers-5.2.0/torch-2.9.1",
+      "precision": "float32",
+      "source_mode": "live",
+      "device": "cpu",
+      "checkpoint_revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+      "upstream_authenticity": "trusted_launcher_supplied_pins",
+      "ignored_nonpersistent_buffers": [
+        "esm.embeddings.position_ids"
+      ],
+      "reference_id": "ESTA_BACSU_Nutschel_2020",
+      "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+      "sequence_context": "full_212",
+      "score_kind": "masked_marginal_log_likelihood_ratio",
+      "candidate_id": "A32N",
+      "full_position": 32,
+      "wild_type": "A",
+      "mutant": "N",
+      "score": -2.7983009666204453
+    },
+    {
+      "checkpoint": "esm2_t30_150M_UR50D",
+      "model_key": "esm150",
+      "rank_policy": "esm150_masked_v1",
+      "weights_sha256": "377f67e27c559ef9db8eac8296e0961ba68a98b08d32da9072af3853d193549b",
+      "tokenizer_sha256": "28bae4e8d8b0225381da7978ca8b341f5ac46cc4f0ca62ad459c7955608b6ea2",
+      "config_sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+      "weight_file_hashes": {
+        "model.safetensors": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566"
+      },
+      "implementation": "transformers-5.2.0/torch-2.9.1",
+      "precision": "float32",
+      "source_mode": "live",
+      "device": "cpu",
+      "checkpoint_revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+      "upstream_authenticity": "trusted_launcher_supplied_pins",
+      "ignored_nonpersistent_buffers": [
+        "esm.embeddings.position_ids"
+      ],
+      "reference_id": "ESTA_BACSU_Nutschel_2020",
+      "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+      "sequence_context": "full_212",
+      "score_kind": "masked_marginal_log_likelihood_ratio",
+      "candidate_id": "A32P",
+      "full_position": 32,
+      "wild_type": "A",
+      "mutant": "P",
+      "score": -6.5848352909088135
+    },
+    {
+      "checkpoint": "esm2_t30_150M_UR50D",
+      "model_key": "esm150",
+      "rank_policy": "esm150_masked_v1",
+      "weights_sha256": "377f67e27c559ef9db8eac8296e0961ba68a98b08d32da9072af3853d193549b",
+      "tokenizer_sha256": "28bae4e8d8b0225381da7978ca8b341f5ac46cc4f0ca62ad459c7955608b6ea2",
+      "config_sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+      "weight_file_hashes": {
+        "model.safetensors": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566"
+      },
+      "implementation": "transformers-5.2.0/torch-2.9.1",
+      "precision": "float32",
+      "source_mode": "live",
+      "device": "cpu",
+      "checkpoint_revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+      "upstream_authenticity": "trusted_launcher_supplied_pins",
+      "ignored_nonpersistent_buffers": [
+        "esm.embeddings.position_ids"
+      ],
+      "reference_id": "ESTA_BACSU_Nutschel_2020",
+      "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+      "sequence_context": "full_212",
+      "score_kind": "masked_marginal_log_likelihood_ratio",
+      "candidate_id": "A32Q",
+      "full_position": 32,
+      "wild_type": "A",
+      "mutant": "Q",
+      "score": -1.933516502380371
+    },
+    {
+      "checkpoint": "esm2_t30_150M_UR50D",
+      "model_key": "esm150",
+      "rank_policy": "esm150_masked_v1",
+      "weights_sha256": "377f67e27c559ef9db8eac8296e0961ba68a98b08d32da9072af3853d193549b",
+      "tokenizer_sha256": "28bae4e8d8b0225381da7978ca8b341f5ac46cc4f0ca62ad459c7955608b6ea2",
+      "config_sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+      "weight_file_hashes": {
+        "model.safetensors": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566"
+      },
+      "implementation": "transformers-5.2.0/torch-2.9.1",
+      "precision": "float32",
+      "source_mode": "live",
+      "device": "cpu",
+      "checkpoint_revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+      "upstream_authenticity": "trusted_launcher_supplied_pins",
+      "ignored_nonpersistent_buffers": [
+        "esm.embeddings.position_ids"
+      ],
+      "reference_id": "ESTA_BACSU_Nutschel_2020",
+      "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+      "sequence_context": "full_212",
+      "score_kind": "masked_marginal_log_likelihood_ratio",
+      "candidate_id": "A32R",
+      "full_position": 32,
+      "wild_type": "A",
+      "mutant": "R",
+      "score": -4.043044567108154
+    },
+    {
+      "checkpoint": "esm2_t30_150M_UR50D",
+      "model_key": "esm150",
+      "rank_policy": "esm150_masked_v1",
+      "weights_sha256": "377f67e27c559ef9db8eac8296e0961ba68a98b08d32da9072af3853d193549b",
+      "tokenizer_sha256": "28bae4e8d8b0225381da7978ca8b341f5ac46cc4f0ca62ad459c7955608b6ea2",
+      "config_sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+      "weight_file_hashes": {
+        "model.safetensors": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566"
+      },
+      "implementation": "transformers-5.2.0/torch-2.9.1",
+      "precision": "float32",
+      "source_mode": "live",
+      "device": "cpu",
+      "checkpoint_revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+      "upstream_authenticity": "trusted_launcher_supplied_pins",
+      "ignored_nonpersistent_buffers": [
+        "esm.embeddings.position_ids"
+      ],
+      "reference_id": "ESTA_BACSU_Nutschel_2020",
+      "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+      "sequence_context": "full_212",
+      "score_kind": "masked_marginal_log_likelihood_ratio",
+      "candidate_id": "A32S",
+      "full_position": 32,
+      "wild_type": "A",
+      "mutant": "S",
+      "score": -1.6078839302062988
+    },
+    {
+      "checkpoint": "esm2_t30_150M_UR50D",
+      "model_key": "esm150",
+      "rank_policy": "esm150_masked_v1",
+      "weights_sha256": "377f67e27c559ef9db8eac8296e0961ba68a98b08d32da9072af3853d193549b",
+      "tokenizer_sha256": "28bae4e8d8b0225381da7978ca8b341f5ac46cc4f0ca62ad459c7955608b6ea2",
+      "config_sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+      "weight_file_hashes": {
+        "model.safetensors": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566"
+      },
+      "implementation": "transformers-5.2.0/torch-2.9.1",
+      "precision": "float32",
+      "source_mode": "live",
+      "device": "cpu",
+      "checkpoint_revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+      "upstream_authenticity": "trusted_launcher_supplied_pins",
+      "ignored_nonpersistent_buffers": [
+        "esm.embeddings.position_ids"
+      ],
+      "reference_id": "ESTA_BACSU_Nutschel_2020",
+      "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+      "sequence_context": "full_212",
+      "score_kind": "masked_marginal_log_likelihood_ratio",
+      "candidate_id": "A32T",
+      "full_position": 32,
+      "wild_type": "A",
+      "mutant": "T",
+      "score": -2.8408348113298416
+    },
+    {
+      "checkpoint": "esm2_t30_150M_UR50D",
+      "model_key": "esm150",
+      "rank_policy": "esm150_masked_v1",
+      "weights_sha256": "377f67e27c559ef9db8eac8296e0961ba68a98b08d32da9072af3853d193549b",
+      "tokenizer_sha256": "28bae4e8d8b0225381da7978ca8b341f5ac46cc4f0ca62ad459c7955608b6ea2",
+      "config_sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+      "weight_file_hashes": {
+        "model.safetensors": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566"
+      },
+      "implementation": "transformers-5.2.0/torch-2.9.1",
+      "precision": "float32",
+      "source_mode": "live",
+      "device": "cpu",
+      "checkpoint_revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+      "upstream_authenticity": "trusted_launcher_supplied_pins",
+      "ignored_nonpersistent_buffers": [
+        "esm.embeddings.position_ids"
+      ],
+      "reference_id": "ESTA_BACSU_Nutschel_2020",
+      "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+      "sequence_context": "full_212",
+      "score_kind": "masked_marginal_log_likelihood_ratio",
+      "candidate_id": "A32V",
+      "full_position": 32,
+      "wild_type": "A",
+      "mutant": "V",
+      "score": -2.2615394592285156
+    },
+    {
+      "checkpoint": "esm2_t30_150M_UR50D",
+      "model_key": "esm150",
+      "rank_policy": "esm150_masked_v1",
+      "weights_sha256": "377f67e27c559ef9db8eac8296e0961ba68a98b08d32da9072af3853d193549b",
+      "tokenizer_sha256": "28bae4e8d8b0225381da7978ca8b341f5ac46cc4f0ca62ad459c7955608b6ea2",
+      "config_sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+      "weight_file_hashes": {
+        "model.safetensors": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566"
+      },
+      "implementation": "transformers-5.2.0/torch-2.9.1",
+      "precision": "float32",
+      "source_mode": "live",
+      "device": "cpu",
+      "checkpoint_revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+      "upstream_authenticity": "trusted_launcher_supplied_pins",
+      "ignored_nonpersistent_buffers": [
+        "esm.embeddings.position_ids"
+      ],
+      "reference_id": "ESTA_BACSU_Nutschel_2020",
+      "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+      "sequence_context": "full_212",
+      "score_kind": "masked_marginal_log_likelihood_ratio",
+      "candidate_id": "A32W",
+      "full_position": 32,
+      "wild_type": "A",
+      "mutant": "W",
+      "score": -4.443659543991089
+    },
+    {
+      "checkpoint": "esm2_t30_150M_UR50D",
+      "model_key": "esm150",
+      "rank_policy": "esm150_masked_v1",
+      "weights_sha256": "377f67e27c559ef9db8eac8296e0961ba68a98b08d32da9072af3853d193549b",
+      "tokenizer_sha256": "28bae4e8d8b0225381da7978ca8b341f5ac46cc4f0ca62ad459c7955608b6ea2",
+      "config_sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+      "weight_file_hashes": {
+        "model.safetensors": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566"
+      },
+      "implementation": "transformers-5.2.0/torch-2.9.1",
+      "precision": "float32",
+      "source_mode": "live",
+      "device": "cpu",
+      "checkpoint_revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+      "upstream_authenticity": "trusted_launcher_supplied_pins",
+      "ignored_nonpersistent_buffers": [
+        "esm.embeddings.position_ids"
+      ],
+      "reference_id": "ESTA_BACSU_Nutschel_2020",
+      "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+      "sequence_context": "full_212",
+      "score_kind": "masked_marginal_log_likelihood_ratio",
+      "candidate_id": "A32Y",
+      "full_position": 32,
+      "wild_type": "A",
+      "mutant": "Y",
+      "score": -2.2811559438705444
+    }
+  ],
+  "provenance": {
+    "checkpoint": "esm2_t30_150M_UR50D",
+    "model_key": "esm150",
+    "rank_policy": "esm150_masked_v1",
+    "weights_sha256": "377f67e27c559ef9db8eac8296e0961ba68a98b08d32da9072af3853d193549b",
+    "tokenizer_sha256": "28bae4e8d8b0225381da7978ca8b341f5ac46cc4f0ca62ad459c7955608b6ea2",
+    "config_sha256": "e512f68ec444d99477703a9806639ca83da3dbc19f6c5fe428d6e5b7460972dc",
+    "weight_file_hashes": {
+      "model.safetensors": "c3f1da8aea53bddd32c246c86168c23b9fd72341fb9db9a94436f855f5053566"
+    },
+    "implementation": "transformers-5.2.0/torch-2.9.1",
+    "precision": "float32",
+    "source_mode": "live",
+    "device": "cpu",
+    "checkpoint_revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+    "upstream_authenticity": "trusted_launcher_supplied_pins",
+    "ignored_nonpersistent_buffers": [
+      "esm.embeddings.position_ids"
+    ],
+    "reference_id": "ESTA_BACSU_Nutschel_2020",
+    "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+    "sequence_context": "full_212",
+    "score_kind": "masked_marginal_log_likelihood_ratio"
+  },
+  "source_mode": "live",
+  "cached_positions_1based": [],
+  "phenotype_calibrated": false,
+  "score_units": "dimensionless",
+  "rank_policy": "esm150_masked_v1",
+  "limitations": "ESM sequence preference; T50, activity and retained function are unknown.",
+  "artifact_sha256": "63a1c3752407d96a54f33b735d72e700839e4b0e9363894597738f6e8531157f"
+}

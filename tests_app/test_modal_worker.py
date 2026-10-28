@@ -184,6 +184,11 @@ def test_approved_factory_definition_is_bounded_and_uses_only_file_allowlist(mon
     assert options["gpu"] == "T4"
     assert options["max_containers"] == 1 and options["min_containers"] == 0
     assert options["retries"] == 0 and options["timeout"] == 120
+    assert options["cpu"] == (1.0,1.0)
+    assert options["memory"] == (4096,4096)
+    assert options["startup_timeout"] == 120
+    assert options["scaledown_window"] == 2
+    assert definition.resource_bounds['deployment_verified'] is False
     assert options["secrets"] == [] and options["include_source"] is False
     assert options["block_network"] is True
     assert definition.app.include_source is False
@@ -238,3 +243,11 @@ def test_timeout_above_approved_max_or_invalid_is_refused(timeout):
         create_modal_app(manifest(), project_root=ROOT, expected_sdk_version="1.4.1",
                          deployment_approved=True, volume_approved=True,
                          existing_volume_name="existing-models", timeout_seconds=timeout)
+
+def test_worker_and_service_share_full_compute_reservation_components():
+    from app.science import modal_worker as worker
+    from app.science import inference_service as service
+    expected={'execution_seconds':900,'startup_seconds':120,'idle_seconds':2}
+    assert worker.remote_reservation_components()==expected
+    assert service.remote_reservation_components()==expected
+    assert sum(expected.values())==1022

@@ -1,0 +1,79 @@
+{
+  "date_kst": "2026-10-28",
+  "scope": "UI and provenance correctness, actual sampled browser interactions, local video/package preparation; no new provider or ESM/GPU execution",
+  "full_regression": {
+    "command": ".venv/Scripts/python.exe -m pytest tests tests_app -q -rs -p no:cacheprovider --basetemp=.cache/polished_full_20261028",
+    "passed": 588,
+    "failed": 0,
+    "skipped": 2,
+    "warnings": 2,
+    "subtests_passed": 12,
+    "elapsed_seconds": 47.51,
+    "returncode": 0,
+    "skip_scope": "Windows symlink privileges",
+    "warning_scope": "Installed Modal asyncio deprecations"
+  },
+  "behavioral_tests": {
+    "ui_interaction_red_failures": 4,
+    "ui_integrity_related_green_passes": 92,
+    "provenance_new_tests_passed": 18,
+    "provenance_initial_red_failed": 14
+  },
+  "browser": {
+    "original_user_url": "http://127.0.0.1:8520/",
+    "improved_preview_url": "http://127.0.0.1:8521/",
+    "user_process_stopped": false,
+    "desktop_checked": "1440x900",
+    "narrow_view_checked": true,
+    "sidebar_toggle_checked": true,
+    "themes": [
+      {
+        "appearance": "Light",
+        "metric": {
+          "background": "rgb(255, 255, 255)",
+          "text": "rgb(23, 35, 49)",
+          "contrast_ratio": 15.894706372645187
+        },
+        "sidebar": {
+          "background": "rgb(255, 255, 255)",
+          "text": "rgb(23, 35, 49)",
+          "contrast_ratio": 15.894706372645187
+        }
+      },
+      {
+        "appearance": "Dark",
+        "metric": {
+          "background": "rgb(18, 24, 32)",
+          "text": "rgb(238, 242, 246)",
+          "contrast_ratio": 15.85675108912652
+        },
+        "sidebar": {
+          "background": "rgb(18, 24, 32)",
+          "text": "rgb(238, 242, 246)",
+          "contrast_ratio": 15.85675108912652
+        }
+      }
+    ],
+    "contrast_scope": "Computed text/background for sidebar and primary metrics; not a complete WCAG audit",
+    "actual_csv_download_rows": 2,
+    "csv_original_values_verified": true
+  },
+  "video_receipt": {
+    "path": "submission/video_polished_receipt.json",
+    "sha256": "c6a2fa0569f18e1e4e6a8ca54758408deb5362c13404e06ab1fbce1f2a08d87a"
+  },
+  "capture_frames": 340,
+  "continuous_os_screencast": false,
+  "existing_replay_sha256": "cf02b139fe0866483ebb069903e5e0c2ce65a03e9460697c5ffecef805c273f8",
+  "this_turn_external_provider_requests": 0,
+  "this_turn_esm_inference": 0,
+  "this_turn_gpu_jobs": 0,
+  "public_actions_performed": false,
+  "human_full_video_audio_review_complete": false,
+  "package_validation": {
+    "command": ".venv/Scripts/python.exe checks/validate_package.py",
+    "status": "PASS",
+    "check_count": 1475,
+    "failed_count": 0
+  }
+}

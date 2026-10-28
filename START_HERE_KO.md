@@ -1,41 +1,55 @@
-# BioPilot Atlas v3: 먼저 읽어 주세요
+# BioPilot Bench v3: 먼저 읽어 주세요
 
-2026-10-27 실제 로컬 구현을 시작했습니다. [실행 안내](docs/IMPLEMENTATION_KO.md)와
-[현재 상태](docs/STATUS.md)를 먼저 확인하세요. 아래는 원본 패키지 설명을 보존한 내용입니다.
+현재 안내 갱신일: **2026-10-28**. 설계 패키지에서 시작해 실제 로컬 제품 코드까지
+구현되었습니다. [실행 안내](docs/IMPLEMENTATION_KO.md), [현재 상태](docs/STATUS.md),
+[제출 초안](submission/README.md)을 확인하세요.
 
-수정일: 2026-10-27. 이 ZIP은 v2 전체를 대체하는 수정본입니다.
+실제 저장 실행에서는 `muse-spark-1.3`가 MCP 검증과 로컬 ESM-2 150M 계산을 호출하고
+최종 설명까지 완료했습니다. 전체 212개 서열, 전체 기준 1-based 번호, 공통 순위 정책으로
+위치 32의 19개 대안을 계산했습니다. [실행 영수증](validation/integration_success_20261027.json)에
+모델·가중치·토크나이저·결과 해시가 있습니다. 저장 기록을 여는 화면은 **REPLAY**이며
+새로운 실시간 호출이 아닙니다. 읽기 전용 Streamlit 뷰어도 구현되었습니다.
 
-| 항목 | 적용 방향 |
-|---|---|
-| Track | Indie Developer |
-| Theme | Push the Frontier |
-| 핵심 구성 | Meta runtime + BioPilot MCP Server + ESM |
-| 시연 화면 | Streamlit (선택 기능) |
-| 심사 비중 | Impact 30% / Meta 25% / Technical 20% / Demo 25% |
-| 영상 | 3분 (180초) |
+이 결과는 **검증되지 않은 서열 근거 검토 도우미**의 작동 증거입니다. ESM 점수는 T50,
+활성, 용해도, Tm이나 기능 유지의 검증값이 아닙니다. 별도 후향 평가의 잔기별 bootstrap
+구간은 0을 포함하므로 내열성 예측 성능이나 생물학적 개선을 주장할 수 없습니다.
 
-**완성된 앱이나 검증된 내열성 예측 모델이 아닙니다.** 설계서, 프롬프트, 설정과 오프라인 검증 예제가 들어 있습니다.
+## 실행 순서
 
-## 시작 순서
+1. [한국어 실행 안내](docs/IMPLEMENTATION_KO.md)를 읽습니다.
+2. 프로젝트 루트의 PowerShell에서 아래 로컬 검사를 실행합니다.
+3. [시연 안내](demo/README_KO.md)와 [제출 초안](submission/README.md)에서 저장 증거와
+   남은 영상·접근성·규칙 확인 항목을 검토합니다.
 
-1. `BIOPILOT_ATLAS_KO.md`, `docs/14_hackathon_rules_and_strategy.md`, `docs/15_mcp_contract_and_hosts.md`를 읽습니다.
-2. 아래 명령으로 오프라인 검사를 실행합니다.
-3. WORK / Muse Code / Codex / Claude Code에서 폴더를 열고 `prompts/coding/00_bootstrap_ko.txt`를 전달합니다.
-4. `docs/superpowers/plans/2026-10-27-v3-mcp-hackathon.md`의 순서로 구현합니다.
-
-```bash
-python -m unittest discover -s tests -v
-python checks/validate_package.py
+```powershell
+.venv/Scripts/python.exe -m app.cli validate --variant A32V
+.venv/Scripts/python.exe -m app.cli validate --variant S108A
+.venv/Scripts/python.exe -m pytest tests tests_app -q -rs -p no:cacheprovider
+.venv/Scripts/python.exe checks/validate_package.py
 ```
 
-## 주의할 점
+`S108A`는 촉매 잔기 보호로 차단되어야 합니다. 위 명령은 외부 모델 호출이나 GPU 생성을
+하지 않습니다. 다른 컴퓨터의 깨끗한 설치는 아직 검증하지 않았습니다.
 
-심사 기준은 대화에서 직접 확인한 공식 참가자 안내를 반영했습니다. 이번에는 브라우저 연결이 되지 않아 제출 전 최종 규칙과 양식을 다시 확인해야 합니다.
+## 제출 전 남은 구분
 
-v2의 서열 대응, 촉매 잔기 보호, T50 정의와 정답 분리 원칙은 유지합니다. ESM 점수를 내열성 개선의 증거로 바꾸어 표현하지 않습니다.
+작동하는 핵심 경로와 최종 제출 준비는 별개입니다. 실제 3분 영상, 공개 저장소 및 심사자
+접근, 최종 제출 양식, 자격·사전 작업 재사용 판정과 권리 확인은 실제 증거가 있어야
+완료로 표시합니다. 규칙 문서는 2026-10-27 대화에서 읽은 참가자 안내의 스냅샷이며
+최신 최종 규칙을 재확인했다는 뜻이 아닙니다. 제출 상태는 실제 접수 영수증 전까지
+`not_submitted`입니다.
 
-**ProteinGym 실험 정답은 MCP 도구로 공개하지 않습니다.** 예측 에이전트에게 이 패키지 전체를 연결하지 말고, 허용된 자료만 별도 폴더에 놓습니다.
+**ProteinGym 실험 정답과 평가 결과는 MCP 도구로 공개하지 않습니다.** 예측 에이전트에는
+허용목록으로 만든 실행 폴더만 연결합니다. S108/D164/H187 보호, 번호 체계와 정답 분리
+원칙은 유지합니다. 원자 좌표를 확인하지 않은 구조 주장은 계속 차단합니다.
 
-유료 호출, GPU 생성, 배포, 저장소 공개와 대회 제출은 별도 승인이 필요합니다. 사전 준비물을 대회 중 새로 만든 코드로 표시하지 않습니다.
+새 유료 호출, 모델 다운로드, GPU 생성, 외부 서열 전송, 배포, 저장소 공개와 대회 제출은
+각각 명시 승인이 필요합니다. 저장 결과의 재생은 추가 호출 승인이 아닙니다.
 
-기존 폴더에 일부만 덮어쓰지 말고, 새 폴더에 전체 압축을 해제해 사용하세요.
+## 보존된 출발점
+
+원본 v3 패키지 날짜는 2026-10-27이며 v2 전체를 대체하는 설계서·프롬프트·설정·오프라인
+검증 예제였습니다. 당시의 “완성된 앱이 아님” 설명과 구현 계획은 출발점 기록입니다.
+원본 manifest, 결정 기록과 사전 준비물 출처를 보존합니다. 이를 대회 중 새로 작성한 코드로
+표시하거나 날짜·이력을 바꾸지 않습니다. 기존 ZIP을 옮길 때는 일부 덮어쓰기로 서로 다른
+버전을 섞지 말고 전체 패키지를 별도 폴더에서 확인하세요.

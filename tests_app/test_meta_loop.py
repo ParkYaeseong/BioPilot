@@ -195,7 +195,8 @@ class ReviewBridge(Bridge):
         return {'status':'ok','coordinate_mapping_verified':False,'phenotype_calibrated':False}
 
 
-def setup_review(tmp_path,client,bridge=None,*,max_requests=4,micros=250000,model_key='esm150',positions=None):
+def setup_review(tmp_path,client,bridge=None,*,max_requests=4,micros=250000,model_key='esm150',positions=None,
+                 final_report_tokens=None):
     runs=RunService(tmp_path/'review.sqlite')
     target=validate_target(registered_profile(),'sequence_plausibility_review')
     rid=runs.create({**target.summary(),'objective_profile_id':target.objective_id,
@@ -204,7 +205,8 @@ def setup_review(tmp_path,client,bridge=None,*,max_requests=4,micros=250000,mode
         'requested_budget':{'usd_micros':micros,'max_meta_requests':max_requests}},'local')
     state=runs.get(rid,'local');runs.approve(rid,state['plan_digest'],1,'local')
     bridge=bridge or ReviewBridge()
-    host=MetaHost(client,bridge,runs,rid,'local',workflow='sequence_review')
+    extra={} if final_report_tokens is None else {'final_report_tokens':final_report_tokens}
+    host=MetaHost(client,bridge,runs,rid,'local',workflow='sequence_review',**extra)
     return host,runs,rid,bridge
 
 
@@ -224,7 +226,10 @@ def test_sequence_review_three_turns_code_ranks_artifact_and_final_has_no_tools(
     assert result['candidates'][0]['score']>=result['candidates'][-1]['score']
     assert [name for name,args in bridge.calls]==['validate_target_context','score_positions']
     assert client.payloads[2].get('tools') is None
-    assert client.payloads[2]['messages'][-1]['tool_call_id']=='score-1'
+    # The score result must still reach the final turn, which now ends with its own
+    # report instruction rather than the tool message.
+    assert [m for m in client.payloads[2]['messages'] if m.get('role')=='tool'][-1]['tool_call_id']=='score-1'
+    assert client.payloads[2]['messages'][-1]['role']=='developer'
     assert client.payloads[1]['messages'][-1]['tool_call_id']=='call-1'
     assert 'model_narrative' in result
     assert result['ranking_scope']=='esm150_masked_v1'
@@ -390,3 +395,101 @@ def test_invalid_review_pins_fail_before_provider_or_tool_calls(tmp_path,pins):
     with pytest.raises(ValueError):
         asyncio.run(host.run())
     assert client.payloads==[] and bridge.calls==[]
+
+
+def test_oversized_meta_request_is_blocked_before_secret_or_network(monkeypatch):
+    from app.host import meta_client
+    accessed=[]
+    def forbidden_secret(*args,**kwargs):
+        accessed.append('secret')
+        raise AssertionError('Secrets must not be read for an oversized body')
+    def forbidden_network(*args,**kwargs):
+        accessed.append('network')
+        raise AssertionError('Network must not be accessed for an oversized body')
+    monkeypatch.setattr(meta_client.os.environ,'get',forbidden_secret)
+    monkeypatch.setattr(meta_client,'build_opener',forbidden_network)
+    payload={'model':'muse-spark-1.3','stream':False,'max_completion_tokens':512,
+             'messages':[{'role':'user','content':'A'*20000}]}
+    with pytest.raises(ValueError,match='body|byte|size'):
+        MetaClient(live=True).complete(payload)
+    assert accessed==[]
+
+
+def test_request_guard_measures_serialized_utf8_body_and_uses_it_once(monkeypatch):
+    from app.host import meta_client
+    monkeypatch.setenv('MODEL_API_KEY','synthetic-fixture-key')
+    sent=[]
+    class Reply:
+        def __enter__(self): return self
+        def __exit__(self,*args): pass
+        def read(self,limit): return json.dumps(response(text='ready')).encode()
+    class Opener:
+        def open(self,request,timeout):
+            sent.append(request.data)
+            return Reply()
+    monkeypatch.setattr(meta_client,'build_opener',lambda *args:Opener())
+    payload={'model':'muse-spark-1.3','stream':False,'max_completion_tokens':512,
+             'messages':[{'role':'user','content':'public Korean text: 확인'}]}
+    MetaClient(live=True).complete(payload)
+    assert len(sent)==1
+    assert json.loads(sent[0])==payload
+    assert len(sent[0])<=meta_client.MAX_REQUEST_BYTES
+    payload['messages'][0]['content']='가'*10000
+    with pytest.raises(ValueError,match='body|byte|size'):
+        MetaClient(live=True).complete(payload)
+    assert len(sent)==1
+
+
+@pytest.mark.parametrize('review',[False,True])
+def test_model_tool_call_extra_metadata_is_not_replayed_or_persisted(tmp_path,review):
+    first=tool()
+    first['reasoning_content']='private-extra-metadata'
+    first['unrecognized']={'opaque':'private-extra-metadata'}
+    first['function']['reasoning_content']='private-extra-metadata'
+    if review:
+        client=Client([response(call=[first]),response(call=[score_tool()]),response(text='Unknown phenotype.')])
+        host,runs,rid,bridge=setup_review(tmp_path,client)
+    else:
+        client=Client([response(call=[first]),response(text='Unknown phenotype.')])
+        host,runs,rid,bridge=setup(tmp_path,client)
+    report=asyncio.run(host.run())
+    assert 'private-extra-metadata' not in json.dumps(client.payloads)
+    assert 'private-extra-metadata' not in json.dumps(report)
+    replayed=client.payloads[1]['messages'][-2]['tool_calls'][0]
+    assert set(replayed)=={'id','type','function'}
+    assert set(replayed['function'])=={'name','arguments'}
+    assert replayed['id']=='call-1'
+    assert client.payloads[1]['messages'][-1]['tool_call_id']=='call-1'
+
+
+@pytest.mark.parametrize('review',[False,True])
+def test_local_body_rejection_is_not_an_unknown_provider_charge(tmp_path,review):
+    from app.host.meta_client import RequestBodyLimitError
+    client=Client([RequestBodyLimitError('local oversized body')])
+    host,runs,rid,bridge=setup_review(tmp_path,client) if review else setup(tmp_path,client)
+    result=asyncio.run(host.run())
+    assert result['status']=='partial'
+    assert result['stop_reason']=='local_request_body_limit_no_network'
+    assert result['meta_request_attempts']==0
+    tasks=runs.get(rid,'local')['tasks']
+    assert not any(task['status']=='UNKNOWN' for task in tasks)
+    settled=[task for task in tasks if task['status']=='SETTLED']
+    assert len(settled)==1 and settled[0]['actual_micros']==0
+    assert bridge.calls==[]
+
+
+@pytest.mark.parametrize('review',[False,True])
+def test_future_meta_trace_keeps_public_finish_reason_on_invalid_final_output(tmp_path,review):
+    final=response(text=None)
+    final['choices'][0]['finish_reason']='length'
+    final['choices'][0]['message']['reasoning_content']='private never record'
+    replies=[response(call=[tool()])]
+    if review: replies.append(response(call=[score_tool()]))
+    replies.append(final)
+    client=Client(replies)
+    host,runs,rid,bridge=setup_review(tmp_path,client) if review else setup(tmp_path,client)
+    report=asyncio.run(host.run())
+    assert report['status']=='partial'
+    events=[event for event in report['trace'] if event['event']=='meta_response']
+    assert events[-1]['finish_reason']=='length'
+    assert 'private never record' not in json.dumps(report)

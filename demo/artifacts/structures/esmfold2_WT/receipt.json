@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "source_mode": "computed_prediction",
+  "request": {
+    "schema_version": 1,
+    "model_key": "esmfold2",
+    "variant": "WT",
+    "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+    "reference_numbering": "full_reference_1based",
+    "sequence_context": "full_212"
+  },
+  "candidate_sequence_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+  "checkpoint_manifest_sha256": "85e9c3e34d47533a9ad001efd6aab28238c5be2ccdb4f30f01caec0f9bb3a497",
+  "model_repository": "biohub/ESMFold2",
+  "checkpoint_revision": "69869f737beffec5294845ede23db5fc0b4f509e",
+  "esm_version": "3.4.1.post1",
+  "device": "cuda",
+  "seed": 0,
+  "runtime_provenance": {
+    "esm": "3.4.1.post1",
+    "torch": "2.11.0",
+    "transformers": "4.57.6",
+    "cuda_runtime": "13.0",
+    "gpu_name": "NVIDIA L40S",
+    "pytorch_memory_fraction": 0.8,
+    "peak_pytorch_allocated_bytes": 26654082048
+  },
+  "runtime_verification": "official_sdk_execution",
+  "structure_sha256": "c57df67894a5d6d5c9ca4e65cc0d2688f7aa1a43dc5a5e081a39c8e762629bcf",
+  "structure_path": "prediction.pdb",
+  "created_at": "2026-10-28T11:46:49.010753+00:00",
+  "elapsed_seconds": 44.776,
+  "annotation_only": true,
+  "baseline_rank_changed": false,
+  "experimental_validation": false,
+  "atom_geometry_validated": false,
+  "predicted_sequence_verified": true,
+  "sampling": {
+    "num_loops": 3,
+    "num_sampling_steps": 32,
+    "num_diffusion_samples": 1,
+    "chunk_size": 64,
+    "esmc_precision": "bf16"
+  },
+  "numbering_note": "Prediction residue 1 corresponds to full-reference position 1; this is the full_212 prediction, not the mature 1ISP construct.",
+  "confidence_metrics": null,
+  "phenotype_claim": null
+}

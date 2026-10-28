@@ -1,0 +1,17 @@
+RED receipt - final-report launcher entry point (2026-10-27)
+
+Command: .venv/Scripts/python.exe -m pytest tests_app/test_final_report_cli.py -q -rs
+Observed: 4 failed, 2 warnings in 3.44s
+
+Cause: app/cli.py had no 'final-report' subparser, so argparse rejected the command,
+wrote usage text to stderr and produced empty stdout; each test failed at
+json.loads(result.stdout) with JSONDecodeError("Expecting value: line 1 column 1").
+
+app/host/final_report.py and tests_app/test_final_report.py already existed and were
+green (13 passed), and app/core/runtime_bundle.py already allowlisted
+'app/host/final_report.py', but no CLI or runner command could reach either entry
+point. runner.py accepts only --workflow {validation_smoke,sequence_review}.
+
+Note on provenance: this RED run was observed in-session before implementation.
+Only the summary above is persisted; the raw pytest capture was not redirected to a
+file at the time. The matching GREEN capture is validation/phase3_final_report_cli_green.txt.

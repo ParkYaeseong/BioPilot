@@ -1,0 +1,654 @@
+{
+  "comparison_status": "descriptive_policy_coverage_only_no_benefit_inference",
+  "failed_cells": 0,
+  "format": "biopilot-policy-intake-report-v1",
+  "limitations": [
+    "Six policy-intake tasks, not completed ESM or scientific reviews",
+    "Unrun arms keep their missing cells in every denominator; only fixed, meta was executed",
+    "Local guard wall time is not operator time, inference latency or a time-saving comparison",
+    "Unknown operator effort, interventions and costs remain null",
+    "Prior Meta scientific integration is separate descriptive evidence, never a matched arm",
+    "No biological efficacy, retained-function or Meta workflow advantage established",
+    "The Meta arm chose among six enumerated reason codes; chance accuracy is one in six per cell",
+    "The registered policy rules were supplied in context, so this measures rule application, not rule discovery or independent biological judgement",
+    "Deterministic guard verdicts are recorded beside each model decision and are never presented as the model's own reasoning",
+    "A correct Meta decision does not establish scientific skill, time saving or cost benefit"
+  ],
+  "matched_scenario_count": 0,
+  "meta_benefit": null,
+  "methods": {
+    "fixed": {
+      "correct_count": 6,
+      "correct_outcome_coverage_fraction": 1.0,
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "failed_count": 0,
+      "human_interventions": null,
+      "incorrect_count": 0,
+      "missing_count": 0,
+      "observed_correct_fraction": 1.0,
+      "observed_count": 6,
+      "observed_coverage_fraction": 1.0,
+      "operator_seconds": null,
+      "source_modes": [
+        "actual_local_policy"
+      ],
+      "status": "observed",
+      "task_denominator": 6,
+      "wall_seconds": 0.007020099976216443
+    },
+    "manual": {
+      "correct_count": 0,
+      "correct_outcome_coverage_fraction": 0.0,
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "failed_count": 0,
+      "human_interventions": null,
+      "incorrect_count": 0,
+      "missing_count": 6,
+      "observed_correct_fraction": null,
+      "observed_count": 0,
+      "observed_coverage_fraction": 0.0,
+      "operator_seconds": null,
+      "source_modes": [],
+      "status": "not_run",
+      "task_denominator": 6,
+      "wall_seconds": null
+    },
+    "meta": {
+      "correct_count": 5,
+      "correct_outcome_coverage_fraction": 0.8333333333333334,
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "failed_count": 0,
+      "human_interventions": null,
+      "incorrect_count": 1,
+      "missing_count": 0,
+      "observed_correct_fraction": 0.8333333333333334,
+      "observed_count": 6,
+      "observed_coverage_fraction": 1.0,
+      "operator_seconds": null,
+      "source_modes": [
+        "actual_meta"
+      ],
+      "status": "observed",
+      "task_denominator": 6,
+      "wall_seconds": 12.414724899994326
+    }
+  },
+  "missing_cells": 6,
+  "observations": [
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "not_run",
+      "human_interventions": null,
+      "method_id": "manual",
+      "operator_seconds": null,
+      "outcome": null,
+      "protocol_sha256": "9e06c12f0aeeb080b5e252da5a2729ebc58458fc8e51b33a098a857e337e32e7",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "variant_intake",
+        "variant": "A32V"
+      },
+      "scenario_id": "validA32V",
+      "source_mode": "not_run",
+      "wall_seconds": null
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "not_run",
+      "human_interventions": null,
+      "method_id": "manual",
+      "operator_seconds": null,
+      "outcome": null,
+      "protocol_sha256": "9e06c12f0aeeb080b5e252da5a2729ebc58458fc8e51b33a098a857e337e32e7",
+      "request": {
+        "frame": "mature_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "variant_intake",
+        "variant": "A1V"
+      },
+      "scenario_id": "matureframeA1V",
+      "source_mode": "not_run",
+      "wall_seconds": null
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "not_run",
+      "human_interventions": null,
+      "method_id": "manual",
+      "operator_seconds": null,
+      "outcome": null,
+      "protocol_sha256": "9e06c12f0aeeb080b5e252da5a2729ebc58458fc8e51b33a098a857e337e32e7",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "variant_intake",
+        "variant": "S108A"
+      },
+      "scenario_id": "protectedS108A",
+      "source_mode": "not_run",
+      "wall_seconds": null
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "not_run",
+      "human_interventions": null,
+      "method_id": "manual",
+      "operator_seconds": null,
+      "outcome": null,
+      "protocol_sha256": "9e06c12f0aeeb080b5e252da5a2729ebc58458fc8e51b33a098a857e337e32e7",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "variant_intake",
+        "variant": "G32V"
+      },
+      "scenario_id": "WTmismatchG32V",
+      "source_mode": "not_run",
+      "wall_seconds": null
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "not_run",
+      "human_interventions": null,
+      "method_id": "manual",
+      "operator_seconds": null,
+      "outcome": null,
+      "protocol_sha256": "9e06c12f0aeeb080b5e252da5a2729ebc58458fc8e51b33a098a857e337e32e7",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "activity_optimization",
+        "operation": "variant_intake",
+        "variant": "A32V"
+      },
+      "scenario_id": "unsupportedactivityobjective",
+      "source_mode": "not_run",
+      "wall_seconds": null
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "not_run",
+      "human_interventions": null,
+      "method_id": "manual",
+      "operator_seconds": null,
+      "outcome": null,
+      "protocol_sha256": "9e06c12f0aeeb080b5e252da5a2729ebc58458fc8e51b33a098a857e337e32e7",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "atom_geometry",
+        "variant": "A32V"
+      },
+      "scenario_id": "unavailableatomgeometry",
+      "source_mode": "not_run",
+      "wall_seconds": null
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "completed",
+      "human_interventions": null,
+      "method_id": "fixed",
+      "operator_seconds": null,
+      "outcome": {
+        "guard_code": "validated",
+        "guard_error": null,
+        "status": "accepted",
+        "variant_context": {
+          "candidate_id": "A32V",
+          "coordinate_observed": null,
+          "full_position": 32,
+          "mature_position": 1,
+          "mutant": "V",
+          "pdb_auth_seq_id": null,
+          "pdb_label_seq_id": null,
+          "wild_type": "A"
+        }
+      },
+      "protocol_sha256": "9e06c12f0aeeb080b5e252da5a2729ebc58458fc8e51b33a098a857e337e32e7",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "variant_intake",
+        "variant": "A32V"
+      },
+      "scenario_id": "validA32V",
+      "source_mode": "actual_local_policy",
+      "wall_seconds": 0.0049623999948380515
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "completed",
+      "human_interventions": null,
+      "method_id": "fixed",
+      "operator_seconds": null,
+      "outcome": {
+        "guard_code": "frame_required",
+        "guard_error": "Explicit full_reference_1based frame required; numbering is never auto-corrected",
+        "status": "rejected",
+        "variant_context": null
+      },
+      "protocol_sha256": "9e06c12f0aeeb080b5e252da5a2729ebc58458fc8e51b33a098a857e337e32e7",
+      "request": {
+        "frame": "mature_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "variant_intake",
+        "variant": "A1V"
+      },
+      "scenario_id": "matureframeA1V",
+      "source_mode": "actual_local_policy",
+      "wall_seconds": 0.00023700000019744039
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "completed",
+      "human_interventions": null,
+      "method_id": "fixed",
+      "operator_seconds": null,
+      "outcome": {
+        "guard_code": "protected_site",
+        "guard_error": "Protected catalytic site",
+        "status": "rejected",
+        "variant_context": null
+      },
+      "protocol_sha256": "9e06c12f0aeeb080b5e252da5a2729ebc58458fc8e51b33a098a857e337e32e7",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "variant_intake",
+        "variant": "S108A"
+      },
+      "scenario_id": "protectedS108A",
+      "source_mode": "actual_local_policy",
+      "wall_seconds": 0.0004799999878741801
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "completed",
+      "human_interventions": null,
+      "method_id": "fixed",
+      "operator_seconds": null,
+      "outcome": {
+        "guard_code": "wt_mismatch",
+        "guard_error": "WT residue mismatch; numbering is not auto-corrected",
+        "status": "rejected",
+        "variant_context": null
+      },
+      "protocol_sha256": "9e06c12f0aeeb080b5e252da5a2729ebc58458fc8e51b33a098a857e337e32e7",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "variant_intake",
+        "variant": "G32V"
+      },
+      "scenario_id": "WTmismatchG32V",
+      "source_mode": "actual_local_policy",
+      "wall_seconds": 0.0006407999899238348
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "completed",
+      "human_interventions": null,
+      "method_id": "fixed",
+      "operator_seconds": null,
+      "outcome": {
+        "guard_code": "unsupported_objective",
+        "guard_error": "Unsupported scientific objective: no registered predictor",
+        "status": "rejected",
+        "variant_context": null
+      },
+      "protocol_sha256": "9e06c12f0aeeb080b5e252da5a2729ebc58458fc8e51b33a098a857e337e32e7",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "activity_optimization",
+        "operation": "variant_intake",
+        "variant": "A32V"
+      },
+      "scenario_id": "unsupportedactivityobjective",
+      "source_mode": "actual_local_policy",
+      "wall_seconds": 0.000228899996727705
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "completed",
+      "human_interventions": null,
+      "method_id": "fixed",
+      "operator_seconds": null,
+      "outcome": {
+        "guard_code": "coordinates_unverified",
+        "guard_error": "Atom coordinates and author/label correspondence are not verified",
+        "status": "unavailable",
+        "variant_context": {
+          "candidate_id": "A32V",
+          "coordinate_observed": null,
+          "full_position": 32,
+          "mature_position": 1,
+          "mutant": "V",
+          "pdb_auth_seq_id": null,
+          "pdb_label_seq_id": null,
+          "wild_type": "A"
+        }
+      },
+      "protocol_sha256": "9e06c12f0aeeb080b5e252da5a2729ebc58458fc8e51b33a098a857e337e32e7",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "atom_geometry",
+        "variant": "A32V"
+      },
+      "scenario_id": "unavailableatomgeometry",
+      "source_mode": "actual_local_policy",
+      "wall_seconds": 0.0004710000066552311
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "completed",
+      "human_interventions": null,
+      "method_id": "meta",
+      "operator_seconds": null,
+      "outcome": {
+        "agreement": true,
+        "decided_by": "meta_model",
+        "deterministic_guard": {
+          "guard_code": "validated",
+          "guard_error": null,
+          "status": "accepted",
+          "variant_context": {
+            "candidate_id": "A32V",
+            "coordinate_observed": null,
+            "full_position": 32,
+            "mature_position": 1,
+            "mutant": "V",
+            "pdb_auth_seq_id": null,
+            "pdb_label_seq_id": null,
+            "wild_type": "A"
+          }
+        },
+        "guard_code": "validated",
+        "guard_error": null,
+        "model_decision": {
+          "explanation": "A32V matches full-reference frame, supported objective, and non-protected position.",
+          "reason_code": "validated",
+          "status": "accepted"
+        },
+        "status": "accepted",
+        "variant_context": null
+      },
+      "protocol_sha256": "9e06c12f0aeeb080b5e252da5a2729ebc58458fc8e51b33a098a857e337e32e7",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "variant_intake",
+        "variant": "A32V"
+      },
+      "scenario_id": "validA32V",
+      "source_mode": "actual_meta",
+      "wall_seconds": 2.523270399993635
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "completed",
+      "human_interventions": null,
+      "method_id": "meta",
+      "operator_seconds": null,
+      "outcome": {
+        "agreement": true,
+        "decided_by": "meta_model",
+        "deterministic_guard": {
+          "guard_code": "frame_required",
+          "guard_error": "Explicit full_reference_1based frame required; numbering is never auto-corrected",
+          "status": "rejected",
+          "variant_context": null
+        },
+        "guard_code": "frame_required",
+        "guard_error": null,
+        "model_decision": {
+          "explanation": "Requested mature_1based frame does not match registered full_reference_1based numbering; requires re-framing to full reference positions.",
+          "reason_code": "frame_required",
+          "status": "rejected"
+        },
+        "status": "rejected",
+        "variant_context": null
+      },
+      "protocol_sha256": "9e06c12f0aeeb080b5e252da5a2729ebc58458fc8e51b33a098a857e337e32e7",
+      "request": {
+        "frame": "mature_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "variant_intake",
+        "variant": "A1V"
+      },
+      "scenario_id": "matureframeA1V",
+      "source_mode": "actual_meta",
+      "wall_seconds": 2.8468075999990106
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "completed",
+      "human_interventions": null,
+      "method_id": "meta",
+      "operator_seconds": null,
+      "outcome": {
+        "agreement": true,
+        "decided_by": "meta_model",
+        "deterministic_guard": {
+          "guard_code": "protected_site",
+          "guard_error": "Protected catalytic site",
+          "status": "rejected",
+          "variant_context": null
+        },
+        "guard_code": "protected_site",
+        "guard_error": null,
+        "model_decision": {
+          "explanation": "S108A targets protected position 108 under full_reference_1based; intake blocked.",
+          "reason_code": "protected_site",
+          "status": "rejected"
+        },
+        "status": "rejected",
+        "variant_context": null
+      },
+      "protocol_sha256": "9e06c12f0aeeb080b5e252da5a2729ebc58458fc8e51b33a098a857e337e32e7",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "variant_intake",
+        "variant": "S108A"
+      },
+      "scenario_id": "protectedS108A",
+      "source_mode": "actual_meta",
+      "wall_seconds": 1.8013065999984974
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "completed",
+      "human_interventions": null,
+      "method_id": "meta",
+      "operator_seconds": null,
+      "outcome": {
+        "agreement": false,
+        "decided_by": "meta_model",
+        "deterministic_guard": {
+          "guard_code": "wt_mismatch",
+          "guard_error": "WT residue mismatch; numbering is not auto-corrected",
+          "status": "rejected",
+          "variant_context": null
+        },
+        "guard_code": "validated",
+        "guard_error": null,
+        "model_decision": {
+          "explanation": "G32V is sequence_plausibility_review in full_reference_1based frame, position 32 outside protected 108/164/187; admissible for intake.",
+          "reason_code": "validated",
+          "status": "accepted"
+        },
+        "status": "accepted",
+        "variant_context": null
+      },
+      "protocol_sha256": "9e06c12f0aeeb080b5e252da5a2729ebc58458fc8e51b33a098a857e337e32e7",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "variant_intake",
+        "variant": "G32V"
+      },
+      "scenario_id": "WTmismatchG32V",
+      "source_mode": "actual_meta",
+      "wall_seconds": 1.935400699992897
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "completed",
+      "human_interventions": null,
+      "method_id": "meta",
+      "operator_seconds": null,
+      "outcome": {
+        "agreement": true,
+        "decided_by": "meta_model",
+        "deterministic_guard": {
+          "guard_code": "unsupported_objective",
+          "guard_error": "Unsupported scientific objective: no registered predictor",
+          "status": "rejected",
+          "variant_context": null
+        },
+        "guard_code": "unsupported_objective",
+        "guard_error": null,
+        "model_decision": {
+          "explanation": "Requested activity_optimization is not in supported objectives (sequence_plausibility_review, lipase_T50_hypothesis_review); generic rank cannot satisfy it.",
+          "reason_code": "unsupported_objective",
+          "status": "rejected"
+        },
+        "status": "rejected",
+        "variant_context": null
+      },
+      "protocol_sha256": "9e06c12f0aeeb080b5e252da5a2729ebc58458fc8e51b33a098a857e337e32e7",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "activity_optimization",
+        "operation": "variant_intake",
+        "variant": "A32V"
+      },
+      "scenario_id": "unsupportedactivityobjective",
+      "source_mode": "actual_meta",
+      "wall_seconds": 1.5178840000007767
+    },
+    {
+      "cost_status": "unknown",
+      "cost_usd": null,
+      "execution_status": "completed",
+      "human_interventions": null,
+      "method_id": "meta",
+      "operator_seconds": null,
+      "outcome": {
+        "agreement": true,
+        "decided_by": "meta_model",
+        "deterministic_guard": {
+          "guard_code": "coordinates_unverified",
+          "guard_error": "Atom coordinates and author/label correspondence are not verified",
+          "status": "unavailable",
+          "variant_context": {
+            "candidate_id": "A32V",
+            "coordinate_observed": null,
+            "full_position": 32,
+            "mature_position": 1,
+            "mutant": "V",
+            "pdb_auth_seq_id": null,
+            "pdb_label_seq_id": null,
+            "wild_type": "A"
+          }
+        },
+        "guard_code": "coordinates_unverified",
+        "guard_error": null,
+        "model_decision": {
+          "explanation": "atom_geometry requested but coordinate_mapping_verified=false for this target; geometry unverified.",
+          "reason_code": "coordinates_unverified",
+          "status": "unavailable"
+        },
+        "status": "unavailable",
+        "variant_context": null
+      },
+      "protocol_sha256": "9e06c12f0aeeb080b5e252da5a2729ebc58458fc8e51b33a098a857e337e32e7",
+      "request": {
+        "frame": "full_reference_1based",
+        "objective": "sequence_plausibility_review",
+        "operation": "atom_geometry",
+        "variant": "A32V"
+      },
+      "scenario_id": "unavailableatomgeometry",
+      "source_mode": "actual_meta",
+      "wall_seconds": 1.7900556000095094
+    }
+  ],
+  "observed_cells": 12,
+  "operator_time_savings_seconds": null,
+  "planned_cells": 18,
+  "protocol_id": "policy_intake_meta_20261028_v2",
+  "protocol_sha256": "9e06c12f0aeeb080b5e252da5a2729ebc58458fc8e51b33a098a857e337e32e7",
+  "report_sha256": "1b99caa03d545276bf4c7999c7a0459102595423c592a1a0364315acce7bfa7c",
+  "run": {
+    "actual_cost_micros": null,
+    "cost_status": "unknown",
+    "esm_inference_calls": 0,
+    "external_sequence_uploads": 0,
+    "finished_at_utc": "2026-10-28T02:25:51.012876Z",
+    "fixed_arm_rerun_locally": true,
+    "fixed_arm_source_sha256": {
+      "app/core/capabilities.py": "25561ddcf57602233fa461515e559aa450101fdeb6dd652e03ea51781e500036",
+      "app/core/targets.py": "4caeaa0ccc806b5414c708ced79ebe53d35c0f08c377856313ca663a3f4513d4",
+      "evaluation/workflow_suite.py": "b07e9de48f67070ac7d7ec609302fc856f3cc455eed7c66abb2f00173ea02a40",
+      "reference/target_profile.json": "f4aa73a3dab1cb5317017bf074432f96b5f1d4ecb4e2b32e5c5a9188fae29c22"
+    },
+    "gpu_jobs": 0,
+    "labels_supplied": false,
+    "merged_sources": [
+      {
+        "max_completion_tokens": 1024,
+        "observed_cells": 1,
+        "path": "validation\\workflow_meta_probe_20261028.json",
+        "provider_calls": 1,
+        "reasoning_effort": "low",
+        "report_sha256": "346cd50ffc35f24910abdd72c0cd5246ba4fd773b9718854a93b6c79b5cc97de",
+        "sha256": "f346a5cdcefcac89b2606f959306eb41c4d71aee5a57e7322120589fdcfb6fea",
+        "source_mode": "actual_meta"
+      },
+      {
+        "max_completion_tokens": 1024,
+        "observed_cells": 5,
+        "path": "validation\\workflow_meta_remainder_20261028.json",
+        "provider_calls": 5,
+        "reasoning_effort": "low",
+        "report_sha256": "f7fede384b2e46f26d62b362876e010871d0d37134f6a10e08c4ce6e7089f249",
+        "sha256": "0ea3ea92bb323b39d673a3660f3e29058ad067a1225b6ad453dbaa5a85ffa4f3",
+        "source_mode": "actual_meta"
+      }
+    ],
+    "platform": "Windows-11-10.0.26300-SP0",
+    "provider_calls": 0,
+    "python_version": "3.14.0",
+    "rescoring_performed": false,
+    "reserved_micros": 300000,
+    "source_mode": "merged_actual_observations"
+  },
+  "scenario_denominator": 6,
+  "scientific_evidence": false,
+  "scientific_review_completed": false,
+  "source_mode": "actual_policy_observations",
+  "task_scope": "policy_intake_only_not_scientific_review",
+  "workflow_gain_supported": false
+}

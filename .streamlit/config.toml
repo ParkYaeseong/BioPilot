@@ -1,0 +1,31 @@
+# Local-only viewer defaults.
+# The viewer renders saved run artifacts, including model and reference provenance.
+# Binding to every interface would expose them on the LAN and any routable address,
+# so the address is pinned to loopback. Override only with an explicit decision.
+[server]
+address = "localhost"
+headless = true
+enableCORS = true
+enableXsrfProtection = true
+fileWatcherType = "none"
+
+[browser]
+gatherUsageStats = false
+
+[runner]
+magicEnabled = false
+
+# The toolbar's Deploy action is meaningless for a local evidence viewer and would
+# imply a hosted service in recordings, so the chrome stays minimal.
+[client]
+toolbarMode = "minimal"
+showSidebarNavigation = false
+
+# Native grids, inputs and popovers use the same base as the local CSS.
+[theme]
+base = "dark"
+primaryColor = "#6ce4cb"
+backgroundColor = "#0b0f14"
+secondaryBackgroundColor = "#121820"
+textColor = "#eef2f6"
+font = "sans-serif"

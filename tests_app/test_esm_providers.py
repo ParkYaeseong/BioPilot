@@ -189,7 +189,7 @@ def test_mcp_scoring_service_keeps_canonical_tool_and_status_readonly(tmp_path):
         ModalESMProvider(CONFIG,transport=transport,execution_approved=True), 'modal','fixture', estimate_micros=100,
         job_timeout_seconds=60,model_pins={'esm150':{'expected_weights_sha256':'a'*64,'expected_tokenizer_sha256':'b'*64}})
     executor = ToolExecutor(context, inference_service=service)
-    assert {t['name'] for t in executor.list_tools()} == {'validate_target_context','get_run_status','score_positions'}
+    assert {t['name'] for t in executor.list_tools()} == {'validate_target_context','get_run_status','score_positions','retrieve_atlas_evidence'}
     args = {'reference_id':REFERENCE_ID,'model_key':'esm150','positions_1based':[32],'reason_brief':'Review sequence preference'}
     result = executor.dispatch('score_positions',args)
     assert result['status'] == 'pending'
@@ -334,7 +334,11 @@ def test_remote_reserves_worker_ceiling_even_when_client_timeout_is_short(tmp_pa
     service = InferenceService(context.db_path,
         ModalESMProvider(CONFIG,transport=transport,execution_approved=True),'modal','fixture',
         estimate_micros=100,job_timeout_seconds=60,model_pins=PINS)
-    assert service.submit(context,request())['reserved_gpu_seconds']==900
+    result=service.submit(context,request())
+    assert result['reserved_gpu_seconds']==1022
+    assert result['reservation_components']=={'execution_seconds':900,'startup_seconds':120,'idle_seconds':2}
+    assert result['cost_scope']['image_build']=='unknown'
+    assert result['cost_scope']['storage']=='unknown'
 
 def test_remote_120_second_budget_cannot_authorize_900_second_worker(tmp_path):
     runs,context = setup_run(tmp_path,requested_budget={'usd_micros':1000,'max_meta_requests':2,'max_gpu_seconds':120})
@@ -346,3 +350,151 @@ def test_remote_120_second_budget_cannot_authorize_900_second_worker(tmp_path):
         service.submit(context,request())
     assert transport.submits==[]
     assert runs.get(context.run_id,'owner')['committed_micros']==0
+
+def test_remote_900_second_budget_omits_startup_and_idle_and_is_rejected(tmp_path):
+    runs,context=setup_run(tmp_path,requested_budget={'usd_micros':1000,'max_meta_requests':2,'max_gpu_seconds':900})
+    transport=FakeTransport()
+    service=InferenceService(context.db_path,
+        ModalESMProvider(CONFIG,transport=transport,execution_approved=True),'modal','fixture',
+        estimate_micros=100,job_timeout_seconds=60,model_pins=PINS)
+    with pytest.raises(ValueError,match='GPU-seconds'):
+        service.submit(context,request())
+    assert transport.submits==[]
+    assert runs.get(context.run_id,'owner')['committed_micros']==0
+
+def test_remote_1022_second_budget_covers_full_bound_once(tmp_path):
+    runs,context=setup_run(tmp_path,requested_budget={'usd_micros':1000,'max_meta_requests':2,'max_gpu_seconds':1022})
+    transport=FakeTransport()
+    service=InferenceService(context.db_path,
+        ModalESMProvider(CONFIG,transport=transport,execution_approved=True),'modal','fixture',
+        estimate_micros=100,job_timeout_seconds=60,model_pins=PINS)
+    first=service.submit(context,request())
+    assert first['reserved_gpu_seconds']==1022
+    with pytest.raises(ValueError,match='GPU-seconds'):
+        service.submit(context,request(positions=(33,)))
+    assert len(transport.submits)==1
+    assert runs.get(context.run_id,'owner')['committed_micros']==100
+
+def test_verified_legacy_nonpersistent_buffer_provenance_is_retained():
+    value=deepcopy(artifact())
+    ignored=['esm.embeddings.position_ids']
+    value['provenance']['ignored_nonpersistent_buffers']=ignored
+    for row in value['rows']:
+        row['ignored_nonpersistent_buffers']=list(ignored)
+    verified=validate_score_artifact(_rehash(value),request())
+    assert verified['provenance']['ignored_nonpersistent_buffers']==ignored
+    assert all(row['ignored_nonpersistent_buffers']==ignored for row in verified['rows'])
+
+@pytest.mark.parametrize('ignored',[None,[],['esm.encoder.layer.0.weight'],
+    ['esm.embeddings.position_ids','lm_head.weight'],'esm.embeddings.position_ids'])
+def test_nonpersistent_buffer_provenance_cannot_exempt_unknown_weights(ignored):
+    value=deepcopy(artifact())
+    value['provenance']['ignored_nonpersistent_buffers']=ignored
+    for row in value['rows']:
+        row['ignored_nonpersistent_buffers']=ignored
+    with pytest.raises(ProviderError):
+        validate_score_artifact(_rehash(value),request())
+
+def test_nonpersistent_buffer_row_and_common_provenance_must_match():
+    value=deepcopy(artifact())
+    value['provenance']['ignored_nonpersistent_buffers']=['esm.embeddings.position_ids']
+    with pytest.raises(ProviderError):
+        validate_score_artifact(_rehash(value),request())
+    value=deepcopy(artifact())
+    value['rows'][0]['ignored_nonpersistent_buffers']=['esm.embeddings.position_ids']
+    with pytest.raises(ProviderError):
+        validate_score_artifact(_rehash(value),request())
+
+
+PINS_BOTH = {'esm150':{'expected_weights_sha256':'a'*64,'expected_tokenizer_sha256':'b'*64},
+             'esm650':{'expected_weights_sha256':'c'*64,'expected_tokenizer_sha256':'d'*64}}
+
+
+class Synthetic650Backend(SyntheticBackend):
+    provenance = {'checkpoint':'esm2_t33_650M_UR50D','weights_sha256':'c'*64,
+        'tokenizer_sha256':'d'*64,'implementation':'fixture','precision':'float32',
+        'source_mode':'synthetic_fixture'}
+
+
+def verifier_request(**changes):
+    return request(model_key='esm650', expected_weights_sha256='c'*64,
+                   expected_tokenizer_sha256='d'*64, **changes)
+
+
+def routed_provider():
+    from app.science.provider_config import RoutingLocalProvider
+    return RoutingLocalProvider({'esm150':LocalESMProvider(ESMEngine(SyntheticBackend())),
+                                 'esm650':LocalESMProvider(ESMEngine(Synthetic650Backend()))})
+
+
+def test_a_run_approving_only_the_baseline_still_refuses_the_verifier(tmp_path):
+    """Configuring a second checkpoint must not widen an already frozen run."""
+    runs, context = setup_run(tmp_path, esm_model_key='esm150')
+    service = InferenceService(context.db_path, routed_provider(), 'local', 'fixture',
+                               model_pins=PINS_BOTH)
+    with pytest.raises(ValueError, match='immutable selected model'):
+        service.submit(context, verifier_request())
+
+
+def test_one_run_never_mixes_checkpoints_even_when_both_are_approved(tmp_path):
+    """Approving a model set must not let a single run mix two rank policies.
+
+    The verifier is separate evidence, not a second opinion blended into one ranking.
+    """
+    runs, context = setup_run(tmp_path, esm_model_keys=['esm150','esm650'])
+    service = InferenceService(context.db_path, routed_provider(), 'local', 'fixture',
+                               model_pins=PINS_BOTH)
+    baseline = service.submit(context, request())
+    assert baseline['status'] == 'completed'
+    assert baseline['model_key'] == 'esm150'
+    assert baseline['artifact']['provenance']['checkpoint'] == 'esm2_t30_150M_UR50D'
+    with pytest.raises(ValueError, match='same backend/model/checkpoint rank policy'):
+        service.submit(context, verifier_request())
+
+
+def test_the_verifier_checkpoint_serves_its_own_run(tmp_path):
+    """Routing works end to end when a run is frozen on the verifier checkpoint."""
+    runs, context = setup_run(tmp_path, esm_model_keys=['esm650'])
+    service = InferenceService(context.db_path, routed_provider(), 'local', 'fixture',
+                               model_pins=PINS_BOTH)
+    done = service.submit(context, verifier_request())
+    assert done['status'] == 'completed'
+    assert done['model_key'] == 'esm650'
+    assert done['artifact']['provenance']['checkpoint'] == 'esm2_t33_650M_UR50D'
+    assert done['artifact']['provenance']['rank_policy'] == 'esm650_masked_v1'
+
+
+def test_an_approved_model_set_still_rejects_a_model_outside_it(tmp_path):
+    runs, context = setup_run(tmp_path, esm_model_keys=['esm150'])
+    service = InferenceService(context.db_path, routed_provider(), 'local', 'fixture',
+                               model_pins=PINS_BOTH)
+    with pytest.raises(ValueError, match='immutable selected model'):
+        service.submit(context, verifier_request())
+
+
+def test_the_verifier_cannot_borrow_the_baseline_pins(tmp_path):
+    """Routing must not let one checkpoint be served under another model key."""
+    runs, context = setup_run(tmp_path, esm_model_keys=['esm150','esm650'])
+    service = InferenceService(context.db_path, routed_provider(), 'local', 'fixture',
+                               model_pins=PINS_BOTH)
+    with pytest.raises(ValueError):
+        service.submit(context, request(model_key='esm650'))
+
+
+def test_the_offered_model_choice_follows_the_configured_pins(tmp_path):
+    """Meta sees exactly the checkpoints that are actually provisioned, never more."""
+    _, context = setup_run(tmp_path)
+    baseline_only = InferenceService(context.db_path, LocalESMProvider(ESMEngine(SyntheticBackend())),
+        'local', 'fixture', model_pins={'esm150':PINS_BOTH['esm150']})
+    offered = ToolExecutor(context, inference_service=baseline_only).list_tools()
+    enum = [t for t in offered if t['name']=='score_positions'][0]['inputSchema']['properties']['model_key']['enum']
+    assert enum == ['esm150']
+
+    with_verifier = InferenceService(context.db_path, routed_provider(), 'local', 'fixture',
+                                     model_pins=PINS_BOTH)
+    offered = ToolExecutor(context, inference_service=with_verifier).list_tools()
+    enum = [t for t in offered if t['name']=='score_positions'][0]['inputSchema']['properties']['model_key']['enum']
+    assert enum == ['esm150','esm650']
+    # esm35 is registered in the model registry but was never provisioned, so it must
+    # not be offered merely because the catalog lists it.
+    assert 'esm35' not in enum

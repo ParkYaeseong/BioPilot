@@ -11,6 +11,7 @@ from jsonschema import Draft202012Validator
 
 from app.core.runs import RunService
 from app.core.targets import registered_profile, validate_target
+from app.core.atlas_snapshot import load_registered_atlas_snapshot, atlas_tool_result
 
 @dataclass(frozen=True)
 class SessionContext:
@@ -40,6 +41,11 @@ class ToolExecutor:
 
     def list_tools(self):
         names = ['validate_target_context', 'get_run_status']
+        try:
+            load_registered_atlas_snapshot()
+            names.append('retrieve_atlas_evidence')
+        except (ValueError, OSError, TypeError, KeyError):
+            pass
         if self.inference_service is not None and self.inference_service.model_pins:
             try:
                 self.inference_service.ensure_ready()
@@ -81,13 +87,23 @@ class ToolExecutor:
                 return self.inference_service.submit(self.context,request)
             except (ValueError,PermissionError):
                 return {'status':'blocked','code':'inference_policy_rejected'}
+        if tool_name == 'retrieve_atlas_evidence':
+            if arguments['reference_id'] != target.reference_id:
+                return {'status': 'blocked', 'code': 'unregistered_reference'}
+            try:
+                return atlas_tool_result(load_registered_atlas_snapshot(), arguments['max_hits'])
+            except (ValueError, OSError, TypeError, KeyError):
+                return {'status': 'unavailable', 'code': 'atlas_snapshot_unavailable',
+                        'scientific_evidence': False}
         # Return a bounded allowlist, not the entire private storage row/input.
         result = {key: run.get(key) for key in ('run_id', 'state', 'budget_version',
                   'usd_micros', 'max_meta_requests', 'meta_requests_reserved',
                   'committed_micros', 'actual_cost_micros', 'cost_status',
                   'budget_conflict', 'cancellation_requested')}
         return {'status': 'ok', 'run': result,
-                'capabilities': {'esm': any(tool['name']=='score_positions' for tool in self.list_tools()), 'atlas': False, 'coordinates': False, 'fold': False},
+                'capabilities': {'esm': any(tool['name']=='score_positions' for tool in self.list_tools()),
+                                 'atlas': any(tool['name']=='retrieve_atlas_evidence' for tool in self.list_tools()),
+                                 'coordinates': False, 'fold': False},
                 'esm_backend': self.backend_status,
                 'inference_jobs': self.inference_service.list_status(self.context) if self.inference_service is not None else [],
                 'source_mode': 'live_local_state'}

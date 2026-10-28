@@ -1,0 +1,29 @@
+{
+  "date_kst": "2026-10-28",
+  "attempt": 1,
+  "arm": "meta",
+  "protocol_id": "policy_intake_meta_20261028_v2",
+  "protocol_sha256": "9e06c12f0aeeb080b5e252da5a2729ebc58458fc8e51b33a098a857e337e32e7",
+  "result": "all_six_cells_failed",
+  "observed_cells": 6,
+  "failed_cells": 6,
+  "correct_count": 0,
+  "provider_calls": 6,
+  "reserved_micros": 300000,
+  "actual_cost_micros": null,
+  "cost_status": "unknown",
+  "failure_signature": "finish_reason=length on every scenario; no report_intake_decision tool call emitted",
+  "root_cause": "Reasoning tokens consumed the entire 512-token completion budget before the structured tool call. reasoning_effort was correctly set to 'medium'; the completion cap was the defect.",
+  "evidence_against_prior_diagnosis": "This is not the 2026-10-27 missing-reasoning_effort defect. reasoning_effort='medium' was present in all six payloads.",
+  "design_example_comparison": {
+    "examples/meta_execute_request.json": {"reasoning_effort": "medium", "max_completion_tokens": 4096},
+    "this_attempt": {"reasoning_effort": "medium", "max_completion_tokens": 512},
+    "client_hard_ceiling": [512, 1024]
+  },
+  "preserved_artifact": "validation/workflow_meta_arm_20261028.json",
+  "preserved_artifact_note": "Failed-arm report retained unmodified as the primary record of this attempt",
+  "diagnostic_gap_found": "The runner recorded only the exception text; provider finish_reason and usage were not captured for failed cells.",
+  "no_retry_performed_without_approval": true,
+  "scientific_claims_added": "none",
+  "workflow_gain_supported": false
+}

@@ -20,7 +20,14 @@ AA = 'ACDEFGHIKLMNPQRSTVWY'
 COMMON_KEYS = frozenset({'checkpoint','model_key','rank_policy','weights_sha256','tokenizer_sha256',
     'config_sha256','weight_file_hashes','implementation','precision','source_mode','device',
     'checkpoint_revision','upstream_authenticity','reference_id','reference_sha256',
-    'sequence_context','score_kind'})
+    'sequence_context','score_kind','ignored_nonpersistent_buffers'})
+
+def remote_reservation_components():
+    # Kept independent of modal_worker imports so the product host does not need
+    # deployment code. A regression test requires exact worker/host agreement.
+    return {'execution_seconds':900,'startup_seconds':120,'idle_seconds':2}
+
+REMOTE_RESERVED_GPU_SECONDS = sum(remote_reservation_components().values())
 
 def _json(value):
     return json.dumps(value, sort_keys=True, separators=(',', ':'), allow_nan=False)
@@ -128,6 +135,18 @@ class InferenceService:
             get_model_spec(selected)
         if selected is not None and request.model_key != selected:
             raise ValueError('Request model differs from the immutable selected model')
+        # A run may instead approve an explicit set, so an optional verifier checkpoint
+        # is usable without widening any run that froze a single model.
+        if 'esm_model_keys' in data:
+            approved_keys = data['esm_model_keys']
+            if (not isinstance(approved_keys,list) or not approved_keys
+                    or any(not isinstance(key,str) for key in approved_keys)
+                    or len(set(approved_keys))!=len(approved_keys)):
+                raise ValueError('Invalid immutable approved model set')
+            for key in approved_keys:
+                get_model_spec(key)
+            if request.model_key not in approved_keys:
+                raise ValueError('Request model differs from the immutable selected model')
         if 'positions_1based' in data:
             selected_positions = data['positions_1based']
             if (not isinstance(selected_positions,list) or not 1 <= len(selected_positions) <= 10
@@ -157,9 +176,9 @@ class InferenceService:
         if existing:
             return self._dispatch_if_reserved(context,request,existing['task_id'])
         self.ensure_ready()
-        # Until a verified deployment attestation binds a smaller worker timeout,
-        # reserve the configured worker factory's entire 900-second ceiling.
-        seconds = 0 if self.backend_key == 'local' else 900
+        # No lower execution ceiling is inferred from a client wait setting.
+        # Startup and warm-idle compute are conservatively reserved separately.
+        seconds = 0 if self.backend_key == 'local' else REMOTE_RESERVED_GPU_SECONDS
         with self._transaction() as db:
             rows = list(db.execute('SELECT * FROM inference_jobs WHERE run_id=?',(context.run_id,)))
             self._check_limits(rows,run,request,seconds)
@@ -181,8 +200,8 @@ class InferenceService:
         if row['status']!='reserved' or task['status']!='RESERVED':
             return self.status(context,task_id)
         self.ensure_ready()
-        if self.backend_key!='local' and row['reserved_gpu_seconds']<900:
-            raise ValueError('Queued remote reservation does not cover the verified worker ceiling')
+        if self.backend_key!='local' and row['reserved_gpu_seconds']<REMOTE_RESERVED_GPU_SECONDS:
+            raise ValueError('Queued remote reservation omits execution/startup/idle worker bounds')
         if self.runs.claim(context.run_id,task_id,context.owner_id):
             self._update(task_id,status='dispatching')
             try:
@@ -250,6 +269,11 @@ class InferenceService:
             'request_sha256':req.digest(),'cost_micros':row['cost_micros'],
             'cost_status':'unknown' if row['cost_micros'] is None else 'actual',
             'elapsed_seconds':row['elapsed_seconds'],'reserved_gpu_seconds':row['reserved_gpu_seconds']}
+        result['reservation_components'] = (remote_reservation_components() if self.backend_key!='local'
+            else {'execution_seconds':0,'startup_seconds':0,'idle_seconds':0})
+        result['cost_scope'] = {'compute':'conservative_reservation_not_billing_receipt',
+            'image_build':'unknown' if self.backend_key!='local' else 'not_applicable',
+            'storage':'unknown','provider_overhead':'unknown'}
         if row['artifact_json'] is not None:
             result['artifact'] = json.loads(row['artifact_json'])
             result['artifact_sha256'] = result['artifact']['artifact_sha256']
@@ -315,6 +339,9 @@ def validate_score_artifact(artifact,request):
     common = artifact.get('provenance')
     if not isinstance(common,dict) or set(common)-COMMON_KEYS:
         raise ProviderError('Unexpected ESM provenance fields')
+    if ('ignored_nonpersistent_buffers' in common
+            and common['ignored_nonpersistent_buffers']!=['esm.embeddings.position_ids']):
+        raise ProviderError('Only the verified legacy nonpersistent position-ID buffer may be recorded')
     expected = {'reference_id':request.reference_id,'reference_sha256':request.reference_sha256,
         'sequence_context':'full_212','checkpoint':spec.checkpoint,'model_key':request.model_key,
         'weights_sha256':request.expected_weights_sha256,'tokenizer_sha256':request.expected_tokenizer_sha256,
@@ -348,6 +375,9 @@ def validate_score_artifact(artifact,request):
     for row in rows:
         if not isinstance(row,dict) or set(row)-(COMMON_KEYS|{'candidate_id','full_position','wild_type','mutant','score'}):
             raise ProviderError('Unexpected ESM row fields')
+        if (('ignored_nonpersistent_buffers' in row)!=('ignored_nonpersistent_buffers' in common)
+                or row.get('ignored_nonpersistent_buffers')!=common.get('ignored_nonpersistent_buffers')):
+            raise ProviderError('Nonpersistent buffer provenance differs between row and artifact')
         cid = row.get('candidate_id')
         pos = row.get('full_position')
         if (cid not in candidates or cid in seen or pos not in request.positions

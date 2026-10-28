@@ -14,7 +14,7 @@ from mcp import types
 from app.core.tool_executor import SessionContext, ToolExecutor
 
 def create_server(executor: ToolExecutor) -> Server:
-    server = Server('biopilot-atlas', version='0.1.0')
+    server = Server('biopilot-bench', version='0.1.0')
 
     @server.list_tools()
     async def list_tools():

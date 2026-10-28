@@ -175,6 +175,45 @@ def _file_hash(path):
     return digest.hexdigest()
 
 
+def _verified_legacy_buffers(config, weight_paths, loading_info):
+    """Recognize only the deterministic buffer made nonpersistent in Transformers.
+
+    Installed EsmEmbeddings registers position_ids with persistent=False. The
+    older official rotary checkpoint stored this arange; it is not a learned
+    parameter. Every other loading discrepancy remains a hard failure.
+    """
+    failure='Local checkpoint is incomplete or incompatible; randomly initialized weights are not ESM baseline evidence'
+    if any(loading_info.get(key) for key in ('missing_keys','mismatched_keys','error_msgs','conversion_errors')):
+        raise ValueError(failure)
+    unexpected=loading_info.get('unexpected_keys') or ()
+    if not unexpected:
+        return []
+    buffer_name='esm.embeddings.position_ids'
+    if (not isinstance(unexpected,(list,tuple,set,frozenset))
+            or len(unexpected)!=1 or buffer_name not in unexpected
+            or config.get('position_embedding_type')!='rotary'
+            or type(config.get('max_position_embeddings')) is not int
+            or config['max_position_embeddings']!=1026):
+        raise ValueError(failure)
+    from safetensors import SafetensorError, safe_open
+    found=0
+    try:
+        for path in weight_paths:
+            with safe_open(path,framework='numpy') as tensors:
+                if buffer_name not in tensors.keys():
+                    continue
+                found+=1
+                view=tensors.get_slice(buffer_name)
+                if (view.get_dtype()!='I64' or view.get_shape()!=[1,1026]
+                        or tensors.get_tensor(buffer_name).tolist()!=[list(range(1026))]):
+                    raise ValueError(failure)
+    except (SafetensorError,OSError,KeyError) as error:
+        raise ValueError(failure) from error
+    if found!=1:
+        raise ValueError(failure)
+    return [buffer_name]
+
+
 class LocalHFBackend:
     """Explicitly installed local ESM-2 safetensors and explicit CPU/CUDA device.
 
@@ -218,8 +257,7 @@ be established by the trusted installer; local hashes alone prove file identity.
             str(directory), local_files_only=True, trust_remote_code=False, use_safetensors=True,
             output_loading_info=True,
         )
-        if any(loading_info.get(key) for key in ('missing_keys', 'unexpected_keys', 'mismatched_keys', 'error_msgs')):
-            raise ValueError('Local checkpoint is incomplete or incompatible; randomly initialized weights are not ESM baseline evidence')
+        ignored_buffers=_verified_legacy_buffers(config,weight_paths,loading_info)
         self.model = model.to(device=device, dtype=torch.float32).eval()
         self.mask_token_id = self.tokenizer.mask_token_id
         if self.mask_token_id is None:
@@ -235,6 +273,8 @@ be established by the trusted installer; local hashes alone prove file identity.
             'checkpoint_revision': directory.name if re.fullmatch('[0-9a-f]{40}', directory.name) else None,
             'upstream_authenticity': 'trusted_launcher_supplied_pins',
         }
+        if ignored_buffers:
+            self.provenance['ignored_nonpersistent_buffers']=ignored_buffers
 
     def token_id(self, residue):
         token = self.tokenizer.convert_tokens_to_ids(residue)
