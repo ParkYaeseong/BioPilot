@@ -1,5 +1,33 @@
 # Current status
 
+## GitHub main upload verified — 2026-10-29
+
+Source uploaded to https://github.com/ParkYaeseong/BioPilot, main commit 457890b0e6bbf0cfba8c050024847a23a017ce41.
+Connected GitHub read and git ls-remote confirm the uploaded commit. Repository
+remains private pending the owner's explicit public-visibility choice. Original
+Oct27 commits are ancestors; no history rewriting, force push or invented dates.
+Initial source inventory:392 files,3,534,877bytes,max524,222bytes. Raw chats,
+credentials, weights, environments and videos excluded. AI assistance and actual
+Meta use are disclosed; no new provider/GPU execution or contest submission.
+
+Fresh regression:744passed,2skipped,2warnings,12subtests in63.36s. A fresh local
+Git clone of the exact pushed commit passes1939package checks with0failures,
+including artifact hashes after checkout. Remote clone was interrupted by a
+connection reset/stall; this check uses the existing dependencies and does not
+establish a clean installation on another machine. The uploaded disclosure was
+also independently read through the GitHub connector.
+
+Changed publication records:compliance/AI_DEVELOPMENT.md,DEVELOPMENT_HISTORY.md,
+META_RUNTIME_EVIDENCE.md,HACKATHON_READINESS_KO.md,rules_recheck_20261029.json,
+publication_hygiene_20261029.json;README/screenshots/notices;Git attributes;
+validation/github_publication_20261029.json;submission/manifest.current.json;
+originality ledger. Removed one trailing blank line in a test; behavior unchanged.
+Follow-up documentation package check:1943passed,0failures; source whitespace
+check passed. Exact commands and limits are in the publication receipt. Public visibility,
+eligibility/reuse ruling, rights/contributors, final form, final video/public link
+and explicit contest submission remain open. Next action: respond to the owner's
+visibility choice and finish source verification records.
+
 ## GitHub publication preparation and fresh guide check — 2026-10-29
 
 User explicitly requested upload to ParkYaeseong/BioPilot. The destination was

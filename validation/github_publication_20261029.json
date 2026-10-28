@@ -1,0 +1,62 @@
+{
+  "recorded_date_kst": "2026-10-29",
+  "repository_url": "https://github.com/ParkYaeseong/BioPilot",
+  "branch": "main",
+  "verified_initial_upload_commit": "457890b0e6bbf0cfba8c050024847a23a017ce41",
+  "remote_ref_verified": true,
+  "connected_github_read_of_uploaded_disclosure_verified": true,
+  "repository_visibility_at_verification": "private",
+  "public_visibility_approval": "pending",
+  "preserved_prior_commits": [
+    "5898a2f",
+    "c0cb60f"
+  ],
+  "history_backdated_or_fabricated": false,
+  "initial_upload_source_inventory": {
+    "files": 392,
+    "bytes": 3534877,
+    "largest_file_bytes": 524222
+  },
+  "all_initial_staged_bytes_equal_intended_source": true,
+  "regression": {
+    "command": ".venv/Scripts/python.exe -m pytest tests tests_app -q -rs -p no:cacheprovider --basetemp=.cache/publication_regression_20261029 --tb=short",
+    "passed": 744,
+    "skipped": 2,
+    "warnings": 2,
+    "subtests_passed": 12,
+    "elapsed_seconds": 63.36,
+    "skip_reason": "Windows symlink privilege unavailable in two tests",
+    "warning_scope": "Modal async deprecations"
+  },
+  "git_checkout_verification": {
+    "commit": "457890b0e6bbf0cfba8c050024847a23a017ce41",
+    "method": "Fresh local Git clone with --no-hardlinks from the exact remote-verified pushed commit; evidence bytes checked by the package manifest",
+    "network_clone_completed": false,
+    "network_clone_limitation": "Remote clone connection reset; second attempt had no progress and was stopped",
+    "uses_existing_dependency_environment": true,
+    "clean_dependency_install_verified": false,
+    "command": "C:/Users/user/Desktop/BioPilot_Atlas_v3/.venv/Scripts/python.exe checks/validate_package.py",
+    "status": "PASS",
+    "checks": 1939,
+    "failures": 0
+  },
+  "contest_submission_performed": false,
+  "new_provider_or_gpu_calls": 0,
+  "raw_private_ai_chats_included": false,
+  "remaining_gates": [
+    "Public repository visibility approval",
+    "Organizer eligibility/prior-work ruling",
+    "Contributor and rights confirmation",
+    "Final submission form inspection",
+    "Full video review and public video access",
+    "Explicit final contest submission authorization"
+  ],
+  "followup_documentation_verification": {
+    "command": ".venv/Scripts/python.exe checks/validate_package.py",
+    "status": "PASS",
+    "checks": 1943,
+    "failures": 0,
+    "full_regression_repeated": false,
+    "reason": "Only publication records and one test EOF blank line changed after the 744-pass regression"
+  }
+}

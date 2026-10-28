@@ -18,7 +18,7 @@
   "external_rights_reviewed": false,
   "submitted_at": null,
   "submission_receipt": null,
-  "prepared_date_kst": "2026-10-28",
+  "prepared_date_kst": "2026-10-29",
   "local_replay_artifact": {
     "path": "demo/artifacts/sequence_review.replay.json",
     "sha256": "cf02b139fe0866483ebb069903e5e0c2ce65a03e9460697c5ffecef805c273f8"
@@ -59,7 +59,7 @@
     "Confirm ownership/contributors and third-party rights",
     "Review final submission rules/form and product access requirements",
     "Verify clean reproduction on a separate environment",
-    "Review actual video and authorize publication of repository/video",
+    "Authorize public repository visibility; review final video and authorize video publication",
     "Verify public links without owner login and explicitly authorize final submission"
   ],
   "regression_receipt": {
@@ -94,5 +94,14 @@
   "actual_optional_gpu_predictions": [
     "esmfold2_WT",
     "esm3_A32V"
-  ]
+  ],
+  "repository_upload": {
+    "repository_url": "https://github.com/ParkYaeseong/BioPilot",
+    "branch": "main",
+    "verified_initial_upload_commit": "457890b0e6bbf0cfba8c050024847a23a017ce41",
+    "visibility": "private",
+    "remote_ref_verified": true,
+    "public_visibility_approval": "pending",
+    "verification_receipt": "validation/github_publication_20261029.json"
+  }
 }

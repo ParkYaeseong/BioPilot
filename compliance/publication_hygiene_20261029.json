@@ -2,7 +2,7 @@
   "prepared_date_kst": "2026-10-29",
   "scope": "Source allowlist and read-only Git history audit; not a full security or rights certification",
   "file_count": 392,
-  "total_bytes": 3534818,
+  "total_bytes": 3534877,
   "largest_files": [
     {
       "bytes": 524222,
@@ -55,5 +55,7 @@
   "repository_initially_empty": true,
   "existing_history_preserved": true,
   "backdated_or_fabricated_history": false,
-  "full_private_ai_chats_uploaded": false
+  "full_private_ai_chats_uploaded": false,
+  "inventory_snapshot_commit": "457890b0e6bbf0cfba8c050024847a23a017ce41",
+  "inventory_statistics_scope": "Initial uploaded commit, before subsequent verification documentation"
 }

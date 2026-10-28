@@ -487,4 +487,3 @@ def test_the_read_only_program_points_at_the_separate_live_program(tmp_path,monk
     text=' '.join(str(c.value) for c in app.html)
     assert 'http://127.0.0.1:9999' in text
     assert 'Live session' in text
-

@@ -503,3 +503,17 @@ CLI for transporting genuine local Git history; connected GitHub metadata confir
 repository ownership and push permission. No force push. Preserve evidence bytes
 through Git attributes and verify staged file inventory/hashes. No project license
 is assigned without the owner selecting one.
+
+## 2026-10-29 — verify uploaded history and checkout
+
+Initial main upload is 457890b0e6bbf0cfba8c050024847a23a017ce41; preserved planning and implementation ancestors
+remain visible. Source is private until public visibility is explicitly approved.
+Record actual source upload separately from contest submission. A local Git clone
+of the remote-verified commit passes all1939offline package checks; network clone
+did not complete. Do not present this as a clean-machine dependency installation.
+Keep the real744-pass regression and actual Meta receipt linked, distinguish AI
+development help, and retain the unresolved Indie prior-work ruling. Initial
+inventory counts are explicitly scoped to that commit, avoiding self-referential
+counts as verification documentation changes. No full chat export or artificial
+commit cadence is added. Final metadata documentation and one EOF whitespace
+cleanup receive a current-date follow-up commit.
