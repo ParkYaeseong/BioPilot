@@ -23,7 +23,10 @@ server-owned state and idempotency, not page memory alone.
 
 ## Three-minute proof
 
-Use `demo/storyboard.json` and `demo/NARRATION_EN.md`. The planned timeline is exactly 180 seconds.
+The current UI recording plan is `demo/review_flows_180s.json`, with English narration
+in `demo/REVIEW_FLOWS_180S_EN.md` and Korean screen actions in `demo/REVIEW_FLOWS_180S_KO.md`.
+It plans exactly 180 seconds of saved real evidence plus unarmed New Review validation/preflight.
+The original `demo/storyboard.json` and `demo/NARRATION_EN.md` remain historical plans.
 Show a real request, actual Meta-to-MCP execution, one concrete failure or constraint branch and a
 reviewable result. Explain the measured workflow benefit, not a fictional biological improvement.
 A clear output is more useful than scrolling through large logs or a wall of architecture slides.

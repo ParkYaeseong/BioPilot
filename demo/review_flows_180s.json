@@ -1,0 +1,186 @@
+{
+  "status": "recording_plan_not_exported_video",
+  "prepared_date_kst": "2026-10-29",
+  "target_duration_seconds": 180,
+  "default_mode": "saved real REPLAY + unarmed New Review local validation",
+  "new_model_calls_required": 0,
+  "new_gpu_calls_required": 0,
+  "new_structure_jobs_required": 0,
+  "english_word_count": 291,
+  "planned_average_english_words_per_minute": 97.0,
+  "timing_scope": "Storyboard and planned subtitle cues only; voice and exported video have not been measured.",
+  "segments": [
+    {
+      "start_s": 0,
+      "end_s": 15,
+      "title": "The review problem",
+      "title_ko": "문제와 결과 소개",
+      "surface": "Saved Review / Overview",
+      "actions_ko": "Overview에서 연구 목적과 후보 19개를 보여준다. REPLAY 표시를 유지하고, 제목에서 후보 요약으로 천천히 이동한다.",
+      "en": [
+        "BioPilot Bench helps researchers review protein variants with traceable evidence.",
+        "Here are nineteen saved Lipase A candidates and their ESM sequence preferences.",
+        "These are recorded results, not a new model run."
+      ],
+      "ko": [
+        "BioPilot Bench는 단백질 변이 후보를 근거와 함께 검토하는 도구입니다.",
+        "공개 Lipase A의 저장된 후보 19개와 ESM 서열 선호도를 보여줍니다.",
+        "지금은 새 모델 실행이 아니라 실제 저장 결과를 재생하고 있습니다."
+      ]
+    },
+    {
+      "start_s": 15,
+      "end_s": 35,
+      "title": "What Meta actually did",
+      "title_ko": "Meta의 실제 역할",
+      "surface": "Saved Review / Agent Trace",
+      "actions_ko": "Agent Trace에서 validate_target_context와 score_positions 기록을 차례로 연다. 공개 근거·인수·결과를 짧게 보여주고, 원문 로그 전체를 스크롤하지 않는다.",
+      "en": [
+        "The saved trace shows what Meta actually requested through MCP.",
+        "It first requested target validation, then sequence scoring.",
+        "Code enforces constraints and ranking; ESM supplies sequence preferences.",
+        "Opening these records sends no new request."
+      ],
+      "ko": [
+        "저장된 실행 기록에서 Meta가 MCP로 실제 요청한 도구를 확인할 수 있습니다.",
+        "먼저 표적을 검증하고, 다음으로 서열 점수 계산을 요청했습니다.",
+        "제약과 순위는 코드가 관리하고, ESM은 서열 선호도를 계산합니다.",
+        "이 기록을 여는 동작은 새 요청을 보내지 않습니다."
+      ]
+    },
+    {
+      "start_s": 35,
+      "end_s": 55,
+      "title": "Compare and inspect candidates",
+      "title_ko": "후보 비교와 구조 연결",
+      "surface": "Saved Review / Candidates",
+      "actions_ko": "Compare top three를 눌러 원래 순위와 점수 3개를 비교한다. Candidate to inspect에서 A32V를 선택하고 Inspect in Structure를 누른다.",
+      "en": [
+        "Compare the leading candidates without changing their original scores or ranks.",
+        "Select A32V and open Structure.",
+        "The same candidate selection carries across views, keeping the table and visualization connected."
+      ],
+      "ko": [
+        "원래 점수와 순위를 바꾸지 않고 상위 후보를 비교합니다.",
+        "A32V를 선택한 다음 Structure를 엽니다.",
+        "후보 선택이 화면 사이에 연동되어 표와 구조를 이어서 검토할 수 있습니다."
+      ]
+    },
+    {
+      "start_s": 55,
+      "end_s": 80,
+      "title": "Locate only what the structure supports",
+      "title_ko": "확인된 구조 위치만 표시",
+      "surface": "Saved Review / Structure",
+      "actions_ko": "A32V의 no atoms 안내와 [A32] 서열 문맥을 먼저 보여준다. Position to inspect에서 S108 · protected를 선택한다. 3D 전체 모습과 author residue 77을 보여주고 Rotate를 약 2초 사용한 뒤 정지한다. 확대가 필요하면 Focus residue 후 Fit reference로 복귀한다.",
+      "en": [
+        "This is the public experimental reference, not a predicted mutant.",
+        "A32 has no atoms here, so BioPilot shows sequence context without inventing a location.",
+        "Selecting S108 highlights author residue seventy-seven.",
+        "The three protected catalytic sites have distinct colors."
+      ],
+      "ko": [
+        "이 화면은 변이체 예측이 아니라 공개 실험 기준 구조입니다.",
+        "A32에는 원자가 없어 위치를 만들어 표시하지 않고 서열 문맥을 보여줍니다.",
+        "S108을 선택하면 구조 파일의 author 잔기 77이 강조됩니다.",
+        "보호된 촉매 잔기 세 곳은 서로 다른 색으로 표시합니다."
+      ]
+    },
+    {
+      "start_s": 80,
+      "end_s": 100,
+      "title": "Inspect provenance",
+      "title_ko": "출처와 근거 검토",
+      "surface": "Saved Review / Evidence",
+      "actions_ko": "Evidence의 Structure provenance에서 source, chain A, verified_index_join과 결측 위치를 보여준다. 이어 Run provenance로 바꿔 저장 점수와 후보의 연결을 보여준다. 긴 해시를 읽거나 전체 JSON을 훑지 않는다.",
+      "en": [
+        "Evidence records the structure source, chain, checksums, and residue correspondence.",
+        "Run provenance connects the displayed candidates to saved computation.",
+        "These checks support traceability, not validated stability, activity, or binding changes."
+      ],
+      "ko": [
+        "Evidence에는 구조 출처와 체인, 체크섬, 잔기 번호 대응 상태가 기록됩니다.",
+        "실행 출처 기록은 화면의 후보를 저장된 계산 결과와 연결합니다.",
+        "이 검사는 추적 가능성을 제공하며 안정성·활성·결합 변화의 검증을 뜻하지 않습니다."
+      ]
+    },
+    {
+      "start_s": 100,
+      "end_s": 115,
+      "title": "Switch to a new review",
+      "title_ko": "새 분석 흐름으로 전환",
+      "surface": "New Review / INPUT",
+      "actions_ko": "사이드바 New Review 링크로 8523 화면을 연다. 미리 열어 둔 같은 창을 사용해 화면 크기를 유지한다. UNARMED와 1 Input & Validation / 2 Agent Execution / 3 Review Results를 보여준다.",
+      "en": [
+        "New Review is a separate execution workflow.",
+        "It has three stages: input validation, agent execution, and results.",
+        "Unlike Saved Review, this surface can execute an explicitly approved request."
+      ],
+      "ko": [
+        "New Review는 새 분석을 위한 별도 실행 흐름입니다.",
+        "입력 검증, 에이전트 실행, 결과 검토의 세 단계로 구성됩니다.",
+        "저장 결과 탐색과 달리, 명시적으로 승인한 요청을 실행할 수 있습니다."
+      ]
+    },
+    {
+      "start_s": 115,
+      "end_s": 135,
+      "title": "Show a real local refusal",
+      "title_ko": "보호 잔기 거부 시연",
+      "surface": "New Review / local validation refused",
+      "actions_ko": "Arm paid runs를 끈 상태로 Review S108A for sequence plausibility. 를 입력해 보낸다. Protected catalytic site 거부 문구와 그대로인 Runs left를 2~3초 보여준다. 입력 예시 버튼은 초안만 채우므로 실제로 전송해야 한다.",
+      "en": [
+        "First, request S108A.",
+        "The local guard refuses this protected-site substitution before sending any model request.",
+        "This is an actual input check, not a new Meta decision.",
+        "Protection itself does not prove retained function."
+      ],
+      "ko": [
+        "먼저 S108A 검토를 요청합니다.",
+        "로컬 가드는 모델 요청을 보내기 전에 이 보호 잔기 변이를 거부합니다.",
+        "이것은 실제 입력 검사이며 새로운 Meta 판단은 아닙니다.",
+        "잔기를 보호한다는 사실만으로 기능 유지가 증명되지는 않습니다."
+      ]
+    },
+    {
+      "start_s": 135,
+      "end_s": 165,
+      "title": "Prepare a valid request and inspect execution gates",
+      "title_ko": "정상 요청과 실행 승인 조건",
+      "surface": "New Review / VALIDATED, UNARMED",
+      "actions_ko": "Review A32V for sequence plausibility. 를 보내 VALIDATED를 확인한다. Confirm this review에서 full-reference 위치 32, 현재 checkpoint, 실제 화면의 remaining_runs/max_model_requests_per_run, provider_cost unknown을 보여준다. Arm paid runs와 비용 확인은 체크하지 않고 Execute approved review가 비활성인 채로 멈춘다. 제한 숫자는 녹화 화면 값만 읽는다.",
+      "en": [
+        "Now enter A32V.",
+        "Local validation prepares a review without executing it.",
+        "Confirmation shows full-reference positions, the checkpoint, request limits, and unverified provider cost.",
+        "A new run requires arming, cost acknowledgment, and Execute.",
+        "We stop before execution in this recording."
+      ],
+      "ko": [
+        "이제 A32V를 입력합니다.",
+        "로컬 검증은 분석을 준비할 뿐 실행하지는 않습니다.",
+        "확인 화면에는 전체 기준 서열 위치, 체크포인트, 호출 제한과 미확인 비용이 표시됩니다.",
+        "새 실행에는 실행 허용, 비용 확인, Execute 버튼 클릭이 필요합니다.",
+        "이번 영상에서는 실제 실행 전에 멈춥니다."
+      ]
+    },
+    {
+      "start_s": 165,
+      "end_s": 180,
+      "title": "State the contribution and limits",
+      "title_ko": "핵심 가치와 한계",
+      "surface": "New Review confirmation / closing",
+      "actions_ko": "승인 전 확인 화면을 유지하며 마무리한다. 마지막 3초에는 BioPilot Bench 이름과 Saved evidence → Human review → Explicit execution 문구만 간결하게 겹친다. 새 완료 결과나 성능 수치를 만들지 않는다.",
+      "en": [
+        "Saved evidence and new execution remain clearly separated.",
+        "ESM preference is not experimental heat tolerance or proof of biological improvement.",
+        "BioPilot makes candidate review inspectable while preserving human judgment."
+      ],
+      "ko": [
+        "저장된 근거의 탐색과 새로운 실행을 명확하게 구분합니다.",
+        "ESM 서열 선호도는 실험적 내열성이나 생물학적 개선의 증거가 아닙니다.",
+        "BioPilot은 연구자의 판단을 유지하면서 후보 검토 과정을 확인 가능하게 만듭니다."
+      ]
+    }
+  ]
+}

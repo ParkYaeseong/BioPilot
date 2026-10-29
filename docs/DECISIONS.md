@@ -601,3 +601,15 @@ Never substitute nearby atoms for missing A32 coordinates. Distinguish reference
 visualization from existing stored model predictions and biological validation.
 Keep numerical ranking, original evidence, host execution and approval boundaries.
 Refresh guided navigation and actual structure thumbnails. No new structure job.
+
+## 2026-10-29 — current bilingual recording plan includes New Review
+
+Use a current nine-shot180s script instead of repurposing an old static video.
+Show saved scientific evidence first, then actual unarmed New Review local refusal
+and successful validation/preflight. Do not imply the new request has completed.
+Keep the real saved Meta/MCP trace as the recorded-execution evidence, and keep
+synthetic New Review test reports out of the demo's scientific evidence. Provide
+matching English/Korean narration, planned captions and explicit screen actions.
+Validate timeline/captions/current controls offline. No new model call, voice or
+video is authorized by updating the script; actual paid execution or publication
+requires the corresponding existing or new explicit authorization.

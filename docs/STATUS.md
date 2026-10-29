@@ -1,5 +1,32 @@
 # Current status
 
+## Bilingual 180-second demo with New Review — 2026-10-29
+
+Current recording entry point is demo/REVIEW_FLOWS_180S_EN.md and its Korean
+counterpart. Updated nine-shot timeline: saved Overview/Meta trace/candidates/
+Structure/Evidence for0–100s, New Review stages/refusal/valid preflight for100–165s,
+then scope/contribution through180s. English narration291words; average97wpm is a
+planning estimate, not measured speech. The default stops before paid execution.
+
+Added EN/KO planned SRT captions, demo/review_flows_180s.json, current guide links
+in README.md/demo/README_KO.md/docs06, and checks/validate_review_flow_demo.py.
+Original storyboards, narratives, videos and scientific artifacts remain historical
+records. Recent New Review test fixtures are not used as live evidence. Actual new
+execution would require its own approval, verified recording and revised narration.
+
+Verification command: `.venv/Scripts/python.exe checks/validate_review_flow_demo.py`.
+Timeline exactly180s,9segments; EN44/KO32cues; each starts0/ends180000ms, no gaps or
+overlaps, maximum2lines, shortest1818ms. Captions exactly match the corresponding
+narration. Offline checks confirm the current five views, A32V acceptance, S108A
+refusal,19saved candidates, recorded actual model, A32missing atoms/S108author77.
+Receipt:validation/review_flow_demo_script_20261029.json. Documentation-only change;
+Package consistency after manifest refresh:2,029checks passed,0failures.
+no application code change or new provider/GPU call. Previous full UI regression
+remains769passed/2skipped; it was not rerun for this documentation milestone.
+No new voice, video export, video-duration check, publication or submission.
+Next: rehearse actual screen actions, record narration/screens, then measure the
+real exported file and caption sync before any final video or submission claim.
+
 ## Primary Structure review restored — 2026-10-29
 
 Saved Review: Overview / Candidates / Structure / Agent Trace / Evidence, all

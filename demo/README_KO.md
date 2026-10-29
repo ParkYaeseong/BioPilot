@@ -1,4 +1,20 @@
-# 저장된 실제 실행 재생 — 2026-10-28
+# BioPilot Bench 시연 자료
+
+## 최신 3분 대본 — 2026-10-29
+
+현재 UI의 Saved Review와 New Review를 함께 보여주는 대본입니다.
+
+- [한국어 화면 조작·설명·낭독 대본](REVIEW_FLOWS_180S_KO.md)
+- [영어 내레이션](REVIEW_FLOWS_180S_EN.md)
+- [영어 자막](REVIEW_FLOWS_180S_EN.srt) / [한국어 자막](REVIEW_FLOWS_180S_KO.srt)
+- [정확히 180초인 촬영 타임라인](review_flows_180s.json)
+
+앞부분은 실제 저장 Meta/MCP·ESM 결과, 뒷부분은 New Review의 보호 잔기 거부와 정상
+요청 검증·승인 전 확인 화면입니다. 기본안은 새 모델/GPU 호출을 하지 않습니다.
+실제 음성·녹화·최종 영상 길이는 아직 검증하지 않은 촬영 계획입니다.
+이전 NARRATION / WORKBENCH / SPOTLIGHT 자료와 영상은 과거 버전으로 보존합니다.
+
+## 저장된 실제 실행 재생 — 2026-10-28
 
 `artifacts/sequence_review.replay.json`은 2026-10-27에 완료된 Meta → MCP → 로컬
 ESM → 설명 실행의 휴대 가능한 재생본입니다. 새 Meta 호출이나 ESM 추론 없이 실제

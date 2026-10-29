@@ -1,0 +1,65 @@
+{
+  "date_kst": "2026-10-29",
+  "status": "PASS",
+  "scope": "offline recording-plan/caption/current-UI consistency; not rendered video or measured narration",
+  "timeline_seconds": 180,
+  "segments": 9,
+  "english_words": 291,
+  "subtitles": {
+    "en": {
+      "cues": 44,
+      "start_ms": 0,
+      "end_ms": 180000,
+      "overlap_or_gap_count": 0,
+      "max_lines_per_cue": 2,
+      "shortest_cue_ms": 1818,
+      "text_matches_narration": true
+    },
+    "ko": {
+      "cues": 32,
+      "start_ms": 0,
+      "end_ms": 180000,
+      "overlap_or_gap_count": 0,
+      "max_lines_per_cue": 2,
+      "shortest_cue_ms": 1818,
+      "text_matches_narration": true
+    }
+  },
+  "ui_and_reference_checks": [
+    "five unnumbered Saved Review views",
+    "A32V local validation",
+    "S108A local refusal",
+    "19saved candidates",
+    "actual saved Meta model",
+    "A32 atom absence",
+    "S108 author77",
+    "pinned public reference join"
+  ],
+  "new_provider_calls": 0,
+  "new_gpu_calls": 0,
+  "video_exported": false,
+  "voice_duration_measured": false,
+  "existing_test_fixtures_used_as_live_evidence": false,
+  "files": [
+    {
+      "path": "demo/review_flows_180s.json",
+      "sha256": "16e2d8231c8bafc36156f62988cc9dd6b8ba0a8ec4f3377560be8a39c3aa1948"
+    },
+    {
+      "path": "demo/REVIEW_FLOWS_180S_EN.md",
+      "sha256": "6e3fc6fb2bf2ed36364f7f61ad0ead47103955619175196859ef6f68f9a828b9"
+    },
+    {
+      "path": "demo/REVIEW_FLOWS_180S_KO.md",
+      "sha256": "433e5e28402e97b3af80eb868fa7c6e419cd27e179d15e642eea1341fff7ef4d"
+    },
+    {
+      "path": "demo/REVIEW_FLOWS_180S_EN.srt",
+      "sha256": "84bd76850bc37af23ce80d1ea8bdbd5f43d39c6d7e901e30361b9aff648d1f5b"
+    },
+    {
+      "path": "demo/REVIEW_FLOWS_180S_KO.srt",
+      "sha256": "2c1927b4c20691dfe07acd241beb210d93c876b48417f4b5953418e66fccfbbf"
+    }
+  ]
+}

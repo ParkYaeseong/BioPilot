@@ -37,7 +37,7 @@ The workbench has readable light/dark controls, ordered input and file diagnosti
 comparison, reference/predicted structures, recorded-event navigation and an eight-step spotlight
 tutorial with actual screen examples. The linked live session starts unarmed.
 See [the workspace guide](docs/WORKSPACE_REFINEMENT_KO.md), [optional science guide](docs/OPTIONAL_SCIENCE_KO.md)
-and [three-minute recording guide](demo/RECORD_SPOTLIGHT_KO.md).
+and [current three-minute recording script, including New Review](demo/REVIEW_FLOWS_180S_KO.md).
 Actual saved scientific output remains REPLAY; no new model call is made by viewing.
 
 ![Actual local spotlight tutorial; saved scientific results are replayed](docs/images/guided-tutorial.png)
