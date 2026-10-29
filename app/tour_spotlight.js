@@ -16,6 +16,7 @@
   #bio-tour-card p{font-size:13px;line-height:1.7;margin:0 0 12px;color:inherit;}
   #bio-tour-card figure{margin:10px 0;overflow:hidden;border:1px solid ${light?'#e0e7ee':'#435366'};border-radius:7px;background:${light?'#f8fafc':'#0b0f14'};}
   #bio-tour-card img{display:block;width:100%;height:86px;object-fit:cover;object-position:top;}
+  #bio-tour-card.structure-preview img{height:140px;object-fit:contain;object-position:center;}
   #bio-tour-card figcaption{padding:4px 8px;font-size:10px;color:${light?'#526276':'#b4c1d0'};}
   #bio-tour-card .tour-tip{padding:9px 10px;background:${light?'#f2fafb':'#143238'};border:1px solid ${light?'#cdebf0':'#36606c'};border-radius:6px;font-size:11px;line-height:1.6;color:${light?'#41667a':'#bdd6df'};}
   #bio-tour-card button{pointer-events:auto;cursor:pointer;font:500 12px system-ui;padding:8px 12px;border:1px solid ${light?'#d1d9e2':'#617184'};border-radius:8px;color:inherit;background:${light?'#fff':'#1c2939'};}
@@ -45,6 +46,7 @@
   card.querySelector('.tour-tip').textContent=data.tip;
   card.querySelector('.tour-dots').innerHTML=Array.from({length:data.count},(_,i)=>`<i class="${i<=data.index?'done':''}"></i>`).join('');
   card.querySelector('[data-action="tour_back"]').disabled=data.index===0;
+  card.classList.toggle('structure-preview',Boolean(data.structure_preview));
   if(data.picture){card.querySelector('img').src=data.picture;card.querySelector('figure').hidden=false;}
   let disposed=false, initialTarget=null;
   const activate=key=>{const button=doc.querySelector(`.st-key-${key} button`); if(button&&!button.disabled)button.click();};

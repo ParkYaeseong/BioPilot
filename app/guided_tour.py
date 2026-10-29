@@ -37,10 +37,10 @@ STEPS = (
     TourStep('provenance', 'Verify what supports the result', 'Evidence',
              'Inspect the saved provenance and local consistency checks. Unknown costs and unverified claims stay visible.',
              'evidence'),
-    TourStep('unmodelled_position', 'Check the reference mapping', 'Evidence',
+    TourStep('unmodelled_position', 'Check the reference mapping', 'Structure',
              'The selected candidate resolves through the registered join. Missing atoms are reported, never guessed.',
              'structure'),
-    TourStep('protected_structure', 'Locate a protected residue', 'Evidence',
+    TourStep('protected_structure', 'Locate a protected residue', 'Structure',
              'S108 uses its verified author-number join for a highlight in the experimental reference structure.',
              'structure'),
     TourStep('valid_input', 'Check a valid request', 'Evidence',
@@ -56,7 +56,7 @@ STEPS = (
 PRESENTATION_FIELDS = (
     'active_view', 'local_variant', 'local_frame', 'local_objective',
     'local_check_result', 'compare_candidates', 'show_all_candidates',
-    'structure_focus', 'trace_step', 'evidence_section',
+    'structure_focus', 'focused_candidate', 'trace_step', 'evidence_section',
 )
 
 
@@ -76,12 +76,12 @@ def _apply_step(state, candidates):
         state['compare_candidates'] = [row['candidate_id'] for row in candidates[:3]]
         state['show_all_candidates'] = False
     elif step.id == 'unmodelled_position':
-        state['evidence_section'] = 'Reference mapping & saved structures'
+        if candidates:
+            state['focused_candidate'] = candidates[0]['candidate_id']
         state['structure_focus'] = (
             f"{candidates[0]['candidate_id']} · full {candidates[0]['full_position']}"
             if candidates else 'S108 · protected')
     elif step.id == 'protected_structure':
-        state['evidence_section'] = 'Reference mapping & saved structures'
         state['structure_focus'] = 'S108 · protected'
     elif step.id == 'validation_trace':
         state['trace_step'] = 0

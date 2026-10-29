@@ -1,0 +1,106 @@
+{
+  "date_kst": "2026-10-29",
+  "saved_views": [
+    "Overview",
+    "Candidates",
+    "Structure",
+    "Agent Trace",
+    "Evidence"
+  ],
+  "numbered_navigation": false,
+  "reference_verification": {
+    "status": "verified_index_join",
+    "pdb_id": "1ISP",
+    "chain": "A",
+    "source_url": "https://files.rcsb.org/download/1ISP.cif",
+    "coordinate_sha256": "7ab626e5c5c1bec8ed8acdd4675f105939ef982542a559084860d16e4b07cc10",
+    "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+    "mapping_sha256": "dc20af94c34cb043ac6a9259dab1b9e30ae0d97b2eeba98e35d3530e646dfa83",
+    "observed_count": 179,
+    "missing_full_positions": [
+      32,
+      212
+    ],
+    "geometry_validated": false
+  },
+  "candidate_linkage": "focused_candidate shared both directions; comparison set separate",
+  "reference_vs_prediction": "public experimental reference; existing saved predictions explicitly separate",
+  "missing_atoms_policy": "no atom selection; pinned full-reference sequence neighborhood only",
+  "unverified_mapping_policy": "3D disabled, independently verified sequence context retained",
+  "browser_verified": [
+    "Candidates A32V -> Structure A32V",
+    "A32 no atoms, no fake highlight",
+    "S108 -> author77",
+    "Fit reference",
+    "Focus residue",
+    "Rotate and Stop rotation",
+    "Evidence source/hash/chain/status",
+    "English9-step guided tour with Structure on steps6–7",
+    "Finish restores Evidence/Structure provenance",
+    "390px stacked controls; pageWidth390/viewport390"
+  ],
+  "new_provider_calls": 0,
+  "new_gpu_calls": 0,
+  "new_structure_calculation": false,
+  "mcp_meta_and_new_execution_unchanged": true,
+  "geometry_validated": false,
+  "stability_activity_binding_effects_validated": false,
+  "regression": {
+    "command": ".venv/Scripts/python.exe -m pytest tests tests_app -q -rs -p no:cacheprovider --basetemp=.cache/structure_release_final --tb=short",
+    "passed": 769,
+    "skipped": 2,
+    "warnings": 2,
+    "subtests_passed": 12,
+    "seconds": 87.71,
+    "skip_reason": "Windows symlink privileges unavailable",
+    "warnings_scope": "existing Modal asyncio deprecations",
+    "scope": "Final full regression after candidate focus and thumbnail updates"
+  },
+  "screenshots": [
+    {
+      "path": "local_artifacts/structure_review_20261029/a32_missing.png",
+      "sha256": "1610588f53ddf20fa1595696227634052c1bfe8f353138c16cd6c54a4a40189e"
+    },
+    {
+      "path": "local_artifacts/structure_review_20261029/evidence_mapping.png",
+      "sha256": "6fa4ad995aaec512a322f488a69d0ad726b8a31e8e7fc022eac45bbe5a46c8f8"
+    },
+    {
+      "path": "local_artifacts/structure_review_20261029/mobile_structure.png",
+      "sha256": "17a71cc2cea8aeeb59fe793d25f0548e19dba3764ecc65398b6dc4ff1ee644dc"
+    },
+    {
+      "path": "local_artifacts/structure_review_20261029/mobile_structure_top.png",
+      "sha256": "457ddacbb67d48d548037774568f1b69eccd66fdffb33dca1f854ec63febb3f6"
+    },
+    {
+      "path": "local_artifacts/structure_review_20261029/s108_reference.png",
+      "sha256": "8605554b2bcc35676e2d4a056608f4815da8efac1abe0cc4b98e024b87923d3d"
+    },
+    {
+      "path": "local_artifacts/structure_review_20261029/tutorial_6.png",
+      "sha256": "f2c899c31bf4d360c6b51f43e0d8f812657de585f3f59f46cb1d61c7d7d21be6"
+    },
+    {
+      "path": "local_artifacts/structure_review_20261029/tutorial_7.png",
+      "sha256": "445a8da78fec0151da72cc817c7046e65fdfe96749b2014b5152091e54f53d65"
+    }
+  ],
+  "permissions": "existing private source sync only; no public visibility, live call, deployment or submission",
+  "final_thumbnail_presentation_regression": {
+    "command": ".venv/Scripts/python.exe -m pytest tests_app/test_guided_tour.py tests_app/test_viewer_polish.py tests_app/test_viewer_structure.py -q -p no:cacheprovider --basetemp=.cache/structure_candidate_link_final --tb=short",
+    "passed": 37,
+    "seconds": 7.41,
+    "scope": "Final thumbnail presentation and explicit Inspect in Structure focuses the chosen candidate after protected-site inspection"
+  },
+  "scientific_baseline": {
+    "files": 135,
+    "unchanged": 135,
+    "changed": 0,
+    "missing": 0
+  },
+  "package_verification": {
+    "passed": 2009,
+    "failed": 0
+  }
+}

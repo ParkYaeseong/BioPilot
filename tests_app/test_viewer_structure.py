@@ -19,6 +19,70 @@ CIF = ROOT / 'reference/1ISP.cif'
 BUNDLE = ROOT / 'app/vendor/3Dmol-min.js'
 
 
+def test_reference_mapping_is_reverified_and_corruption_fails_closed():
+    from app.viewer_structure import verify_reference
+    verified = verify_reference()
+    assert verified['status'] == 'verified_index_join'
+    assert verified['observed_count'] == 179
+    assert verified['missing_full_positions'] == [32, 212]
+    assert verify_reference(cif_text='data_invalid')['status'] == 'unverified'
+    rows = json.loads((ROOT / 'reference/residue_map.json').read_text())['mapping']
+    rows[107]['pdb_auth_seq_id'] = '999'
+    assert verify_reference(mapping=rows)['status'] == 'unverified'
+
+
+def test_shared_candidate_focus_survives_switching_views():
+    from streamlit.testing.v1 import AppTest
+    import sys
+    from unittest.mock import patch
+    with patch.object(sys, 'argv', ['viewer.py', '--artifact', str(ROOT / 'demo/artifacts/sequence_review.replay.json')]):
+        app = AppTest.from_file(str(ROOT / 'app/viewer.py')).run()
+        app.session_state['active_view'] = 'Candidates'
+        app.run()
+        picker = next(x for x in app.selectbox if x.key == 'focused_candidate')
+        picker.select('A32V').run()
+        app.session_state['active_view'] = 'Structure'
+        app.run()
+        assert not app.exception
+        assert app.session_state['focused_candidate'] == 'A32V'
+        assert any('no atoms' in x.value for x in app.warning)
+        assert any('A32V' in x.value for x in app.caption)
+        app.selectbox(key='structure_focus').select('A32S · full 32').run()
+        app.selectbox(key='structure_focus').select('S108 · protected').run()
+        app.session_state['active_view'] = 'Candidates'
+        app.run()
+        assert app.selectbox(key='focused_candidate').value == 'A32S'
+        app.button(key='open_candidate_structure').click().run()
+        assert app.session_state['active_view'] == 'Structure'
+        assert app.selectbox(key='structure_focus').value == 'A32S · full 32'
+
+
+def test_forged_atom_selection_is_never_rendered():
+    forged = {'full_position': 32, 'selection': {'chain': 'A', 'resi': 32}}
+    html = structure_panel_html(highlight=forged)
+    block = html.split('HIGHLIGHT_START')[1].split('HIGHLIGHT_END')[0]
+    assert 'resi' not in block
+
+
+def test_catalytic_sites_have_distinct_colors_and_sequence_context():
+    from app.viewer_structure import sequence_neighborhood
+    html = structure_panel_html()
+    assert all(color in html for color in ('0x008577', '0x2563eb', '0x9333ea'))
+    assert {'full_position': 32, 'residue': 'A'} in sequence_neighborhood(32)
+
+
+def test_unverified_source_disables_3d_but_keeps_pinned_sequence(monkeypatch, tmp_path):
+    import app.viewer_structure as structures
+    damaged = tmp_path / 'damaged.cif'
+    damaged.write_text('data_damaged')
+    monkeypatch.setattr(structures, '_STRUCTURE', damaged)
+    selection = structures.residue_selection(108)
+    assert selection['selection'] is None
+    html = structures.structure_panel_html(highlight=selection)
+    assert 'disabled' in html and 'GLViewer' not in html
+    assert {'full_position': 108, 'residue': 'S'} in structures.sequence_neighborhood(108)
+
+
 def test_vendored_assets_are_present_so_nothing_is_fetched_at_render_time():
     assert CIF.is_file() and BUNDLE.is_file()
     pinned = json.loads((ROOT / 'reference/target_profile.json').read_text(
@@ -64,7 +128,8 @@ def test_selection_follows_the_registered_map_and_never_an_offset():
                  'pdb_auth_seq_id': '999', 'pdb_insertion_code': None,
                  'coordinate_observed': True, 'protected': True}]
     selection = residue_selection(108, residue_map=doctored)
-    assert selection['selection'] == {'chain': 'A', 'resi': 999}
+    assert selection['selection'] is None
+    assert selection['status'] == 'unverified_mapping'
 
 
 def test_protected_triad_is_selectable_and_matches_the_registered_join():

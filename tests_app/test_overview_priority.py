@@ -41,11 +41,10 @@ def test_navigation_keeps_diagnostics_outside_the_four_result_views(monkeypatch)
 
 def test_structure_evidence_is_scoped_and_remains_separate_from_diagnostics(monkeypatch):
     app = viewer(monkeypatch)
-    app.session_state['active_view'] = 'Evidence'
-    app.session_state['evidence_section'] = 'Reference mapping & saved structures'
+    app.session_state['active_view'] = 'Structure'
     app.run()
     assert not app.exception
-    assert 'Reference mapping & saved structures' in [item.value for item in app.subheader]
+    assert 'Reference structure' in [item.value for item in app.subheader]
     assert app.selectbox(key='structure_focus')
     assert not app.get('file_uploader')
     assert any('atom geometry unvalidated' in str(item.value) for item in app.caption)

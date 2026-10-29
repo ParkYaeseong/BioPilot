@@ -46,8 +46,7 @@ def test_progression_changes_input_shortlist_structure_and_trace_controls():
     assert state['active_view'] == 'Evidence'
     assert state['evidence_section'] == 'Run provenance'
     advance_tour(state, CANDIDATES, now=5)
-    assert state['active_view'] == 'Evidence'
-    assert state['evidence_section'] == 'Reference mapping & saved structures'
+    assert state['active_view'] == 'Structure'
     assert state['structure_focus'] == 'A32E · full 32'
     advance_tour(state, CANDIDATES, now=6)
     assert state['structure_focus'] == 'S108 · protected'

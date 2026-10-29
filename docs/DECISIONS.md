@@ -588,3 +588,16 @@ and distinguish unknown billing from request caps. Update the guide to inspect s
 validation/scoring before candidates, and label optional local checks separately.
 No new Meta reasoning, inference or scientific result is fabricated. Preserve actual
 host adapters, record UI mocks separately, retain private visibility and prior history.
+
+
+## 2026-10-29 — Structure is primary exploration, not an execution stage
+
+Owner requests a primary Structure view alongside four existing result views.
+Restore the unnumbered menu and share one focused candidate across Candidates and
+Structure; retain multi-candidate comparison independently. Reverify the public
+reference join locally before enabling any atom selection. Corrupt/unverified
+correspondence disables 3D and retains only the independently pinned sequence.
+Never substitute nearby atoms for missing A32 coordinates. Distinguish reference
+visualization from existing stored model predictions and biological validation.
+Keep numerical ranking, original evidence, host execution and approval boundaries.
+Refresh guided navigation and actual structure thumbnails. No new structure job.

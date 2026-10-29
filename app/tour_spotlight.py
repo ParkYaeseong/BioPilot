@@ -38,7 +38,7 @@ COPY = {'overview': ('Understand the saved review',
                 'verification limits remain visible.',
                 'Local consistency checks do not establish external authenticity or biological efficacy.'),
  'unmodelled_position': ('Check the reference mapping',
-                         'Evidence shows Reference mapping & saved structures. Full-reference position 32 '
+                         'Structure shows the experimental reference. Full-reference position 32 '
                          'has no atoms in 1ISP, so no residue is highlighted there.',
                          'Missing residues are reported; nearby atoms are never used as substitutes.'),
  'protected_structure': ('Locate a protected residue',
@@ -65,6 +65,7 @@ def spotlight_document(index, *, appearance='Dark', playing=False):
     title, body, tip = COPY[step.id]
     payload = {'index': index, 'count': len(STEPS), 'selector': TARGETS[step.id],
                'title': title, 'body': body, 'tip': tip, 'picture': picture,
+               'structure_preview': step.focus == 'structure',
                'light': appearance == 'Light', 'auto': appearance == 'Auto', 'playing': playing,
                'focus_height': 340 if step.focus == 'trace' else (450 if step.focus in {'overview', 'evidence'} else None)}
     data = json.dumps(payload, ensure_ascii=False).replace('<', '\\u003c')

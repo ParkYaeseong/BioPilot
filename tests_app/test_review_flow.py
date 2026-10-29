@@ -3,7 +3,7 @@ import pytest
 
 def test_saved_review_navigation_is_not_a_numbered_workflow():
     from app.viewer import VIEWS, VIEW_LABELS
-    assert VIEWS == ('Overview', 'Candidates', 'Agent Trace', 'Evidence')
+    assert VIEWS == ('Overview', 'Candidates', 'Structure', 'Agent Trace', 'Evidence')
     assert all(VIEW_LABELS[name] == name for name in VIEWS)
 
 

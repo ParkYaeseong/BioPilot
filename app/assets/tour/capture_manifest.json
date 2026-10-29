@@ -102,5 +102,20 @@
     },
     "path": "overview.png",
     "appearance": "Light"
+  },
+  "structure_refresh_20261029": {
+    "reason": "Restore Structure as a primary unnumbered view; show whole reference instead of an extreme zoom",
+    "method": "CUA direct clip of actual rendered local 3D viewer, without tutorial overlay or image editing",
+    "clip": {
+      "x": 704,
+      "y": 60,
+      "width": 524,
+      "height": 430
+    },
+    "steps": {
+      "unmodelled_position": "f52f6c4e1061bd603a3e5b1141a185559f4776f6458890d251860574a0c32d12",
+      "protected_structure": "f13c98ae955609edbe613cfd2ff1591eddb0e5b69fb4a1e3c8c0b6c83a2d37e0"
+    },
+    "source_mode": "REPLAY; pinned public experimental 1ISP chain A; no new inference"
   }
 }

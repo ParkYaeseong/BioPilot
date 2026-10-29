@@ -101,8 +101,7 @@ def test_structure_evidence_refuses_to_fake_an_unmodelled_position(monkeypatch):
     before = REPLAY.read_bytes()
     app = app_view(monkeypatch)
     assert not app.exception
-    app.session_state['evidence_section'] = 'Reference mapping & saved structures'
-    at_view(app, 'Evidence')
+    at_view(app, 'Structure')
     focus = app.selectbox(key='structure_focus')
     # Every saved candidate is A32X, and full 32 carries no atoms in 1ISP.
     assert focus.options[0].startswith('A32')
@@ -146,8 +145,7 @@ def test_guided_tour_moves_the_screen_rather_than_only_numbering_steps(monkeypat
     assert app.session_state['active_view'] == 'Evidence'
     assert app.session_state['evidence_section'] == 'Run provenance'
     app.button(key='tour_next').click().run()
-    assert app.session_state['active_view'] == 'Evidence'
-    assert app.session_state['evidence_section'] == 'Reference mapping & saved structures'
+    assert app.session_state['active_view'] == 'Structure'
     assert app.selectbox(key='structure_focus').value.startswith('A32')
     assert any('not modelled' in str(block.value).lower() for block in app.warning)
     app.button(key='tour_next').click().run()

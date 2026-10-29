@@ -1,5 +1,45 @@
 # Current status
 
+## Primary Structure review restored — 2026-10-29
+
+Saved Review: Overview / Candidates / Structure / Agent Trace / Evidence, all
+unnumbered. New Review execution remains separate. Structure and Candidates share
+focused_candidate; protected-site inspection does not overwrite the candidate.
+Comparison selection remains a separate three-candidate set, preserving ranks.
+
+viewer_structure.py rechecks pinned mmCIF bytes, the registered full_212 sequence,
+unique exact deposited-sequence match, polymer/atom join, residue identities,
+author numbering, chain and model policy, and finite coordinates. It verifies
+index correspondence, not geometry, side-chain completeness or variant effects.
+1ISP chain A has179 observed residues; full32 and212 have no atoms; full1–31 are
+outside the deposited construct. A32X candidates show sequence context without a
+fake atom marker. S108/D164/H187 are distinct colours. Fit/Rotate/Focus residue
+are presentation-only controls. Default camera shows the whole reference.
+
+Evidence / Structure provenance contains source URL, checksum, chain and mapping
+states. Existing saved ESM3/ESMFold2 predictions remain clearly separated under
+Additional evidence; no prediction or optional annotation reranks candidates.
+The nine-step English guide opens Structure for steps6–7 and restores prior state.
+Actual structure thumbnails refreshed from CUA screenshots. 390px mobile has no
+page overflow; controls stack and embedded controls wrap. Viewer frame leaves
+room for the complete limitations text. Actual browser Fit/Focus/Rotate verified.
+
+Changed viewer.py, viewer_structure.py, guided_tour.py, tour_spotlight.py/js, two tour
+images/capture metadata, related tests, demo plan and milestone docs. MCP/Meta,
+New Review execution, raw scientific artifacts, scores and ranks are unchanged.
+Initial navigation and verification tests failed before implementation. Focused
+structure/tour/view regression:41passed before the final refusal test was added.
+Full regression:769passed,2skipped,2warnings,12subtests in87.71s. Command:
+`.venv/Scripts/python.exe -m pytest tests tests_app -q -rs -p no:cacheprovider --basetemp=.cache/structure_release_final --tb=short`.
+After the final thumbnail contain/style change, focused structure/tour regression:
+37passed in7.41s, including explicit candidate inspection after a protected-site
+view. Actual screenshot confirms the whole preview is visible. Package:2,009
+checks passed,0failures.
+Scientific baseline:135unchanged,0changed,0missing. Full results and screenshot
+hashes:validation/structure_review_20261029.json.
+No new provider/GPU call, sequence upload, visibility change, deployment or submission.
+Next allowed action: finish source verification and sync the existing private repo.
+
 ## Separate execution from saved exploration — 2026-10-29
 
 Saved Review has four unnumbered views and no Previous/Continue workflow controls.

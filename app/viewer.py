@@ -20,7 +20,7 @@ from app.upload_checks import (MAX_SEQUENCE_BYTES, MAX_STRUCTURE_BYTES,
 from app.viewer_render import (appearance_control, handoff_ladder, init_appearance,
                                render_brand, workspace_navigation, palette_css)
 from app.brand import BRAND_ICON
-from app.viewer_structure import residue_selection, structure_panel_html
+from app.viewer_structure import residue_selection, structure_panel_html, verify_reference, sequence_neighborhood
 from app.guided_tour import (STEPS, advance_tour, set_tour_playing, start_tour,
                              stop_tour, tick_tour)
 from app.core.atlas_snapshot import load_registered_atlas_snapshot
@@ -63,6 +63,33 @@ def _try_example(variant):
 
 def _set_comparison(candidate_ids):
     st.session_state['compare_candidates'] = list(candidate_ids)
+
+
+def _sync_candidate(rows):
+    candidate = next(r for r in rows if r['candidate_id'] == st.session_state['focused_candidate'])
+    st.session_state['structure_focus'] = f"{candidate['candidate_id']} · full {candidate['full_position']}"
+
+
+def _sync_structure(choices):
+    row = next(c[2] for c in choices if c[0] == st.session_state['structure_focus'])
+    if row is not None:
+        st.session_state['focused_candidate'] = row['candidate_id']
+
+
+def _open_candidate_structure(rows):
+    _sync_candidate(rows)
+    _navigate_view('Structure')
+
+
+def _candidate_focus(rows):
+    ids = [row['candidate_id'] for row in rows]
+    if not ids:
+        return
+    if st.session_state.get('focused_candidate') not in ids:
+        st.session_state['focused_candidate'] = ids[0]
+    st.selectbox('Candidate to inspect', ids, key='focused_candidate',
+                 on_change=_sync_candidate, args=(rows,),
+                 help='Shared with Structure. Inspection never changes ranks or calls a model.')
 
 
 def _move_trace(delta, count):
@@ -221,6 +248,9 @@ def _candidates(view):
     st.caption('Common rank policy: ' + str(view['ranking_scope'] or 'unavailable') +
                ' · optional evidence does not change these ranks.')
     st.markdown('**Inspect candidates**')
+    _candidate_focus(rows)
+    st.button('Inspect in Structure', key='open_candidate_structure',
+              on_click=_open_candidate_structure, args=(rows,), icon=':material/view_in_ar:')
     compare, clear, _ = st.columns([1.5, 1, 2.5])
     compare.button('Compare top three', key='compare_top_three',
         on_click=_set_comparison, args=([row['candidate_id'] for row in rows[:3]],),
@@ -245,9 +275,9 @@ def _candidates(view):
         st.text(CLAIM_BANNER)
 
 
-VIEWS = ('Overview', 'Candidates', 'Agent Trace', 'Evidence')
+VIEWS = ('Overview', 'Candidates', 'Structure', 'Agent Trace', 'Evidence')
 VIEW_LABELS = {name: name for name in VIEWS}
-EVIDENCE_SECTIONS = ('Run provenance', 'Reference mapping & saved structures', 'Advanced diagnostics')
+EVIDENCE_SECTIONS = ('Run provenance', 'Structure provenance', 'Advanced diagnostics')
 
 
 def _tour_action(action, candidates):
@@ -351,18 +381,40 @@ def _trace(view):
 
 def _structure(view):
     """Reference structure beside the saved evidence for the chosen position."""
-    st.subheader('Reference mapping & saved structures')
-    st.caption('Experimental reference 1ISP · chain A · verified numbering join · atom geometry unvalidated')
+    st.subheader('Reference structure')
+    st.caption('Experimental reference 1ISP · chain A · local correspondence check · atom geometry unvalidated')
     rows = format_candidate_rows(view['candidates'])
+    candidate_control, position_control = st.columns(2)
+    with candidate_control:
+        _candidate_focus(rows)
+    focused = next((r for r in rows if r['candidate_id'] == st.session_state.get('focused_candidate')), None)
     choices = [(f"{row['candidate_id']} · full {row['full_position']}",
                 row['full_position'], row) for row in rows]
     choices += [(f'{residue}{position} · protected', position, None)
                 for position, residue in ((108, 'S'), (164, 'D'), (187, 'H'))]
     labels = [choice[0] for choice in choices]
-    chosen = st.selectbox('Position to inspect', labels, key='structure_focus',
-        help='Saved candidates first, then the registered protected residues.')
+    if st.session_state.get('structure_focus') not in labels:
+        st.session_state['structure_focus'] = (f"{focused['candidate_id']} · full {focused['full_position']}" if focused else labels[0])
+    with position_control:
+        chosen = st.selectbox('Position to inspect', labels, key='structure_focus',
+            on_change=_sync_structure, args=(choices,),
+            help='Saved candidates first, then the registered protected residues.')
     _, position, row = choices[labels.index(chosen)]
     selection = residue_selection(position)
+    if focused:
+        st.caption(f"Selected candidate: {focused['candidate_id']} · reference visualization only; no mutant structure is inferred.")
+    report = verify_reference()
+    try:
+        neighborhood = sequence_neighborhood(position)
+        st.caption('Full-reference sequence neighborhood · brackets mark the inspected position')
+        st.code(' '.join(f"[{r['residue']}{r['full_position']}]" if r['full_position'] == position else f"{r['residue']}{r['full_position']}" for r in neighborhood), language=None, wrap_lines=True)
+    except ValueError:
+        st.error('Registered sequence could not be verified; sequence context unavailable.')
+        return
+    if report['status'] != 'verified_index_join':
+        st.error('Reference correspondence is unverified. 3D is disabled: ' + report.get('reason', 'unknown'))
+        st.caption('Sequence-level context only; no atom positions or mutation effects are inferred.')
+        return
     evidence, panel = st.columns([2, 3])
     with evidence:
         if row is not None:
@@ -384,11 +436,25 @@ def _structure(view):
         with st.expander('Scientific limits'):
             st.text(CLAIM_BANNER)
     with panel, st.container(key='tour_structure'):
+        st.caption('Orange: inspected residue · S108 teal · D164 blue · H187 purple. Missing atoms are never highlighted.')
         components.html(structure_panel_html(highlight=selection,
             appearance=st.session_state.get('appearance', 'Dark')),
-            height=520, scrolling=False)
+            height=620, scrolling=False)
     with st.expander('Additional evidence · Atlas and structure models'):
         _additional_evidence()
+
+
+def _structure_provenance():
+    report = verify_reference()
+    st.subheader('Structure provenance')
+    st.caption('Public experimental reference; independent from any saved model prediction.')
+    st.json({key: value for key, value in report.items() if key != 'mapping'}, expanded=True)
+    if report['status'] == 'verified_index_join':
+        st.markdown('[Public mmCIF source](' + report['source_url'] + ')')
+        st.caption('Exact full-reference/deposited-sequence match; polymer scheme joined to observed atoms; author numbering and residue identities rechecked locally. This verifies index correspondence, not atom geometry, stability, activity or binding changes.')
+        st.table([{'Full residue': f"{r['residue']}{r['full_position']}", 'Chain': r['chain'],
+                           'Author residue': r['pdb_auth_seq_id'], 'Correspondence': r['status']}
+                          for r in [residue_selection(p) for p in (32, 108, 164, 187, 212)]])
 
 
 def _additional_evidence():
@@ -554,7 +620,7 @@ def _evidence(view):
     st.segmented_control('Evidence section', EVIDENCE_SECTIONS, key='evidence_section',
                          selection_mode='single', required=True, width='stretch')
     if st.session_state['evidence_section'] == EVIDENCE_SECTIONS[1]:
-        _structure(view)
+        _structure_provenance()
     elif st.session_state['evidence_section'] == 'Advanced diagnostics':
         _input(view)
     else:
@@ -577,16 +643,16 @@ def main():
     # Preserve presentation state while another view temporarily removes its widgets.
     # Streamlit otherwise deletes unrendered widget keys at the end of a run.
     for key in ('local_variant', 'local_frame', 'local_objective', 'compare_candidates',
-                'show_all_candidates', 'structure_focus', 'trace_step', 'evidence_section'):
+                'show_all_candidates', 'focused_candidate', 'structure_focus', 'trace_step', 'evidence_section'):
         if key in st.session_state:
             st.session_state[key] = st.session_state[key]
     previous_view = st.session_state.get('active_view')
     if previous_view in ('Input', 'Check a file', 'Input & Diagnostics'):
         st.session_state['evidence_section'] = 'Advanced diagnostics'
-    if previous_view == 'Structure':
-        st.session_state['evidence_section'] = EVIDENCE_SECTIONS[1]
+    if st.session_state.get('evidence_section') == 'Reference mapping & saved structures':
+        st.session_state['evidence_section'] = 'Structure provenance'
     aliases = {'Input': 'Evidence', 'Check a file': 'Evidence', 'Input & Diagnostics': 'Evidence',
-               'Decision trace': 'Agent Trace', 'Structure': 'Evidence'}
+               'Decision trace': 'Agent Trace'}
     st.session_state['active_view'] = aliases.get(previous_view, previous_view)
     if st.session_state['active_view'] not in VIEWS:
         st.session_state['active_view'] = 'Overview'
@@ -628,7 +694,7 @@ def main():
                          selection_mode='single', required=True, width='stretch')
     shown = st.session_state.get('active_view') or 'Overview'
     with st.container(key='view_content'):
-        {'Overview': _overview, 'Candidates': _candidates, 'Agent Trace': _trace,
+        {'Overview': _overview, 'Candidates': _candidates, 'Structure': _structure, 'Agent Trace': _trace,
          'Input & Diagnostics': _input, 'Evidence': _evidence}[shown](view)
     st.caption('Saved run status: ' + str(view['status']))
     if st.session_state.get('tour_playing'):
