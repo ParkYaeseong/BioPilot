@@ -1,5 +1,16 @@
 # Current status
 
+## Workspace switch correction — 2026-10-29
+
+Owner clarified the two sidebar links themselves were the issue. Changed only
+viewer.css: two equal horizontal segments, common neutral label colour, selected
+surface, no left bracket/inset accent. Navigation URLs and capability isolation
+are unchanged. Actual IAB sidebar screenshot checked; both labels fit. Focused
+brand/workspace/contrast regression:16 passed in2.83s. Command:
+`.venv/Scripts/python.exe -m pytest tests_app/test_brand_presentation.py tests_app/test_workspace_flow.py tests_app/test_viewer_contrast.py -q -p no:cacheprovider --basetemp=.cache/workspace_switch_final --tb=short`.
+No model/GPU calls or scientific file changes. Auto stays default. Source remains
+private; next action is owner review of the corrected two-item switch.
+
 ## Responsive shell and Auto appearance — 2026-10-29
 
 Resumed the interrupted Overview QA in the in-app browser. Actual Overview image

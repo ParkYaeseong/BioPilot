@@ -566,3 +566,12 @@ Geist tabs/button guidance and Linear March2024 interface refresh; no assets cop
 Original ribbon mark/favicon are local SVGs. Browser QA resumed successfully; old
 interrupted receipts remain historical. Keep repository private and synchronize
 only after verification. No inference, deployment or contest submission.
+
+
+## 2026-10-29 — sidebar switch, not accented vertical links
+
+The owner's screenshot identifies the bracket-like active marker and unmatched
+link colours. Replace that treatment with a compact two-segment switch, preserving
+ordinary navigation links and aria-current. Scope this correction to CSS; retain
+Auto and the independent controlled-execution surface. Verify actual sidebar and
+focused existing tests. No scientific artifact or permission change.
