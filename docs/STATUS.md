@@ -1,5 +1,20 @@
 # Current status
 
+## Owner choice: keep repository private — 2026-10-29
+
+Owner explicitly chose to keep ParkYaeseong/BioPilot private for now. Connected
+GitHub metadata confirms private visibility; no visibility-setting action was
+performed. Updated submission/manifest.current.json and docs/DECISIONS.md to
+replace the pending choice with this decision. Historical upload receipts retain
+their original meaning. Code, saved scientific results and prior test receipts
+are unchanged. Verification: GitHub metadata read and offline package checker
+(1,947 checks passed, 0 failures);
+exact checker command is `.venv/Scripts/python.exe checks/validate_package.py`.
+The published-guide requirement for an eventual public submission is deferred
+by the owner, not permission to change sharing now. No new provider/GPU calls or
+contest submission. Next allowed work: local/private preparation; public release
+requires a later explicit owner instruction.
+
 ## English tutorial correction — 2026-10-29
 
 The user identified Korean copy in the otherwise English submission UI. The

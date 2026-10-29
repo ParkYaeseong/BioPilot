@@ -529,3 +529,12 @@ for English copy and verify the eight-step flow in the browser. Preserve earlier
 recordings and receipts with their historical meaning; do not claim the old video
 has been re-recorded. Upload this correction through the existing authorized
 repository workflow without changing its visibility or submitting to the event.
+
+## 2026-10-29 — defer public repository release
+
+The owner answered the visibility question with an explicit choice to keep the
+repository private for now. Record this in current submission metadata and keep
+GitHub private. Earlier source-upload authorization continues to cover private
+source updates; it does not authorize a future public transition. Do not repeat
+the visibility request during unrelated work or infer approval from contest
+requirements. Await a new explicit release instruction before changing sharing.
