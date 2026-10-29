@@ -34,7 +34,7 @@ def test_workspace_links_explain_replay_and_session_without_arming_authority(mon
     html = probe.html_blocks[0]
     assert 'aria-current="page"' in html
     assert 'workspace-switch' in html
-    assert 'Saved review' in html and 'Live session' in html
+    assert 'Saved review' in html and 'New Review' in html
     assert 'REPLAY' in html and 'New controlled review' in html
     assert '8522/?appearance=Light' in html and '8523/?appearance=Light' in html
     assert 'armed' not in html and 'run_id' not in html

@@ -26,7 +26,7 @@ def test_tour_reviews_results_before_local_checks_then_restores_user_selection(m
     for _ in range(7):
         app.button(key='tour_next').click().run()
         assert not app.exception
-    assert app.session_state['active_view'] == 'Input & Diagnostics'
+    assert app.session_state['active_view'] == 'Evidence'
     assert app.text_input(key='local_variant').value == 'A32V'
     assert app.session_state['local_check_result']['status'] == 'accepted'
     app.button(key='tour_next').click().run()
@@ -40,14 +40,15 @@ def test_tour_reviews_results_before_local_checks_then_restores_user_selection(m
 
 def test_diagnostics_are_local_and_live_navigation_is_only_a_link(monkeypatch):
     app = viewer(monkeypatch)
-    app.session_state['active_view'] = 'Input & Diagnostics'
+    app.session_state['active_view'] = 'Evidence'
+    app.session_state['evidence_section'] = 'Advanced diagnostics'
     app.run()
     assert not app.exception
     assert app.text_input(key='local_variant')
     assert not any(b.key == 'local_variant' for b in app.sidebar.text_input)
     rendered = ' '.join(str(e.value) for e in app.html)
     assert 'http://127.0.0.1:8521' in rendered
-    assert 'Live session' in rendered
+    assert 'New Review' in rendered
     assert 'Structure' not in [x.label for x in app.get('file_uploader')]
 
 

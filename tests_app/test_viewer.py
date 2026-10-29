@@ -12,6 +12,9 @@ VIEWER_APP=_Path(__file__).resolve().parents[1]/'app'/'viewer.py'
 
 def at_view(app, name):
     """Open one view. The viewer renders only the active view, as the tour drives it."""
+    if name in ('Input', 'Input & Diagnostics'):
+        app.session_state['evidence_section'] = 'Advanced diagnostics'
+        name = 'Evidence'
     app.session_state['active_view'] = name
     return app.run()
 
@@ -488,4 +491,4 @@ def test_the_read_only_program_points_at_the_separate_live_program(tmp_path,monk
     assert not app.exception
     text=' '.join(str(c.value) for c in app.html)
     assert 'http://127.0.0.1:9999' in text
-    assert 'Live session' in text
+    assert 'New Review' in text

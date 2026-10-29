@@ -35,13 +35,13 @@ def test_progression_changes_input_shortlist_structure_and_trace_controls():
     saved_candidates = deepcopy(CANDIDATES)
     start_tour(state, CANDIDATES, now=0, autoplay=False)
     advance_tour(state, CANDIDATES, now=1)
-    assert state['active_view'] == 'Candidates'
-    assert state['compare_candidates'] == ['A32E', 'A32S', 'A32V']
-    advance_tour(state, CANDIDATES, now=2)
     assert state['active_view'] == 'Agent Trace'
     assert state['trace_step'] == 0
-    advance_tour(state, CANDIDATES, now=3)
+    advance_tour(state, CANDIDATES, now=2)
     assert state['trace_step'] == 1
+    advance_tour(state, CANDIDATES, now=3)
+    assert state['active_view'] == 'Candidates'
+    assert state['compare_candidates'] == ['A32E', 'A32S', 'A32V']
     advance_tour(state, CANDIDATES, now=4)
     assert state['active_view'] == 'Evidence'
     assert state['evidence_section'] == 'Run provenance'
@@ -52,7 +52,7 @@ def test_progression_changes_input_shortlist_structure_and_trace_controls():
     advance_tour(state, CANDIDATES, now=6)
     assert state['structure_focus'] == 'S108 · protected'
     advance_tour(state, CANDIDATES, now=7)
-    assert state['active_view'] == 'Input & Diagnostics'
+    assert state['active_view'] == 'Evidence'
     assert state['local_variant'] == 'A32V'
     assert state['local_check_result']['status'] == 'accepted'
     assert state['local_check_result']['inference_performed'] is False
@@ -67,7 +67,7 @@ def test_progression_changes_input_shortlist_structure_and_trace_controls():
 
 def test_tour_follows_the_submission_story_instead_of_beginning_with_diagnostics():
     assert [step.id for step in STEPS] == [
-        'overview', 'compare', 'validation_trace', 'scoring_trace', 'provenance',
+        'overview', 'validation_trace', 'scoring_trace', 'compare', 'provenance',
         'unmodelled_position', 'protected_structure', 'valid_input', 'protected_input',
     ]
 
@@ -151,8 +151,8 @@ def test_stop_removes_the_evidence_section_if_it_was_previously_absent():
 def test_small_or_absent_cohort_is_handled_without_inventing_candidates(candidates):
     state = {}
     start_tour(state, candidates, now=0, autoplay=False)
-    advance_tour(state, candidates, now=1)
+    advance_tour(state, candidates, now=1, delta=3)
     assert state['compare_candidates'] == [item['candidate_id'] for item in candidates]
-    advance_tour(state, candidates, now=2, delta=4)
+    advance_tour(state, candidates, now=2, delta=2)
     assert state['structure_focus'] == (
         'A32E · full 32' if candidates else 'S108 · protected')

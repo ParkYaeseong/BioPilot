@@ -59,6 +59,7 @@ def test_a_valid_request_is_parsed_but_unarmed_sends_nothing(monkeypatch):
     assert '[32]' in text
     assert 'unarmed' in text.lower()
     assert 'nothing is' in text.lower() and 'sent' in text.lower()
+    assert app.button(key='execute_review').disabled
     assert any('3 of 3' in str(m.value) for m in app.metric)
 
 
@@ -104,6 +105,9 @@ def test_fresh_chat_sessions_use_distinct_workspaces(monkeypatch):
         app=app_session(monkeypatch)
         app.checkbox(key='armed').set_value(True).run()
         say(app,'Review A32V')
+        assert not paths or len(paths)==1
+        app.checkbox(key='cost_ack').set_value(True).run()
+        app.button(key='execute_review').click().run()
         assert not app.exception
     assert len(set(paths))==2
 
@@ -115,5 +119,52 @@ def test_preparation_failure_is_rendered_and_preserves_the_chat(monkeypatch):
     app=app_session(monkeypatch)
     app.checkbox(key='armed').set_value(True).run()
     say(app,'Review A32V')
+    app.checkbox(key='cost_ack').set_value(True).run()
+    app.button(key='execute_review').click().run()
     assert not app.exception
     assert 'Workspace already exists' in transcript(app)
+
+
+def test_arming_validation_and_reruns_never_dispatch_without_execute(monkeypatch):
+    calls = []
+    def offline(root, workspace, **kwargs):
+        calls.append(workspace)
+        return {'returncode': 1, 'stage': 'prepare', 'stderr': 'mock failure'}
+    monkeypatch.setattr('app.session_exec.run_session', offline)
+    app = app_session(monkeypatch)
+    app.checkbox(key='armed').set_value(True).run()
+    say(app, 'Review A32V')
+    app.run()
+    assert calls == []
+    assert app.button(key='execute_review').disabled
+    app.checkbox(key='cost_ack').set_value(True).run()
+    assert calls == []
+    say(app, 'Review position 45')
+    assert not app.exception
+    assert app.checkbox(key='cost_ack').value is False
+    assert app.session_state['pending_review']['positions'] == [45]
+    app.checkbox(key='cost_ack').set_value(True).run()
+    app.button(key='execute_review').click().run()
+    assert len(calls) == 1 and app.session_state['review_phase'] == 'failed'
+    app.run()
+    assert len(calls) == 1 and app.session_state['pending_review'] is None
+
+
+def test_partial_report_survives_a_nonzero_exit_without_claiming_completion(monkeypatch):
+    import json
+    from tests_app.test_viewer import saved_report
+    def partial(root, workspace, **kwargs):
+        workspace.mkdir(parents=True)
+        report = saved_report(status='partial', stop_reason='mock_budget_stop',
+                              source_mode='synthetic_fixture', esm_source_mode='synthetic_fixture')
+        return {'returncode': 2, 'stage': 'review', 'stdout': json.dumps(report), 'stderr': ''}
+    monkeypatch.setattr('app.session_exec.run_session', partial)
+    app = app_session(monkeypatch)
+    app.checkbox(key='armed').set_value(True).run()
+    say(app, 'Review A32V')
+    app.checkbox(key='cost_ack').set_value(True).run()
+    app.button(key='execute_review').click().run()
+    assert not app.exception
+    assert app.session_state['review_phase'] == 'partial'
+    assert app.session_state['pending_review'] is None
+    assert 'Partial result' in transcript(app)

@@ -1,5 +1,27 @@
 # Current status
 
+## Separate execution from saved exploration — 2026-10-29
+
+Saved Review has four unnumbered views and no Previous/Continue workflow controls.
+Diagnostics and reference mapping are Evidence subviews. New Review alone has
+Input & Validation, Agent Execution and Review Results numbered stages. Input
+submission only validates; Arm, cost acknowledgment and Execute are required.
+Edits reset acknowledgment. Pending requests are consumed before dispatch and
+refresh cannot retry them. Running/failed/partial/completed are distinct; partial
+reports survive nonzero exits. Currency cost stays unknown; call caps are not bills.
+
+Changed viewer.py/css, viewer_render.py, session.py, new review_flow.py, tour/copy
+and related tests. Existing MCP/Meta adapters and session_exec unchanged. Initial
+navigation test failed; focused viewer/tour29passed; New Review tests16passed.
+Actual IAB tutorial9steps navigated and restored Overview. Execution status tests
+use explicit mocks; New Review browser inspection remains unarmed. Full regression:764passed,2skipped,2warnings,12subtests in75.85s.
+Exact command: `.venv/Scripts/python.exe -m pytest tests tests_app -q -rs -p no:cacheprovider --basetemp=.cache/separated_review_regression --tb=short`.
+Evidence:validation/separated_review_flows_20261029.json. Actual unarmed browser
+preparation and9-step guided screenshots are saved in local_artifacts/review_flows_20261029.
+Scientific baseline135files unchanged. Package check2,005passed,0failures. No new
+provider/GPU call, visibility change or submission. See current180s demo plan
+in demo/REVIEW_FLOWS_180S_EN.md. Next: finish verification and private source sync.
+
 ## Workspace switch correction — 2026-10-29
 
 Owner clarified the two sidebar links themselves were the issue. Changed only

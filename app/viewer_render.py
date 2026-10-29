@@ -41,7 +41,9 @@ def workspace_navigation(*, current, viewer_url, session_url):
     links = []
     for label, url, badge, hint in (
             ('Saved review', viewer_url, 'REPLAY', 'Saved evidence · no new inference'),
-            ('Live session', session_url, 'SESSION', 'New controlled review')):
+            ('New Review', session_url, 'SESSION', 'New controlled review')):
+        if current == 'Live session':
+            current = 'New Review'
         active = ' active' if current == label else ''
         current_page = ' aria-current="page"' if current == label else ''
         # Links carry a visual preference only; they cannot arm a live session.

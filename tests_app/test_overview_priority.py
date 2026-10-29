@@ -26,18 +26,17 @@ def test_overview_numbers_come_from_the_unchanged_saved_rows(monkeypatch):
     assert REPLAY.read_bytes() == before
 
 
-def test_navigation_ends_with_uploads_in_diagnostics(monkeypatch):
+def test_navigation_keeps_diagnostics_outside_the_four_result_views(monkeypatch):
     app = viewer(monkeypatch)
-    assert app.button(key='workflow_previous').disabled
-    for expected in ('Candidates', 'Agent Trace', 'Evidence', 'Input & Diagnostics'):
-        app.button(key='workflow_next').click().run()
+    assert 'workflow_next' not in {b.key for b in app.button}
+    for name in ('Overview', 'Candidates', 'Agent Trace', 'Evidence'):
+        app.session_state['active_view'] = name
+        app.run()
         assert not app.exception
-        assert app.session_state['active_view'] == expected
-        if expected != 'Input & Diagnostics':
-            assert not app.get('file_uploader')
-    assert app.button(key='workflow_next').disabled
-    assert {'upload_fasta', 'upload_cif', 'upload_cif_fasta'} == {
-        item.key for item in app.get('file_uploader')}
+        assert not app.get('file_uploader')
+    app.session_state['evidence_section'] = 'Advanced diagnostics'
+    app.run()
+    assert {'upload_fasta', 'upload_cif', 'upload_cif_fasta'} == {i.key for i in app.get('file_uploader')}
 
 
 def test_structure_evidence_is_scoped_and_remains_separate_from_diagnostics(monkeypatch):

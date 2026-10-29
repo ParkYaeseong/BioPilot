@@ -15,6 +15,7 @@ import argparse
 from pathlib import Path
 import sys
 import re
+import json
 import subprocess
 from uuid import uuid4
 
@@ -29,6 +30,7 @@ from app.viewer_render import (appearance_control, handoff_ladder, init_appearan
 from app.brand import BRAND_ICON
 from app.viewer_structure import residue_selection, structure_panel_html
 from app.review_checks import check_review_input
+from app.review_flow import prepare_review, consume_review, result_phase
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -96,9 +98,10 @@ def _replay_turns():
                 _render_result(turn['report'])
 
 
-def _handle(message, options, budget, model_key, armed):
+def _handle(message, options, budget, model_key, armed, *, record_user=True):
     """One chat turn is one bounded run. Refusals happen locally and cost nothing."""
-    _say('user', message)
+    if record_user:
+        _say('user', message)
     if re.search(r'\bmature\b|성숙체|성숙\s*(?:서열|번호)', message, re.IGNORECASE):
         _say('assistant', 'Please declare full-reference 1-based numbering. An explicit mature '
              'frame is refused locally; nothing was sent and this check cost nothing.')
@@ -145,6 +148,15 @@ def _handle(message, options, budget, model_key, armed):
              '. Existing evidence is preserved. Check the run record before retrying.')
         return
     if result['returncode'] != 0:
+        try:
+            partial = json.loads(result.get('stdout') or '')
+        except (ValueError, TypeError):
+            partial = {}
+        if isinstance(partial, dict) and partial.get('status') == 'partial':
+            report = workspace / 'live_report.json'
+            report.write_text(result['stdout'], encoding='utf-8')
+            _say('assistant', 'Partial result. Inspect the saved evidence and stop reason before retrying.', report=str(report))
+            return
         detail = (result['stderr'] or 'no error text')[-800:]
         _say('assistant', f"The {result['stage']} step failed:" + '\n\n```\n' + detail + '\n```')
         return
@@ -161,13 +173,66 @@ def _draft(text):
     st.session_state['chat_draft'] = text
 
 
+def _workflow_strip():
+    phase = st.session_state.get('review_phase', 'input')
+    active = 0 if phase in ('input', 'validated') else (1 if phase in ('running', 'failed') else 2)
+    labels = ('Input & Validation', 'Agent Execution', 'Review Results')
+    st.html('<ol class="review-stages" aria-label="New review workflow">' + ''.join(
+        f'<li class="{"current" if i == active else ""}"><span>{i+1}</span>{label}</li>'
+        for i, label in enumerate(labels)) + '</ol>')
+    st.caption('Execution state: ' + phase.upper() + ' · this is a new review, not saved REPLAY.')
+    if phase == 'partial':
+        st.warning('Partial review: some work is incomplete. Inspect the recorded stop reason before retrying.')
+    elif phase == 'failed':
+        st.error('Execution failed. Existing evidence is preserved; rerunning the page does not retry it.')
+    elif phase == 'completed':
+        st.success('Review completed. This is a completed computation, not experimental validation.')
+
+
+def _execution_controls(options, budget, model_key, armed, progress):
+    request = st.session_state.get('pending_review')
+    if not request:
+        if st.session_state.get('review_phase') == 'running':
+            st.warning('Execution is running or its completion is unconfirmed. Inspect its record before retrying; refresh does not restart it.')
+        return
+    st.subheader('Confirm this review')
+    st.text(request['message'])
+    st.json({'positions_full_1based': request['positions'], 'checkpoint': request['model_key'],
+             'remaining_runs': budget.remaining_runs, 'max_model_requests_per_run': options.max_requests,
+             'sequence_context': 'full_212', 'provider_cost': 'unknown / unverified'}, expanded=True)
+    st.caption('These are call/run limits, not a verified currency ceiling. No request has been sent.')
+    acknowledged = st.checkbox('I understand provider cost is unverified', key='cost_ack')
+    if st.button('Execute approved review', key='execute_review', type='primary',
+                 disabled=not (armed and acknowledged and budget.remaining_runs > 0)):
+        try:
+            approved = consume_review(st.session_state, armed=armed, model_key=model_key, budget=budget)
+        except ValueError as error:
+            st.error(str(error))
+            return
+        with progress.container():
+            _workflow_strip()
+        with st.status('Agent Execution · RUNNING', expanded=True) as status:
+            try:
+                _handle(approved['message'], options, budget, approved['model_key'], True, record_user=False)
+                last = st.session_state.get('turns', [])[-1]
+                phase = result_phase(load_run_view(last['report'])['status']) if last.get('report') else 'failed'
+            except (ValueError, OSError, KeyError) as error:
+                _say('assistant', 'Result could not be inspected: ' + str(error)[:300])
+                phase = 'failed'
+            st.session_state['review_phase'] = phase
+            status.update(label='Agent Execution · ' + phase.upper(), state='complete' if phase == 'completed' else 'error')
+        st.rerun()
+
+
 def main():
     options = _arguments()
-    st.set_page_config(page_title='BioPilot Bench · Live session', page_icon=BRAND_ICON,
+    st.set_page_config(page_title='BioPilot Bench · New Review', page_icon=BRAND_ICON,
                        layout='wide', initial_sidebar_state='auto')
     init_appearance()
     _style(st.session_state['appearance'])
     budget = _budget(options)
+    if st.session_state.pop('reset_cost_ack', False):
+        st.session_state['cost_ack'] = False
 
     with st.sidebar:
         render_brand(subtitle='CONTROLLED SESSION')
@@ -187,8 +252,11 @@ def main():
         appearance_control()
 
     st.html('<div class="workspace-kicker">PUBLIC LIPASE A '
-            '<span class="workspace-mode">LIVE SESSION · ' + ('ARMED' if armed else 'UNARMED') + '</span></div>')
-    st.title('Ask for a review')
+            '<span class="workspace-mode">NEW REVIEW · ' + ('ARMED' if armed else 'UNARMED') + '</span></div>')
+    st.title('New Review')
+    progress = st.empty()
+    with progress.container():
+        _workflow_strip()
     st.caption('Meta selects permitted tools. ESM computes sequence preferences. Registered code guards and ranks.')
     if armed:
         st.warning('Armed · the next accepted request can spend real credit within the displayed run cap.')
@@ -211,14 +279,28 @@ def main():
                         st.caption(detail)
         st.caption('Examples fill the message box. Read or edit the request before sending.')
     _replay_turns()
+    _execution_controls(options, budget, model_key, armed, progress)
     with st.expander('Execution boundaries and scientific scope'):
         st.warning('This program can call the Meta Model API and spend real credit. The '
                    'saved-run viewer is a separate program that provably cannot.')
         st.caption('Each message starts a separate bounded run. ESM scores are not T50, activity, '
                    'solubility, Tm or experimental validation. The registered target stays fixed.')
-    message = st.chat_input('Describe a variant or full-reference position…', key='chat_draft')
+    message = st.chat_input('Describe a variant or full-reference position…', key='chat_draft',
+                            disabled=st.session_state.get('review_phase') == 'running')
     if message:
-        _handle(message, options, budget, model_key, armed)
+        try:
+            st.session_state['pending_review'] = prepare_review(message, model_key)
+            st.session_state['review_phase'] = 'validated'
+            st.session_state['reset_cost_ack'] = True
+            _say('user', message)
+            _say('assistant', f'Local validation: positions {st.session_state["pending_review"]["positions"]}. '
+                 + ('Session is unarmed. ' if not armed else 'Awaiting explicit execution confirmation. ')
+                 + 'Nothing is sent until permission and confirmation are provided.')
+        except ValueError as error:
+            st.session_state['pending_review'] = None
+            st.session_state['review_phase'] = 'input'
+            _say('user', message)
+            _say('assistant', 'Local validation refused this request: ' + str(error) + '. Nothing was sent; this check cost nothing.')
         st.rerun()
 
 

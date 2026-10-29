@@ -16,6 +16,9 @@ def app_view(monkeypatch):
 
 def at_view(app, name):
     """Open one view. The viewer renders only the active view, as the tour drives it."""
+    if name in ('Input', 'Input & Diagnostics'):
+        app.session_state['evidence_section'] = 'Advanced diagnostics'
+        name = 'Evidence'
     app.session_state['active_view'] = name
     return app.run()
 
@@ -129,19 +132,15 @@ def test_guided_tour_moves_the_screen_rather_than_only_numbering_steps(monkeypat
     assert app.table[0].value['Variant'].tolist() == ['A32E', 'A32S', 'A32D']
     assert REPLAY.read_bytes() == before
 
-    # Selection is performed in the real Candidates controls, not described only.
-    app.button(key='tour_next').click().run()
-    assert not app.exception
-    assert app.session_state['active_view'] == 'Candidates'
-    assert app.multiselect(key='compare_candidates').value == ['A32E', 'A32S', 'A32D']
-    assert app.table[1].value['Rank'].tolist() == [1, 2, 3]
-
     app.button(key='tour_next').click().run()
     assert app.session_state['active_view'] == 'Agent Trace'
     assert app.selectbox(key='trace_step').value == 0
     app.button(key='tour_next').click().run()
-    assert app.session_state['active_view'] == 'Agent Trace'
     assert app.selectbox(key='trace_step').value == 1
+    app.button(key='tour_next').click().run()
+    assert app.session_state['active_view'] == 'Candidates'
+    assert app.multiselect(key='compare_candidates').value == ['A32E', 'A32S', 'A32D']
+    assert app.table[1].value['Rank'].tolist() == [1, 2, 3]
 
     app.button(key='tour_next').click().run()
     assert app.session_state['active_view'] == 'Evidence'
@@ -156,12 +155,12 @@ def test_guided_tour_moves_the_screen_rather_than_only_numbering_steps(monkeypat
     assert any('author residue 77' in str(block.value) for block in app.success)
 
     app.button(key='tour_next').click().run()
-    assert app.session_state['active_view'] == 'Input & Diagnostics'
+    assert app.session_state['active_view'] == 'Evidence'
     assert app.text_input(key='local_variant').value == 'A32V'
     assert app.session_state['local_check_result']['status'] == 'accepted'
     assert app.session_state['local_check_result']['inference_performed'] is False
     app.button(key='tour_next').click().run()
-    assert app.session_state['active_view'] == 'Input & Diagnostics'
+    assert app.session_state['active_view'] == 'Evidence'
     assert app.text_input(key='local_variant').value == 'S108A'
     assert app.session_state['local_check_result']['status'] == 'blocked'
     assert any('Protected catalytic site' in str(block.value) for block in app.error)

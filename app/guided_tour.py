@@ -25,15 +25,15 @@ STEPS = (
     TourStep('overview', 'Understand the saved review', 'Overview',
              'Start with the research purpose, saved candidates and recorded Meta/ESM evidence. This is REPLAY, not a new run.',
              'overview'),
-    TourStep('compare', 'Compare the saved shortlist', 'Candidates',
-             'The first three saved candidates are selected below. Their recorded scores and ranks stay unchanged.',
-             'comparison'),
     TourStep('validation_trace', 'Inspect Meta’s validation request', 'Agent Trace',
              'Open the first recorded MCP call. This is saved execution evidence, not a new Meta request.',
              'trace'),
     TourStep('scoring_trace', 'Inspect the recorded scoring call', 'Agent Trace',
              'Open the next recorded MCP call. ESM computes sequence preferences; code owns the common ranking policy.',
              'trace'),
+    TourStep('compare', 'Compare the saved shortlist', 'Candidates',
+             'The first three saved candidates are selected below. Their recorded scores and ranks stay unchanged.',
+             'comparison'),
     TourStep('provenance', 'Verify what supports the result', 'Evidence',
              'Inspect the saved provenance and local consistency checks. Unknown costs and unverified claims stay visible.',
              'evidence'),
@@ -43,10 +43,10 @@ STEPS = (
     TourStep('protected_structure', 'Locate a protected residue', 'Evidence',
              'S108 uses its verified author-number join for a highlight in the experimental reference structure.',
              'structure'),
-    TourStep('valid_input', 'Check a valid request', 'Input & Diagnostics',
+    TourStep('valid_input', 'Check a valid request', 'Evidence',
              'A32V passes the real local numbering and residue guards. No model is called.',
              'input'),
-    TourStep('protected_input', 'See the guard stop a request', 'Input & Diagnostics',
+    TourStep('protected_input', 'See the guard stop a request', 'Evidence',
              'S108A is blocked locally because S108 is protected. This does not prove retained function.',
              'input'),
 )
@@ -65,6 +65,7 @@ def _apply_step(state, candidates):
     step = STEPS[index]
     state['active_view'] = step.view
     if step.id in ('valid_input', 'protected_input'):
+        state['evidence_section'] = 'Advanced diagnostics'
         variant = 'A32V' if step.id == 'valid_input' else 'S108A'
         state['local_variant'] = variant
         state['local_frame'] = 'full_reference_1based'

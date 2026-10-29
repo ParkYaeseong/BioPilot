@@ -575,3 +575,16 @@ link colours. Replace that treatment with a compact two-segment switch, preservi
 ordinary navigation links and aria-current. Scope this correction to CSS; retain
 Auto and the independent controlled-execution surface. Verify actual sidebar and
 focused existing tests. No scientific artifact or permission change.
+
+
+## 2026-10-29 — separate execution and exploration
+
+Owner explicitly requested distinct New Review and Saved Review flows. Remove
+step numbers/footer progression from result views, place diagnostics under Evidence,
+and keep Overview the entry. Only actual new execution has numbered stages. Require
+explicit confirmation after validation and cost/permission inspection. Clear pending
+work before dispatch and never replay execution on refresh. Preserve partial results
+and distinguish unknown billing from request caps. Update the guide to inspect saved
+validation/scoring before candidates, and label optional local checks separately.
+No new Meta reasoning, inference or scientific result is fabricated. Preserve actual
+host adapters, record UI mocks separately, retain private visibility and prior history.

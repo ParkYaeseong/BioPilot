@@ -245,9 +245,9 @@ def _candidates(view):
         st.text(CLAIM_BANNER)
 
 
-VIEWS = ('Overview', 'Candidates', 'Agent Trace', 'Evidence', 'Input & Diagnostics')
-VIEW_LABELS = {name: f'{index:02d}  {name}' for index, name in enumerate(VIEWS, 1)}
-EVIDENCE_SECTIONS = ('Run provenance', 'Reference mapping & saved structures')
+VIEWS = ('Overview', 'Candidates', 'Agent Trace', 'Evidence')
+VIEW_LABELS = {name: name for name in VIEWS}
+EVIDENCE_SECTIONS = ('Run provenance', 'Reference mapping & saved structures', 'Advanced diagnostics')
 
 
 def _tour_action(action, candidates):
@@ -555,6 +555,8 @@ def _evidence(view):
                          selection_mode='single', required=True, width='stretch')
     if st.session_state['evidence_section'] == EVIDENCE_SECTIONS[1]:
         _structure(view)
+    elif st.session_state['evidence_section'] == 'Advanced diagnostics':
+        _input(view)
     else:
         _run_provenance(view)
 
@@ -579,9 +581,11 @@ def main():
         if key in st.session_state:
             st.session_state[key] = st.session_state[key]
     previous_view = st.session_state.get('active_view')
+    if previous_view in ('Input', 'Check a file', 'Input & Diagnostics'):
+        st.session_state['evidence_section'] = 'Advanced diagnostics'
     if previous_view == 'Structure':
         st.session_state['evidence_section'] = EVIDENCE_SECTIONS[1]
-    aliases = {'Input': 'Input & Diagnostics', 'Check a file': 'Input & Diagnostics',
+    aliases = {'Input': 'Evidence', 'Check a file': 'Evidence', 'Input & Diagnostics': 'Evidence',
                'Decision trace': 'Agent Trace', 'Structure': 'Evidence'}
     st.session_state['active_view'] = aliases.get(previous_view, previous_view)
     if st.session_state['active_view'] not in VIEWS:
@@ -626,15 +630,6 @@ def main():
     with st.container(key='view_content'):
         {'Overview': _overview, 'Candidates': _candidates, 'Agent Trace': _trace,
          'Input & Diagnostics': _input, 'Evidence': _evidence}[shown](view)
-    st.divider()
-    previous, following = st.columns(2)
-    index = VIEWS.index(shown)
-    previous.button('Previous', key='workflow_previous', disabled=index == 0,
-                    on_click=_navigate_view, args=(VIEWS[max(0, index - 1)],))
-    following.button('Continue · ' + VIEW_LABELS[VIEWS[min(len(VIEWS)-1, index+1)]],
-                     key='workflow_next', disabled=index == len(VIEWS)-1,
-                     on_click=_navigate_view, args=(VIEWS[min(len(VIEWS)-1, index+1)],),
-                     width='stretch')
     st.caption('Saved run status: ' + str(view['status']))
     if st.session_state.get('tour_playing'):
         _tour_clock()

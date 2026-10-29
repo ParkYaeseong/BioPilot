@@ -1,0 +1,157 @@
+{
+  "date_kst": "2026-10-29",
+  "saved_review_views": [
+    "Overview",
+    "Candidates",
+    "Agent Trace",
+    "Evidence"
+  ],
+  "saved_review_numbered_navigation": false,
+  "new_review_stages": [
+    "Input & Validation",
+    "Agent Execution",
+    "Review Results"
+  ],
+  "execution_confirmation": [
+    "local validation",
+    "explicit armed permission",
+    "cost acknowledgment",
+    "Execute approved review"
+  ],
+  "regression": {
+    "command": ".venv/Scripts/python.exe -m pytest tests tests_app -q -rs -p no:cacheprovider --basetemp=.cache/separated_review_regression --tb=short",
+    "passed": 764,
+    "skipped": 2,
+    "warnings": 2,
+    "subtests_passed": 12,
+    "seconds": 75.85
+  },
+  "new_provider_calls": 0,
+  "new_gpu_calls": 0,
+  "browser_new_review": "Actual unarmed A32V preparation; VALIDATED; run budget3of3; Execute disabled",
+  "execution_status_verification": "Mocked dispatch tests for failed/partial results and pure completed-state mapping; no actual live execution under the new UI",
+  "browser_tutorial": [
+    {
+      "step": 1,
+      "title": "Understand the saved review",
+      "view": "Overview",
+      "english": true
+    },
+    {
+      "step": 2,
+      "title": "Inspect Meta’s validation request",
+      "view": "Agent Trace",
+      "english": true
+    },
+    {
+      "step": 3,
+      "title": "Inspect the recorded scoring call",
+      "view": "Agent Trace",
+      "english": true
+    },
+    {
+      "step": 4,
+      "title": "Compare the saved shortlist",
+      "view": "Candidates",
+      "english": true
+    },
+    {
+      "step": 5,
+      "title": "Verify what supports the result",
+      "view": "Evidence",
+      "english": true
+    },
+    {
+      "step": 6,
+      "title": "Check the reference mapping",
+      "view": "Evidence",
+      "english": true
+    },
+    {
+      "step": 7,
+      "title": "Locate a protected residue",
+      "view": "Evidence",
+      "english": true
+    },
+    {
+      "step": 8,
+      "title": "Try an optional local diagnostic",
+      "view": "Evidence",
+      "english": true
+    },
+    {
+      "step": 9,
+      "title": "Inspect the local protection guard",
+      "view": "Evidence",
+      "english": true
+    }
+  ],
+  "scientific_integrity": {
+    "baseline_files": 135,
+    "unchanged": 135,
+    "changed": [],
+    "missing": [],
+    "status": "PASS"
+  },
+  "captures": [
+    {
+      "path": "local_artifacts/review_flows_20261029/new_review_confirmation.png",
+      "sha256": "0f4f1a35ff51a67aa97480f2600982dee88f3fba8feb301f910bcaf0e20c9099"
+    },
+    {
+      "path": "local_artifacts/review_flows_20261029/new_review_input.png",
+      "sha256": "71138ab8bd58bcfdb359f57689497be44d8f10a72fe99a20077ba5ab2c6ba2c1"
+    },
+    {
+      "path": "local_artifacts/review_flows_20261029/new_review_validated_top.png",
+      "sha256": "222449fb514686b094e379e57c3a2a1ed081b8f898792455f17075a0f8fc30fe"
+    },
+    {
+      "path": "local_artifacts/review_flows_20261029/saved_overview.png",
+      "sha256": "858a2c68e82482b570a149ffcd57ddb5c9e27aa4f71713a7be7a3a2e0efd5e51"
+    },
+    {
+      "path": "local_artifacts/review_flows_20261029/tutorial_1.png",
+      "sha256": "b631b9b29ce631216a0a14e43609f5eef2b7a43fa2179639351ed867e80f053e"
+    },
+    {
+      "path": "local_artifacts/review_flows_20261029/tutorial_2.png",
+      "sha256": "9b5a274500778f53bf804d328bd435052ccd51eb3ee8c14e802152cc4f1d2ccb"
+    },
+    {
+      "path": "local_artifacts/review_flows_20261029/tutorial_3.png",
+      "sha256": "d75a9e7abc68660ca96e1a348e0020614b76d8b51e5b598044d899b4fcfabc26"
+    },
+    {
+      "path": "local_artifacts/review_flows_20261029/tutorial_4.png",
+      "sha256": "941a69c6531fe0da91b563b2b953060983089951d27421be17c55b80cc708f29"
+    },
+    {
+      "path": "local_artifacts/review_flows_20261029/tutorial_5.png",
+      "sha256": "8cca1b045ee7f68ec3cffd0091bfb10d3814e2b6f7e08ef2c5500bdb2ac0e97f"
+    },
+    {
+      "path": "local_artifacts/review_flows_20261029/tutorial_6.png",
+      "sha256": "4277f271eef0385b60a4223ffd034c684a70b0ad5f78ce5d90fa5f42973ee0d3"
+    },
+    {
+      "path": "local_artifacts/review_flows_20261029/tutorial_7.png",
+      "sha256": "3ddbc803b474e019664b376cb1f161ed3a23c56b3e092ad59d387bbe15b7a66c"
+    },
+    {
+      "path": "local_artifacts/review_flows_20261029/tutorial_8.png",
+      "sha256": "690f45d88827a886e228e4548d4af8462d6a60467e98c6481f6184d9ed239438"
+    },
+    {
+      "path": "local_artifacts/review_flows_20261029/tutorial_9.png",
+      "sha256": "a311c5f627a3118015bc11d68e08c21c4629ec77f055f97012a24b1d780d690f"
+    }
+  ],
+  "new_video_exported": false,
+  "repo_visibility_changed": false,
+  "package_verification": {
+    "command": ".venv/Scripts/python.exe checks/validate_package.py",
+    "checks": 2005,
+    "failures": 0
+  }
+}
