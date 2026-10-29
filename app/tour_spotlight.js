@@ -3,7 +3,7 @@
   const doc=window.parent.document, win=window.parent, owner=window.frameElement;
   doc.getElementById('bio-tour-root')?.remove();
   const root=doc.createElement('div'); root.id='bio-tour-root';
-  const data=tourData, light=data.light;
+  const data=tourData, light=data.auto?win.matchMedia('(prefers-color-scheme: light)').matches:data.light;
   root.innerHTML=`<style>
   #bio-tour-root{position:fixed;inset:0;z-index:2147483000;pointer-events:none;font-family:Inter,system-ui,sans-serif;color:${light?'#172033':'#eef2f6'};}
   #bio-tour-root .tour-block{position:fixed;pointer-events:auto;}
@@ -22,8 +22,9 @@
   #bio-tour-card button:focus-visible{outline:2px solid #14b8a6;outline-offset:3px;}
   #bio-tour-card button:disabled{opacity:.4;cursor:default;}
   #bio-tour-card .tour-primary{background:#007e77;border-color:#007e77;color:#fff;}
-  #bio-tour-card .tour-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:13px;}
-  #bio-tour-card .tour-actions{display:flex;gap:7px;}
+  #bio-tour-card .tour-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin-top:13px;}
+  #bio-tour-card .tour-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:7px;}
+  @media(max-width:420px){#bio-tour-card .tour-actions{width:100%;}#bio-tour-card .tour-actions button{flex:1 1 auto;}}
   #bio-tour-card .tour-dots{display:flex;gap:5px;margin-top:14px;}
   #bio-tour-card .tour-dots i{height:5px;flex:1;border-radius:4px;background:${light?'#d5dde6':'#49586a'};}
   #bio-tour-card .tour-dots i.done{background:#0aa99d;}

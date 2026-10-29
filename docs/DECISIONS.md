@@ -538,3 +538,31 @@ GitHub private. Earlier source-upload authorization continues to cover private
 source updates; it does not authorize a future public transition. Do not repeat
 the visibility request during unrelated work or infer approval from contest
 requirements. Await a new explicit release instruction before changing sharing.
+
+## 2026-10-29 — prioritize saved results before diagnostics
+
+Apply the owner's ten-point UI direction through the existing Streamlit renderer,
+not a framework migration. Keep an actual overview separate from the candidate
+table. Show the current review scope without inventing the missing original goal.
+Put bounded reference mapping/stored predictions under Evidence and local uploads
+under Input & Diagnostics. The English tour follows the judging story and changes
+real selection state. Preserve the original 19 scores, common rank and Meta trace.
+
+Existing eight thumbnail images and historical recordings retain their meaning.
+When browser automation stopped on URL-confidence policy, cease UI actions and
+do not bypass it. The new Overview screenshot is a real remaining requirement;
+do not generate a substitute, reuse a wrong screen, skip its test or call the
+visual review complete. Finish offline work and record the failed capture/test
+explicitly. Defer pushing this pending source change until actual capture and
+visual QA can finish. Maintain the owner's private visibility choice.
+
+
+## 2026-10-29 — quiet navigation and system appearance
+
+Use flat workspace links, without badge/hint cards; retain separate replay and
+controlled-session programs. Use a compact monochrome guided-demo action. Auto is
+the default and follows prefers-color-scheme locally. Reference patterns: Vercel
+Geist tabs/button guidance and Linear March2024 interface refresh; no assets copied.
+Original ribbon mark/favicon are local SVGs. Browser QA resumed successfully; old
+interrupted receipts remain historical. Keep repository private and synchronize
+only after verification. No inference, deployment or contest submission.

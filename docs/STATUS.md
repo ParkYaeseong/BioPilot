@@ -1,5 +1,70 @@
 # Current status
 
+## Responsive shell and Auto appearance — 2026-10-29
+
+Resumed the interrupted Overview QA in the in-app browser. Actual Overview image
+is captured; the missing-thumbnail test passes. Fixed header/button overlap,
+mobile columns and long labels. Replaced boxed B with original ribbon SVG/favicon.
+Simplified workspace navigation to flat links after owner rejected the card menu;
+kept replay/live capability isolation. Appearance defaults to Auto via system media
+queries, with explicit Light/Dark options. Tour and structure documents support Auto.
+
+Changed viewer.py/css, viewer_render.py, viewer_structure.py, session.py, brand.py,
+local brand assets, tour rendering, screenshots and related tests. Browser checks:
+50 main-view width/theme combinations passed at320/390/599/1280/1920;10 unarmed
+session checks;9-step desktop/mobile guide checks and Finish restoration passed.
+135 original science/reference/receipt hashes unchanged. New provider/GPU calls0.
+These are browser viewport checks, not physical-phone or biological validation.
+The latest navigation/Auto refinement has30focused tests passing; final regression
+passed:759 tests,2 skipped,2 warnings,12 subtests in71.80s.
+Command:`.venv/Scripts/python.exe -m pytest tests tests_app -q -rs -p no:cacheprovider --basetemp=.cache/responsive_auto_final --tb=short`.
+Receipt:validation/responsive_chrome_20261029.json. Package checks:1,989passed.
+New video not exported. Repository stays private.
+
+## Overview-first implementation; visual QA interrupted — 2026-10-29
+
+Implemented the owner's five-view order: Overview, Candidates, Agent Trace,
+Evidence, Input & Diagnostics. The landing overview now reads the saved candidate
+and Meta artifacts for purpose/context, top scores, recorded handoffs and limits.
+The absent original objective remains absent. Candidates retains the complete
+cohort, original order, comparison and CSV. Reference mapping & saved structures
+is an Evidence subview; FASTA/mmCIF diagnostics are confined to the final view.
+
+Changed app/viewer.py, viewer.css, guided_tour.py, tour_spotlight.py/js; updated
+viewer, demo replay, workspace and tour behavior tests; added
+tests_app/test_overview_priority.py. Nine English guided steps move actual view
+and selection state, then restore it. Local replay controls still cannot dispatch
+provider/GPU work. Existing scientific/reference/verification files: 135 of 135
+hashes unchanged, no missing files. No new integration calls or scientific result.
+
+Failing landing tests: 5 failures before implementation, then 5 passed. Combined
+overview/workspace/tour tests: 19 passed in 6.59s; existing viewer files: 49 passed
+in 11.52s. Initial full run: 748 passed, 3 failed, 2 skipped, 12 subtests in 67.16s.
+Two failures were a stale source manifest and the old five-row landing assumption;
+both are corrected. The remaining Overview thumbnail test is deliberately not
+weakened: a verified actual screenshot is still missing.
+Final full regression: 750 passed, 1 failed (the missing thumbnail), 2 skipped,
+2 warnings and 12 subtests passed in 66.47s. Package check: 1,967 passed,
+0 failures; manifest regenerated after documentation updates.
+
+Before desktop/mobile and after desktop diagnostic captures are preserved under
+local_artifacts/overview_refinement_20261029. The after capture has browser clipping
+and duplicate rendering and is not a visual-completion proof. CUA then stopped
+because it could not confidently determine the current Windows browser URL.
+No further UI automation or alternate capture path was used. Full size/theme
+validation and the new overview.png remain pending; the eight original thumbnails
+and earlier recordings are preserved. The temporary viewport override could not
+be reset after the tool disabled browser control.
+
+See docs/OVERVIEW_REFINEMENT_KO.md and demo/OVERVIEW_DEMO_180S_EN.md. This change
+does not export a new video. Final offline test/package results are recorded in
+validation/overview_refinement_20261029.json. Repository stays private; source
+update is not pushed while the required thumbnail test remains failing. Next
+allowed action: resume browser QA when available, capture the actual Overview,
+reset the viewport, and complete the same test/manifest checks before private push.
+Public release, eligibility/reuse, contributor/rights, final form, video review
+and final contest submission gates remain unchanged.
+
 ## Owner choice: keep repository private — 2026-10-29
 
 Owner explicitly chose to keep ParkYaeseong/BioPilot private for now. Connected

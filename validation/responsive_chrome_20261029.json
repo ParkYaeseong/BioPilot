@@ -1,0 +1,914 @@
+{
+  "date_kst": "2026-10-29",
+  "default_appearance": "Auto",
+  "tests": {
+    "passed": 759,
+    "skipped": 2,
+    "warnings": 2,
+    "subtests_passed": 12,
+    "seconds": 71.8
+  },
+  "provider_calls": 0,
+  "gpu_jobs": 0,
+  "notes": "Actual viewport matrix precedes final flat-navigation and Auto styling; final Auto screen inspected separately. No new video.",
+  "responsive": {
+    "initial": [
+      {
+        "width": 320,
+        "height": 740,
+        "theme": "Light",
+        "view": "01 Overview",
+        "button": {
+          "bottom": 181.55208587646484,
+          "left": 12,
+          "right": 298,
+          "top": 139.15625
+        },
+        "headerBottom": 60,
+        "mainScrollWidth": 310,
+        "mainWidth": 310,
+        "pageWidth": 320,
+        "viewport": 320,
+        "pass": true
+      },
+      {
+        "width": 320,
+        "height": 740,
+        "theme": "Light",
+        "view": "02 Candidates",
+        "button": {
+          "bottom": 181.55208587646484,
+          "left": 12,
+          "right": 298,
+          "top": 139.15625
+        },
+        "headerBottom": 60,
+        "mainScrollWidth": 310,
+        "mainWidth": 310,
+        "pageWidth": 320,
+        "viewport": 320,
+        "pass": true
+      },
+      {
+        "width": 320,
+        "height": 740,
+        "theme": "Light",
+        "view": "03 Agent Trace",
+        "button": {
+          "bottom": 181.55208587646484,
+          "left": 12,
+          "right": 298,
+          "top": 139.15625
+        },
+        "headerBottom": 60,
+        "mainScrollWidth": 310,
+        "mainWidth": 310,
+        "pageWidth": 320,
+        "viewport": 320,
+        "pass": true
+      },
+      {
+        "width": 320,
+        "height": 740,
+        "theme": "Light",
+        "view": "04 Evidence",
+        "button": {
+          "bottom": 181.55208587646484,
+          "left": 12,
+          "right": 298,
+          "top": 139.15625
+        },
+        "headerBottom": 60,
+        "mainScrollWidth": 310,
+        "mainWidth": 310,
+        "pageWidth": 320,
+        "viewport": 320,
+        "pass": true
+      },
+      {
+        "width": 320,
+        "height": 740,
+        "theme": "Light",
+        "view": "05 Input & Diagnostics",
+        "button": {
+          "bottom": 181.55208587646484,
+          "left": 12,
+          "right": 298,
+          "top": 139.15625
+        },
+        "headerBottom": 60,
+        "mainScrollWidth": 370,
+        "mainWidth": 310,
+        "pageWidth": 320,
+        "viewport": 320,
+        "pass": false
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "theme": "Light",
+        "view": "01 Overview",
+        "button": {
+          "bottom": 181.55208587646484,
+          "left": 12,
+          "right": 368,
+          "top": 139.15625
+        },
+        "headerBottom": 60,
+        "mainScrollWidth": 380,
+        "mainWidth": 380,
+        "pageWidth": 390,
+        "viewport": 390,
+        "pass": true
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "theme": "Light",
+        "view": "02 Candidates",
+        "button": {
+          "bottom": 181.55208587646484,
+          "left": 12,
+          "right": 368,
+          "top": 139.15625
+        },
+        "headerBottom": 60,
+        "mainScrollWidth": 380,
+        "mainWidth": 380,
+        "pageWidth": 390,
+        "viewport": 390,
+        "pass": true
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "theme": "Light",
+        "view": "03 Agent Trace",
+        "button": {
+          "bottom": 181.55208587646484,
+          "left": 12,
+          "right": 368,
+          "top": 139.15625
+        },
+        "headerBottom": 60,
+        "mainScrollWidth": 380,
+        "mainWidth": 380,
+        "pageWidth": 390,
+        "viewport": 390,
+        "pass": true
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "theme": "Light",
+        "view": "04 Evidence",
+        "button": {
+          "bottom": 181.55208587646484,
+          "left": 12,
+          "right": 368,
+          "top": 139.15625
+        },
+        "headerBottom": 60,
+        "mainScrollWidth": 380,
+        "mainWidth": 380,
+        "pageWidth": 390,
+        "viewport": 390,
+        "pass": true
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "theme": "Light",
+        "view": "05 Input & Diagnostics",
+        "button": {
+          "bottom": 181.55208587646484,
+          "left": 12,
+          "right": 368,
+          "top": 139.15625
+        },
+        "headerBottom": 60,
+        "mainScrollWidth": 412,
+        "mainWidth": 380,
+        "pageWidth": 390,
+        "viewport": 390,
+        "pass": false
+      }
+    ],
+    "final": [
+      {
+        "width": 320,
+        "height": 740,
+        "theme": "Light",
+        "view": "01 Overview",
+        "button": {
+          "bottom": 181.55208587646484,
+          "left": 12,
+          "right": 298,
+          "top": 139.15625
+        },
+        "headerBottom": 60,
+        "mainScrollWidth": 310,
+        "mainWidth": 310,
+        "pageWidth": 320,
+        "viewport": 320,
+        "pass": true
+      },
+      {
+        "width": 320,
+        "height": 740,
+        "theme": "Light",
+        "view": "02 Candidates",
+        "button": {
+          "bottom": 181.55208587646484,
+          "left": 12,
+          "right": 298,
+          "top": 139.15625
+        },
+        "headerBottom": 60,
+        "mainScrollWidth": 310,
+        "mainWidth": 310,
+        "pageWidth": 320,
+        "viewport": 320,
+        "pass": true
+      },
+      {
+        "width": 320,
+        "height": 740,
+        "theme": "Light",
+        "view": "03 Agent Trace",
+        "button": {
+          "bottom": 181.55208587646484,
+          "left": 12,
+          "right": 298,
+          "top": 139.15625
+        },
+        "headerBottom": 60,
+        "mainScrollWidth": 310,
+        "mainWidth": 310,
+        "pageWidth": 320,
+        "viewport": 320,
+        "pass": true
+      },
+      {
+        "width": 320,
+        "height": 740,
+        "theme": "Light",
+        "view": "04 Evidence",
+        "button": {
+          "bottom": 181.55208587646484,
+          "left": 12,
+          "right": 298,
+          "top": 139.15625
+        },
+        "headerBottom": 60,
+        "mainScrollWidth": 310,
+        "mainWidth": 310,
+        "pageWidth": 320,
+        "viewport": 320,
+        "pass": true
+      },
+      {
+        "width": 320,
+        "height": 740,
+        "theme": "Light",
+        "view": "05 Input & Diagnostics",
+        "button": {
+          "bottom": 181.55208587646484,
+          "left": 12,
+          "right": 298,
+          "top": 139.15625
+        },
+        "headerBottom": 60,
+        "mainScrollWidth": 310,
+        "mainWidth": 310,
+        "pageWidth": 320,
+        "viewport": 320,
+        "pass": true
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "theme": "Light",
+        "view": "01 Overview",
+        "button": {
+          "bottom": 181.55208587646484,
+          "left": 12,
+          "right": 368,
+          "top": 139.15625
+        },
+        "headerBottom": 60,
+        "mainScrollWidth": 380,
+        "mainWidth": 380,
+        "pageWidth": 390,
+        "viewport": 390,
+        "pass": true
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "theme": "Light",
+        "view": "02 Candidates",
+        "button": {
+          "bottom": 181.55208587646484,
+          "left": 12,
+          "right": 368,
+          "top": 139.15625
+        },
+        "headerBottom": 60,
+        "mainScrollWidth": 380,
+        "mainWidth": 380,
+        "pageWidth": 390,
+        "viewport": 390,
+        "pass": true
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "theme": "Light",
+        "view": "03 Agent Trace",
+        "button": {
+          "bottom": 181.55208587646484,
+          "left": 12,
+          "right": 368,
+          "top": 139.15625
+        },
+        "headerBottom": 60,
+        "mainScrollWidth": 380,
+        "mainWidth": 380,
+        "pageWidth": 390,
+        "viewport": 390,
+        "pass": true
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "theme": "Light",
+        "view": "04 Evidence",
+        "button": {
+          "bottom": 181.55208587646484,
+          "left": 12,
+          "right": 368,
+          "top": 139.15625
+        },
+        "headerBottom": 60,
+        "mainScrollWidth": 380,
+        "mainWidth": 380,
+        "pageWidth": 390,
+        "viewport": 390,
+        "pass": true
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "theme": "Light",
+        "view": "05 Input & Diagnostics",
+        "button": {
+          "bottom": 181.55208587646484,
+          "left": 12,
+          "right": 368,
+          "top": 139.15625
+        },
+        "headerBottom": 60,
+        "mainScrollWidth": 380,
+        "mainWidth": 380,
+        "pageWidth": 390,
+        "viewport": 390,
+        "pass": true
+      }
+    ]
+  },
+  "guided": {
+    "steps": [
+      {
+        "width": 1280,
+        "height": 900,
+        "theme": "Light",
+        "step": 1,
+        "title": "Understand the saved review",
+        "bottom": 886.0416870117188,
+        "left": 333.9583435058594,
+        "nextBottom": 840.3750228881836,
+        "nextTop": 807.0416870117188,
+        "pageWidth": 1280,
+        "right": 773.9583435058594,
+        "top": 443,
+        "view": "01 Overview",
+        "viewport": 1280,
+        "english": true,
+        "pass": true
+      },
+      {
+        "width": 1280,
+        "height": 900,
+        "theme": "Light",
+        "step": 2,
+        "title": "Compare the saved shortlist",
+        "bottom": 885.5416870117188,
+        "left": 333.9583435058594,
+        "nextBottom": 839.8750228881836,
+        "nextTop": 806.5416870117188,
+        "pageWidth": 1280,
+        "right": 773.9583435058594,
+        "top": 438,
+        "view": "02 Candidates",
+        "viewport": 1280,
+        "english": true,
+        "pass": true
+      },
+      {
+        "width": 1280,
+        "height": 900,
+        "theme": "Light",
+        "step": 3,
+        "title": "Inspect Meta’s validation request",
+        "bottom": 886.4479370117188,
+        "left": 333.9583435058594,
+        "nextBottom": 840.7812728881836,
+        "nextTop": 807.4479370117188,
+        "pageWidth": 1280,
+        "right": 773.9583435058594,
+        "top": 461,
+        "view": "03 Agent Trace",
+        "viewport": 1280,
+        "english": true,
+        "pass": true
+      },
+      {
+        "width": 1280,
+        "height": 900,
+        "theme": "Light",
+        "step": 4,
+        "title": "Inspect the recorded scoring call",
+        "bottom": 885.5416870117188,
+        "left": 333.9583435058594,
+        "nextBottom": 839.8750228881836,
+        "nextTop": 806.5416870117188,
+        "pageWidth": 1280,
+        "right": 773.9583435058594,
+        "top": 438,
+        "view": "03 Agent Trace",
+        "viewport": 1280,
+        "english": true,
+        "pass": true
+      },
+      {
+        "width": 1280,
+        "height": 900,
+        "theme": "Light",
+        "step": 5,
+        "title": "Verify what supports the result",
+        "bottom": 886.0416870117188,
+        "left": 333.9583435058594,
+        "nextBottom": 840.3750228881836,
+        "nextTop": 807.0416870117188,
+        "pageWidth": 1280,
+        "right": 773.9583435058594,
+        "top": 443,
+        "view": "04 Evidence",
+        "viewport": 1280,
+        "english": true,
+        "pass": true
+      },
+      {
+        "width": 1280,
+        "height": 900,
+        "theme": "Light",
+        "step": 6,
+        "title": "Check the reference mapping",
+        "bottom": 666.3437805175781,
+        "left": 239.1875,
+        "nextBottom": 620.6770858764648,
+        "nextTop": 587.34375,
+        "pageWidth": 1280,
+        "right": 679.1875,
+        "top": 218.80209350585935,
+        "view": "04 Evidence",
+        "viewport": 1280,
+        "english": true,
+        "pass": true
+      },
+      {
+        "width": 1280,
+        "height": 900,
+        "theme": "Light",
+        "step": 7,
+        "title": "Locate a protected residue",
+        "bottom": 661.8437805175781,
+        "left": 239.1875,
+        "nextBottom": 616.1770858764648,
+        "nextTop": 582.84375,
+        "pageWidth": 1280,
+        "right": 679.1875,
+        "top": 218.80209350585935,
+        "view": "04 Evidence",
+        "viewport": 1280,
+        "english": true,
+        "pass": true
+      },
+      {
+        "width": 1280,
+        "height": 900,
+        "theme": "Light",
+        "step": 8,
+        "title": "Check a valid request",
+        "bottom": 714.2083587646484,
+        "left": 866.8021240234375,
+        "nextBottom": 668.5417098999023,
+        "nextTop": 635.2083740234375,
+        "pageWidth": 1280,
+        "right": 1266.0000610351562,
+        "top": 249.0729217529297,
+        "view": "05 Input & Diagnostics",
+        "viewport": 1280,
+        "english": true,
+        "pass": true
+      },
+      {
+        "width": 1280,
+        "height": 900,
+        "theme": "Light",
+        "step": 9,
+        "title": "See the guard stop a request",
+        "bottom": 678.1146087646484,
+        "left": 866.8021240234375,
+        "nextBottom": 632.4479598999023,
+        "nextTop": 599.1146240234375,
+        "pageWidth": 1280,
+        "right": 1266.0000610351562,
+        "top": 235.0729217529297,
+        "view": "05 Input & Diagnostics",
+        "viewport": 1280,
+        "english": true,
+        "pass": true
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "theme": "Light",
+        "step": 1,
+        "title": "Understand the saved review",
+        "bottom": 830.46875,
+        "left": 14,
+        "nextBottom": 784.8020858764648,
+        "nextTop": 751.46875,
+        "pageWidth": 390,
+        "right": 376,
+        "top": 324,
+        "view": "01 Overview",
+        "viewport": 390,
+        "english": true,
+        "pass": true
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "theme": "Light",
+        "step": 2,
+        "title": "Compare the saved shortlist",
+        "bottom": 830.46875,
+        "left": 14,
+        "nextBottom": 784.8020858764648,
+        "nextTop": 751.46875,
+        "pageWidth": 390,
+        "right": 376,
+        "top": 324,
+        "view": "02 Candidates",
+        "viewport": 390,
+        "english": true,
+        "pass": true
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "theme": "Light",
+        "step": 3,
+        "title": "Inspect Meta’s validation request",
+        "bottom": 829.78125,
+        "left": 14,
+        "nextBottom": 784.1145858764648,
+        "nextTop": 750.78125,
+        "pageWidth": 390,
+        "right": 376,
+        "top": 363,
+        "view": "03 Agent Trace",
+        "viewport": 390,
+        "english": true,
+        "pass": true
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "theme": "Light",
+        "step": 4,
+        "title": "Inspect the recorded scoring call",
+        "bottom": 830.46875,
+        "left": 14,
+        "nextBottom": 784.8020858764648,
+        "nextTop": 751.46875,
+        "pageWidth": 390,
+        "right": 376,
+        "top": 324,
+        "view": "03 Agent Trace",
+        "viewport": 390,
+        "english": true,
+        "pass": true
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "theme": "Light",
+        "step": 5,
+        "title": "Verify what supports the result",
+        "bottom": 830.46875,
+        "left": 14,
+        "nextBottom": 784.8020858764648,
+        "nextTop": 751.46875,
+        "pageWidth": 390,
+        "right": 376,
+        "top": 324,
+        "view": "04 Evidence",
+        "viewport": 390,
+        "english": true,
+        "pass": true
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "theme": "Light",
+        "step": 6,
+        "title": "Check the reference mapping",
+        "bottom": 830.46875,
+        "left": 14,
+        "nextBottom": 784.8020858764648,
+        "nextTop": 751.46875,
+        "pageWidth": 390,
+        "right": 376,
+        "top": 324,
+        "view": "04 Evidence",
+        "viewport": 390,
+        "english": true,
+        "pass": true
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "theme": "Light",
+        "step": 7,
+        "title": "Locate a protected residue",
+        "bottom": 830.46875,
+        "left": 14,
+        "nextBottom": 784.8020858764648,
+        "nextTop": 751.46875,
+        "pageWidth": 390,
+        "right": 376,
+        "top": 324,
+        "view": "04 Evidence",
+        "viewport": 390,
+        "english": true,
+        "pass": true
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "theme": "Light",
+        "step": 8,
+        "title": "Check a valid request",
+        "bottom": 830.46875,
+        "left": 14,
+        "nextBottom": 784.8020858764648,
+        "nextTop": 751.46875,
+        "pageWidth": 390,
+        "right": 376,
+        "top": 324,
+        "view": "05 Input & Diagnostics",
+        "viewport": 390,
+        "english": true,
+        "pass": true
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "theme": "Light",
+        "step": 9,
+        "title": "See the guard stop a request",
+        "bottom": 830.375,
+        "left": 14,
+        "nextBottom": 784.7083358764648,
+        "nextTop": 751.375,
+        "pageWidth": 390,
+        "right": 376,
+        "top": 346,
+        "view": "05 Input & Diagnostics",
+        "viewport": 390,
+        "english": true,
+        "pass": true
+      }
+    ],
+    "restore": {
+      "closed": true,
+      "viewRestored": true
+    },
+    "structure": [
+      {
+        "frames": [
+          {
+            "parentWidth": 286,
+            "width": 286
+          },
+          {
+            "parentWidth": 252.6666717529297,
+            "width": 252.6666717529297
+          }
+        ],
+        "mainScrollWidth": 310,
+        "mainWidth": 310,
+        "pageWidth": 320,
+        "width": 320,
+        "theme": "Light",
+        "pass": true
+      },
+      {
+        "frames": [
+          {
+            "parentWidth": 356,
+            "width": 356
+          },
+          {
+            "parentWidth": 322.66668701171875,
+            "width": 322.66668701171875
+          }
+        ],
+        "mainScrollWidth": 380,
+        "mainWidth": 380,
+        "pageWidth": 390,
+        "width": 390,
+        "theme": "Light",
+        "pass": true
+      },
+      {
+        "frames": [
+          {
+            "parentWidth": 557.3333740234375,
+            "width": 557.3333740234375
+          },
+          {
+            "parentWidth": 524,
+            "width": 524
+          }
+        ],
+        "mainScrollWidth": 589,
+        "mainWidth": 589,
+        "pageWidth": 599,
+        "width": 599,
+        "theme": "Light",
+        "pass": true
+      },
+      {
+        "frames": [
+          {
+            "parentWidth": 704.4583740234375,
+            "width": 704.4583740234375
+          },
+          {
+            "parentWidth": 1154.0833740234375,
+            "width": 1154.0833740234375
+          }
+        ],
+        "mainScrollWidth": 1269,
+        "mainWidth": 1269,
+        "pageWidth": 1280,
+        "width": 1280,
+        "theme": "Light",
+        "pass": true
+      },
+      {
+        "frames": [
+          {
+            "parentWidth": 806.09375,
+            "width": 806.09375
+          },
+          {
+            "parentWidth": 1323.479248046875,
+            "width": 1323.479248046875
+          }
+        ],
+        "mainScrollWidth": 1702,
+        "mainWidth": 1702,
+        "pageWidth": 1920,
+        "width": 1920,
+        "theme": "Light",
+        "pass": true
+      }
+    ]
+  },
+  "controlled_session": [
+    {
+      "armed": false,
+      "logoLoaded": true,
+      "mainScrollWidth": 310,
+      "mainWidth": 310,
+      "pageWidth": 320,
+      "width": 320,
+      "theme": "Light",
+      "pass": true
+    },
+    {
+      "armed": false,
+      "logoLoaded": true,
+      "mainScrollWidth": 380,
+      "mainWidth": 380,
+      "pageWidth": 390,
+      "width": 390,
+      "theme": "Light",
+      "pass": true
+    },
+    {
+      "armed": false,
+      "logoLoaded": true,
+      "mainScrollWidth": 599,
+      "mainWidth": 599,
+      "pageWidth": 599,
+      "width": 599,
+      "theme": "Light",
+      "pass": true
+    },
+    {
+      "armed": false,
+      "logoLoaded": true,
+      "mainScrollWidth": 1257,
+      "mainWidth": 1257,
+      "pageWidth": 1280,
+      "width": 1280,
+      "theme": "Light",
+      "pass": true
+    },
+    {
+      "armed": false,
+      "logoLoaded": true,
+      "mainScrollWidth": 1712,
+      "mainWidth": 1712,
+      "pageWidth": 1920,
+      "width": 1920,
+      "theme": "Light",
+      "pass": true
+    },
+    {
+      "armed": false,
+      "logoLoaded": true,
+      "mainScrollWidth": 310,
+      "mainWidth": 310,
+      "pageWidth": 320,
+      "width": 320,
+      "theme": "Dark",
+      "pass": true
+    },
+    {
+      "armed": false,
+      "logoLoaded": true,
+      "mainScrollWidth": 380,
+      "mainWidth": 380,
+      "pageWidth": 390,
+      "width": 390,
+      "theme": "Dark",
+      "pass": true
+    },
+    {
+      "armed": false,
+      "logoLoaded": true,
+      "mainScrollWidth": 599,
+      "mainWidth": 599,
+      "pageWidth": 599,
+      "width": 599,
+      "theme": "Dark",
+      "pass": true
+    },
+    {
+      "armed": false,
+      "logoLoaded": true,
+      "mainScrollWidth": 1216,
+      "mainWidth": 1216,
+      "pageWidth": 1280,
+      "width": 1280,
+      "theme": "Dark",
+      "pass": true
+    },
+    {
+      "armed": false,
+      "logoLoaded": true,
+      "mainScrollWidth": 1902,
+      "mainWidth": 1902,
+      "pageWidth": 1920,
+      "width": 1920,
+      "theme": "Dark",
+      "pass": true
+    }
+  ],
+  "science_integrity": {
+    "baseline_files": 135,
+    "unchanged": 135,
+    "changed": [],
+    "missing": [],
+    "status": "PASS"
+  },
+  "package_checks": 1989
+}

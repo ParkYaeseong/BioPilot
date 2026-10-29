@@ -8,8 +8,8 @@ def test_every_step_has_a_real_focus_target_and_english_instructions():
     from app.tour_spotlight import spotlight_document, TARGETS
     assert set(TARGETS) == {step.id for step in STEPS}
     html = spotlight_document(0, appearance='Light', playing=False)
-    assert 'tour_input' in html
-    assert 'Check a valid request' in html
+    assert 'tour_overview' in html
+    assert 'Understand the saved review' in html
     assert 'bio-tour-root' in html
     assert 'getBoundingClientRect' in html
     assert 'Escape' in html

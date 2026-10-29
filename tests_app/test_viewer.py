@@ -260,6 +260,7 @@ def test_workbench_top_five_selection_and_trace_are_real_interactions(monkeypatc
     monkeypatch.setattr('sys.argv',['viewer.py','--artifact',str(path)])
     app=AppTest.from_file(str(VIEWER_APP),default_timeout=60).run()
     assert not app.exception
+    at_view(app, 'Candidates')
     assert len(app.table[0].value)==5
     assert app.multiselect(key='compare_candidates').value==[]
     app.multiselect(key='compare_candidates').set_value(['A32S','A32E']).run()
@@ -269,7 +270,7 @@ def test_workbench_top_five_selection_and_trace_are_real_interactions(monkeypatc
     assert list(compared['Variant'])==['A32E','A32S']
     app.toggle(key='show_all_candidates').set_value(True).run()
     assert len(app.table[0].value)==19
-    at_view(app, 'Decision trace')
+    at_view(app, 'Agent Trace')
     assert app.selectbox(key='trace_step').options[0].startswith('01')
 
 
@@ -280,7 +281,7 @@ def test_local_input_check_refuses_protection_without_touching_artifact(tmp_path
     before=path.read_bytes()
     monkeypatch.setattr('sys.argv',['viewer.py','--artifact',str(path)])
     app=AppTest.from_file(str(VIEWER_APP),default_timeout=60).run()
-    at_view(app, 'Input')
+    at_view(app, 'Input & Diagnostics')
     app.text_input(key='local_variant').set_value('S108A')
     app.button(key='FormSubmitter:offline_check-Check input locally').click().run()
     assert not app.exception
@@ -315,8 +316,9 @@ def test_raw_artifact_markup_stays_plain_text_and_private_provenance_is_absent(t
     monkeypatch.setattr('sys.argv',['viewer.py','--artifact',str(path)])
     app=AppTest.from_file(str(VIEWER_APP),default_timeout=60).run()
     assert not app.exception
+    at_view(app, 'Candidates')
     assert report['model_narrative'] in [item.value for item in app.text]
-    at_view(app, 'Decision trace')
+    at_view(app, 'Agent Trace')
     assert '<img src=x onerror=alert(1)>' in [item.value for item in app.text]
     at_view(app, 'Evidence')
     assert not any('private-marker' in str(item.value) for item in app.json)
@@ -382,7 +384,7 @@ def test_whole_viewer_render_path_cannot_reach_a_provider():
                  'os', 'dotenv', 'modal', 'torch', 'transformers'}
     root = _Path(__file__).resolve().parents[1]
     for relative in ('app/viewer.py', 'app/review_checks.py', 'app/viewer_data.py',
-                     'app/viewer_structure.py', 'app/viewer_render.py',
+                     'app/viewer_structure.py', 'app/viewer_render.py', 'app/brand.py',
                      'app/upload_checks.py', 'app/core/coordinate_join.py',
                      'app/guided_tour.py', 'app/tour_spotlight.py', 'app/prediction_view.py', 'app/core/atlas_snapshot.py'):
         tree = ast.parse((root / relative).read_text(encoding='utf-8'))
@@ -465,7 +467,7 @@ def test_uploaded_files_are_checked_locally_and_never_leave_the_machine(tmp_path
     path=write(tmp_path,saved_report())
     monkeypatch.setattr('sys.argv',['viewer.py','--artifact',str(path)])
     app=AppTest.from_file(str(VIEWER_APP),default_timeout=60).run()
-    at_view(app,'Input')
+    at_view(app,'Input & Diagnostics')
     assert not app.exception
     captions=' '.join(str(c.value) for c in app.caption)
     assert 'Analysed in memory on this machine' in captions

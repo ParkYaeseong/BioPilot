@@ -24,7 +24,9 @@ import streamlit.components.v1 as components
 from app.session_exec import (PROTECTED_FULL_POSITIONS, SessionBudget, extract_positions,
                               run_session, validate_session_request)
 from app.viewer_data import CLAIM_BANNER, format_candidate_rows, load_run_view
-from app.viewer_render import handoff_ladder, init_appearance, workspace_navigation
+from app.viewer_render import (appearance_control, handoff_ladder, init_appearance,
+                               render_brand, workspace_navigation, palette_css)
+from app.brand import BRAND_ICON
 from app.viewer_structure import residue_selection, structure_panel_html
 from app.review_checks import check_review_input
 
@@ -47,7 +49,7 @@ def _arguments():
 def _style(appearance):
     css = (ROOT / 'app' / 'viewer.css').read_text(encoding='utf-8')
     from app.viewer import PALETTES
-    st.html('<style>:root{' + PALETTES[appearance] + '}' + css + '</style>')
+    st.html('<style>' + palette_css(appearance, PALETTES) + css + '</style>')
 
 
 def _budget(options):
@@ -161,18 +163,16 @@ def _draft(text):
 
 def main():
     options = _arguments()
-    st.set_page_config(page_title='BioPilot Bench · Live session', layout='wide',
-                       initial_sidebar_state='expanded')
+    st.set_page_config(page_title='BioPilot Bench · Live session', page_icon=BRAND_ICON,
+                       layout='wide', initial_sidebar_state='auto')
     init_appearance()
     _style(st.session_state['appearance'])
     budget = _budget(options)
 
     with st.sidebar:
-        st.html('<div class="brand"><span class="brand-mark">B</span>'
-                '<div><strong>BioPilot Bench</strong><small>LIVE SESSION</small></div></div>')
+        render_brand(subtitle='CONTROLLED SESSION')
         workspace_navigation(current='Live session', viewer_url=options.viewer_url,
                              session_url=options.session_url)
-        st.divider()
         st.markdown('**Run controls**')
         st.metric('Runs left', f'{budget.remaining_runs} of {options.max_runs}')
         st.caption(f'Each run is capped at {options.max_requests} model requests. The cap is '
@@ -184,8 +184,7 @@ def main():
                    'Unarmed — the review command is built without live flags.')
         st.html('<div class="guard-chips"><span>S108</span><span>D164</span><span>H187</span></div>')
         st.caption('Protected sites are refused locally, before any request is built.')
-        st.divider()
-        st.selectbox('Appearance', ['Dark', 'Light'], key='appearance')
+        appearance_control()
 
     st.html('<div class="workspace-kicker">PUBLIC LIPASE A '
             '<span class="workspace-mode">LIVE SESSION · ' + ('ARMED' if armed else 'UNARMED') + '</span></div>')
@@ -197,18 +196,19 @@ def main():
         st.info('Unarmed · prepare and check a request here. Enable paid runs in the sidebar to execute.')
     if not st.session_state.get('turns'):
         st.subheader('What would you like to inspect?')
-        valid, protected, another = st.columns(3)
-        for column, label, key, text, detail in (
-            (valid, 'Review a variant', 'draft_valid', 'Review A32V for sequence plausibility.',
-             'Start with the registered Lipase A reference.'),
-            (protected, 'Try a protected site', 'draft_guard', 'Review S108A for sequence plausibility.',
-             'See the local guard refuse a protected mutation.'),
-            (another, 'Review another position', 'draft_position', 'Review position 45 for sequence plausibility.',
-             'Keep full-reference 1-based numbering.')):
-            with column:
-                with st.container(border=True):
-                    st.button(label, key=key, on_click=_draft, args=(text,), width='stretch')
-                    st.caption(detail)
+        with st.container(key='session_examples'):
+            valid, protected, another = st.columns(3)
+            for column, label, key, text, detail in (
+                (valid, 'Review a variant', 'draft_valid', 'Review A32V for sequence plausibility.',
+                 'Start with the registered Lipase A reference.'),
+                (protected, 'Try a protected site', 'draft_guard', 'Review S108A for sequence plausibility.',
+                 'See the local guard refuse a protected mutation.'),
+                (another, 'Review another position', 'draft_position', 'Review position 45 for sequence plausibility.',
+                 'Keep full-reference 1-based numbering.')):
+                with column:
+                    with st.container(border=True):
+                        st.button(label, key=key, on_click=_draft, args=(text,), width='stretch')
+                        st.caption(detail)
         st.caption('Examples fill the message box. Read or edit the request before sending.')
     _replay_turns()
     with st.expander('Execution boundaries and scientific scope'):

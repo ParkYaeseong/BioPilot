@@ -91,5 +91,16 @@
     },
     "sha256": "6b44456501f8060049fd09d3e4df552dba05d6b2b9defc218b1ad63c052d94eb",
     "other_seven_original_step_images_preserved": true
+  },
+  "overview_capture_20261029": {
+    "method": "Actual IAB screenshot",
+    "clip": {
+      "x": 341,
+      "y": 342,
+      "width": 888,
+      "height": 224
+    },
+    "path": "overview.png",
+    "appearance": "Light"
   }
 }

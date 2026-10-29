@@ -9,12 +9,29 @@ from html import escape
 
 import streamlit as st
 
+from app.brand import brand_symbol_data_uri
+
+
+def render_brand(*, subtitle='SCIENTIFIC REVIEW'):
+    """One restrained identity for saved and controlled-review workspaces."""
+    icon = brand_symbol_data_uri(init_appearance())
+    st.html('<div class="brand"><img class="brand-symbol" src="' + icon +
+            '" alt="" aria-hidden="true" width="36" height="36"/>' +
+            '<div class="brand-wordmark"><strong>BioPilot Bench</strong><small>' +
+            escape(subtitle) + '</small></div></div>')
+
+
+def appearance_control():
+    """Keep theme selection available as a secondary, initially closed setting."""
+    with st.container(key='display_settings'), st.expander('Display settings', expanded=False):
+        st.selectbox('Appearance', ['Auto', 'Light', 'Dark'], key='appearance')
+
 
 def init_appearance():
     """Carry appearance between isolated workspace pages, never live authority."""
     if 'appearance' not in st.session_state:
-        selected = st.query_params.get('appearance', 'Dark')
-        st.session_state['appearance'] = selected if selected in ('Dark', 'Light') else 'Dark'
+        selected = st.query_params.get('appearance', 'Auto')
+        st.session_state['appearance'] = selected if selected in ('Auto', 'Dark', 'Light') else 'Auto'
     return st.session_state['appearance']
 
 
@@ -22,13 +39,17 @@ def workspace_navigation(*, current, viewer_url, session_url):
     """One workspace navigation, two capability-isolated local programs."""
     appearance = init_appearance()
     links = []
-    for label, url in (('Saved review', viewer_url), ('Live session', session_url)):
-        active = 'active' if current == label else ''
+    for label, url, badge, hint in (
+            ('Saved review', viewer_url, 'REPLAY', 'Saved evidence · no new inference'),
+            ('Live session', session_url, 'SESSION', 'New controlled review')):
+        active = ' active' if current == label else ''
+        current_page = ' aria-current="page"' if current == label else ''
         # Links carry a visual preference only; they cannot arm a live session.
         target = url.split('?')[0].rstrip('/') + '/?appearance=' + appearance
-        links.append(f'<a class="{active}" href="{escape(target, quote=True)}" '
-                     f'target="_self">{label}</a>')
-    st.html('<nav class="workspace-nav" aria-label="Workspace">' + ''.join(links) + '</nav>')
+        links.append(f'<a class="workspace-item{active}" href="{escape(target, quote=True)}" '
+                     f'target="_self" title="{badge} · {hint}"{current_page}>'
+                     f'<span class="workspace-label">{label}</span></a>')
+    st.html('<nav class="workspace-nav workspace-switch" aria-label="Workspace">' + ''.join(links) + '</nav>')
 
 LADDER_CAPTION = (
     'Saved order. The model selects permitted tools; registered code performs every '
@@ -76,3 +97,10 @@ def handoff_ladder(steps, *, heading='Recorded handoffs', caption=LADDER_CAPTION
             '</span></li>')
     rungs.append('</ol>')
     st.html(''.join(rungs))
+
+
+def palette_css(appearance, palettes):
+    """Follow system appearance in CSS without inference or provider calls."""
+    if appearance == 'Auto':
+        return ':root{' + palettes['Light'] + '}@media(prefers-color-scheme:dark){:root{' + palettes['Dark'] + '}}'
+    return ':root{' + palettes[appearance] + '}'

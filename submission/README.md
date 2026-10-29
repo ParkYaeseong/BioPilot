@@ -17,7 +17,7 @@ It records one actual Meta → MCP → local ESM → final explanation execution
 `muse-spark-1.3`, the controlled Python host, MCP SDK 1.25.0 / protocol 2025-11-25,
 and `esm2_t30_150M_UR50D` on CPU in the registered `full_212` context.
 The measured fields, source hashes and limitations are collected directly from
-artifacts in [evidence.current.json](evidence.current.json).
+artifacts in [evidence.current.json](evidence.current.json).2
 
 The portable [saved review](../demo/artifacts/sequence_review.replay.json) contains
 the actual ranked candidates, score artifact, provenance, tool trace and model

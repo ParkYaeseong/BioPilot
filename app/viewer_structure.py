@@ -121,6 +121,13 @@ def _style_calls(highlight, protected, *, light=False):
 
 def structure_panel_html(highlight=None, *, height=430, background=None, appearance='Dark', prediction=None):
     """Self-contained viewer document. Inlines the bundle and the coordinates."""
+    if appearance == 'Auto':
+        document = structure_panel_html(highlight, height=height, background=background,
+                                        appearance='Light', prediction=prediction)
+        document = document.replace('</style>', '@media(prefers-color-scheme:dark){#note,#controls{color:#bdc7d3}button{background:#19222c;color:#bdc7d3;border-color:#64748b}}</style>')
+        document = document.replace('backgroundColor:0xf8fafc', "backgroundColor:(window.matchMedia('(prefers-color-scheme:dark)').matches?0x0b0f14:0xf8fafc)")
+        document = document.replace('  var originalView', "  window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change',function(e){viewer.setBackgroundColor(e.matches?0x0b0f14:0xf8fafc);viewer.render();});\n  var originalView")
+        return document
     protected = protected_selections() if prediction is None else []
     coordinates = _structure_text() if prediction is None else prediction['pdb']
     model_format = 'cif' if prediction is None else 'pdb'

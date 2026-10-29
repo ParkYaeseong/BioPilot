@@ -1,0 +1,103 @@
+{
+  "date_kst": "2026-10-29",
+  "status": "implementation_present_visual_qa_blocked",
+  "view_order": [
+    "Overview",
+    "Candidates",
+    "Agent Trace",
+    "Evidence",
+    "Input & Diagnostics"
+  ],
+  "tour_steps": 9,
+  "interface_language": "en",
+  "provider_calls": 0,
+  "gpu_calls": 0,
+  "scientific_artifacts_modified": false,
+  "evidence_hash_comparison": {
+    "baseline_files": 135,
+    "unchanged": 135,
+    "changed": [],
+    "missing": [],
+    "status": "PASS"
+  },
+  "tests": {
+    "red_landing": {
+      "failed": 5,
+      "passed": 0
+    },
+    "focused_flow": {
+      "passed": 19,
+      "seconds": 6.59
+    },
+    "viewer_regression": {
+      "passed": 49,
+      "seconds": 11.52
+    },
+    "initial_full_regression": {
+      "passed": 748,
+      "failed": 3,
+      "skipped": 2,
+      "subtests_passed": 12,
+      "warnings": 2,
+      "seconds": 67.16
+    },
+    "final_full_regression": {
+      "command": ".venv/Scripts/python.exe -m pytest tests tests_app -q -rs -p no:cacheprovider --basetemp=.cache/overview_regression_final_20261029 --tb=short",
+      "passed": 750,
+      "failed": 1,
+      "skipped": 2,
+      "warnings": 2,
+      "subtests_passed": 12,
+      "seconds": 66.47,
+      "remaining_failure": "tests_app/test_tour_spotlight.py::test_every_step_has_a_real_focus_target_and_english_instructions — actual Overview thumbnail not yet captured"
+    }
+  },
+  "visual_qa": {
+    "complete": false,
+    "browser_control_ended_reason": "Could not confidently determine the current browser URL on Windows",
+    "further_ui_actions_after_stop": false,
+    "alternate_automation_used": false,
+    "diagnostic_captures": [
+      {
+        "path": "local_artifacts/overview_refinement_20261029/after_desktop.png",
+        "sha256": "a7a02b0c4ce7fcb74d45388268b9b5916538600efc03561a80b24e407688e145",
+        "accepted_as_final_visual_proof": false
+      },
+      {
+        "path": "local_artifacts/overview_refinement_20261029/before_desktop.png",
+        "sha256": "0c6e29ebf7eefbda5dc37e168603472aa1222bf19fff464bd990a250c7548f54",
+        "accepted_as_final_visual_proof": false
+      },
+      {
+        "path": "local_artifacts/overview_refinement_20261029/before_mobile.png",
+        "sha256": "fc1f25ce0654e53f3fc7dcddc38e1c61e30437c0a83980a29a3b99156c2c20ef",
+        "accepted_as_final_visual_proof": false
+      }
+    ],
+    "known_capture_issue": "After-desktop capture contains browser clipping/duplicate painting; not accepted as final UI proof",
+    "overview_thumbnail": "missing; existing strict image test retained",
+    "responsive_widths_fully_verified": [],
+    "requested_widths": [
+      390,
+      599,
+      1280
+    ],
+    "temporary_viewport_reset": "blocked when browser control ended"
+  },
+  "video_exported": false,
+  "demo_plan": "demo/OVERVIEW_DEMO_180S_EN.md",
+  "public_visibility_changed": false,
+  "private_github_push": "deferred until pending thumbnail test passes",
+  "remaining_work": [
+    "Capture actual Overview thumbnail",
+    "Validate all five views and tutorial at requested sizes/themes",
+    "Reset temporary browser viewport override",
+    "Complete final test/manifest checks and synchronize the private repository"
+  ],
+  "package_verification": {
+    "command": ".venv/Scripts/python.exe checks/validate_package.py",
+    "status": "PASS",
+    "checks": 1967,
+    "failures": 0
+  }
+}

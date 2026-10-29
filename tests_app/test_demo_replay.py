@@ -218,6 +218,9 @@ def test_exported_real_sample_renders_nineteen_candidates_as_replay(monkeypatch)
     assert not app.exception
     assert any('REPLAY' in str(item.value) and 'no new inference' in str(item.value)
                for item in app.caption)
+    app.session_state['active_view'] = 'Candidates'
+    app.run()
+    assert not app.exception
     assert len(app.table[0].value) == 5
     app.toggle(key='show_all_candidates').set_value(True).run()
     assert not app.exception

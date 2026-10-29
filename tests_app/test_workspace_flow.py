@@ -14,12 +14,19 @@ def viewer(monkeypatch):
     return AppTest.from_file(str(ROOT / 'app/viewer.py'), default_timeout=60).run()
 
 
-def test_tour_starts_a_real_local_check_then_restores_user_selection(monkeypatch):
+def test_tour_reviews_results_before_local_checks_then_restores_user_selection(monkeypatch):
     app = viewer(monkeypatch)
+    app.session_state['active_view'] = 'Candidates'
+    app.run()
     app.multiselect(key='compare_candidates').set_value(['A32V']).run()
     app.button(key='start_demo').click().run()
     assert not app.exception
-    assert app.session_state['active_view'] == 'Input'
+    assert app.session_state['active_view'] == 'Overview'
+    assert not app.text_input
+    for _ in range(7):
+        app.button(key='tour_next').click().run()
+        assert not app.exception
+    assert app.session_state['active_view'] == 'Input & Diagnostics'
     assert app.text_input(key='local_variant').value == 'A32V'
     assert app.session_state['local_check_result']['status'] == 'accepted'
     app.button(key='tour_next').click().run()
@@ -27,13 +34,13 @@ def test_tour_starts_a_real_local_check_then_restores_user_selection(monkeypatch
     assert app.error
     app.button(key='exit_demo').click().run()
     assert not app.exception
-    assert app.session_state['active_view'] == 'Overview'
+    assert app.session_state['active_view'] == 'Candidates'
     assert app.multiselect(key='compare_candidates').value == ['A32V']
 
 
-def test_inputs_precede_structure_and_live_navigation_is_a_link(monkeypatch):
+def test_diagnostics_are_local_and_live_navigation_is_only_a_link(monkeypatch):
     app = viewer(monkeypatch)
-    app.session_state['active_view'] = 'Input'
+    app.session_state['active_view'] = 'Input & Diagnostics'
     app.run()
     assert not app.exception
     assert app.text_input(key='local_variant')

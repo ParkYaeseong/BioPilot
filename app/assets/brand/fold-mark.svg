@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="36" height="36" class="brand-symbol" role="img" aria-label="BioPilot Bench folded-ribbon mark">
+  <g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round">
+    <path d="M11 7c0 9 18 9 18 18a8 8 0 0 1-8 8"/>
+    <path d="M29 7c0 9-18 9-18 18a8 8 0 0 0 8 8" opacity=".65"/>
+  </g>
+  <g fill="currentColor">
+    <circle cx="11" cy="7" r="2.4"/>
+    <circle cx="29" cy="7" r="2.4"/>
+  </g>
+</svg>

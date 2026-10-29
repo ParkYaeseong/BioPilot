@@ -22,30 +22,33 @@ class TourStep:
 
 
 STEPS = (
-    TourStep('valid_input', 'Check a valid request', 'Input',
-             'A32V passes the real local numbering and residue guards. No model is called.',
-             'input'),
-    TourStep('protected_input', 'See the guard stop a request', 'Input',
-             'S108A is blocked locally because S108 is protected. This does not prove retained function.',
-             'input'),
-    TourStep('compare', 'Compare the saved shortlist', 'Overview',
+    TourStep('overview', 'Understand the saved review', 'Overview',
+             'Start with the research purpose, saved candidates and recorded Meta/ESM evidence. This is REPLAY, not a new run.',
+             'overview'),
+    TourStep('compare', 'Compare the saved shortlist', 'Candidates',
              'The first three saved candidates are selected below. Their recorded scores and ranks stay unchanged.',
              'comparison'),
-    TourStep('unmodelled_position', 'Check the structure evidence', 'Structure',
-             'The selected candidate resolves through the registered join. Missing atoms are reported, never guessed.',
-             'structure'),
-    TourStep('protected_structure', 'Locate a protected residue', 'Structure',
-             'S108 uses its verified author-number join for a highlight in the experimental reference structure.',
-             'structure'),
-    TourStep('validation_trace', 'Inspect Meta’s validation request', 'Decision trace',
+    TourStep('validation_trace', 'Inspect Meta’s validation request', 'Agent Trace',
              'Open the first recorded MCP call. This is saved execution evidence, not a new Meta request.',
              'trace'),
-    TourStep('scoring_trace', 'Inspect the recorded scoring call', 'Decision trace',
+    TourStep('scoring_trace', 'Inspect the recorded scoring call', 'Agent Trace',
              'Open the next recorded MCP call. ESM computes sequence preferences; code owns the common ranking policy.',
              'trace'),
     TourStep('provenance', 'Verify what supports the result', 'Evidence',
              'Inspect the saved provenance and local consistency checks. Unknown costs and unverified claims stay visible.',
              'evidence'),
+    TourStep('unmodelled_position', 'Check the reference mapping', 'Evidence',
+             'The selected candidate resolves through the registered join. Missing atoms are reported, never guessed.',
+             'structure'),
+    TourStep('protected_structure', 'Locate a protected residue', 'Evidence',
+             'S108 uses its verified author-number join for a highlight in the experimental reference structure.',
+             'structure'),
+    TourStep('valid_input', 'Check a valid request', 'Input & Diagnostics',
+             'A32V passes the real local numbering and residue guards. No model is called.',
+             'input'),
+    TourStep('protected_input', 'See the guard stop a request', 'Input & Diagnostics',
+             'S108A is blocked locally because S108 is protected. This does not prove retained function.',
+             'input'),
 )
 
 # Only presentation fields belong to this module. In particular armed, model_key,
@@ -53,7 +56,7 @@ STEPS = (
 PRESENTATION_FIELDS = (
     'active_view', 'local_variant', 'local_frame', 'local_objective',
     'local_check_result', 'compare_candidates', 'show_all_candidates',
-    'structure_focus', 'trace_step',
+    'structure_focus', 'trace_step', 'evidence_section',
 )
 
 
@@ -72,18 +75,22 @@ def _apply_step(state, candidates):
         state['compare_candidates'] = [row['candidate_id'] for row in candidates[:3]]
         state['show_all_candidates'] = False
     elif step.id == 'unmodelled_position':
+        state['evidence_section'] = 'Reference mapping & saved structures'
         state['structure_focus'] = (
             f"{candidates[0]['candidate_id']} · full {candidates[0]['full_position']}"
             if candidates else 'S108 · protected')
     elif step.id == 'protected_structure':
+        state['evidence_section'] = 'Reference mapping & saved structures'
         state['structure_focus'] = 'S108 · protected'
     elif step.id == 'validation_trace':
         state['trace_step'] = 0
     elif step.id == 'scoring_trace':
         state['trace_step'] = 1
+    elif step.id == 'provenance':
+        state['evidence_section'] = 'Run provenance'
 
 
-def start_tour(state, candidates, *, now, autoplay=True):
+def start_tour(state, candidates, *, now, autoplay=False):
     """Start or restart the tour, retaining the first pre-tour control snapshot."""
     if not state.get('tour_active'):
         state['tour_saved_fields'] = {

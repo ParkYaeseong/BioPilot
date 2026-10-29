@@ -17,7 +17,9 @@ from app.viewer_data import (CLAIM_BANNER, PROVENANCE_CHAIN_SCOPE as CHAIN_SCOPE
                              load_run_view, select_candidate_rows)
 from app.upload_checks import (MAX_SEQUENCE_BYTES, MAX_STRUCTURE_BYTES,
                                check_sequence, check_structure)
-from app.viewer_render import handoff_ladder, init_appearance, workspace_navigation
+from app.viewer_render import (appearance_control, handoff_ladder, init_appearance,
+                               render_brand, workspace_navigation, palette_css)
+from app.brand import BRAND_ICON
 from app.viewer_structure import residue_selection, structure_panel_html
 from app.guided_tour import (STEPS, advance_tour, set_tour_playing, start_tour,
                              stop_tour, tick_tour)
@@ -48,7 +50,7 @@ def _artifact_argument():
 
 def _style(appearance):
     css = Path(__file__).with_suffix('.css').read_text(encoding='utf-8')
-    st.html('<style>:root{' + PALETTES[appearance] + '}' + css + '</style>')
+    st.html('<style>' + palette_css(appearance, PALETTES) + css + '</style>')
 
 
 def _try_example(variant):
@@ -71,11 +73,9 @@ def _move_trace(delta, count):
 def _sidebar(view, session_url, workspace_url):
     task = view['task_context']
     with st.sidebar:
-        st.html('<div class="brand"><span class="brand-mark">B</span>'
-                '<div><strong>BioPilot Bench</strong><small>SCIENTIFIC REVIEW</small></div></div>')
+        render_brand()
         workspace_navigation(current='Saved review', viewer_url=workspace_url,
                              session_url=session_url)
-        st.divider()
         st.markdown('**Reference workspace**')
         st.text('Public Lipase A' if task['reference_id'] == 'ESTA_BACSU_Nutschel_2020'
                 else 'Saved reference')
@@ -92,13 +92,12 @@ def _sidebar(view, session_url, workspace_url):
         st.caption('Full-reference 1-based · full_212 context')
         st.html('<div class="guard-chips"><span>S108</span><span>D164</span><span>H187</span></div>')
         st.caption('Protection does not establish retained function.')
-        st.divider()
-        st.selectbox('Appearance', ['Dark', 'Light'], key='appearance')
+        appearance_control()
         st.caption('Saved review · offline playback')
 
 
 def _input(view):
-    st.subheader('Start with a checked input')
+    st.subheader('Input & local diagnostics')
     st.caption('Check a variant against the registered reference. This local check does not change the saved result.')
     entry, context = st.columns([3, 2], gap='large')
     with entry, st.container(key='tour_input'):
@@ -135,7 +134,7 @@ def _input(view):
                 '<p>Sequence plausibility review</p><hr><p>Protected sites</p>'
                 '<div class="guard-chips"><span>S108</span><span>D164</span><span>H187</span></div>'
                 '<p>Try A32V to pass, S108A to see site protection, or G32V to catch a reference mismatch.</p></div>')
-    with st.expander('Optional · check your sequence or structure file'):
+    with st.expander('Advanced diagnostics · FASTA and mmCIF'):
         _uploads(view)
 
 
@@ -150,6 +149,65 @@ def _candidate_table(rows, *, key):
 
 
 def _overview(view):
+    """Explain the recorded result before offering detailed inspection controls."""
+    rows = format_candidate_rows(view['candidates'])
+    provenance = view['provenance']
+    task = view['task_context']
+    positions = ', '.join(str(p) for p in task['positions']) or 'unrecorded'
+    context = str(provenance.get('sequence_context') or 'unrecorded')
+    requests = view['meta_request_attempts']
+    with st.container(key='tour_overview'):
+        st.subheader('Review the saved evidence')
+        st.html('<section class="overview-purpose"><span class="section-kicker">'
+                'Research purpose · current review scope</span>'
+                '<h2>Which variants merit a closer look?</h2>'
+                '<p>Review sequence plausibility using recorded ESM preferences, '
+                'guarded Meta tool calls and inspectable evidence. '
+                'Choose hypotheses for follow-up; biological effects remain unvalidated.</p></section>')
+        metrics = (
+            ('Saved candidates', str(view['candidate_count'])),
+            ('Full-reference position', positions),
+            ('Scoring context', context),
+            ('Meta requests recorded', str(requests) if requests is not None else 'Unrecorded'),
+        )
+        st.html('<div class="overview-metrics">' + ''.join(
+            '<div class="overview-metric"><span>' + escape(label) + '</span><strong>'
+            + escape(value) + '</strong></div>' for label, value in metrics) + '</div>')
+        results, workflow = st.columns([1, 1], gap='large')
+        with results:
+            st.markdown('**Saved ESM results**')
+            checkpoint = provenance.get('checkpoint') or provenance.get('model_key') or 'unrecorded'
+            st.caption(f"{checkpoint} · {context} · "
+                       f"{provenance.get('device') or 'device unrecorded'} / "
+                       f"{provenance.get('precision') or 'precision unrecorded'}")
+            st.table([{'Rank': row['rank'], 'Variant': row['candidate_id'],
+                       'ESM preference': row['score']} for row in rows[:3]])
+            st.caption('Top three of the saved cohort · dimensionless sequence preference. '
+                       'Full table and CSV are in Candidates.')
+            st.caption('Common rank policy: ' + str(view['ranking_scope'] or 'unrecorded'))
+        with workflow:
+            st.markdown('**Recorded Meta workflow**')
+            st.caption(f"{view['actual_model'] or 'Model unrecorded'} · "
+                       f"{len(view['tool_events'])} MCP calls · saved order")
+            steps = []
+            for step in view['decision_steps']:
+                actor = 'Meta' if step['kind'] == 'meta_response' else 'MCP code'
+                steps.append('<li><strong>' + actor + '</strong><span>'
+                             + escape(step['label']) + '</span></li>')
+            if steps:
+                st.html('<ol class="overview-path">' + ''.join(steps) + '</ol>')
+            else:
+                st.info('No agent steps recorded in this artifact.')
+            st.caption('Meta selects permitted tools and explains evidence. '
+                       'Registered code enforces guards, computes scores and ranks candidates.')
+        st.html('<aside class="overview-limit"><strong>Not established</strong>'
+                '<p>T50, activity, solubility, Tm, retained function and atom geometry '
+                'remain unvalidated. Provider cost: ' + escape(view['cost_display']) + '.</p></aside>')
+        st.caption('Current view: REPLAY · original ESM execution: '
+                   + view['original_esm_badge'] + ' · viewing never starts a new model call.')
+
+
+def _candidates(view):
     rows = format_candidate_rows(view['candidates'])
     heading, control = st.columns([3, 2], vertical_alignment='center')
     heading.subheader('Candidate shortlist')
@@ -187,9 +245,9 @@ def _overview(view):
         st.text(CLAIM_BANNER)
 
 
-VIEWS = ('Input', 'Overview', 'Structure', 'Decision trace', 'Evidence')
-VIEW_LABELS = dict(zip(VIEWS, ('01  Input', '02  Candidates', '03  Structure',
-                              '04  Meta trace', '05  Evidence')))
+VIEWS = ('Overview', 'Candidates', 'Agent Trace', 'Evidence', 'Input & Diagnostics')
+VIEW_LABELS = {name: f'{index:02d}  {name}' for index, name in enumerate(VIEWS, 1)}
+EVIDENCE_SECTIONS = ('Run provenance', 'Reference mapping & saved structures')
 
 
 def _tour_action(action, candidates):
@@ -293,7 +351,7 @@ def _trace(view):
 
 def _structure(view):
     """Reference structure beside the saved evidence for the chosen position."""
-    st.subheader('Reference structure')
+    st.subheader('Reference mapping & saved structures')
     st.caption('Experimental reference 1ISP · chain A · verified numbering join · atom geometry unvalidated')
     rows = format_candidate_rows(view['candidates'])
     choices = [(f"{row['candidate_id']} · full {row['full_position']}",
@@ -462,7 +520,7 @@ def _provenance_chain(chain):
                  for link in chain})
 
 
-def _evidence(view):
+def _run_provenance(view):
     st.subheader('Evidence and provenance')
     st.caption('Current view: REPLAY · saved evidence is not recomputed.')
     with st.container(key='tour_provenance'):
@@ -489,9 +547,21 @@ def _evidence(view):
                  'tool_events':view['tool_events']}, expanded=False)
 
 
+def _evidence(view):
+    st.session_state.setdefault('evidence_section', EVIDENCE_SECTIONS[0])
+    if st.session_state['evidence_section'] not in EVIDENCE_SECTIONS:
+        st.session_state['evidence_section'] = EVIDENCE_SECTIONS[0]
+    st.segmented_control('Evidence section', EVIDENCE_SECTIONS, key='evidence_section',
+                         selection_mode='single', required=True, width='stretch')
+    if st.session_state['evidence_section'] == EVIDENCE_SECTIONS[1]:
+        _structure(view)
+    else:
+        _run_provenance(view)
+
+
 def main():
-    st.set_page_config(page_title='BioPilot Bench · Review workbench', layout='wide',
-                       initial_sidebar_state='expanded')
+    st.set_page_config(page_title='BioPilot Bench · Review workbench', page_icon=BRAND_ICON,
+                       layout='wide', initial_sidebar_state='auto')
     arguments = _artifact_argument()
     session_url = arguments.session_url
     try:
@@ -505,21 +575,28 @@ def main():
     # Preserve presentation state while another view temporarily removes its widgets.
     # Streamlit otherwise deletes unrendered widget keys at the end of a run.
     for key in ('local_variant', 'local_frame', 'local_objective', 'compare_candidates',
-                'show_all_candidates', 'structure_focus', 'trace_step'):
+                'show_all_candidates', 'structure_focus', 'trace_step', 'evidence_section'):
         if key in st.session_state:
             st.session_state[key] = st.session_state[key]
-    if st.session_state.get('active_view') == 'Check a file':
-        st.session_state['active_view'] = 'Input'
+    previous_view = st.session_state.get('active_view')
+    if previous_view == 'Structure':
+        st.session_state['evidence_section'] = EVIDENCE_SECTIONS[1]
+    aliases = {'Input': 'Input & Diagnostics', 'Check a file': 'Input & Diagnostics',
+               'Decision trace': 'Agent Trace', 'Structure': 'Evidence'}
+    st.session_state['active_view'] = aliases.get(previous_view, previous_view)
+    if st.session_state['active_view'] not in VIEWS:
+        st.session_state['active_view'] = 'Overview'
     init_appearance()
     _style(st.session_state['appearance'])
     _sidebar(view, session_url, arguments.workspace_url)
-    heading, demo = st.columns([3, 1], vertical_alignment='center')
-    with heading:
-        st.html('<div class="workspace-kicker">PUBLIC LIPASE A <span class="workspace-mode">SAVED RUN / REPLAY</span></div>')
-        st.title('Sequence review')
-    with demo:
-        st.button('Start guided demo', key='start_demo', type='primary', width='stretch',
-                  on_click=_tour_action, args=('start', view['candidates']))
+    with st.container(key='workspace_header'):
+        heading, demo = st.columns([3, 1], vertical_alignment='bottom')
+        with heading:
+            st.html('<div class="workspace-kicker">PUBLIC LIPASE A <span class="workspace-mode">SAVED RUN / REPLAY</span></div>')
+            st.title('Sequence review')
+        with demo:
+            st.button('Start guided demo', key='start_demo', type='primary', width='stretch',
+                      on_click=_tour_action, args=('start', view['candidates']))
     st.html('<div class="run-summary">'
             f'<span><b>{view["candidate_count"]}</b> candidates</span>'
             f'<span>{escape(str(view["provenance"].get("model_key") or view["provenance"].get("checkpoint") or "checkpoint unavailable"))} · '
@@ -546,8 +623,9 @@ def main():
                          on_change=_pause_for_navigation, label_visibility='collapsed',
                          selection_mode='single', required=True, width='stretch')
     shown = st.session_state.get('active_view') or 'Overview'
-    {'Overview': _overview, 'Decision trace': _trace, 'Structure': _structure,
-     'Input': _input, 'Evidence': _evidence}[shown](view)
+    with st.container(key='view_content'):
+        {'Overview': _overview, 'Candidates': _candidates, 'Agent Trace': _trace,
+         'Input & Diagnostics': _input, 'Evidence': _evidence}[shown](view)
     st.divider()
     previous, following = st.columns(2)
     index = VIEWS.index(shown)
