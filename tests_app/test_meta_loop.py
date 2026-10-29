@@ -58,6 +58,19 @@ def test_exact_call_ids_and_no_tool_final_report(tmp_path):
     assert client.payloads[1].get('tools') is None
     assert report['biological_efficacy_established'] is False
 
+
+def test_validation_smoke_filters_known_optional_science_tools(tmp_path):
+    class OptionalBridge(Bridge):
+        async def list_allowed(self):
+            return await super().list_allowed()+[
+                {'name':name,'description':'optional fixture capability','inputSchema':{'type':'object'}}
+                for name in ('retrieve_atlas_evidence','score_positions')]
+    client=Client([response(call=[tool()]),response(text='Registered context validated; biological effects remain unknown.')])
+    host,*_=setup(tmp_path,client,OptionalBridge())
+    report=asyncio.run(host.run())
+    assert report['status']=='validation_complete'
+    assert [t['function']['name'] for t in client.payloads[0]['tools']]==['validate_target_context']
+
 @pytest.mark.parametrize('calls',[[tool(name='read_file')],[tool(args={'owner_id':'foreign'})],
                                   [tool(),tool(id='call-1')]])
 def test_unknown_schema_or_duplicate_call_rejected(tmp_path,calls):
@@ -235,6 +248,33 @@ def test_sequence_review_three_turns_code_ranks_artifact_and_final_has_no_tools(
     assert result['ranking_scope']=='esm150_masked_v1'
     for forbidden in ('evaluation_private','DMS_score',registered_profile()['reference_sequence'],'ESM_BACKEND','MODEL_API_KEY'):
         assert forbidden not in json.dumps(client.payloads)
+
+
+def test_sequence_review_tolerates_registered_optional_atlas_without_exposing_it(tmp_path):
+    class AtlasBridge(ReviewBridge):
+        async def list_allowed(self):
+            return await super().list_allowed()+[{
+                'name':'retrieve_atlas_evidence','description':'Registered read-only public snapshot',
+                'inputSchema':{'type':'object','properties':{},'additionalProperties':False}}]
+    client=Client([response(call=[tool()]),response(call=[score_tool()]),
+        response(text='Sequence preferences only; biological effects remain unvalidated.')])
+    host,runs,rid,bridge=setup_review(tmp_path,client,bridge=AtlasBridge())
+    result=asyncio.run(host.run())
+    assert result['status']=='sequence_review_complete'
+    assert all('retrieve_atlas_evidence' not in [t['function']['name'] for t in p.get('tools',[])] for p in client.payloads)
+
+
+@pytest.mark.parametrize('extra_name',['shell','score_positions'])
+def test_baseline_still_refuses_unknown_or_duplicate_discovered_tools(tmp_path,extra_name):
+    class ExtraBridge(ReviewBridge):
+        async def list_allowed(self):
+            return await super().list_allowed()+[{'name':extra_name,'description':'fixture',
+                'inputSchema':{'type':'object'}}]
+    client=Client([])
+    host,*_=setup_review(tmp_path,client,bridge=ExtraBridge())
+    with pytest.raises(ValueError,match='catalog'):
+        asyncio.run(host.run())
+    assert client.payloads==[]
 
 
 @pytest.mark.parametrize('status',['pending','unknown','reserved'])

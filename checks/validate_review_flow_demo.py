@@ -27,8 +27,14 @@ try:
     raise AssertionError('Protected-site script would not match the current guard')
 except ValueError as error:
     assert 'Protected catalytic site' in str(error)
-view=load_run_view(root/'demo/artifacts/sequence_review.replay.json')
+view=load_run_view(root/'demo/artifacts/unified_review_20261029.replay.json')
 assert view['candidate_count']==19 and view['actual_model']=='muse-spark-1.3'
+execution=json.loads((root/data['actual_execution_receipt']).read_text(encoding='utf-8'))
+assert execution['run_id']==data['actual_execution_run_id']==view['run_id']
+assert execution['meta_request_attempts']==data['recorded_meta_requests']==3
+assert execution['elapsed_seconds']==data['recorded_elapsed_seconds']==45.48
+assert execution['source_mode']=='live' and execution['frozen_input']['input_kind']=='upload'
+assert view['lineage']['source_file_sha256']==execution['report_sha256']
 assert residue_selection(32)['selection'] is None
 assert residue_selection(108)['pdb_auth_seq_id']=='77'
 assert verify_reference()['status']=='verified_index_join'
@@ -62,9 +68,10 @@ paths=['demo/review_flows_180s.json','demo/REVIEW_FLOWS_180S_EN.md','demo/REVIEW
        'demo/REVIEW_FLOWS_180S_EN.srt','demo/REVIEW_FLOWS_180S_KO.srt']
 report={'date_kst':'2026-10-29','status':'PASS','scope':'offline recording-plan/caption/current-UI consistency; not rendered video or measured narration',
     'timeline_seconds':180,'segments':9,'english_words':data['english_word_count'],
-    'subtitles':subtitles,'ui_and_reference_checks':['five unnumbered Saved Review views','A32V local validation','S108A local refusal',
+    'subtitles':subtitles,'ui_and_reference_checks':['five unnumbered result views in one app','A32V local validation','S108A local refusal',
         '19saved candidates','actual saved Meta model','A32 atom absence','S108 author77','pinned public reference join'],
-    'new_provider_calls':0,'new_gpu_calls':0,'video_exported':False,'voice_duration_measured':False,
+    'new_provider_calls_by_this_validator':0,'recorded_real_meta_requests':execution['meta_request_attempts'],
+    'new_gpu_calls':0,'video_exported':False,'voice_duration_measured':False,
     'existing_test_fixtures_used_as_live_evidence':False,
     'files':[{'path':p,'sha256':hashlib.sha256((root/p).read_bytes()).hexdigest()} for p in paths]}
 (root/'validation/review_flow_demo_script_20261029.json').write_text(json.dumps(report,indent=2,ensure_ascii=False)+'\n',encoding='utf-8',newline='\n')

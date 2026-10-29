@@ -627,16 +627,8 @@ def _evidence(view):
         _run_provenance(view)
 
 
-def main():
-    st.set_page_config(page_title='BioPilot Bench · Review workbench', page_icon=BRAND_ICON,
-                       layout='wide', initial_sidebar_state='auto')
-    arguments = _artifact_argument()
-    session_url = arguments.session_url
-    try:
-        view = load_run_view(arguments.artifact)
-    except (ValueError, OSError) as error:
-        st.error(f'Nothing rendered: {error}')
-        return
+def render_workbench(view, *, show_sidebar=True, session_url='', workspace_url='', badge='SAVED RUN / REPLAY'):
+    """Render already-loaded evidence; no execution authority is reachable here."""
     # Style first: the palette variables must exist before any block paints, or the
     # sidebar renders a rerun at fallback contrast.
     tick_tour(st.session_state, view['candidates'], now=time.monotonic())
@@ -658,14 +650,16 @@ def main():
         st.session_state['active_view'] = 'Overview'
     init_appearance()
     _style(st.session_state['appearance'])
-    _sidebar(view, session_url, arguments.workspace_url)
+    if show_sidebar:
+        _sidebar(view, session_url, workspace_url)
     with st.container(key='workspace_header'):
         heading, demo = st.columns([3, 1], vertical_alignment='bottom')
         with heading:
-            st.html('<div class="workspace-kicker">PUBLIC LIPASE A <span class="workspace-mode">SAVED RUN / REPLAY</span></div>')
+            st.html('<div class="workspace-kicker">PUBLIC LIPASE A <span class="workspace-mode">'+escape(badge)+'</span></div>')
             st.title('Sequence review')
         with demo:
-            st.button('Start guided demo', key='start_demo', type='primary', width='stretch',
+            st.button('Start guided demo', key='start_demo', type='secondary', width='stretch',
+                      icon=':material/help_outline:',
                       on_click=_tour_action, args=('start', view['candidates']))
     st.html('<div class="run-summary">'
             f'<span><b>{view["candidate_count"]}</b> candidates</span>'
@@ -703,6 +697,18 @@ def main():
         st.session_state['tour_step'] if st.session_state.get('tour_active') else None,
         appearance=st.session_state.get('appearance', 'Dark'),
         playing=st.session_state.get('tour_playing', False)), height=0, scrolling=False)
+
+
+def main():
+    st.set_page_config(page_title='BioPilot Bench · Review workbench', page_icon=BRAND_ICON,
+                       layout='wide', initial_sidebar_state='auto')
+    arguments = _artifact_argument()
+    try:
+        view = load_run_view(arguments.artifact)
+    except (ValueError, OSError) as error:
+        st.error(f'Nothing rendered: {error}')
+        return
+    render_workbench(view, session_url=arguments.session_url, workspace_url=arguments.workspace_url)
 
 
 if __name__ == '__main__':

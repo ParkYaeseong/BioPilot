@@ -25,7 +25,9 @@ server-owned state and idempotency, not page memory alone.
 
 The current UI recording plan is `demo/review_flows_180s.json`, with English narration
 in `demo/REVIEW_FLOWS_180S_EN.md` and Korean screen actions in `demo/REVIEW_FLOWS_180S_KO.md`.
-It plans exactly 180 seconds of saved real evidence plus unarmed New Review validation/preflight.
+It plans exactly 180 seconds of the unified file/request workflow and a labeled recorded
+uploaded-input execution (3 Meta requests,45.48 seconds), followed by its actual result views.
+Tutorials remain separate local/replay walkthroughs and never invoke execution.
 The original `demo/storyboard.json` and `demo/NARRATION_EN.md` remain historical plans.
 Show a real request, actual Meta-to-MCP execution, one concrete failure or constraint branch and a
 reviewable result. Explain the measured workflow benefit, not a fictional biological improvement.

@@ -15,7 +15,11 @@ T50, activity, solubility or Tm, or establish retained function.
 - That execution recomputed ESM-2 150M on CPU, using pinned weights/tokenizer and the registered
   `full_212` context. Code ranked 19 alternatives at full-reference position 32 using
   `esm150_masked_v1`. Receipt: [integration_success_20261027.json](validation/integration_success_20261027.json).
-- A local read-only Streamlit viewer renders saved artifacts. Opening a saved execution is
+- A unified local Streamlit app connects uploaded registered FASTA/example input, request,
+  validation, explicit Meta/local-ESM execution, results and recent reviews. A new uploaded-input
+  execution completed in45.48 seconds with3 Meta requests and19 candidates.
+  [Current execution receipt](validation/unified_review_execution_20261029.json).
+- The independently read-only Streamlit viewer remains available for saved artifacts. Opening a saved execution is
   **REPLAY**; it does not call Meta or recompute ESM. See [the demo guide](demo/README_KO.md).
 - Local stdio MCP, persistent run/budget controls, constrained model tool calls and guarded
   failure paths have offline tests. Test results are recorded in [STATUS](docs/STATUS.md).
@@ -33,14 +37,15 @@ are distinguished from the historical Meta trace.
 
 ## Review workspace
 
-The workbench has readable light/dark controls, ordered input and file diagnostics, candidate
-comparison, reference/predicted structures, recorded-event navigation and an eight-step spotlight
-tutorial with actual screen examples. The linked live session starts unarmed.
+The one-app workbench has Auto/light/dark appearance, New review and Recent reviews, validated
+FASTA input, candidate comparison, reference/predicted structures and recorded-event navigation.
+New Review has a five-step local spotlight tutorial; results have a nine-step replay guide.
+Tutorials cannot arm execution. Both guide buttons use the same neutral/teal secondary style.
 See [the workspace guide](docs/WORKSPACE_REFINEMENT_KO.md), [optional science guide](docs/OPTIONAL_SCIENCE_KO.md)
 and [current three-minute recording script, including New Review](demo/REVIEW_FLOWS_180S_KO.md).
 Actual saved scientific output remains REPLAY; no new model call is made by viewing.
 
-![Actual local spotlight tutorial; saved scientific results are replayed](docs/images/guided-tutorial.png)
+![Actual local spotlight tutorial; guide controls never start inference](docs/images/guided-tutorial.png)
 
 ## Meta use, authorship and development evidence
 
@@ -57,6 +62,17 @@ to be earlier development commits.
 ## Start locally
 
 Use the existing project environment from PowerShell:
+
+```powershell
+.venv/Scripts/python.exe -m streamlit run app/bench.py --server.port 8522 -- --state-dir .runtime/bench --max-runs 3 --max-requests 4
+```
+
+Open http://127.0.0.1:8522/. The launcher reads trusted local Meta credentials and
+pinned CPU ESM settings; it does not download models. Unsupported proteins are refused.
+The local run cap persists across refresh/restart; it is not a provider bill or an
+anonymous public execution service. [Unified workflow guide](docs/UNIFIED_WORKBENCH_KO.md).
+
+Offline checks:
 
 ```powershell
 .venv/Scripts/python.exe -m app.cli validate --variant A32V

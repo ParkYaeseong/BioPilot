@@ -1,0 +1,50 @@
+{
+  "review_id": "3d968f7dcb53457d92f2daa5261c2ec3",
+  "started_utc": "2026-10-29T10:03:00.056331+00:00",
+  "finished_utc": "2026-10-29T10:03:45.536622+00:00",
+  "elapsed_seconds": 45.48,
+  "status": "sequence_review_complete",
+  "frozen_input": {
+    "external_file_upload": false,
+    "fasta_sha256": "470ceb44a8d71857564226e070a0c3ccd3c856cfd98b4339249957117cd6121a",
+    "filename": "bench_public_reference.fasta",
+    "input_kind": "upload",
+    "message": "Review A32V for sequence plausibility.",
+    "model_key": "esm150",
+    "objective_id": "sequence_plausibility_review",
+    "positions": [
+      32
+    ],
+    "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+    "sequence_context": "full_212",
+    "structure_sha256": null
+  },
+  "frozen_input_digest": "d5779fa1848778f0694684b1f847a7283915965f13bce85034d75ba75ddeed94",
+  "report_sha256": "0c13a7ae7b5b5910ad3a4f25f9ece8e3d7a73f8920f2413074ad6d7b10e35189",
+  "requested_meta_call_cap": 4,
+  "gpu_calls": 0,
+  "automatic_retry": false,
+  "run_id": "14014be81e934c0ab4236268d013ad19",
+  "actual_model": "muse-spark-1.3",
+  "meta_request_attempts": 3,
+  "candidate_count": 19,
+  "score_artifact_sha256": "63a1c3752407d96a54f33b735d72e700839e4b0e9363894597738f6e8531157f",
+  "source_mode": "live",
+  "esm_source_mode": "live",
+  "stop_reason": "sequence_review_complete",
+  "integrity_status": "locally_consistent",
+  "browser_verification": {
+    "upload_local_validation_and_approval": "actual UI upload, protected refusal and valid preflight",
+    "corrected_execution_trigger": "explicit backend entry using the same approved durable record after the browser action connection became unavailable; not an end-to-end browser click claim",
+    "result_reopen": "actual same-app Recent reviews and Evidence input receipt"
+  },
+  "preserved_first_attempt": {
+    "review_id": "1db221971a2e41139b8482d224f250ab",
+    "status": "partial",
+    "stop_reason": "host_prerequisite_or_policy_failure",
+    "meta_reservations": 0,
+    "cause": "registered optional Atlas tool rejected by the former baseline-only catalog check",
+    "automatic_retry": false,
+    "record_preserved": true
+  }
+}

@@ -1,74 +1,65 @@
-# BioPilot Bench — current 180-second demo script
+# BioPilot Bench — unified workflow, current 180-second script
 
-Prepared 2026-10-29 (Asia/Seoul). This is the current script for the five-view Saved Review and three-stage New Review UI.
+One app: upload → request → local validation → explicit execution → results → recent reviews. English narration: 304 words. The included actual execution used3 Meta requests and45.48 seconds. This is a recording/edit plan, not an exported video. Opening the stored result sends no new request.
 
-**Recording plan, not a newly exported video.** Show actual saved Meta/MCP evidence and actual unarmed input checks. No new provider or GPU call is needed.
+Actual evidence: `validation/unified_review_execution_20261029.json`; portable playback: `demo/artifacts/unified_review_20261029.replay.json`.
 
-English narration: **291 words**, approximately **97 words/minute** averaged over the three-minute timeline. This is a planning estimate, not measured speech.
-
-Use `review_flows_180s.json` as the timeline and `REVIEW_FLOWS_180S_EN.srt` for planned captions. Korean actions and narration are in `REVIEW_FLOWS_180S_KO.md`.
-
-| Time | Actual screen | Purpose |
+| Time | Screen | Purpose |
 |---|---|---|
-| 0:00–0:15 | Saved Review / Overview | The review problem |
-| 0:15–0:35 | Saved Review / Agent Trace | What Meta actually did |
-| 0:35–0:55 | Saved Review / Candidates | Compare and inspect candidates |
-| 0:55–1:20 | Saved Review / Structure | Locate only what the structure supports |
-| 1:20–1:40 | Saved Review / Evidence | Inspect provenance |
-| 1:40–1:55 | New Review / INPUT | Switch to a new review |
-| 1:55–2:15 | New Review / local validation refused | Show a real local refusal |
-| 2:15–2:45 | New Review / VALIDATED, UNARMED | Prepare a valid request and inspect execution gates |
-| 2:45–3:00 | New Review confirmation / closing | State the contribution and limits |
+| 0:00–0:15 | New review / Input | One workspace |
+| 0:15–0:35 | New review / Upload FASTA | Upload and check a constraint |
+| 0:35–0:55 | New review / Confirm this review | Validate before approving execution |
+| 0:55–1:15 | Recent reviews / completed uploaded-input run | Show the real execution record |
+| 1:15–1:40 | Review Results / Candidates | Compare the returned candidates |
+| 1:40–2:05 | Review Results / Structure | Inspect supported structural positions |
+| 2:05–2:25 | Review Results / Agent Trace | Inspect what Meta requested |
+| 2:25–2:45 | Review Results / Evidence | Connect input to evidence |
+| 2:45–3:00 | Recent reviews / completed result | Reopen without rerunning |
 
-## 0:00–0:15 | The review problem
+## 0:00–0:15 | One workspace
 
-BioPilot Bench helps researchers review protein variants with traceable evidence. Here are nineteen saved Lipase A candidates and their ESM sequence preferences. These are recorded results, not a new model run.
+BioPilot Bench connects a protein file, a review request, and traceable results in one workspace. This demonstration uses the registered public Lipase A reference.
 
-## 0:15–0:35 | What Meta actually did
+## 0:15–0:35 | Upload and check a constraint
 
-The saved trace shows what Meta actually requested through MCP. It first requested target validation, then sequence scoring. Code enforces constraints and ranking; ESM supplies sequence preferences. Opening these records sends no new request.
+Upload the full-reference FASTA and describe the variant. A request for S108A is refused by the local protection guard. No model request is sent, and the file is never silently replaced with another protein.
 
-## 0:35–0:55 | Compare and inspect candidates
+## 0:35–0:55 | Validate before approving execution
 
-Compare the leading candidates without changing their original scores or ranks. Select A32V and open Structure. The same candidate selection carries across views, keeping the table and visualization connected.
+A32V passes local validation. The confirmation connects the uploaded file hash to position thirty-two and the pinned ESM checkpoint. Execution requires separate permission and cost acknowledgment. Call limits are enforced; actual provider billing remains unverified.
 
-## 0:55–1:20 | Locate only what the structure supports
+## 0:55–1:15 | Show the real execution record
 
-This is the public experimental reference, not a predicted mutant. A32 has no atoms here, so BioPilot shows sequence context without inventing a location. Selecting S108 highlights author residue seventy-seven. The three protected catalytic sites have distinct colors.
+Here is the recorded execution of that uploaded input. Muse Spark made three Meta requests, using MCP validation and local ESM scoring. The run completed in about forty-five seconds; waiting is omitted from this edited demonstration.
 
-## 1:20–1:40 | Inspect provenance
+## 1:15–1:40 | Compare the returned candidates
 
-Evidence records the structure source, chain, checksums, and residue correspondence. Run provenance connects the displayed candidates to saved computation. These checks support traceability, not validated stability, activity, or binding changes.
+The result contains nineteen alternatives at the approved position, ranked by one common code policy. Compare candidates without changing their saved scores or ranks. Select A32V and carry the same selection into Structure.
 
-## 1:40–1:55 | Switch to a new review
+## 1:40–2:05 | Inspect supported structural positions
 
-New Review is a separate execution workflow. It has three stages: input validation, agent execution, and results. Unlike Saved Review, this surface can execute an explicitly approved request.
+The public experimental reference has no atoms for A32, so no location is invented. S108 maps to author residue seventy-seven and can be highlighted. The protected catalytic sites have distinct colors; this reference view does not establish a mutation effect.
 
-## 1:55–2:15 | Show a real local refusal
+## 2:05–2:25 | Inspect what Meta requested
 
-First, request S108A. The local guard refuses this protected-site substitution before sending any model request. This is an actual input check, not a new Meta decision. Protection itself does not prove retained function.
+Agent Trace shows Meta’s actual validation and scoring requests, with bounded arguments and public evidence. Meta selects the permitted tools and explains the result. Code owns the constraints, computation, and ranking.
 
-## 2:15–2:45 | Prepare a valid request and inspect execution gates
+## 2:25–2:45 | Connect input to evidence
 
-Now enter A32V. Local validation prepares a review without executing it. Confirmation shows full-reference positions, the checkpoint, request limits, and unverified provider cost. A new run requires arming, cost acknowledgment, and Execute. We stop before execution in this recording.
+Evidence connects the uploaded input receipt to the saved report and score artifact. Structure sources, chain, and residue correspondence remain inspectable. These local checks support traceability; they do not prove stability, activity, or retained function.
 
-## 2:45–3:00 | State the contribution and limits
+## 2:45–3:00 | Reopen without rerunning
 
-Saved evidence and new execution remain clearly separated. ESM preference is not experimental heat tolerance or proof of biological improvement. BioPilot makes candidate review inspectable while preserving human judgment.
+Recent reviews reopen the same evidence without another model call. New input, deliberate execution, and saved results now share one workflow. ESM preference remains sequence evidence, not experimental heat tolerance or proof of biological improvement.
 
-## Recording boundaries
+## Recording scope
 
-- Saved Review is REPLAY of real stored evidence. New Review demonstrates local validation and preflight only in this version.
-- Keep the source/mode badges and unknown cost visible. Call caps are not a verified currency ceiling.
-- Use the recorded provider/model shown in Agent Trace. Do not relabel the model or invent a Meta rationale.
-- Show the experimental 1ISP reference. A32 has no atoms; do not use ESM3/ESMFold2 predictions to fill that gap or imply a measured variant effect.
-- Full-reference one-based numbering and full_212 scoring remain fixed. S108/D164/H187 are protected; that is not a function guarantee.
-- The guided tutorial is a separate optional walkthrough. For this timed recording, navigate the real controls manually; do not run the full guide and then repeat it.
-- Record genuine cursor movement, selection, panel opening and two seconds of 3D rotation. Use short cuts between screens; do not animate a static image as if it were a running job.
-- This script makes no workflow-speed, biological-gain, competition-eligibility, or final-submission claim.
-
-## If actual new execution is added later
-
-Treat it as a different recording version. Obtain the corresponding live-call approval, verify the actual run/model/score artifacts, and replace the final preflight segment with that real recording. Label any removed waiting time. Show the returned running/failed/partial/completed state as it actually occurred; do not promise completion or reuse test fixtures. Replace “We stop before execution” and regenerate captions only after that evidence exists.
-
-Before delivery, measure the exported file duration, narration, captions and legibility. A 180-second timeline is not a verified 180-second MP4.
+- Use one URL: http://127.0.0.1:8522/. The8523 bookmark only links to it.
+- The default edit shows current local intake checks and the separately recorded actual uploaded-input execution. Label that transition “Recorded execution ·45.48s elapsed · waiting omitted”.
+- The corrected live run was invoked through the same execution backend after browser control became unavailable, then reopened in the actual UI. Do not claim an uninterrupted end-to-end browser recording exists.
+- Do not animate a fabricated Execute click, progress or completion. A new recording of fresh paid execution requires corresponding approval and its own real receipt.
+- The first precondition failure is preserved. It made zero Meta reservations and is not the completed run. No test fixture is scientific evidence.
+- New Review has a five-step local tutorial; results have the existing nine-step replay tutorial. Both are separate optional walkthroughs. Do not run both in full inside this timed main demo.
+- Both guided buttons use the same neutral/teal secondary style. The new guide never changes the draft, creates a review or arms execution.
+- Only the registered public full_212 FASTA is executable; optional structure upload must match the pinned public mmCIF. Arbitrary proteins/PDB conversion are unsupported.
+- ESM preference is not T50, activity, solubility, Tm or experimental validation. Provider billing is unknown. New video duration/audio/caption sync must be checked after export.

@@ -1,5 +1,67 @@
 # Current status
 
+## Unified executable workbench and New Review guide — 2026-10-29
+
+One canonical app8522: New review / Recent reviews; full-reference FASTA or registered
+example → request → local validation → explicit permission/cost acknowledgment →
+Meta/MCP/local CPU ESM → same five result views.8523is a read-only compatibility link.
+Legacy viewer remains independently read-only. New input hashes and report hashes
+are journal-owned and inspected under Evidence. Unsupported/mature inputs and an
+unverified optional mmCIF fail before execution; no hidden reference substitution.
+
+New files:bench.py,bench_intake.py,bench_store.py,bench_execution.py,compat.py,
+new_review_tour.py and two offline test modules. Extracted viewer.render_workbench
+without adding execution imports. SQLite atomically claims each frozen review once,
+retains a conservative global local cap and preserves interrupted/running/partial/
+failed records. Input edits revoke confirmation. A separate new request requires
+new approval. Scientific review launch caps are3–4Meta requests, checked before claim.
+
+Actual browser uploaded the registered FASTA, refusedS108A and validated/approved
+A32V. The first attempt stopped before Meta with0reservations: an approved optional
+Atlas catalog entry was rejected by the previous strict baseline host. Preserved
+that partial record. An offline MCP catalog probe reproduced it. A failing test
+preceded the minimal fix: known optional Atlas may exist, but only the original
+baseline tools are offered to Meta; unknown/duplicate tools are still refused.
+
+Actual new execution:run14014be81e934c0ab4236268d013ad19, modelmuse-spark-1.3,
+3Meta requests, local CPU ESM150,19candidates,45.48s,0GPU calls. Corrected execution
+used the same approved journal record through the explicit backend entry after
+browser control became unavailable; do not claim a continuous browser-click E2E
+recording. Actual browser reopened completed results and the input receipt in the
+same app. Receipt:validation/unified_review_execution_20261029.json; unchanged-byte
+score replay:demo/artifacts/unified_review_20261029.replay.json. No automatic retry.
+
+User steering added a five-step New Review spotlight guide: actual local guard and
+valid preview, no draft overwrite, durable review creation, model call or approval
+grant. Results keep the nine-step replay guide. Actual step images captured. Both
+Start guided demo buttons changed from black primary fill to neutral/teal secondary.
+Actual browser stepped through input guide and confirmed disabled execution/Finish.
+
+Focused checks:initial4intake/store tests failed then passed;3AppTests failed then
+passed; Atlas catalog regression failed then passed. Latest focused88tests passed
+in11.92s before the final budget/guide polish; final12intake/UI tests passed in7.91s.
+Full regression/package/browser final receipts follow below. Existing135scientific
+evidence files unchanged. Actual vs mocked cases are distinct; fixtures are not
+used as execution evidence. No new remote GPU, deployment or public visibility.
+
+Bilingual180s script/captions now follow input → request → labeled recorded actual
+execution → candidates/structure/trace/evidence → reopening.304English words;
+timeline180s; EN39/KO33cues, max2lines, minimum2286ms, no gaps/overlaps. These are
+planned captions, not measured voice or a new exported movie. Guide walkthroughs
+remain separate from the timed main recording. Command:checks/validate_review_flow_demo.py.
+
+Final full regression:785passed,2skipped,2warnings,12subtests in83.96s.
+Command:`.venv/Scripts/python.exe -m pytest tests tests_app -q -rs -p no:cacheprovider --basetemp=.cache/unified_bench_final_regression --tb=short`.
+After the final mobile card positioning and teardown fixes, focused affected suite:
+83passed in9.03s. Actual390x844 viewport:pageWidth390; cardbottom602.6875; overlay
+absent after Finish. Guide/reopening/restarts left exactly the original partial
+and new completed records,1remaining allowance,3actual Meta requests unchanged.
+Independent review:60offline tests, no remaining substantive issue after fixing
+the minimum cap and analogous legacy validation-smoke optional-tool filtering.
+Final UI/coverage/screenshot receipt:validation/unified_workbench_ui_20261029.json.
+Package/source verification:2,091checks passed,0failures; git diff --check clean.
+Next: existing private repository sync; no public deployment or submission.
+
 ## Bilingual 180-second demo with New Review — 2026-10-29
 
 Current recording entry point is demo/REVIEW_FLOWS_180S_EN.md and its Korean

@@ -117,5 +117,32 @@
       "protected_structure": "f13c98ae955609edbe613cfd2ff1591eddb0e5b69fb4a1e3c8c0b6c83a2d37e0"
     },
     "source_mode": "REPLAY; pinned public experimental 1ISP chain A; no new inference"
+  },
+  "new_review_20261029": {
+    "method": "CUA direct screenshots of actual unified UI and real local tutorial checks; no image editing",
+    "mode": "local tutorial examples; execution preview disabled; no review record created by guide",
+    "steps": {
+      "new_input": {
+        "file": "new_input.png",
+        "sha256": "de1764f44b7daaa6a16154621c2ccc5509ccb81529c403f2eb6cf32904e315f0"
+      },
+      "new_request": {
+        "file": "new_request.png",
+        "sha256": "5ee29c0721b61648c179683c69271181d3d2d1342cdc9fde5b9ceeaeafcbefbd"
+      },
+      "new_guard": {
+        "file": "new_guard.png",
+        "sha256": "c072bec7e3ade3155dc9a630c42f8f2052169026840c6e4266f7e45d425ea3b3"
+      },
+      "new_preflight": {
+        "file": "new_preflight.png",
+        "sha256": "b5d576f523a377457a7feeba5a354cd15af79417eaaee5460424398136696452"
+      },
+      "new_execute": {
+        "file": "new_execute.png",
+        "sha256": "1bb24d20af788cb508de1153996958c189e27fb76e5bccd179a752c15ea1a60c"
+      }
+    },
+    "guide_start_style": "neutral panel / teal secondary action in both input and results"
   }
 }

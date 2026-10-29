@@ -4,29 +4,29 @@
   "scope": "offline recording-plan/caption/current-UI consistency; not rendered video or measured narration",
   "timeline_seconds": 180,
   "segments": 9,
-  "english_words": 291,
+  "english_words": 304,
   "subtitles": {
     "en": {
-      "cues": 44,
+      "cues": 39,
       "start_ms": 0,
       "end_ms": 180000,
       "overlap_or_gap_count": 0,
       "max_lines_per_cue": 2,
-      "shortest_cue_ms": 1818,
+      "shortest_cue_ms": 2286,
       "text_matches_narration": true
     },
     "ko": {
-      "cues": 32,
+      "cues": 33,
       "start_ms": 0,
       "end_ms": 180000,
       "overlap_or_gap_count": 0,
       "max_lines_per_cue": 2,
-      "shortest_cue_ms": 1818,
+      "shortest_cue_ms": 2286,
       "text_matches_narration": true
     }
   },
   "ui_and_reference_checks": [
-    "five unnumbered Saved Review views",
+    "five unnumbered result views in one app",
     "A32V local validation",
     "S108A local refusal",
     "19saved candidates",
@@ -35,7 +35,8 @@
     "S108 author77",
     "pinned public reference join"
   ],
-  "new_provider_calls": 0,
+  "new_provider_calls_by_this_validator": 0,
+  "recorded_real_meta_requests": 3,
   "new_gpu_calls": 0,
   "video_exported": false,
   "voice_duration_measured": false,
@@ -43,23 +44,23 @@
   "files": [
     {
       "path": "demo/review_flows_180s.json",
-      "sha256": "16e2d8231c8bafc36156f62988cc9dd6b8ba0a8ec4f3377560be8a39c3aa1948"
+      "sha256": "76e187f669a838998fd3f8364c26f6fd6bc215c524413d35bdfdb8d5917b7ef8"
     },
     {
       "path": "demo/REVIEW_FLOWS_180S_EN.md",
-      "sha256": "6e3fc6fb2bf2ed36364f7f61ad0ead47103955619175196859ef6f68f9a828b9"
+      "sha256": "7bfa863e757156eb29308d38af9a225df9742dc092480855ba8333ecaf153ea7"
     },
     {
       "path": "demo/REVIEW_FLOWS_180S_KO.md",
-      "sha256": "433e5e28402e97b3af80eb868fa7c6e419cd27e179d15e642eea1341fff7ef4d"
+      "sha256": "491b13c6a23710e68cfb6ddb781e759569eb86b0377a65b5d9e848c5be80fac5"
     },
     {
       "path": "demo/REVIEW_FLOWS_180S_EN.srt",
-      "sha256": "84bd76850bc37af23ce80d1ea8bdbd5f43d39c6d7e901e30361b9aff648d1f5b"
+      "sha256": "85fa93b1d44a862c6c27c3a4c8eba202a84ca099227b1ec9a6c1ebb4451c20a6"
     },
     {
       "path": "demo/REVIEW_FLOWS_180S_KO.srt",
-      "sha256": "2c1927b4c20691dfe07acd241beb210d93c876b48417f4b5953418e66fccfbbf"
+      "sha256": "336d46f2fcb022b56f5e97eaafd585b90195211b30675f05a06da8c1e3a00d98"
     }
   ]
 }

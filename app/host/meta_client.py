@@ -135,10 +135,15 @@ class MetaHost:
                                  reference_numbering=request.get('reference_numbering'))
         if request.get('reference_id') != target.reference_id:
             raise ValueError('Run target is not registered')
-        tools = await self.bridge.list_allowed()
-        allowed = {tool['name']:tool for tool in tools}
-        if not set(allowed) <= {'validate_target_context','get_run_status'}:
+        discovered = await self.bridge.list_allowed()
+        names={tool['name'] for tool in discovered}
+        baseline={'validate_target_context','get_run_status'}
+        if (len(names)!=len(discovered)
+                or not names<=baseline|{'retrieve_atlas_evidence','score_positions'}
+                or 'validate_target_context' not in names):
             raise ValueError('This smoke workflow only authorizes registered validation and status')
+        tools=[tool for tool in discovered if tool['name'] in baseline]
+        allowed = {tool['name']:tool for tool in tools}
         messages = [
             {'role':'developer','content':
              'You are BioPilot, a bounded public enzyme sequence review assistant. '
@@ -295,9 +300,17 @@ class MetaHost:
                 or type(start) is not int or type(end) is not int or not 32<=start<=end<=212
                 or any(p in protected or not start<=p<=end for p in score_request.positions)):
             raise ValueError('Approved scoring cohort violates the immutable residue policy')
-        tools=await self.bridge.list_allowed()
+        discovered=await self.bridge.list_allowed()
+        names={tool['name'] for tool in discovered}
+        baseline={'validate_target_context','get_run_status','score_positions'}
+        if (len(names)!=len(discovered) or not names<=baseline|{'retrieve_atlas_evidence'}
+                or not {'validate_target_context','score_positions'}<=names):
+            raise ValueError('Sequence review requires the actual guarded validation/scoring catalog only')
+        # The registered optional Atlas capability does not widen this baseline
+        # workflow. Commit and offer only the tools this host can actually execute.
+        tools=[tool for tool in discovered if tool['name'] in baseline]
         allowed={tool['name']:tool for tool in tools}
-        if (len(allowed)!=len(tools) or not set(allowed)<={'validate_target_context','get_run_status','score_positions'}
+        if (not set(allowed)<=baseline
                 or not {'validate_target_context','score_positions'}<=set(allowed)):
             raise ValueError('Sequence review requires the actual guarded validation/scoring catalog only')
         messages=[

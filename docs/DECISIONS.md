@@ -613,3 +613,50 @@ matching English/Korean narration, planned captions and explicit screen actions.
 Validate timeline/captions/current controls offline. No new model call, voice or
 video is authorized by updating the script; actual paid execution or publication
 requires the corresponding existing or new explicit authorization.
+
+
+## 2026-10-29 — one user workspace with an explicit execution boundary
+
+Owner approved the discussed unified flow and actual execution. Keep Streamlit,
+existing guarded MCP/Meta host and scientific contracts. Add a composition root,
+not execution imports to the saved renderer. Bind exact executable registered
+uploads to immutable host input receipts and a durable atomic one-shot journal.
+Do not scan arbitrary runtime/evaluator directories for recent results. Keep
+registered examples and only journal-owned results. Global local allowance must
+survive refresh/restart; no automated retry or refund of uncertain execution.
+
+Ruling: accept the presence of the already-registered optional Atlas catalog tool,
+but expose only baseline tools to the sequence-review model — an offline probe
+proved the former strict catalog check prevented any Meta request — unknown and
+duplicate tools remain blocked, with focused regression tests.
+
+Actual failure is preserved separately from the later completed uploaded-input
+run. Corrected execution used the same explicitly approved backend after browser
+control was unavailable; the browser reopened the real result, not a fake finish.
+Publish only the sanitized portable public replay/receipts, not credentials,
+raw runtime databases, worker workspace, private assistant conversations or media.
+
+User additionally requested a New Review tutorial and less prominent guide button.
+Use the existing spotlight engine with a separate local-only example controller;
+preserve the draft and never grant approval. Current file/hash/request controls
+remain the user's own input. Capture actual step images. Both guide entry buttons
+use the same neutral secondary style in Auto/Light/Dark.
+
+The independent review found caps1–2cannot complete this scientific workflow.
+Ruling: restrict the unified launcher to3–4Meta requests and reject lower caps
+before prerequisite checks or durable claim; preserve legacy smoke limits.
+Update bilingual demo around the actual unified flow and recorded real execution,
+explicitly disclose edited waiting and the absence of a new exported video.
+
+
+## 2026-10-29 — final mobile guide and compatibility audit
+
+Actual390px resize exposed a clipped guide card and stale overlay after exit.
+Re-scroll the target when viewport changes, always clamp the card to the visible
+viewport, and render an explicit teardown document at the same component position
+after guide exit. Actual browser confirmed bottom602.6875within844px and no overlay
+after Finish;83affected offline tests passed. No model call or new journal row.
+Independent audit also identified the same optional catalog issue in legacy
+validation_smoke; narrow its offered tools to validation/status while tolerating
+only the known optional science capabilities in discovery. Fixture regression
+failed then passed; no paid smoke was needed. Unknown/duplicate tools stay blocked.

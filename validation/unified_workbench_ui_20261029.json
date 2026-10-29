@@ -1,0 +1,180 @@
+{
+  "date_kst": "2026-10-29",
+  "status": "verified_with_documented_scope",
+  "canonical_url": "http://127.0.0.1:8522/",
+  "previous_8523_entry": "read-only compatibility link to canonical app",
+  "workflow": [
+    "file or registered example",
+    "request",
+    "local validation",
+    "explicit permission and cost acknowledgment",
+    "execution",
+    "same result views",
+    "recent reviews"
+  ],
+  "result_views": [
+    "Overview",
+    "Candidates",
+    "Structure",
+    "Agent Trace",
+    "Evidence"
+  ],
+  "supported_executable_target": "exact registered public Lipase A full_212 reference; mature/unregistered inputs refused",
+  "actual_execution_receipt": "validation/unified_review_execution_20261029.json",
+  "actual_run_id": "14014be81e934c0ab4236268d013ad19",
+  "actual_meta_requests": 3,
+  "actual_elapsed_seconds": 45.48,
+  "gpu_calls": 0,
+  "model": "muse-spark-1.3",
+  "actual_execution_scope": "Browser upload/refusal/preflight/approval; explicit same-backend execution after browser control unavailable; browser reopened actual completed result and input receipt. Not a continuous browser-click E2E recording.",
+  "journal_after_tutorial_and_restart": {
+    "records": 2,
+    "statuses": [
+      "partial",
+      "completed"
+    ],
+    "remaining_runs": 1,
+    "new_records_from_tutorial": 0,
+    "automatic_retry": false
+  },
+  "new_review_guide": {
+    "steps": 5,
+    "language": "English",
+    "separate_local_examples": true,
+    "execution_preview_disabled": true,
+    "draft_preserved": true,
+    "actual_images": 5
+  },
+  "result_guide": {
+    "steps": 9,
+    "mode": "saved REPLAY; no dispatch"
+  },
+  "guide_button_style": "neutral panel with teal text and border; secondary action in both screens",
+  "browser_verification": [
+    "uploaded registered FASTA",
+    "S108A refusal",
+    "A32V frozen preflight and hashes",
+    "same-app completed record",
+    "Evidence input/report hashes",
+    "durable record after server restart",
+    "five-step guide including actual local checks",
+    "Finish removes spotlight",
+    "guide never creates a review or executes",
+    "390px layout has no horizontal page overflow"
+  ],
+  "mobile_card_fix": {
+    "viewport": [
+      390,
+      844
+    ],
+    "card_bounds": {
+      "x": 14,
+      "y": 24.625,
+      "width": 362,
+      "height": 578.0625,
+      "bottom": 602.6875
+    },
+    "page_width": 390,
+    "overlay_present_after_finish": false,
+    "cause": "resized offscreen target and card position were not finally clamped",
+    "fix": "re-scroll the target on resize and clamp the card to the viewport; explicit teardown document on guide exit"
+  },
+  "regression": {
+    "command": ".venv/Scripts/python.exe -m pytest tests tests_app -q -rs -p no:cacheprovider --basetemp=.cache/unified_bench_final_regression --tb=short",
+    "passed": 785,
+    "skipped": 2,
+    "warnings": 2,
+    "subtests_passed": 12,
+    "seconds": 83.96,
+    "scope": "full suite before final mobile positioning/teardown UI fixes"
+  },
+  "final_guide_regression": {
+    "command": ".venv/Scripts/python.exe -m pytest tests_app/test_bench_app.py tests_app/test_bench_intake_store.py tests_app/test_meta_loop.py tests_app/test_tour_spotlight.py tests_app/test_guided_tour.py tests_app/test_viewer_contrast.py -q -p no:cacheprovider --basetemp=.cache/unified_final_guide_regression --tb=short",
+    "passed": 83,
+    "seconds": 9.03,
+    "scope": "after mobile positioning/teardown fixes; actual resize and exit also checked in browser"
+  },
+  "independent_review": {
+    "offline_tests_passed": 60,
+    "findings_fixed": [
+      "minimum3request cap before claim",
+      "legacy validation smoke optional-tool filtering"
+    ],
+    "other_substantive_findings": 0,
+    "provider_calls": 0,
+    "gpu_calls": 0
+  },
+  "scientific_baseline": {
+    "files": 135,
+    "unchanged": 135,
+    "changed": 0,
+    "missing": 0
+  },
+  "demo": {
+    "timeline_seconds": 180,
+    "english_words": 304,
+    "english_caption_cues": 39,
+    "korean_caption_cues": 33,
+    "new_video_exported": false,
+    "voice_duration_measured": false,
+    "recorded_execution_and_edited_waiting_disclosed": true
+  },
+  "screenshots": [
+    {
+      "path": "local_artifacts/unified_review_20261029/upload_guard.png",
+      "sha256": "1523d7837078f1d2d3a09b97228653e6bb1d31f6a2f449ff9719d9e5cef7fe5c"
+    },
+    {
+      "path": "local_artifacts/unified_review_20261029/approved_fasta_preflight.png",
+      "sha256": "4a358ac240d33f317041310b9ac1a01b49c0c96b2dac35998038de9ddd3b35b4"
+    },
+    {
+      "path": "local_artifacts/unified_review_20261029/actual_completed_final.png",
+      "sha256": "7674ff1edf575ad36bf613ea16b79a5c015770d85d47ade24ee4275456e5d098"
+    },
+    {
+      "path": "local_artifacts/unified_review_20261029/new_review_unified.png",
+      "sha256": "bdddb8a8fe8d590e5604b0ccc76aa92081a0598589af8871f3a9914b18b9d4d1"
+    },
+    {
+      "path": "local_artifacts/unified_review_20261029/new_tour_1_final.png",
+      "sha256": "6f6121dfebe2706e72aef5b028c8be84d2c870a5497c28f1ae4c9e92a39a5722"
+    },
+    {
+      "path": "local_artifacts/unified_review_20261029/new_tour_2_final.png",
+      "sha256": "16a16a65e8062277953634efaf580fe685a438b563bb60b9cb6c9b5300f9e899"
+    },
+    {
+      "path": "local_artifacts/unified_review_20261029/new_tour_3_final.png",
+      "sha256": "aaf4e95717a4d6682b67d1de5e02b3d463c49a48a895d355539fe2f05ea736a1"
+    },
+    {
+      "path": "local_artifacts/unified_review_20261029/new_tour_4_final.png",
+      "sha256": "82184e6ac77929142d35a27888dd26b86ed96b7dba049823e0eb2dd08c0ef9f6"
+    },
+    {
+      "path": "local_artifacts/unified_review_20261029/new_tour_5_final.png",
+      "sha256": "70a069255855d9fc399d4d45b2ca6a00181c73f73510ad3ca59ead2fc2421631"
+    },
+    {
+      "path": "local_artifacts/unified_review_20261029/mobile_new_tour_final.png",
+      "sha256": "75f692967e4d2e06bf26533aea06f9fd92e637b0557b79505656fd822c313b00"
+    },
+    {
+      "path": "local_artifacts/unified_review_20261029/mobile_new_review_final.png",
+      "sha256": "572007a1394b335ac5abef84be37533a0f357a2165a6f0132018c37c1daa77c9"
+    }
+  ],
+  "not_performed": [
+    "new remote GPU allocation",
+    "public deployment",
+    "repository visibility change",
+    "competition submission",
+    "new video export"
+  ],
+  "package_verification": {
+    "command": ".venv/Scripts/python.exe checks/validate_package.py",
+    "passed": 2091,
+    "failed": 0
+  }
+}

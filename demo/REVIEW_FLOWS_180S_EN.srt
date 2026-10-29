@@ -1,199 +1,186 @@
 1
-00:00:00,000 --> 00:00:02,359
-BioPilot Bench helps researchers review
+00:00:00,000 --> 00:00:04,688
+BioPilot Bench connects a protein file, a
+review
 
 2
-00:00:02,359 --> 00:00:04,839
-protein variants with traceable evidence.
+00:00:04,688 --> 00:00:09,375
+request, and traceable results in one
+workspace.
 
 3
-00:00:04,839 --> 00:00:07,221
-Here are nineteen saved Lipase A
+00:00:09,375 --> 00:00:15,000
+This demonstration uses the registered
+public Lipase A reference.
 
 4
-00:00:07,221 --> 00:00:10,645
-candidates and their ESM sequence
-preferences.
+00:00:15,000 --> 00:00:19,706
+Upload the full-reference FASTA and describe
+the variant.
 
 5
-00:00:10,645 --> 00:00:15,000
-These are recorded results, not a new model
-run.
+00:00:19,706 --> 00:00:26,176
+A request for S108A is refused by the local
+protection guard.
 
 6
-00:00:15,000 --> 00:00:20,882
-The saved trace shows what Meta actually
-requested through MCP.
+00:00:26,176 --> 00:00:30,075
+No model request is sent, and the file
 
 7
-00:00:20,882 --> 00:00:25,588
-It first requested target validation, then
-sequence scoring.
+00:00:30,075 --> 00:00:35,000
+is never silently replaced with another
+protein.
 
 8
-00:00:25,588 --> 00:00:30,882
-Code enforces constraints and ranking; ESM
-supplies sequence preferences.
+00:00:35,000 --> 00:00:37,286
+A32V passes local validation.
 
 9
-00:00:30,882 --> 00:00:35,000
-Opening these records sends no new request.
+00:00:37,286 --> 00:00:41,614
+The confirmation connects the uploaded file
+hash to
 
 10
-00:00:35,000 --> 00:00:39,571
-Compare the leading candidates without
-changing
+00:00:41,614 --> 00:00:45,857
+position thirty-two and the pinned ESM
+checkpoint.
 
 11
-00:00:39,571 --> 00:00:42,586
-their original scores or ranks.
+00:00:45,857 --> 00:00:49,857
+Execution requires separate permission and
+cost acknowledgment.
 
 12
-00:00:42,586 --> 00:00:46,034
-Select A32V and open Structure.
+00:00:49,857 --> 00:00:55,000
+Call limits are enforced; actual provider
+billing remains unverified.
 
 13
-00:00:46,034 --> 00:00:50,050
-The same candidate selection carries across
+00:00:55,000 --> 00:01:00,000
+Here is the recorded execution of that
+uploaded input.
 
 14
-00:00:50,050 --> 00:00:55,000
-views, keeping the table and visualization
-connected.
+00:01:00,000 --> 00:01:03,291
+Muse Spark made three Meta requests,
 
 15
-00:00:55,000 --> 00:01:01,579
-This is the public experimental reference,
-not a predicted mutant.
+00:01:03,291 --> 00:01:07,222
+using MCP validation and local ESM scoring.
 
 16
-00:01:01,579 --> 00:01:05,220
-A32 has no atoms here, so BioPilot
+00:01:07,222 --> 00:01:10,949
+The run completed in about forty-five
+seconds;
 
 17
-00:01:05,220 --> 00:01:10,789
-shows sequence context without inventing a
-location.
+00:01:10,949 --> 00:01:15,000
+waiting is omitted from this edited
+demonstration.
 
 18
-00:01:10,789 --> 00:01:14,737
-Selecting S108 highlights author residue
-seventy-seven.
+00:01:15,000 --> 00:01:21,477
+The result contains nineteen alternatives at
+the approved
 
 19
-00:01:14,737 --> 00:01:20,000
-The three protected catalytic sites have
-distinct colors.
+00:01:21,477 --> 00:01:26,364
+position, ranked by one common code policy.
 
 20
-00:01:20,000 --> 00:01:23,052
-Evidence records the structure source,
+00:01:26,364 --> 00:01:33,182
+Compare candidates without changing their
+saved scores or ranks.
 
 21
-00:01:23,052 --> 00:01:26,667
-chain, checksums, and residue
-correspondence.
+00:01:33,182 --> 00:01:40,000
+Select A32V and carry the same selection
+into Structure.
 
 22
-00:01:26,667 --> 00:01:32,667
-Run provenance connects the displayed
-candidates to saved computation.
+00:01:40,000 --> 00:01:44,909
+The public experimental reference has no
+atoms
 
 23
-00:01:32,667 --> 00:01:36,667
-These checks support traceability, not
-validated
+00:01:44,909 --> 00:01:48,750
+for A32, so no location is invented.
 
 24
-00:01:36,667 --> 00:01:40,000
-stability, activity, or binding changes.
+00:01:48,750 --> 00:01:55,000
+S108 maps to author residue seventy-seven
+and can be highlighted.
 
 25
-00:01:40,000 --> 00:01:43,750
-New Review is a separate execution workflow.
+00:01:55,000 --> 00:02:00,185
+The protected catalytic sites have distinct
+colors; this
 
 26
-00:01:43,750 --> 00:01:49,107
-It has three stages: input validation, agent
-execution, and results.
+00:02:00,185 --> 00:02:05,000
+reference view does not establish a mutation
+effect.
 
 27
-00:01:49,107 --> 00:01:51,976
-Unlike Saved Review, this surface can
+00:02:05,000 --> 00:02:10,047
+Agent Trace shows Meta’s actual validation
+and scoring
 
 28
-00:01:51,976 --> 00:01:55,000
-execute an explicitly approved request.
+00:02:10,047 --> 00:02:15,000
+requests, with bounded arguments and public
+evidence.
 
 29
-00:01:55,000 --> 00:01:56,818
-First, request S108A.
+00:02:15,000 --> 00:02:20,625
+Meta selects the permitted tools and
+explains the result.
 
 30
-00:01:56,818 --> 00:02:00,332
-The local guard refuses this protected-site
+00:02:20,625 --> 00:02:25,000
+Code owns the constraints, computation, and
+ranking.
 
 31
-00:02:00,332 --> 00:02:04,091
-substitution before sending any model
-request.
+00:02:25,000 --> 00:02:28,938
+Evidence connects the uploaded input receipt
 
 32
-00:02:04,091 --> 00:02:10,758
-This is an actual input check, not a new
-Meta decision.
+00:02:28,938 --> 00:02:32,429
+to the saved report and score artifact.
 
 33
-00:02:10,758 --> 00:02:15,000
-Protection itself does not prove retained
-function.
+00:02:32,429 --> 00:02:37,000
+Structure sources, chain, and residue
+correspondence remain inspectable.
 
 34
-00:02:15,000 --> 00:02:17,308
-Now enter A32V.
+00:02:37,000 --> 00:02:40,840
+These local checks support traceability;
+they do
 
 35
-00:02:17,308 --> 00:02:23,462
-Local validation prepares a review without
-executing it.
+00:02:40,840 --> 00:02:45,000
+not prove stability, activity, or retained
+function.
 
 36
-00:02:23,462 --> 00:02:28,736
-Confirmation shows full-reference positions,
-the checkpoint,
+00:02:45,000 --> 00:02:49,286
+Recent reviews reopen the same evidence
+without another model call.
 
 37
-00:02:28,736 --> 00:02:32,692
-request limits, and unverified provider
-cost.
+00:02:49,286 --> 00:02:54,000
+New input, deliberate execution, and saved
+results now share one workflow.
 
 38
-00:02:32,692 --> 00:02:39,615
-A new run requires arming, cost
-acknowledgment, and Execute.
+00:02:54,000 --> 00:02:57,222
+ESM preference remains sequence evidence,
+not experimental
 
 39
-00:02:39,615 --> 00:02:45,000
-We stop before execution in this recording.
-
-40
-00:02:45,000 --> 00:02:49,138
-Saved evidence and new execution remain
-clearly separated.
-
-41
-00:02:49,138 --> 00:02:52,020
-ESM preference is not experimental heat
-
-42
-00:02:52,020 --> 00:02:55,345
-tolerance or proof of biological
+00:02:57,222 --> 00:03:00,000
+heat tolerance or proof of biological
 improvement.
-
-43
-00:02:55,345 --> 00:02:57,269
-BioPilot makes candidate review
-
-44
-00:02:57,269 --> 00:03:00,000
-inspectable while preserving human judgment.

@@ -1,10 +1,14 @@
 /* Local workbench styles. Theme tokens come from the selected appearance.
    Cover both Streamlit's legacy BaseWeb and current React Aria controls. */
 .tour-overlay-active .st-key-tour_card{display:none!important;}
+.tour-overlay-active .st-key-new_tour_controls{display:none!important;}
+.st-key-new_tour_guard,.st-key-new_tour_preflight,.st-key-new_tour_approval{max-width:520px!important;margin-left:auto!important;}
 .review-stages{list-style:none;display:flex;flex-wrap:wrap;gap:.6rem;padding:0;margin:1rem 0;}
 .review-stages li{display:flex;align-items:center;gap:.5rem;padding:.65rem .85rem;border:1px solid var(--line);border-radius:7px;color:var(--muted);font-size:.8rem;}
 .review-stages li.current{border-color:var(--accent);color:var(--text);background:var(--accent-soft);}
 .review-stages span{font-variant-numeric:tabular-nums;}
+.st-key-bench_message textarea{border:1px solid var(--edge)!important;border-radius:8px!important;padding:.8rem!important;}
+.st-key-bench_message textarea:focus{outline:2px solid var(--accent)!important;outline-offset:2px;}
 [class*="st-key-tour_"],.st-key-comparison_table,[class*="st-key-trace_card_"]{scroll-margin-top:4.5rem;}
 .stApp,[data-testid="stAppViewContainer"],[data-testid="stMain"]{background:var(--bg)!important;color:var(--text);}
 .stApp{background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color-scheme:var(--scheme);}
@@ -257,9 +261,9 @@ button[aria-label^="Help for "] svg{color:inherit!important;stroke:currentColor!
 .stApp .workspace-switch a.active{background:var(--panel);box-shadow:0 1px 3px #00000012;color:var(--text)!important;}
 .stApp .workspace-switch a:hover{background:var(--raised);color:var(--text)!important;}
 .stApp .workspace-switch .workspace-label{display:block;white-space:nowrap;font-size:.78rem!important;font-weight:500;color:inherit!important;}
-.st-key-start_demo{display:flex;justify-content:flex-end;}
-.st-key-start_demo button{width:auto!important;min-height:2.25rem!important;padding:.5rem 1rem!important;border-radius:7px!important;background:var(--text)!important;color:var(--bg)!important;border-color:var(--text)!important;}
-.st-key-start_demo button:hover{opacity:.85;}
+.st-key-start_demo,.st-key-start_new_demo{display:flex;justify-content:flex-end;}
+.st-key-start_demo button,.st-key-start_new_demo button{width:auto!important;min-height:2.25rem!important;padding:.5rem 1rem!important;border-radius:7px!important;background:var(--panel)!important;color:var(--accent)!important;border:1px solid var(--edge)!important;box-shadow:none!important;}
+.st-key-start_demo button:hover,.st-key-start_new_demo button:hover{background:var(--accent-soft)!important;border-color:var(--accent)!important;}
 .workspace-switch .workspace-badge{flex:none;border:1px solid var(--line);border-radius:3px;padding:.12rem .3rem;color:var(--muted);font-size:.5rem;letter-spacing:.06em;font-weight:500;}
 .workspace-switch .workspace-hint{display:block;margin-top:.2rem;color:var(--muted);font-size:.65rem;line-height:1.4;overflow-wrap:anywhere;}
 .st-key-display_settings [data-testid="stExpander"]{border:0;background:transparent;}

@@ -44,12 +44,14 @@
   card.querySelector('h2').textContent=data.title;
   card.querySelector('.tour-body').textContent=data.body;
   card.querySelector('.tour-tip').textContent=data.tip;
+  if(data.footer)card.querySelector('.tour-replay').textContent=data.footer;
+  if(data.allow_autoplay===false)card.querySelector('[data-action="tour_play"]').hidden=true;
   card.querySelector('.tour-dots').innerHTML=Array.from({length:data.count},(_,i)=>`<i class="${i<=data.index?'done':''}"></i>`).join('');
   card.querySelector('[data-action="tour_back"]').disabled=data.index===0;
   card.classList.toggle('structure-preview',Boolean(data.structure_preview));
   if(data.picture){card.querySelector('img').src=data.picture;card.querySelector('figure').hidden=false;}
   let disposed=false, initialTarget=null;
-  const activate=key=>{const button=doc.querySelector(`.st-key-${key} button`); if(button&&!button.disabled)button.click();};
+  const activate=key=>{const actual=(data.actions||{})[key]||key;const button=doc.querySelector(`.st-key-${actual} button`); if(button&&!button.disabled)button.click();};
   card.addEventListener('click',e=>{const button=e.target.closest('button[data-action]');if(button)activate(button.dataset.action);});
   function update(){
     if(disposed)return;
@@ -74,6 +76,8 @@
     else if(h-bottom>ch+24){cy=bottom+14;}
     else if(y>ch+24){cy=y-ch-14;}
     else{cy=Math.max(14,h-ch-14);}
+    cx=Math.max(14,Math.min(w-cw-14,cx));
+    cy=Math.max(14,Math.min(h-ch-14,cy));
     Object.assign(card.style,{left:cx+'px',top:cy+'px'});
   }
   function keydown(e){
@@ -87,9 +91,10 @@
     }
   }
   doc.body.append(root); doc.body.classList.add('tour-overlay-active');
-  win.addEventListener('resize',update);doc.addEventListener('scroll',update,true);doc.addEventListener('keydown',keydown,true);
+  const resizeUpdate=()=>{initialTarget=null;update();};
+  win.addEventListener('resize',resizeUpdate);doc.addEventListener('scroll',update,true);doc.addEventListener('keydown',keydown,true);
   const observer=new win.ResizeObserver(update);observer.observe(doc.body);
-  const cleanup=new win.MutationObserver(()=>{if(!owner?.isConnected){disposed=true;observer.disconnect();cleanup.disconnect();win.removeEventListener('resize',update);doc.removeEventListener('scroll',update,true);doc.removeEventListener('keydown',keydown,true);if(doc.getElementById('bio-tour-root')===root){root.remove();doc.body.classList.remove('tour-overlay-active');}}});
+  const cleanup=new win.MutationObserver(()=>{if(!owner?.isConnected){disposed=true;observer.disconnect();cleanup.disconnect();win.removeEventListener('resize',resizeUpdate);doc.removeEventListener('scroll',update,true);doc.removeEventListener('keydown',keydown,true);if(doc.getElementById('bio-tour-root')===root){root.remove();doc.body.classList.remove('tour-overlay-active');}}});
   cleanup.observe(doc.body,{childList:true,subtree:true});
   update();win.requestAnimationFrame(update);win.setTimeout(update,200);
   card.querySelector('.tour-primary').focus({preventScroll:true});
