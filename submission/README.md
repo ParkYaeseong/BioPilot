@@ -6,8 +6,11 @@ The current-UI **180-second English-narrated MP4** has now been exported locally
 See [video guide and scope](../demo/FINAL_VIDEO_20261102_KO.md) and
 [technical video receipt](video_current_ui_20261102_receipt.json). It uses actual
 browser captures, edited zoom/pan/highlights and synthetic narration, with recorded
-scientific execution clearly labeled. MP4/raw captures are excluded from Git;
-publication, full human listening review and unauthenticated video access are pending.
+scientific execution clearly labeled. The MP4 and EN/KO SRTs are now available as
+[private Release assets](https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02),
+separate from Git source history. [Remote upload verification](demo_release_20261102.json).
+Raw captures stay local. Public release, full human listening review and unauthenticated
+video access remain pending.
 
 Use the **unified workbench** in `app/bench.py`, not the historical separate
 viewer/session launch commands below. New review → FASTA/request → validation →

@@ -156,6 +156,11 @@
     "human_full_audio_video_review_complete": false,
     "public_link": null,
     "public_access_verified": false,
-    "binary_in_git": false
-  }
+    "binary_in_git": false,
+    "private_release_url": "https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02",
+    "private_asset_url": "https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.mp4",
+    "private_upload_receipt": "submission/demo_release_20261102.json",
+    "remote_size_and_sha256_verified": true
+  },
+  "private_demo_release_uploaded": true
 }

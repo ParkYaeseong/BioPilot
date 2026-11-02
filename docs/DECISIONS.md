@@ -1,5 +1,11 @@
 # Decision log
 
+2026-11-03 README/media: owner authorized suitable Git upload separation. Put the
+MP4, EN/KO SRTs and checksums in a private GitHub prerelease, with a linked static
+preview at the top of README. Keep raw capture/audio/weights/credentials local and
+keep the MP4 out of source history. Release links require repository permission;
+this upload does not satisfy anonymous judge access or authorize public visibility.
+
 2026-11-02 video: use actual current-app captures with editorial camera motion,
 drawn emphasis and real3Drotation rather than fake execution animation. Narration
 is synthetic AndrewNeural, distinct from product Meta runtime. Recorded scientific

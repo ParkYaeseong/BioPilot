@@ -1,5 +1,25 @@
 # Current status
 
+## README demo entry and private media Release — 2026-11-03
+
+README now leads with the purpose, clickable video preview, actual Release download
+links, credential-free offline quickstart, user flow, Meta/code roles and evidence.
+The current45.48s run is separated from the historical40s integration. README
+explicitly distinguishes Git sources, Release assets and local-only material.
+
+Uploaded exactly4assets to private prerelease demo-2026-11-02: MP4(41,628,046bytes),
+EN SRT, KO SRT and SHA256SUMS. Remote uploaded sizes and GitHub SHA256 digests match
+the local files. Tag pins the already-pushed b3719a2 source snapshot. MP4 is not
+committed to Git. No repository visibility change, public judge-access claim,
+new Meta/GPU call or contest submission. Receipt:submission/demo_release_20261102.json.
+Only README/docs/current metadata and the small upload receipt change in source.
+Final checks:2,131package checks passed; README24local links resolve and4media
+links match uploaded assets; fresh isolated-venv AppTest passed all5views,19saved
+candidates,S108A refusal/A32V acceptance and execution disabled without config.
+Command:`.cache/submission_repro_20261102/Scripts/python.exe checks/check_reproduction.py`.
+Next:owner video review and an explicitly
+authorized public/judge-access route before submission.
+
 ## Current-UI narrated video exported locally — 2026-11-02
 
 User requested the actual video with English AI narration, zoom/pan and animated

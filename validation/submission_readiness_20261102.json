@@ -36,5 +36,7 @@
     "failed_count": 0,
     "scope": "After current-UI movie receipt/guide/preview updates; no product code changes"
   },
-  "current_video_receipt": "submission/video_current_ui_20261102_receipt.json"
+  "current_video_receipt": "submission/video_current_ui_20261102_receipt.json",
+  "private_demo_release_uploaded": true,
+  "private_demo_release_receipt": "submission/demo_release_20261102.json"
 }

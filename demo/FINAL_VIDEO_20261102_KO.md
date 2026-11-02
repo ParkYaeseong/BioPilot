@@ -1,9 +1,15 @@
 # 현재 UI로 제작한 3분 시연 영상
 
-2026-11-02 제작. 영상은 로컬 파일이며 GitHub에 MP4·원본 캡처·음성 파일을 올리지
-않았습니다. [기술 검증 영수증](../submission/video_current_ui_20261102_receipt.json)에
+2026-11-02 제작. 2026-11-03 안내 갱신: MP4와 한·영 자막, 체크섬을
+[비공개 Release](https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02)의
+첨부파일로 제공합니다. 저장소 권한이 있어야 접근할 수 있습니다. MP4는 Git 소스 기록에
+넣지 않았으며 원본 캡처·음성 파일은 로컬에 남깁니다.
+[기술 검증 영수증](../submission/video_current_ui_20261102_receipt.json)에
 실제 파일 길이, SHA-256, 오디오 수준, 자막·챕터와 촬영 범위를 기록합니다.
 공개 링크나 최종 제출 접수 확인을 뜻하지 않습니다.
+
+[영상 다운로드](https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.mp4)
+· [업로드 검증 기록](../submission/demo_release_20261102.json).
 
 ![실제 MP4에서 추출한 기준 구조 회전 프레임](../docs/images/final-video-preview.jpg)
 

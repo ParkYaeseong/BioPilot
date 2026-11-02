@@ -5,7 +5,9 @@
 [최신 영상 안내](FINAL_VIDEO_20261102_KO.md)와
 [기술 검증 영수증](../submission/video_current_ui_20261102_receipt.json)을 확인하세요.
 통합 New Review부터 실제 저장 결과까지180초로 편집했고 영어 AI 음성·실측 자막,
-확대·강조 박스를 넣었습니다. MP4는 로컬에만 있으며 공개 영상 링크는 아직 없습니다.
+확대·강조 박스를 넣었습니다. MP4·한영 자막은
+[비공개 Release](https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02)에
+분리해 올렸습니다. 저장소 권한이 필요하며 공개 심사자 접근은 아직 확인하지 않았습니다.
 아래 예전 영상과 기록은 이전 버전의 제작 이력으로 보존합니다.
 
 ## 최신 3분 대본 — 2026-10-29
