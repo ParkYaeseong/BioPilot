@@ -18,7 +18,7 @@
   "external_rights_reviewed": false,
   "submitted_at": null,
   "submission_receipt": null,
-  "prepared_date_kst": "2026-10-29",
+  "prepared_date_kst": "2026-11-02",
   "local_replay_artifact": {
     "path": "demo/artifacts/sequence_review.replay.json",
     "sha256": "cf02b139fe0866483ebb069903e5e0c2ce65a03e9460697c5ffecef805c273f8"
@@ -58,7 +58,7 @@
     "Organizer eligibility and prior-work reuse ruling",
     "Confirm ownership/contributors and third-party rights",
     "Review final submission rules/form and product access requirements",
-    "Verify clean reproduction on a separate environment",
+    "Verify separate-machine/full live-runtime reproduction; same-PC isolated offline UI/intake now passed",
     "Repository public release deferred by owner; review final video and authorize video publication",
     "Verify public links without owner login and explicitly authorize final submission"
   ],
@@ -105,5 +105,35 @@
     "verification_receipt": "validation/github_publication_20261029.json",
     "visibility_decision_date_kst": "2026-10-29",
     "visibility_decision": "Owner explicitly chose to keep the repository private for now"
+  },
+  "current_workbench": {
+    "entrypoint": "app/bench.py",
+    "port": 8522,
+    "user_flow": "New review -> input/request -> local validation -> explicit execution approval -> results -> Recent reviews",
+    "guide": "docs/UNIFIED_WORKBENCH_KO.md",
+    "judge_reproduction": "submission/REPRODUCE_KO.md"
+  },
+  "current_replay_artifact": {
+    "path": "demo/artifacts/unified_review_20261029.replay.json",
+    "sha256": "a8b36ea59f9db3687e4d3aa7363d17f76b964323c55945a1d9c6d000329c8b09"
+  },
+  "current_execution_receipt": {
+    "path": "validation/unified_review_execution_20261029.json",
+    "sha256": "21a44a469d120584156896dff707c48ae4d02d4d9c938be6588eafede6186b59"
+  },
+  "offline_clean_environment_reproduction": {
+    "path": "validation/clean_workbench_reproduction_20261102.json",
+    "sha256": "7820b51121369d561194c828d64caf0dcf2120a1df8781817ee739ae1eb93510"
+  },
+  "offline_clean_environment_verified": true,
+  "separate_machine_verified": false,
+  "clean_live_install_verified": false,
+  "clean_install_scope_note": "Offline UI/intake verified with isolated venv and source copy on same Windows PC; full live runtime and separate machine remain unverified.",
+  "current_recording_plan": {
+    "script_en": "demo/REVIEW_FLOWS_180S_EN.md",
+    "script_ko": "demo/REVIEW_FLOWS_180S_KO.md",
+    "checklist": "demo/FINAL_RECORDING_CHECKLIST_KO.md",
+    "planned_duration_seconds": 180,
+    "current_ui_video_exported": false
   }
 }

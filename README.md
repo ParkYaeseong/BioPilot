@@ -61,6 +61,12 @@ to be earlier development commits.
 
 ## Start locally
 
+For a new environment, use [judge reproduction instructions](submission/REPRODUCE_KO.md).
+The unified offline UI/intake needs `requirements-workbench.txt`; the tested Windows
+Python 3.14 dependency snapshot is `requirements-workbench-win-py314.lock.txt`.
+Fresh isolated environment/source-copy checks passed on the same PC, without owner
+credentials or model weights. This does not verify fresh live inference or another OS.
+
 Use the existing project environment from PowerShell:
 
 ```powershell
@@ -85,7 +91,8 @@ Offline checks:
 requests. For local MCP workspace creation, saved-run viewing and separately gated inference, read
 [the Korean execution guide](docs/IMPLEMENTATION_KO.md). The installed environment is Windows,
 Python 3.14.0, MCP 1.25.0, PyTorch 2.9.1, Transformers 5.2.0 and Streamlit 1.66.1. A clean installation
-on another machine has not been verified; pinned requirement files record the installed versions.
+on another machine has not been verified; the new offline reproduction route above
+was verified in an isolated environment on this machine.
 
 ## Evidence and submission scope
 

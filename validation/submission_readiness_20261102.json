@@ -1,0 +1,37 @@
+{
+  "date_kst": "2026-11-02",
+  "status": "ready_for_recording_not_submitted",
+  "product_code_changed": false,
+  "missing_dependency_fixed": "python-dotenv added to unified workbench installation list",
+  "fresh_offline_reproduction": "validation/clean_workbench_reproduction_20261102.json",
+  "regression": {
+    "passed": 785,
+    "skipped": 2,
+    "warnings": 2,
+    "subtests_passed": 12,
+    "seconds": 66.48,
+    "command": ".venv/Scripts/python.exe -m pytest tests tests_app -q -rs -p no:cacheprovider --basetemp=.cache/submission_finish_final_20261102 --tb=short"
+  },
+  "recording_plan": {
+    "status": "PASS",
+    "seconds": 180,
+    "segments": 9,
+    "english_words": 304,
+    "exported_video_verified": false
+  },
+  "provider_calls_this_pass": 0,
+  "gpu_calls_this_pass": 0,
+  "publication_performed": false,
+  "submission_performed": false,
+  "remaining": [
+    "Record/export and fully review the current-UI video",
+    "Confirm final form/rules, contributors, rights and prior-work eligibility",
+    "Verify approved judge access without owner login",
+    "Separate-machine and full live installation remain unverified"
+  ],
+  "package_check": {
+    "status": "PASS",
+    "check_count": 2117,
+    "failed_count": 0
+  }
+}

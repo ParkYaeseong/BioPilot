@@ -1,5 +1,38 @@
 # BioPilot Bench — local submission draft
 
+## Current submission entry — 2026-11-02
+
+Use the **unified workbench** in `app/bench.py`, not the historical separate
+viewer/session launch commands below. New review → FASTA/request → validation →
+explicit execution approval → results → Recent reviews is one local app.
+Results use Overview / Candidates / Structure / Agent Trace / Evidence.
+
+- [Judge reproduction instructions](REPRODUCE_KO.md): fresh isolated Windows
+  Python 3.14 environment and separate source copy passed all five rendered views,
+  S108A refusal and A32V validation. No credentials or weights were copied. This is
+  offline UI/intake verification on the same PC, not new live execution or a second PC.
+- [Current actual execution receipt](../validation/unified_review_execution_20261029.json):
+  `muse-spark-1.3`, 3 Meta requests, local CPU ESM-2 150M, 19 candidates, 45.48 seconds.
+- [Current portable replay](../demo/artifacts/unified_review_20261029.replay.json)
+  preserves the score/trace and original report provenance. Opening it is REPLAY.
+- [Current bilingual 180-second script](../demo/REVIEW_FLOWS_180S_KO.md) and
+  [final recording checklist](../demo/FINAL_RECORDING_CHECKLIST_KO.md). Earlier MP4s
+  below remain historical drafts; a final video of this UI has not been exported.
+
+```powershell
+.venv/Scripts/python.exe -m streamlit run app/bench.py --server.address 127.0.0.1 --server.port 8522 -- --state-dir .runtime/bench --max-runs 3 --max-requests 4
+```
+
+This working-environment command can expose approved execution only when the
+owner's trusted Meta and pinned local ESM configuration is present. Judges use
+the separate offline installation route above and receive no owner credentials.
+Current source: [ParkYaeseong/BioPilot](https://github.com/ParkYaeseong/BioPilot),
+private by the owner's decision. Public/judge access, final rules/form, prior-work
+eligibility, contributor/rights confirmation, final video review and submission
+receipt remain open. Do not infer completion from source upload or tests.
+
+## Preserved earlier preparation and video records
+
 Prepared on 2026-10-28 (Asia/Seoul). **Not published or submitted.**
 Track/theme remain the planning choices Indie Developer / Push the Frontier;
 final eligibility, reuse permission and submission requirements need organizer confirmation.
@@ -17,7 +50,7 @@ It records one actual Meta → MCP → local ESM → final explanation execution
 `muse-spark-1.3`, the controlled Python host, MCP SDK 1.25.0 / protocol 2025-11-25,
 and `esm2_t30_150M_UR50D` on CPU in the registered `full_212` context.
 The measured fields, source hashes and limitations are collected directly from
-artifacts in [evidence.current.json](evidence.current.json).2
+artifacts in [evidence.current.json](evidence.current.json).
 
 The portable [saved review](../demo/artifacts/sequence_review.replay.json) contains
 the actual ranked candidates, score artifact, provenance, tool trace and model

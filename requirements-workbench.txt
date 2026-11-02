@@ -1,0 +1,4 @@
+# Unified offline UI/intake. Live Meta/MCP/ESM execution needs the separately
+# documented runtime dependencies, credentials, pinned checkpoint and approval.
+-r requirements-viewer.txt
+python-dotenv==1.2.1

@@ -1,5 +1,14 @@
 # Decision log
 
+2026-11-02: Final handoff prioritizes reproducibility and current recording guidance
+over new scientific/UI features. The separate viewer dependency list stays minimal;
+unified offline workbench installation adds python-dotenv explicitly in
+requirements-workbench.txt. A fresh isolated same-PC source-copy test establishes
+only offline UI/intake readiness, not another OS/PC or paid live inference. A tested
+Windows/Python3.14 dependency snapshot and repeatable AppTest smoke check are shipped.
+Historical scientific receipts/videos remain intact; current submission pointers
+identify the unified run and bilingual plan. Public visibility/submission stay gated.
+
 2026-10-27: Update the full v2 pack with the user's discussed MCP-first direction and optional thin UI.
 Keep biological safeguards. Use one controlled Meta host by default, with Muse Code compatibility
 as a verified option. Retain strict source-state and evaluator isolation.

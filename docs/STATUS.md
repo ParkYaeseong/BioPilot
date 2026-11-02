@@ -1,5 +1,40 @@
 # Current status
 
+## Submission handoff and isolated offline reproduction — 2026-11-02
+
+Submission entry now points to app/bench.py, the uploaded-input actual execution
+receipt and current bilingual script. Historical video/trace records are preserved.
+Added submission/REPRODUCE_KO.md and demo/FINAL_RECORDING_CHECKLIST_KO.md; no final
+video, source visibility change, publication or submission was performed.
+
+Fresh Python3.14 Windows venv with system-site-packages=false and a separate source
+copy exposed a genuine missing dependency: installing requirements-viewer.txt alone
+made New Review fail with ModuleNotFoundError:dotenv. Added requirements-workbench.txt
+with python-dotenv1.2.1 and a complete tested Windows/Python3.14 version snapshot.
+Product execution, MCP, biological data and rank code are unchanged.
+
+New checks/check_reproduction.py passed after installation: five rendered AppTest
+views,19saved candidates with locally consistent integrity, S108A refused, A32V
+accepted, Execute disabled without model configuration. The check uses a temporary
+journal and blocks execution boundaries; it cannot spend or use the owner's journal.
+pip check found no broken requirements. Same-PC isolated installation is verified;
+other machines/OSes, browser WebGL and fresh live-runtime installation are not.
+Manual browser also opened saved Overview and New Review without credentials or
+weights. Evidence:validation/clean_workbench_reproduction_20261102.json.
+
+During edits a regression run returned784passed/1failed/2skipped: the sole failure
+was stale generated MANIFEST hashes while documentation was being changed. The
+manifest was regenerated. Final full regression:785passed,2Windows symlink skips,
+2existing Modal deprecation warnings,12subtests passed in66.48s. Command:
+`.venv/Scripts/python.exe -m pytest tests tests_app -q -rs -p no:cacheprovider --basetemp=.cache/submission_finish_final_20261102 --tb=short`.
+Bilingual180s plan/caption validation also passed. Final package check follows the
+last metadata update:2,117checks passed,0failures. Receipt:
+validation/submission_readiness_20261102.json.
+No new Meta/GPU calls. Repository remains private by owner decision. Final video,
+unauthenticated judge access, current final form/rules and reuse/rights decisions
+remain open. Next allowed work: rehearse/record current UI and inspect the export;
+do not fabricate an uninterrupted live browser execution or reset execution caps.
+
 ## Unified executable workbench and New Review guide — 2026-10-29
 
 One canonical app8522: New review / Recent reviews; full-reference FASTA or registered
