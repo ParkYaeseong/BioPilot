@@ -1,5 +1,21 @@
 # Current status
 
+## Private video 404 diagnosis and README entry correction — 2026-11-03
+
+User reported Not Found on the direct Release MP4 URL. Reproduced anonymous404;
+authenticated GitHub asset Range request returned206/1,024bytes with valid MP4 ftyp
+signature. The asset exists; original uploaded size/SHA remain recorded. The user's
+browser cookie/account was not inspected, so do not assert their precise login state.
+A separate full CLI download stalled at zero bytes and was stopped; full re-download
+is not claimed. Existing local MP4 and original remote SHA verification are preserved.
+
+README preview/primary link now opens the Release page and instructs authorized
+GitHub sign-in → Assets → MP4. Direct download remains an explicitly labeled
+after-sign-in option. Added the same guidance to the Korean video guide. No public
+visibility change, re-upload, new Meta/GPU call or submission. Evidence:
+validation/release_access_20261103.json. Final package check:2,135passed,0failures;
+README24local links resolve; git diff --check clean.
+
 ## README demo entry and private media Release — 2026-11-03
 
 README now leads with the purpose, clickable video preview, actual Release download

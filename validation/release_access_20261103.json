@@ -1,0 +1,20 @@
+{
+  "checked_date_kst": "2026-11-03",
+  "repository": "ParkYaeseong/BioPilot",
+  "anonymous_direct_url_status": 404,
+  "authenticated_asset_range": {
+    "http_status": 206,
+    "bytes_read": 1024,
+    "mp4_ftyp_signature": true,
+    "authenticated_asset_read": true,
+    "private_signed_redirect_url_exposed": false
+  },
+  "asset_exists": true,
+  "original_upload_verification": "submission/demo_release_20261102.json",
+  "authenticated_full_redownload": "Stopped after CLI download stalled at zero bytes; not verified",
+  "browser_cookie_or_account_inspected": false,
+  "repository_visibility_changed": false,
+  "readme_entry": "Release page -> authorized GitHub sign-in -> Assets -> MP4",
+  "temporary_signed_url_or_credentials_exposed": false,
+  "new_meta_or_gpu_calls": 0
+}

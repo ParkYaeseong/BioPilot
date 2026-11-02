@@ -1,5 +1,11 @@
 # Decision log
 
+2026-11-03 access diagnosis: an anonymous private Release asset link returns404,
+while an authenticated Range request returns206 and an MP4 header. Prefer the
+Release page with explicit sign-in/Assets instructions as the README entry point.
+Do not resolve this by changing visibility, exposing temporary signed URLs or
+embedding credentials. User browser/account state remains unverified.
+
 2026-11-03 README/media: owner authorized suitable Git upload separation. Put the
 MP4, EN/KO SRTs and checksums in a private GitHub prerelease, with a linked static
 preview at the top of README. Keep raw capture/audio/weights/credentials local and

@@ -11,16 +11,18 @@ Documentation updated **2026-11-03** · Owner: **Yaeseong Park**.
 
 ## Three-minute demo
 
-[![Watch or download the BioPilot Bench demo](docs/images/final-video-preview.jpg)](https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.mp4)
+[![Open the private BioPilot Bench demo Release](docs/images/final-video-preview.jpg)](https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02)
 
-**[Watch/download the MP4](https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.mp4)**
-· [All demo files](https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02)
+**[Open the demo Release — GitHub sign-in required](https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02)**
+· [Direct MP4 download after sign-in](https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.mp4)
 · [English SRT](https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.srt)
 · [한국어 자막](https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_KO.srt)
 
-180 seconds · 1080p / 30fps · about 42 MB. The preview links to the video asset;
-it is not an inline player. The repository and Release are currently **private**,
-so the links require repository access and are not yet anonymous judge-access links.
+180 seconds · 1080p / 30fps · about 42 MB. The preview opens the Release page,
+not an inline player. **First sign in to GitHub as `ParkYaeseong` or an account with
+repository access**, then open **Assets → BioPilot_Bench_180s_EN.mp4**.
+The repository and Release are **private**: signed-out or unauthorized access can
+return Not Found. These are not anonymous judge-access links.
 
 The video uses actual application captures, English AI narration, measured captions,
 smooth zoom/pan and animated emphasis. Local input checks are performed in the UI;

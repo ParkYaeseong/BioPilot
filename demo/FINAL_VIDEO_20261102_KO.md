@@ -11,6 +11,14 @@
 [영상 다운로드](https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.mp4)
 · [업로드 검증 기록](../submission/demo_release_20261102.json).
 
+## GitHub에서 Not Found가 나오는 경우
+
+저장소가 비공개이므로, 먼저 사용하는 브라우저에서 `ParkYaeseong` 또는 저장소 접근
+권한이 있는 계정으로 GitHub에 로그인합니다. 위 Release 페이지를 열고 **Assets**에서
+`BioPilot_Bench_180s_EN.mp4`를 선택합니다. 다른 앱의 내장 브라우저는 평소 사용하는
+브라우저와 로그인 세션이 다를 수 있습니다. 직접 다운로드 주소가 공개 주소라는 뜻은
+아니며, 저장소 공개 범위는 변경하지 않았습니다.
+
 ![실제 MP4에서 추출한 기준 구조 회전 프레임](../docs/images/final-video-preview.jpg)
 
 로컬 결과 위치:
