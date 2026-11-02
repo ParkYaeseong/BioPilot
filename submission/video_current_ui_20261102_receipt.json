@@ -1,0 +1,199 @@
+{
+  "prepared_date_kst": "2026-11-02",
+  "status": "local_video_export_technically_verified",
+  "video_path": "local_artifacts/final_demo_20261102/BioPilot_Bench_180s_EN.mp4",
+  "sha256": "535495e5bbbf1df45ec11cf1a5ae8eb145e1ff98351e7e2628488103fc5a79bf",
+  "size_bytes": 41628046,
+  "duration_seconds": 180,
+  "video": {
+    "codec": "h264",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "frames": 5400
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 48000,
+    "synthetic": true,
+    "voice": "en-US-AndrewNeural",
+    "engine": "edge-tts 7.3.1 / Microsoft Edge online speech",
+    "mean_dbfs": -16.9,
+    "peak_dbfs": -1.4,
+    "sentence_timing_measured": true,
+    "music_used": false
+  },
+  "subtitles": {
+    "burned_english": true,
+    "embedded_languages": [],
+    "sidecar_languages": [
+      "eng",
+      "kor"
+    ],
+    "sentence_cues": 27,
+    "english_path": "local_artifacts/final_demo_20261102/BioPilot_Bench_180s_EN.srt",
+    "korean_path": "local_artifacts/final_demo_20261102/BioPilot_Bench_180s_KO.srt"
+  },
+  "chapters": 9,
+  "whole_file_decode_errors": false,
+  "encoded_frames_sampled": [
+    {
+      "second": 7,
+      "file": "encoded_01.jpg",
+      "sha256": "8634818f1f7ec12ffaf5868401ed0d82ba0afd60e47ae75ee7c6dd38bd85a052"
+    },
+    {
+      "second": 19,
+      "file": "encoded_02.jpg",
+      "sha256": "a4c31f29fc97280b044228c8d22284d8d55530c2bfb4048e773f2dd97b4b7ef7"
+    },
+    {
+      "second": 26,
+      "file": "encoded_03.jpg",
+      "sha256": "3f3d5001611e0c5ed64e430bb17789fb690d28511c4a0532716d35842d5e54cb"
+    },
+    {
+      "second": 43,
+      "file": "encoded_04.jpg",
+      "sha256": "bb3f698b487fca6d98a3d39443296567547a3dd84a8d05d81aeb28c5cf6ed687"
+    },
+    {
+      "second": 48,
+      "file": "encoded_05.jpg",
+      "sha256": "a20f7b0af3c752ef888348fa9258e602319dc0537f8a51c792ac6042f1a64e3f"
+    },
+    {
+      "second": 63,
+      "file": "encoded_06.jpg",
+      "sha256": "059029220f5644f546e0250cc7664f9ee6fb7b971e49fce88b23280df6252078"
+    },
+    {
+      "second": 70,
+      "file": "encoded_07.jpg",
+      "sha256": "4f0de612847a416eee6819cfeae53ee6d4c1b189be8509160a50903643621141"
+    },
+    {
+      "second": 80,
+      "file": "encoded_08.jpg",
+      "sha256": "5c66a921cbccda5ee7f1fb1cbb5000b5cfa25baa20b3796f459c33709f6af717"
+    },
+    {
+      "second": 88,
+      "file": "encoded_09.jpg",
+      "sha256": "22b1c31b3670345e65446ab3bbcdbe9323d83b47c3827996aa17c7a1ae0c8207"
+    },
+    {
+      "second": 96,
+      "file": "encoded_10.jpg",
+      "sha256": "a473e8df819fa411b1baaa6c37ef99ad676d2e4bdc9335850cbefc5263b01c2c"
+    },
+    {
+      "second": 104,
+      "file": "encoded_11.jpg",
+      "sha256": "41f44419d6f13bdb28526b298990125edbbc86068ba32f66ef7899166ed09e62"
+    },
+    {
+      "second": 113,
+      "file": "encoded_12.jpg",
+      "sha256": "e71664a4e64909e7f69cc00ce06eb599806399111675d3a02233fea86d25271f"
+    },
+    {
+      "second": 118,
+      "file": "encoded_13.jpg",
+      "sha256": "424ef77478822bed7a196cfb412235f7d0de5d138dd6199f2d478c55942fce9d"
+    },
+    {
+      "second": 123,
+      "file": "encoded_14.jpg",
+      "sha256": "9b6391e6d3578d25f22c71ecf66d185559c40cced6653bb792a1430f31d36678"
+    },
+    {
+      "second": 129,
+      "file": "encoded_15.jpg",
+      "sha256": "ca0894e98eadaa16424465be98c6a238f01704c4dbfb0a05dca54c4da6440869"
+    },
+    {
+      "second": 137,
+      "file": "encoded_16.jpg",
+      "sha256": "d138c5f7376d982921fffe52e8cf91a16ed0c1488bc36318c249d4ebe3af0166"
+    },
+    {
+      "second": 142,
+      "file": "encoded_17.jpg",
+      "sha256": "d456c902105b468ce6591a77eb843fc45574f8a4dfcafd0577f8bedf47a0a074"
+    },
+    {
+      "second": 148,
+      "file": "encoded_18.jpg",
+      "sha256": "dddc87d8f3499d17d7fd767db5adf2aad17ccebc4cb8a7c5f45d635599cd845e"
+    },
+    {
+      "second": 154,
+      "file": "encoded_19.jpg",
+      "sha256": "d2d9419096aaa5c665b492a39c7e6aa421f6f3687b2dcef01f7b3291845a8439"
+    },
+    {
+      "second": 161,
+      "file": "encoded_20.jpg",
+      "sha256": "6b2c20226674d370b2ef1f24c16284a45ac250ae46e6d22a5a0f570aab57deab"
+    },
+    {
+      "second": 167,
+      "file": "encoded_21.jpg",
+      "sha256": "0663186b11fdb078a13c9c2c43f1912181cec774ed905b23fbb3489d69a68a63"
+    },
+    {
+      "second": 173,
+      "file": "encoded_22.jpg",
+      "sha256": "5d9e89fc99bdb05706c3a5873c5e543a02d493458cc3088b1e8a7d4779cb12fa"
+    },
+    {
+      "second": 178,
+      "file": "encoded_23.jpg",
+      "sha256": "5876d95b2b82ed89ef4ac338f5cf21cda6aaf0aa9f739a1f42eb96328e8446e5"
+    },
+    {
+      "second": 179.7,
+      "file": "encoded_24.jpg",
+      "sha256": "7a84f3c1237db1c033955b1507227571177134da006ec35825f5224a3ce84210"
+    }
+  ],
+  "captures": {
+    "method": "Actual CUA screenshot samples, not continuous OS screencast",
+    "captured_frames": 144,
+    "source_frames_used": 84,
+    "unique_full_view_rotation_frames": 60,
+    "manifest_sha256": "fe67f13e11a9f7e162d4f90cf0c3b0b68e1e58ec6213cf3e49ac81342876be30"
+  },
+  "editing": {
+    "smooth_zoom_pan": true,
+    "animated_emphasis_boxes": true,
+    "rounded_window_frame": true,
+    "crossfades": true,
+    "timing_edited": true,
+    "synthetic_ui": false,
+    "synthetic_execution_progress": false,
+    "optical_flow_frame_interpolation": false,
+    "reference_gif_included_in_movie": false,
+    "style_reference": "https://github.com/iOfficeAI/AionUi/blob/main/resources/AionUi_team.gif"
+  },
+  "recorded_science": {
+    "run_id": "14014be81e934c0ab4236268d013ad19",
+    "actual_model": "muse-spark-1.3",
+    "meta_requests_at_original_execution": 3,
+    "elapsed_seconds_at_original_execution": 45.48,
+    "report_sha256": "0c13a7ae7b5b5910ad3a4f25f9ece8e3d7a73f8920f2413074ad6d7b10e35189",
+    "score_sha256": "63a1c3752407d96a54f33b735d72e700839e4b0e9363894597738f6e8531157f"
+  },
+  "new_meta_calls_during_capture": 0,
+  "new_gpu_calls_during_capture": 0,
+  "local_execution_claims_before_after": [
+    2,
+    2
+  ],
+  "local_validated_draft_added": 1,
+  "human_full_audio_video_review_complete": false,
+  "publication_performed": false,
+  "public_link_access_verified": false,
+  "submission_performed": false
+}

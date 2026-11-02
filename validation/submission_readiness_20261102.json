@@ -1,6 +1,6 @@
 {
   "date_kst": "2026-11-02",
-  "status": "ready_for_recording_not_submitted",
+  "status": "current_ui_video_exported_pending_final_review_and_access",
   "product_code_changed": false,
   "missing_dependency_fixed": "python-dotenv added to unified workbench installation list",
   "fresh_offline_reproduction": "validation/clean_workbench_reproduction_20261102.json",
@@ -17,21 +17,24 @@
     "seconds": 180,
     "segments": 9,
     "english_words": 304,
-    "exported_video_verified": false
+    "exported_video_verified": true,
+    "verification_scope": "Technical media checks and sampled encoded-frame inspection; full human listening review pending"
   },
   "provider_calls_this_pass": 0,
   "gpu_calls_this_pass": 0,
   "publication_performed": false,
   "submission_performed": false,
   "remaining": [
-    "Record/export and fully review the current-UI video",
+    "Fully review exported current-UI video and confirm final contest form requirements",
     "Confirm final form/rules, contributors, rights and prior-work eligibility",
     "Verify approved judge access without owner login",
     "Separate-machine and full live installation remain unverified"
   ],
   "package_check": {
     "status": "PASS",
-    "check_count": 2117,
-    "failed_count": 0
-  }
+    "check_count": 2127,
+    "failed_count": 0,
+    "scope": "After current-UI movie receipt/guide/preview updates; no product code changes"
+  },
+  "current_video_receipt": "submission/video_current_ui_20261102_receipt.json"
 }

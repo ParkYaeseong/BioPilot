@@ -96,6 +96,12 @@ was verified in an isolated environment on this machine.
 
 ## Evidence and submission scope
 
+The [current-UI video guide](demo/FINAL_VIDEO_20261102_KO.md) describes the newly
+exported local180s1080p demo: English AI narration, measured English/Korean captions,
+smooth camera moves and animated emphasis over actual application captures.
+[Technical receipt](submission/video_current_ui_20261102_receipt.json).
+The video binary is local only and is not included in this repository.
+
 [The submission draft](submission/README.md) maps implemented behavior to saved evidence and
 remaining gates. A local 180-second edited replay video draft with disclosed synthetic English voice and captions
 is available through the submission draft. Human review, public/judge-access verification and a

@@ -1,5 +1,13 @@
 # Decision log
 
+2026-11-02 video: use actual current-app captures with editorial camera motion,
+drawn emphasis and real3Drotation rather than fake execution animation. Narration
+is synthetic AndrewNeural, distinct from product Meta runtime. Recorded scientific
+results stay REPLAY; actual local guard interactions stay labeled no-model-call.
+Use burned English and external EN/KO SRTs: MP4 soft subtitle defaults could cause
+duplicate captions in players. Keep video/raw media outside Git; share only the
+small receipt/guide/encoded preview in the existing private source repository.
+
 2026-11-02: Final handoff prioritizes reproducibility and current recording guidance
 over new scientific/UI features. The separate viewer dependency list stays minimal;
 unified offline workbench installation adds python-dotenv explicitly in

@@ -1,5 +1,39 @@
 # Current status
 
+## Current-UI narrated video exported locally — 2026-11-02
+
+User requested the actual video with English AI narration, zoom/pan and animated
+boxes inspired by the AionUi reference GIF. Exported local_artifacts/final_demo_20261102/
+BioPilot_Bench_180s_EN.mp4:180.000s,1920x1080,30fps,5,400frames,H.264/AAC,41,628,046bytes.
+Current file SHA256:535495e5bbbf1df45ec11cf1a5ae8eb145e1ff98351e7e2628488103fc5a79bf.
+Actual144CUA screenshots include direct FASTA upload, S108A refusal, A32V validation,
+candidate comparison/selection, real reference rotation, trace/evidence inspection
+and completed-result reopening. This is sampled browser capture with edited camera
+and pacing, not a continuous OS screencast. No synthesized UI or execution progress.
+
+English voice:en-US-AndrewNeural via edge-tts7.3.1/Microsoft Edge online speech;
+only the public304-word narration was sent. No product Meta/GPU calls were made.
+Nine audio segments/27measured sentence cues, burned English captions, separate EN/KO
+SRTs,9video chapters. Soft subtitle tracks were omitted to prevent automatic double
+captions over burned English. Actual recorded scientific run remains labeled REPLAY
+and45.48s waiting omitted. No reference GIF footage was included.
+
+Verification:whole-file decode passed; ffprobe confirmed180s/1080p/30fps/9chapters;
+audio mean-16.9dBFS/peak-1.4dBFS;27timed sentence cues have no overlaps; source-frame
+hashes matched;24encoded frames inspected. Corrected the initial reopening highlight
+to enclose only COMPLETED, then re-encoded and repeated media verification. Original
+scientific scores/ranks/traces and product code are unchanged. Journal execution
+claims stayed2before/after;1local validated draft was added and never executed.
+Human full listening review is not claimed. Public links/submission remain pending.
+
+Final source package consistency:2,127checks passed,0failures; planned bilingual
+script validation also passed. No product code changed, so the prior785-test
+application regression is not represented as a new video-specific test run.
+Guide:demo/FINAL_VIDEO_20261102_KO.md. Receipt:submission/video_current_ui_20261102_receipt.json.
+Video/raw captures/audio/GIF stay excluded from Git. Small documentation, receipt and
+encoded preview are the source handoff. Next allowed action:final user playback and
+approved video publication/judge-access checks; no automatic public release or submit.
+
 ## Submission handoff and isolated offline reproduction — 2026-11-02
 
 Submission entry now points to app/bench.py, the uploaded-input actual execution

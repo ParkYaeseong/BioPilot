@@ -2,6 +2,13 @@
 
 ## Current submission entry — 2026-11-02
 
+The current-UI **180-second English-narrated MP4** has now been exported locally.
+See [video guide and scope](../demo/FINAL_VIDEO_20261102_KO.md) and
+[technical video receipt](video_current_ui_20261102_receipt.json). It uses actual
+browser captures, edited zoom/pan/highlights and synthetic narration, with recorded
+scientific execution clearly labeled. MP4/raw captures are excluded from Git;
+publication, full human listening review and unauthenticated video access are pending.
+
 Use the **unified workbench** in `app/bench.py`, not the historical separate
 viewer/session launch commands below. New review → FASTA/request → validation →
 explicit execution approval → results → Recent reviews is one local app.
@@ -17,7 +24,7 @@ Results use Overview / Candidates / Structure / Agent Trace / Evidence.
   preserves the score/trace and original report provenance. Opening it is REPLAY.
 - [Current bilingual 180-second script](../demo/REVIEW_FLOWS_180S_KO.md) and
   [final recording checklist](../demo/FINAL_RECORDING_CHECKLIST_KO.md). Earlier MP4s
-  below remain historical drafts; a final video of this UI has not been exported.
+  below remain historical drafts; use the current-UI export and receipt above.
 
 ```powershell
 .venv/Scripts/python.exe -m streamlit run app/bench.py --server.address 127.0.0.1 --server.port 8522 -- --state-dir .runtime/bench --max-runs 3 --max-requests 4

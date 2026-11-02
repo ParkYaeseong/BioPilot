@@ -134,6 +134,28 @@
     "script_ko": "demo/REVIEW_FLOWS_180S_KO.md",
     "checklist": "demo/FINAL_RECORDING_CHECKLIST_KO.md",
     "planned_duration_seconds": 180,
-    "current_ui_video_exported": false
+    "current_ui_video_exported": true,
+    "export_receipt": "submission/video_current_ui_20261102_receipt.json"
+  },
+  "current_ui_video": {
+    "path": "local_artifacts/final_demo_20261102/BioPilot_Bench_180s_EN.mp4",
+    "sha256": "535495e5bbbf1df45ec11cf1a5ae8eb145e1ff98351e7e2628488103fc5a79bf",
+    "duration_seconds": 180,
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "size_bytes": 41628046,
+    "receipt": "submission/video_current_ui_20261102_receipt.json",
+    "voice": "AI-generated en-US-AndrewNeural",
+    "burned_english_captions": true,
+    "external_srt_languages": [
+      "en",
+      "ko"
+    ],
+    "camera_and_timing_edited": true,
+    "human_full_audio_video_review_complete": false,
+    "public_link": null,
+    "public_access_verified": false,
+    "binary_in_git": false
   }
 }
