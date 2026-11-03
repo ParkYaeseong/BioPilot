@@ -24,3 +24,31 @@ local_artifacts/
 *.ppk
 *.p12
 *.pfx
+
+# Local recordings, delivery archives and tool output
+*.mp4
+*.mov
+*.mkv
+*.webm
+*.wav
+*.mp3
+*.zip
+*.7z
+*.tar
+*.gz
+*.log
+*.env
+/validation/*.txt
+
+# Build, test and editor caches
+.ruff_cache/
+.mypy_cache/
+.tox/
+.nox/
+build/
+dist/
+htmlcov/
+.coverage
+coverage.xml
+.DS_Store
+Thumbs.db

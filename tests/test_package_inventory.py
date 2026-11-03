@@ -72,3 +72,27 @@ def test_manifest_updater_emits_lf_bytes_including_on_windows(tmp_path):
     assert b'\r' not in manifest
     assert manifest.endswith(b'\n')
     assert len(manifest.splitlines())==3
+
+
+@pytest.mark.parametrize('relative',[
+    '.ssh/id_ed25519', 'operator/server.pem', 'operator/client.ppk',
+    'config/local.env', 'submission/FORM_ANSWERS_next.md',
+    'submission/FORM_DRAFT_next.md', 'demo/recording.mp4',
+    'demo/narration.wav', 'exports/source.zip', 'logs/session.log',
+    '.ruff_cache/state', 'htmlcov/index.html', 'dist/package.json',
+    'validation/current_test_output.txt',
+])
+def test_source_delivery_excludes_private_and_generated_material(tmp_path,relative):
+    write(tmp_path,relative)
+    write(tmp_path,'app/source.py')
+    assert inventory(tmp_path)=={'app/source.py'}
+
+
+def test_public_scientific_evidence_and_readme_media_remain_packaged(tmp_path):
+    keep={'docs/images/feature.gif','demo/artifacts/structures/prediction.pdb',
+          'validation/optional_science_runtime_20261028.json',
+          'validation/history_v2/science_tests.txt','prompts/runtime/system.txt',
+          'requirements/workbench.txt','templates/.env.example'}
+    for relative in keep:
+        write(tmp_path,relative)
+    assert inventory(tmp_path)==keep

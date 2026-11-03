@@ -143,6 +143,8 @@ from stored predictions and leave missing atom coordinates unmarked.
 | `reference/`, `prompts/`, `schemas/`, `config/` | Registered scientific inputs and execution contracts |
 | `demo/artifacts/` | Saved real results and structures used by the offline viewer |
 | `tests/`, `tests_app/`, `checks/` | Tests, package validation and reproduction checks |
+| `examples/`, `templates/`, `evaluation/` | Integration examples, configuration templates and offline evaluation tools |
+| `evaluation_private/` | Two label-free protocol templates; actual local assay data and results are excluded |
 | `docs/` | Guides, diagrams and archived preparation |
 | `compliance/`, `submission/`, `validation/` | Contribution disclosure, submission information and evidence |
 

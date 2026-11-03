@@ -1,0 +1,55 @@
+{
+  "date_kst": "2026-11-04",
+  "status": "PASS",
+  "scope": "Current source inventory and Git exclusions; no history rewrite",
+  "tracked_files_before": 474,
+  "archived_root_validation_logs": 67,
+  "archived_log_bytes": 490692,
+  "local_archive": "local_artifacts/repository_cleanup_20261104",
+  "archive_hashes_verified": true,
+  "original_history_preserved": true,
+  "retained_scientific_receipts": [
+    "validation/optional_science_runtime_20261028.json",
+    "validation/integration_success_20261027.json",
+    "validation/unified_review_execution_20261029.json",
+    "validation/clean_workbench_reproduction_20261102.json"
+  ],
+  "application_reference_and_demo_artifacts_unchanged": true,
+  "credential_pattern_scan": {
+    "findings": 0,
+    "scope": "Common private-key, GitHub, Hugging Face and sk-token patterns only; not an exhaustive secret detector"
+  },
+  "new_model_calls": 0,
+  "new_gpu_jobs": 0,
+  "tests": {
+    "initial_inventory_tests": "14 expected failures for excluded private/generated file categories; 12 passed",
+    "focused_regression": {
+      "passed": 64,
+      "skipped": 1,
+      "subtests_passed": 12
+    },
+    "full_regression": {
+      "command": ".venv/Scripts/python.exe -m pytest tests tests_app -q -rs -p no:cacheprovider --basetemp=.cache/source_hygiene_full_20261104 --tb=short",
+      "passed": 800,
+      "skipped": 2,
+      "subtests_passed": 12,
+      "warnings": 2,
+      "skip_scope": "Windows symlink privileges",
+      "warnings_scope": "Existing Modal asyncio deprecations"
+    },
+    "offline_reproduction": {
+      "views": 5,
+      "candidates": 19,
+      "S108A": "blocked",
+      "A32V": "accepted",
+      "execute_disabled_without_configuration": true,
+      "provider_calls": 0,
+      "gpu_calls": 0
+    },
+    "package_validation": {
+      "check_count": 2032,
+      "failed_count": 0
+    }
+  },
+  "tracked_source_files_after": 408
+}

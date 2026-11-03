@@ -1036,3 +1036,23 @@ The owner's copy-ready form responses and survey draft belong in local preparati
 not the public repository. Preserve both locally and remove them from the current
 branch, its navigation and manifest. Keep reproducibility and contribution evidence
 public. Preserve existing commit history; changing history requires a separate decision.
+
+
+## 2026-11-04 — retain reproducibility, remove generated test output
+
+Folder count alone is not a reason to exclude scientific source directories. App,
+reference, schemas, prompts, integration examples, tests and checks support execution
+and reproducibility. evaluation_private distributes only its two label-free protocol
+scaffolds; actual local evaluator data and private run directories remain excluded.
+
+Move 67 individual root validation test logs to ignored local storage, keeping compact
+scientific execution/hash receipts and the original history_v2 provenance. Preserve
+history rather than deleting evidence retroactively. Harden the package inventory
+alongside .gitignore so alternate publication paths cannot accidentally reintroduce
+private form drafts, local keys/envs, recordings, archives, logs or caches. Keep README
+GIFs, public prediction PDBs and the registry needed by the structure viewer.
+
+Tests: expected red coverage for 14 private/generated categories; 26 inventory tests
+passed; full regression 800 passed, two Windows symlink skips, 12 subtests; isolated
+five-view offline reproduction passed with no model/GPU calls. This changes publication
+hygiene only, not biological ranking or the guarded runtime catalog.

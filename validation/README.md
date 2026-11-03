@@ -1,13 +1,23 @@
-# Verification files
+# Verification evidence
 
-- `preserved_v2_science.json`: byte/hash checks of the inherited science artifacts.
-- `requirements_coverage.json`: design coverage and remaining implementation limits.
-- `v3_tests_prepackaging.txt`: actual 69-test pass before final documentation and manifest packaging.
-- `tdd_v3_initial_red.txt`: initial new-helper failures before implementation.
-- `tdd_v3_validator_initial_red.txt`: checker regressions observed before its v3 extension.
-- `v3_checks_before_final_receipts.json`: passing validator receipt from before these final receipt files existed.
-- `history_v2/`: unchanged earlier-version test/source receipts; not current-version proof.
-- `REVISION_PLAN.md`: bounded package-revision plan.
+This directory keeps compact scientific execution receipts, checkpoint/source hashes,
+and major integration/reproduction checks. Records describe the run at their recorded
+date; they do not imply that every integration is currently configured.
 
-The final archive is also tested after extraction. To independently verify the exact delivered tree,
-run the two commands in VALIDATION.md. Receipt files are historical evidence, not executable success.
+- `integration_success_20261027.json`: actual Meta -> MCP -> local ESM execution.
+- `optional_science_runtime_20261028.json`: stored ESM3 / ESMFold2 GPU execution and
+  prediction hashes. The read-only structure viewer uses this file.
+- `atlas_registered_reference_20261028.json`: exact registered-reference Atlas lookup.
+- `real_esm150_position32_*.json`: actual scoring inputs, scores and review receipts.
+- `unified_review_execution_20261029.json`: unified uploaded-input review execution.
+- `clean_workbench_reproduction_20261102.json`: isolated offline reproduction.
+- `video_quality_recapture_20261103.json`: actual execution used in the edited demo.
+- `history_v2/`: preserved original label-free provenance and version-two checks.
+
+Individual root-level pytest output logs are local development output. They were
+preserved byte-for-byte under ignored `local_artifacts/repository_cleanup_20261104/`
+and removed from the current source tree. Earlier Git commits retain their history.
+New logs belong in `.cache/` or `local_artifacts/`, rather than this public folder.
+
+Run the current tests and package checker yourself; stored receipts are historical
+evidence, not a substitute for fresh verification. See [reproduction instructions](../submission/REPRODUCE_KO.md).

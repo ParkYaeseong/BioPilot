@@ -1543,3 +1543,32 @@ previously published drafts. No model call, GPU job, form submission or data del
 Next allowed action: use the local copy for manual submission, without redistributing it
 in the public source package.
 Validation: checks/validate_package.py — 2229 checks, 0 failures; both local draft copies match their original SHA256 hashes.
+
+
+## 2026-11-04 — public repository and source inventory hygiene
+
+Changed .gitignore, checks/package_files.py, tests/test_package_inventory.py,
+README.md and validation/README.md. Removed 67 root validation pytest output logs
+(490692 bytes) from current Git tracking after byte-identical local preservation at
+local_artifacts/repository_cleanup_20261104. Added validation/repository_hygiene_20261104.json.
+Source files decrease from 474 to 408, including the single new audit receipt.
+No source-history rewrite; original v2 records and pre-event planning remain intact.
+
+Exclude recordings, narration, delivery archives, logs, key files, local env files,
+build/test caches and future form drafts from source packaging as well as Git.
+Keep public GIFs, PDBs, registered scientific data, original history_v2 test evidence,
+and real computation/provenance/reproduction JSON receipts. The read-only prediction
+viewer still has its required optional-science registry. App/reference/demo artifacts
+are byte-unchanged. No provider, GPU or new external lookup occurred.
+
+Verification: new inventory tests first failed in 14 expected exclusion cases, then
+passed (26 total). Focused regression: 64 passed, one Windows symlink skip, 12 subtests.
+Full command: .venv/Scripts/python.exe -m pytest tests tests_app -q -rs -p no:cacheprovider
+--basetemp=.cache/source_hygiene_full_20261104 --tb=short — 800 passed, two Windows
+symlink skips, 12 subtests, two existing Modal asyncio deprecation warnings.
+Isolated .cache/submission_repro_20261102/Scripts/python.exe checks/check_reproduction.py
+passed all five views, 19 candidates, both local guards and execution-disabled checks;
+provider/GPU calls zero. Common credential-signature scan found no matches in the
+current source inventory. This is not a guarantee against every possible secret.
+Next allowed action: use the cleaned public checkout; keep future local output ignored.
+Final package check: checks/validate_package.py — 2032 checks, 0 failures.
