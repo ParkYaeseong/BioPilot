@@ -1,5 +1,24 @@
 # Decision log
 
+## YouTube is the primary demo; obsolete GitHub Release retired — 2026-11-03
+
+Owner supplied YouTube video V7jWi7q1ggU after manual upload and requested README
+link replacement,Release cleanup and final submission answers. README now links
+only to https://www.youtube.com/watch?v=V7jWi7q1ggU in its demo section; removed
+Release/MP4/SRT download links. Updated current guides,submission metadata and
+field-by-field final answers. Personal survey scores remain owner choices; no
+publicity consent or form submission is presumed.
+
+Verified local size/SHA backups of all10Release assets before deleting only the
+demo-2026-11-02 Release and its attachments. API now returns404 for that Release;
+its Git tag/source object is unchanged. Retained local media and historical upload
+receipts. Receipt:submission/demo_release_retirement_20261103.json.
+
+YouTube URL is owner-reported; no independent playback/caption-track verification
+is claimed. Current metadata no longer treats the deleted Release as a download
+destination. No source history rewrite,new provider/GPU calls or contest submission.
+The owner will enter the final answers directly in the form.
+
 ## YouTube thumbnail generated and made remotely downloadable — 2026-11-03
 
 Created an illustrative promotional cover with built-in image_gen,referencing the

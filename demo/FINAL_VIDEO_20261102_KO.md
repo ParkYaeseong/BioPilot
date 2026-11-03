@@ -8,20 +8,13 @@
 [새 기능과 재사용 구분](../compliance/EVENT_CONTRIBUTIONS.md)을 README·제출 문서에 연결했습니다.
 이 자막 표기 수정은 새 Meta/GPU 호출 없이 재인코딩했으며 Release에도 교체했습니다.
 
-현재 [공개 Release](https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02)는
-2026-11-03 화질 수정 영상과 최신 한영 자막·체크섬으로 교체했습니다.
-[업로드 영수증](../submission/demo_release_quality_20261103.json)에 원격 파일 크기·SHA 일치를 기록합니다.
-MP4·원본 캡처·음성은 Git 소스 기록에 넣지 않습니다.
-[현재 실행·화질 수정 영수증](../validation/video_quality_recapture_20261103.json)과
-[영상 검증 영수증](../submission/video_current_ui_20261102_receipt.json)을 확인하세요.
-저장소와 영상의 비로그인 접근을 확인했습니다. 최종 제출 완료를 뜻하지는 않습니다.
-
-## 공개 다운로드
-
-2026-11-03 저장소를 공개했고, 저장소·README·기여 문서·라이선스와 MP4 파일 헤더를
-인증정보 없이 확인했습니다. [공개 접근 검증](../validation/public_access_20261103.json).
-Release의 **Assets**에서 MP4를 받거나 README의 직접 다운로드 링크를 사용합니다.
-기존 비공개 시점의404 기록은 당시 상태의 이력이며 현재 접근 조건은 공개입니다.
+최종 영상: **[YouTube에서 보기](https://www.youtube.com/watch?v=V7jWi7q1ggU)**.
+사용자가 업로드한 주소를 대표 링크로 사용합니다. YouTube 재생 길이·공개 범위·자막 트랙은
+이 갱신에서 독립적으로 검증하지 않았습니다. 기존 GitHub Release는 사용자 요청으로 삭제했으며,
+원본 영상·한영 자막·설명·썸네일은 로컬에 보존합니다.
+[원본 제작 기록](../submission/video_current_ui_20261102_receipt.json)과
+[실제 실행 기록](../validation/video_quality_recapture_20261103.json)은 계속 보존합니다.
+과거 Release 업로드·접근 기록은 당시의 검증 이력이며 현재 다운로드 안내가 아닙니다.
 
 ![실제 MP4에서 추출한 기준 구조 회전 프레임](../docs/images/final-video-preview.jpg)
 

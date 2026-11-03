@@ -1,5 +1,17 @@
 # BioPilot Bench — local submission draft
 
+## Final submission links — November 3
+
+- [Public repository](https://github.com/ParkYaeseong/BioPilot)
+- [YouTube demo](https://www.youtube.com/watch?v=V7jWi7q1ggU) — supplied by the owner after their upload
+- [Final field-by-field answers](FORM_ANSWERS_20261103.md)
+- [Event contribution disclosure](../compliance/EVENT_CONTRIBUTIONS.md)
+
+The earlier GitHub demo Release is retired at the owner's request. Earlier Release
+links below belong to historical preparation records. No final form submission is
+claimed; the owner is completing the form directly. YouTube captions/playback have
+not been independently verified during this link update.
+
 ## November 3 final preparation
 
 [Ready-to-copy form answers](FORM_DRAFT_20261103.md),

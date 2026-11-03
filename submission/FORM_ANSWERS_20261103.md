@@ -1,6 +1,6 @@
-# Answers for the submission form supplied by the owner
+# Final submission answers — BioPilot Bench
 
-These drafts follow the actual field names pasted by the owner. Objective project
+These final copy-ready answers follow the actual field names supplied by the owner. Objective project
 claims are supported by the repository. Survey selections are suggestions for the
 owner to accept or change, not measured facts or recorded personal opinions.
 No form has been submitted by this document.
@@ -44,11 +44,7 @@ https://github.com/ParkYaeseong/BioPilot
 
 ## 3-Minute Demo Video
 
-Prefer a YouTube Public/Unlisted watch URL after upload for browser playback.
-Existing public MP4 download:
-https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.mp4
-
-The URL placeholder in the pasted form alone does not establish that YouTube is mandatory.
+https://www.youtube.com/watch?v=V7jWi7q1ggU
 
 ## Describe your use of Meta products to build the submitted project
 

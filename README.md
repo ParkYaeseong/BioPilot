@@ -14,10 +14,7 @@ evidence; code enforces scientific constraints, execution limits and ranking.
 
 Upload a public Lipase A FASTA, approve a review, then inspect candidates, structure and evidence.
 
-**[Three-minute demo](https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02)**
-· [Download MP4](https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.mp4)
-· [English subtitles](https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.srt)
-· [한국어 자막](https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_KO.srt)
+**[Watch the three-minute demo on YouTube](https://www.youtube.com/watch?v=V7jWi7q1ggU)**
 
 ## Features
 

@@ -3,9 +3,9 @@
   "track": "Indie Developer",
   "theme": "Push the Frontier",
   "public_repo_url": "https://github.com/ParkYaeseong/BioPilot",
-  "video_url": "https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.mp4",
+  "video_url": "https://www.youtube.com/watch?v=V7jWi7q1ggU",
   "video_duration_seconds": 180,
-  "video_access_verified": true,
+  "video_access_verified": false,
   "product_or_reproduction_url": "https://github.com/ParkYaeseong/BioPilot/blob/main/submission/REPRODUCE_KO.md",
   "final_form_access_requirement_verified": false,
   "contributors": [
@@ -61,9 +61,9 @@
   },
   "public_actions_performed": true,
   "remaining_gates": [
-    "Inspect and complete actual submission form; saved browser origin permission currently blocks cerebralvalley.ai",
-    "Owner must review any legal declarations and confirm form-specific rights/contact/deployment requirements",
-    "Final submission receipt not obtained"
+    "Owner to review final form answers, personal survey choices and required declarations",
+    "Owner to confirm YouTube playback/visibility and any uploaded caption tracks",
+    "Final submission receipt not yet provided"
   ],
   "regression_receipt": {
     "path": "validation/spotlight_verification_20261028.json",
@@ -158,25 +158,22 @@
     ],
     "camera_and_timing_edited": true,
     "human_full_audio_video_review_complete": false,
-    "public_link": "https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.mp4",
-    "public_access_verified": true,
+    "public_link": "https://www.youtube.com/watch?v=V7jWi7q1ggU",
+    "public_access_verified": false,
     "binary_in_git": false,
-    "private_release_url": "https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02",
-    "private_asset_url": "https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.mp4",
-    "private_upload_receipt": "submission/demo_release_quality_20261103.json",
-    "remote_size_and_sha256_verified": true,
     "local_revision_date_kst": "2026-11-03",
     "actual_execution_included": true,
     "execution_receipt": "validation/video_quality_recapture_20261103.json",
-    "private_release_contains_current_edit": true,
-    "release_scope": "Release MP4, EN/KO SRTs and checksums replaced with the quality-corrected November 3 export.",
     "new_meta_calls_during_capture": 3,
     "new_gpu_calls_during_capture": 0,
     "capture_quality_fixed": true,
     "local_quality_revision": "2026-11-03 / sharp Chrome source recapture",
     "meta_requests_total_across_nov3_video_execution_passes": 6,
     "event_contribution_label": true,
-    "repository_visibility": "public"
+    "repository_visibility": "public",
+    "delivery": "Owner-uploaded YouTube link; original local export metadata retained separately",
+    "github_release_present": false,
+    "previous_release_upload_receipt": "submission/demo_release_quality_20261103.json"
   },
   "private_demo_release_uploaded": true,
   "eligibility_basis": "Owner reports organizer participation confirmation in conversation on 2026-11-03; written reply not independently inspected",
@@ -185,11 +182,17 @@
   "license": "MIT for original project code/documentation; third-party terms retained",
   "public_access_receipt": "validation/public_access_20261103.json",
   "youtube_upload_kit": {
-    "release_url": "https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02",
     "receipt": "submission/youtube_kit_release_20261103.json",
-    "zip_url": "https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_YouTube_Upload_Kit.zip",
-    "anonymous_access_verified": true,
     "youtube_uploaded": false,
-    "youtube_url": null
-  }
+    "youtube_url": "https://www.youtube.com/watch?v=V7jWi7q1ggU",
+    "github_release_present": false,
+    "retirement_receipt": "submission/demo_release_retirement_20261103.json",
+    "youtube_upload_owner_reported": true
+  },
+  "video_link_source": "Owner supplied after manual YouTube upload; playback and caption tracks not independently verified",
+  "youtube_upload_owner_reported": true,
+  "youtube_caption_tracks_verified": false,
+  "github_demo_release_present": false,
+  "github_release_retirement_receipt": "submission/demo_release_retirement_20261103.json",
+  "final_form_answers": "submission/FORM_ANSWERS_20261103.md"
 }

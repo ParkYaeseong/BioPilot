@@ -16,9 +16,9 @@ actual form. Do not automatically accept legal declarations.
 
 **Repository:** https://github.com/ParkYaeseong/BioPilot
 
-**Three-minute demo:** https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.mp4
+**Three-minute demo:** https://www.youtube.com/watch?v=V7jWi7q1ggU
 
-**Release page:** https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02
+**Final field-by-field answers:** [FORM_ANSWERS_20261103.md](FORM_ANSWERS_20261103.md)
 
 **Reproduction instructions:** https://github.com/ParkYaeseong/BioPilot/blob/main/submission/REPRODUCE_KO.md
 
