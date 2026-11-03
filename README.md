@@ -70,6 +70,29 @@ Saved results and input checks run offline. New execution requires your own Meta
 credentials, pinned local ESM weights and explicit approval.
 [Installation and reproduction](submission/REPRODUCE_KO.md) · [Execution setup](docs/IMPLEMENTATION_KO.md)
 
+## Models and structure predictions
+
+| Capability | Available after the quickstart | Fresh execution |
+|---|---|---|
+| ESM-2 150M sequence scoring | Inspect saved scores for 19 alternatives | New review, with your Meta credentials and pinned local CPU weights |
+| Public experimental structure (1ISP) | Interactive reference view with checked residue correspondence | No folding required |
+| ESMFold2 | Inspect the stored WT prediction from an actual L40S run | Separate GPU worker; not launched by New review |
+| ESM3 open | Inspect the stored A32V prediction from an actual L40S run | Separate GPU worker; not launched by New review |
+
+To view the predictions, open a saved review → **Structure** →
+**Additional evidence · Atlas and structure models** → **Stored predicted structure**.
+Choose **ESMFold2 · WT** or **ESM3 · A32V**. Viewing these bundled results needs no GPU,
+model download or API call. These separate runs do not change the candidate ranking.
+
+For new predictions, use the [GPU worker setup and execution guide](docs/OPTIONAL_SCIENCE_KO.md)
+on your own prepared GPU machine. The worker requires a separate SDK environment,
+verified checkpoint files and explicit execution approval. It does not provision a
+server or connect the workbench to RunPod; the RunPod backend is unconfigured.
+There is no standalone ESMC scoring feature.
+
+The current three-minute video demonstrates ESM-2 execution and the experimental
+1ISP reference viewer; it does not demonstrate the optional ESMFold2/ESM3 prediction views.
+
 ## Workflow
 
 **Input & Validation → Agent Execution → Review Results**

@@ -1459,3 +1459,20 @@ Still not done and still not authorised: the repository stays private until the 
 publishes it at the end; the demo Release still carries the 2026-11-02 video and the
 re-encoded cut has not replaced it; no external deployment, contest submission, GPU or
 Modal work, and no biological efficacy claim.
+
+
+## 2026-11-03 — clarify installed model capabilities
+
+Changed README.md to distinguish saved ESM-2 results, the experimental 1ISP reference,
+and stored real ESMFold2 WT / ESM3 A32V predictions. Added the exact Structure expander
+and selector labels, linked the existing GPU operator guide, and stated that New review
+does not launch optional folding or provision RunPod. The current video omits those
+prediction views. No application, model, score, rank or original receipt changed.
+
+Verification: load_predictions returned both stored predictions with sequence_verified=True;
+pytest tests_app/test_prediction_view.py tests_app/test_optional_science.py
+tests_app/test_viewer_structure.py -q -p no:cacheprovider
+--basetemp=.cache/model_docs_check_20261103 --tb=short: 44 passed.
+No new Meta call, GPU job, external sequence transfer or video edit. Fresh third-party
+GPU installation and automatic remote execution remain unverified/unimplemented respectively.
+Next allowed action: inspect stored prediction views; new GPU execution requires its own approval.

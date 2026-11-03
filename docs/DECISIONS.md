@@ -982,3 +982,17 @@ still cite the old root paths, which is what they are for: they state where the 
 were when those runs happened. Anyone replaying
 `validation/clean_workbench_reproduction_20261102.json` should read its command against
 the old layout; the current instructions live in `submission/REPRODUCE_KO.md`.
+
+
+## 2026-11-03 — document optional folding separately from New review
+
+The README now names the actual available model paths rather than suggesting that every
+model participates in the recorded ESM-2 review. ESMFold2 WT and ESM3 A32V are real,
+separately acquired GPU predictions accessible through Structure's Additional evidence
+expander. Fresh folding uses the guarded operator worker, not an automatic UI or RunPod
+integration. The main video shows experimental 1ISP and must not be described as an
+ESMFold2 demonstration. Preserve its existing edit and all scientific artifacts.
+
+Validation: 44 focused prediction/optional-science/reference-view tests passed and both
+bundled predictions passed their loader's hash and sequence checks. README.md,
+docs/STATUS.md, docs/DECISIONS.md and MANIFEST.sha256 are the only intended changes.
