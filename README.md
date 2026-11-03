@@ -13,10 +13,12 @@ Documentation updated **2026-11-03** · Owner: **Yaeseong Park**.
 
 ![A protected catalytic site is refused, a permitted variant validates locally, saved candidates are ranked, and the reference structure reports a missing residue](docs/images/biopilot-demo.gif)
 
-Fourteen seconds, silent, looping, and visible without signing in. A protected
-catalytic site is refused before any model call. A permitted variant validates
-locally. The saved run is reopened to read its ranked candidates and its reference
-structure, which reports that position 32 has no atoms rather than inventing one.
+Fourteen seconds, silent, looping, and rendered inline on this page, so reading it
+needs no Release download. A protected catalytic site is refused before any model
+call. A permitted variant validates locally. The saved run is reopened to read its
+ranked candidates and its reference structure, which reports that position 32 has no
+atoms rather than inventing one. Anyone who can see this page already has repository
+access, since the repository is private.
 
 Every frame is a real capture of the running application. Camera movement,
 highlighting and timing are editorial; no UI state, model reply or execution progress
