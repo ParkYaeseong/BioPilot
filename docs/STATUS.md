@@ -1,5 +1,27 @@
 # Current status
 
+## Repository made public and anonymous media access verified — 2026-11-03
+
+Committed/pushed contribution disclosure,MIT license,owner-reported eligibility,
+quality/contribution-labelled video receipts and form draft in624568d. Source-only
+staging audit:457files,6,688,991bytes,largest2,434,346-byte README GIF;exact inventory
+and staged blob bytes matched. Package check2,179passed,0failures; no product code
+change. Repository had0Actions runs and0issues/PRs before visibility change.
+
+Under the owner's submission authorization,changed ParkYaeseong/BioPilot from
+private to public. GitHub identifies MIT. Anonymous HTTP checks:repository200,
+README200,LICENSE200,contribution disclosure200,MP4 Range206 with valid ftyp header.
+Remote uploaded size and SHA256 match current9babd85a...899ab9 MP4,16,972,362bytes.
+No credentials used for anonymous checks. Receipt:validation/public_access_20261103.json.
+Updated README/demo/current manifest to remove obsolete sign-in-only guidance.
+
+Submission itself is NOT completed:the saved browser site policy denies
+cerebralvalley.ai. Owner was asked to clear that saved block; no workaround,
+alternative browser route,form POST or legal acceptance was attempted.
+Prepared truthful source-backed answers in submission/FORM_DRAFT_20261103.md.
+Next permitted action:inspect the actual form after browser site permission is
+restored. No invented submission receipt or newly measured efficacy.
+
 ## Event contribution disclosure and authorized public submission preparation — 2026-11-03
 
 Owner reported organizer participation confirmation and requested contribution

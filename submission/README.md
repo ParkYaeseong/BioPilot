@@ -7,10 +7,13 @@
 [owner-reported participation confirmation](../compliance/ELIGIBILITY_STATUS_20261103.md),
 and [current quality-corrected media upload](demo_release_quality_20261103.json)
 supersede the corresponding earlier preparation status below.
+The repository is now public under MIT for original project code/documentation;
+[anonymous source/video access was verified](../validation/public_access_20261103.json).
+The current public video includes the event contribution label and quality repair.
 The live submission form is not yet inspected: browser access is blocked by a saved
 site permission. No submission or acceptance of legal terms is claimed.
 
-## Current submission entry — 2026-11-02
+## Preserved submission preparation — 2026-11-02
 
 The current-UI **180-second English-narrated MP4** has now been exported locally.
 See [video guide and scope](../demo/FINAL_VIDEO_20261102_KO.md) and

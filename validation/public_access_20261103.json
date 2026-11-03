@@ -1,0 +1,45 @@
+{
+  "date_kst": "2026-11-03",
+  "repository": "ParkYaeseong/BioPilot",
+  "visibility": "public",
+  "visibility_changed_by_this_action": true,
+  "source_commit_verified": "624568d819c7344a258f70f2101faf86c178fdc7",
+  "license": "MIT",
+  "anonymous_access": {
+    "repository": {
+      "url": "https://github.com/ParkYaeseong/BioPilot",
+      "http_status": 200,
+      "bytes_checked": 134235,
+      "authenticated": false
+    },
+    "readme": {
+      "url": "https://raw.githubusercontent.com/ParkYaeseong/BioPilot/main/README.md",
+      "http_status": 200,
+      "bytes_checked": 11960,
+      "authenticated": false
+    },
+    "license": {
+      "url": "https://raw.githubusercontent.com/ParkYaeseong/BioPilot/main/LICENSE",
+      "http_status": 200,
+      "bytes_checked": 1070,
+      "authenticated": false
+    },
+    "contributions": {
+      "url": "https://raw.githubusercontent.com/ParkYaeseong/BioPilot/main/compliance/EVENT_CONTRIBUTIONS.md",
+      "http_status": 200,
+      "bytes_checked": 5713,
+      "authenticated": false
+    },
+    "video": {
+      "url": "https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.mp4",
+      "http_status": 206,
+      "bytes_checked": 1024,
+      "authenticated": false
+    }
+  },
+  "video_mp4_header_verified": true,
+  "uploaded_media_receipt": "submission/demo_release_quality_20261103.json",
+  "submission_status": "not_submitted",
+  "submission_blocker": "Saved browser origin permission denies cerebralvalley.ai; no workaround attempted",
+  "no_new_provider_or_gpu_calls": true
+}

@@ -2,11 +2,11 @@
   "status": "not_submitted",
   "track": "Indie Developer",
   "theme": "Push the Frontier",
-  "public_repo_url": null,
-  "video_url": null,
-  "video_duration_seconds": null,
-  "video_access_verified": false,
-  "product_or_reproduction_url": null,
+  "public_repo_url": "https://github.com/ParkYaeseong/BioPilot",
+  "video_url": "https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.mp4",
+  "video_duration_seconds": 180,
+  "video_access_verified": true,
+  "product_or_reproduction_url": "https://github.com/ParkYaeseong/BioPilot/blob/main/submission/REPRODUCE_KO.md",
   "final_form_access_requirement_verified": false,
   "contributors": [
     {
@@ -59,12 +59,11 @@
     "public_link_access_verified": false,
     "mode": "Actual sampled browser actions and rotation; edited timing; stored Meta/ESM/GPU REPLAY; offline synthetic English voice"
   },
-  "public_actions_performed": false,
+  "public_actions_performed": true,
   "remaining_gates": [
-    "Verify final submission form and required declarations; browser saved site permission currently blocks access",
-    "Complete public release and anonymous repository/video access verification",
-    "Confirm any mandatory deployment/product-access field and source-specific rights declarations in the actual form",
-    "Final submission receipt not yet obtained"
+    "Inspect and complete actual submission form; saved browser origin permission currently blocks cerebralvalley.ai",
+    "Owner must review any legal declarations and confirm form-specific rights/contact/deployment requirements",
+    "Final submission receipt not obtained"
   ],
   "regression_receipt": {
     "path": "validation/spotlight_verification_20261028.json",
@@ -103,12 +102,13 @@
     "repository_url": "https://github.com/ParkYaeseong/BioPilot",
     "branch": "main",
     "verified_initial_upload_commit": "457890b0e6bbf0cfba8c050024847a23a017ce41",
-    "visibility": "private",
+    "visibility": "public",
     "remote_ref_verified": true,
     "public_visibility_approval": "Owner authorized public repository as required for requested submission on 2026-11-03",
-    "verification_receipt": "validation/github_publication_20261029.json",
+    "verification_receipt": "validation/public_access_20261103.json",
     "visibility_decision_date_kst": "2026-11-03",
-    "visibility_decision": "Public release authorized; verification follows actual visibility change"
+    "visibility_decision": "Owner-authorized public release performed and anonymous access verified",
+    "public_access_verified": true
   },
   "current_workbench": {
     "entrypoint": "app/bench.py",
@@ -158,8 +158,8 @@
     ],
     "camera_and_timing_edited": true,
     "human_full_audio_video_review_complete": false,
-    "public_link": null,
-    "public_access_verified": false,
+    "public_link": "https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.mp4",
+    "public_access_verified": true,
     "binary_in_git": false,
     "private_release_url": "https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02",
     "private_asset_url": "https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.mp4",
@@ -175,11 +175,13 @@
     "capture_quality_fixed": true,
     "local_quality_revision": "2026-11-03 / sharp Chrome source recapture",
     "meta_requests_total_across_nov3_video_execution_passes": 6,
-    "event_contribution_label": true
+    "event_contribution_label": true,
+    "repository_visibility": "public"
   },
   "private_demo_release_uploaded": true,
   "eligibility_basis": "Owner reports organizer participation confirmation in conversation on 2026-11-03; written reply not independently inspected",
   "eligibility_receipt": "compliance/ELIGIBILITY_STATUS_20261103.md",
   "contribution_disclosure": "compliance/EVENT_CONTRIBUTIONS.md",
-  "license": "MIT for original project code/documentation; third-party terms retained"
+  "license": "MIT for original project code/documentation; third-party terms retained",
+  "public_access_receipt": "validation/public_access_20261103.json"
 }

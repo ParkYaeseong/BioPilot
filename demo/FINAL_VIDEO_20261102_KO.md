@@ -8,21 +8,20 @@
 [새 기능과 재사용 구분](../compliance/EVENT_CONTRIBUTIONS.md)을 README·제출 문서에 연결했습니다.
 이 자막 표기 수정은 새 Meta/GPU 호출 없이 재인코딩했으며 Release에도 교체했습니다.
 
-현재 [비공개 Release](https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02)는
+현재 [공개 Release](https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02)는
 2026-11-03 화질 수정 영상과 최신 한영 자막·체크섬으로 교체했습니다.
 [업로드 영수증](../submission/demo_release_quality_20261103.json)에 원격 파일 크기·SHA 일치를 기록합니다.
 MP4·원본 캡처·음성은 Git 소스 기록에 넣지 않습니다.
 [현재 실행·화질 수정 영수증](../validation/video_quality_recapture_20261103.json)과
 [영상 검증 영수증](../submission/video_current_ui_20261102_receipt.json)을 확인하세요.
-공개 접근이나 최종 제출 완료를 뜻하지 않습니다.
+저장소와 영상의 비로그인 접근을 확인했습니다. 최종 제출 완료를 뜻하지는 않습니다.
 
-## GitHub에서 Not Found가 나오는 경우
+## 공개 다운로드
 
-저장소가 비공개이므로, 먼저 사용하는 브라우저에서 `ParkYaeseong` 또는 저장소 접근
-권한이 있는 계정으로 GitHub에 로그인합니다. 위 Release 페이지를 열고 **Assets**에서
-`BioPilot_Bench_180s_EN.mp4`를 선택합니다. 다른 앱의 내장 브라우저는 평소 사용하는
-브라우저와 로그인 세션이 다를 수 있습니다. 직접 다운로드 주소가 공개 주소라는 뜻은
-아니며, 저장소 공개 범위는 변경하지 않았습니다.
+2026-11-03 저장소를 공개했고, 저장소·README·기여 문서·라이선스와 MP4 파일 헤더를
+인증정보 없이 확인했습니다. [공개 접근 검증](../validation/public_access_20261103.json).
+Release의 **Assets**에서 MP4를 받거나 README의 직접 다운로드 링크를 사용합니다.
+기존 비공개 시점의404 기록은 당시 상태의 이력이며 현재 접근 조건은 공개입니다.
 
 ![실제 MP4에서 추출한 기준 구조 회전 프레임](../docs/images/final-video-preview.jpg)
 

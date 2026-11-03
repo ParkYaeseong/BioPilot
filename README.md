@@ -54,13 +54,15 @@ Uploaded sizes and SHA-256 digests match the local export.
 · [Execution and capture-quality receipt](validation/video_quality_recapture_20261103.json).
 The silent GIF above remains an earlier summary of local guards and saved results.
 
-**[Demo Release — GitHub sign-in required](https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02)**
+**[Three-minute demo — public download](https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02)**
 · [English SRT](https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.srt)
 · [한국어 자막](https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_KO.srt)
 
-The repository and its Release are **private**, so these are not anonymous
-judge-access links: signed-out visitors get Not Found. Sign in as `ParkYaeseong` or
-an account with repository access, then open **Assets**.
+The repository and Release assets are **public**. Repository, README, license,
+contribution disclosure and MP4 access were checked without authentication on
+November 3. Open the Release and select the MP4 under **Assets**, or use the
+[direct video download](https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.mp4).
+[Public access verification](validation/public_access_20261103.json).
 
 In the latest local cut, input checks lead to an actual approved execution; the
 subsequent result navigation is **REPLAY**, with no further model calls. One new
