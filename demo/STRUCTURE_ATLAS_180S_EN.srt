@@ -63,15 +63,15 @@ Select A32V and carry the same selection into Structure.
 The public experimental reference checks where residues can actually be located.
 
 17
-00:01:48,145 --> 00:01:56,852
-ESMFold2 provides a full wild-type structure, computed on an L40S GPU and saved for inspection.
+00:01:48,145 --> 00:01:55,304
+ESMFold2 provides a predicted structure of the full reference sequence for interactive inspection.
 
 18
-00:01:59,852 --> 00:02:08,261
+00:01:58,304 --> 00:02:06,713
 For A32V, a separate ESM3 run provides a full two-hundred-twelve-residue predicted structure.
 
 19
-00:02:11,261 --> 00:02:17,483
+00:02:09,713 --> 00:02:15,935
 These optional structure views complement the same saved ESM-two candidate ranking.
 
 20

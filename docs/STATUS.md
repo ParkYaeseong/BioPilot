@@ -1504,3 +1504,22 @@ when the replacement URL is available. Fresh model/GPU work still requires separ
 Package validation after the media/documentation additions: 2237 checks, 0 failures.
 Added README/guide links, both GIF loops and all 25 EN/KO subtitle intervals also passed.
 Publication follow-up: normalized the two public SRT files to LF so the Git blobs and MANIFEST hashes agree; local MP4/SRT delivery files are preserved.
+
+
+## 2026-11-04 — simplify hardware wording in the demo
+
+Changed the structure narration to describe full-reference prediction and interactive
+inspection, and changed the editorial labels to ESMFold2 WT / ESM3 A32V saved prediction.
+The README feature copy and structure GIF captions now emphasize these functions rather
+than the GPU model. Actual scientific receipts and hardware/reproduction records remain
+unchanged. Source UI captures are preserved; this removes hardware emphasis from the edit,
+not provenance from the original application evidence.
+
+The previous local videos, narration, subtitle timing and verification receipt are preserved
+in local_artifacts/structure_demo_20261103/before_hardware_wording_edit. Updated files use the
+same delivery paths. The new wording requires no product Meta call, GPU job or Atlas lookup;
+only the public demo narration is regenerated with the existing speech service. Existing
+YouTube URL still identifies the older owner-uploaded cut.
+
+Media verification: both outputs are 180.000 seconds, 1920x1080, 30 fps, 5400 frames, nine chapters; full decode errors zero. Measured subtitle cues remain aligned and ordered.
+Package validation after the wording revision: 2237 checks, 0 failures.

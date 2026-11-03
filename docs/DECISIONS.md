@@ -1015,3 +1015,11 @@ is supplied. No speculative feature, new scientific run, score or ranking change
 Validation: 44 focused tests; complete decoding and 5400-frame/180-second checks for both
 outputs; encoded-frame visual checks and previous execution-clip quality comparison. See
 submission/structure_atlas_video_20261103.json for hashes, exact commands and evidence scope.
+
+
+## 2026-11-04 — keep hardware in execution evidence, focus demo on use
+
+Remove L40S from spoken narration, editorial model labels, README feature copy and GIF
+captions. Name the model, WT/A32V input and saved-prediction state instead. Preserve original
+receipts, reproduction specifications and captured UI evidence without alteration. This is
+an editorial revision; the models, outputs, ranking and available features do not change.

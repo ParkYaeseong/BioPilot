@@ -4,8 +4,8 @@
   "outputs": [
     {
       "file": "BioPilot_Bench_180s_YOUTUBE.mp4",
-      "sha256": "b5143d48942364171ea3980a1b3ea06e1fd5ae3d7adff5eb06be3661ea4d9918",
-      "size_bytes": 20233575,
+      "sha256": "4afa7d99db762256d2b5e9ad3f5a25bbcd02805a56ab2219db8eaafa85196ff2",
+      "size_bytes": 20077751,
       "duration_seconds": 180.0,
       "frames": 5400,
       "width": 1920,
@@ -20,8 +20,8 @@
     },
     {
       "file": "BioPilot_Bench_180s_EN.mp4",
-      "sha256": "7fe9dff91cb77578ee48c2e46d6e70bc04771edfbe8765793e3d32c89fecc919",
-      "size_bytes": 21041847,
+      "sha256": "98815568b9cc786ec7247c71f8565ffce2ef1c72b7242881ed18f59b6e353d01",
+      "size_bytes": 20951091,
       "duration_seconds": 180.0,
       "frames": 5400,
       "width": 1920,
@@ -146,13 +146,13 @@
       "title_ko": "실험 기준 구조와 저장된 예측 검토",
       "en": [
         "The public experimental reference checks where residues can actually be located.",
-        "ESMFold2 provides a full wild-type structure, computed on an L40S GPU and saved for inspection.",
+        "ESMFold2 provides a predicted structure of the full reference sequence for interactive inspection.",
         "For A32V, a separate ESM3 run provides a full two-hundred-twelve-residue predicted structure.",
         "These optional structure views complement the same saved ESM-two candidate ranking."
       ],
       "ko": [
         "공개 실험 기준 구조에서 잔기의 위치를 실제로 확인할 수 있는지 검토합니다.",
-        "ESMFold2는 L40S GPU로 계산해 저장한 전체 야생형 예측 구조를 제공합니다.",
+        "ESMFold2로 전체 기준 서열의 구조를 예측하고 인터랙티브하게 살펴봅니다.",
         "A32V에는 별도로 ESM3를 실행해 얻은 전체 212개 잔기의 예측 구조가 있습니다.",
         "이 선택적 구조 화면은 기존 ESM-2 후보 순위와 함께 검토하는 추가 근거입니다."
       ],
@@ -323,21 +323,21 @@
     },
     {
       "start": 108.14477083333334,
-      "end": 116.85216666666666,
-      "en": "ESMFold2 provides a full wild-type structure, computed on an L40S GPU and saved for inspection.",
-      "ko": "ESMFold2는 L40S GPU로 계산해 저장한 전체 야생형 예측 구조를 제공합니다.",
+      "end": 115.30385416666667,
+      "en": "ESMFold2 provides a predicted structure of the full reference sequence for interactive inspection.",
+      "ko": "ESMFold2로 전체 기준 서열의 구조를 예측하고 인터랙티브하게 살펴봅니다.",
       "segment": 6
     },
     {
-      "start": 119.85216666666666,
-      "end": 128.26125,
+      "start": 118.30385416666667,
+      "end": 126.71295833333333,
       "en": "For A32V, a separate ESM3 run provides a full two-hundred-twelve-residue predicted structure.",
       "ko": "A32V에는 별도로 ESM3를 실행해 얻은 전체 212개 잔기의 예측 구조가 있습니다.",
       "segment": 6
     },
     {
-      "start": 131.26125,
-      "end": 137.48283333333333,
+      "start": 129.71295833333335,
+      "end": 135.93454166666666,
       "en": "These optional structure views complement the same saved ESM-two candidate ranking.",
       "ko": "이 선택적 구조 화면은 기존 ESM-2 후보 순위와 함께 검토하는 추가 근거입니다.",
       "segment": 6
@@ -601,8 +601,8 @@
     "files": [
       {
         "file": "BioPilot_Bench_180s_YOUTUBE.mp4",
-        "sha256": "b5143d48942364171ea3980a1b3ea06e1fd5ae3d7adff5eb06be3661ea4d9918",
-        "size_bytes": 20233575,
+        "sha256": "4afa7d99db762256d2b5e9ad3f5a25bbcd02805a56ab2219db8eaafa85196ff2",
+        "size_bytes": 20077751,
         "duration_seconds": 180.0,
         "frames": 5400,
         "width": 1920,
@@ -617,8 +617,8 @@
       },
       {
         "file": "BioPilot_Bench_180s_EN.mp4",
-        "sha256": "7fe9dff91cb77578ee48c2e46d6e70bc04771edfbe8765793e3d32c89fecc919",
-        "size_bytes": 21041847,
+        "sha256": "98815568b9cc786ec7247c71f8565ffce2ef1c72b7242881ed18f59b6e353d01",
+        "size_bytes": 20951091,
         "duration_seconds": 180.0,
         "frames": 5400,
         "width": 1920,
@@ -663,7 +663,7 @@
         "psnr_db": 53.0540677912306
       }
     ],
-    "visual_review": "PASS: final encoded contact sheet and full-size structure, Atlas, evidence and caption samples reviewed; Atlas retrieval box and caption overlap corrected",
+    "visual_review": "PASS: regenerated source framing preserved; final encoded structure labels, subtitle layout and timing sampled after hardware wording change",
     "new_model_calls": 0,
     "new_gpu_jobs": 0
   },
@@ -677,5 +677,44 @@
     "failed_count": 0,
     "status": "PASS"
   },
-  "subtitle_validation": "25 cues in each language; ordered, non-overlapping and within 180 seconds"
+  "subtitle_validation": "25 cues in each language; ordered, non-overlapping and within 180 seconds",
+  "previous_local_outputs_before_hardware_wording_edit": [
+    {
+      "file": "BioPilot_Bench_180s_YOUTUBE.mp4",
+      "sha256": "b5143d48942364171ea3980a1b3ea06e1fd5ae3d7adff5eb06be3661ea4d9918",
+      "size_bytes": 20233575,
+      "duration_seconds": 180.0,
+      "frames": 5400,
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "chapters": 9,
+      "subtitle_languages": [
+        "eng",
+        "kor"
+      ],
+      "full_decode_errors": 0
+    },
+    {
+      "file": "BioPilot_Bench_180s_EN.mp4",
+      "sha256": "7fe9dff91cb77578ee48c2e46d6e70bc04771edfbe8765793e3d32c89fecc919",
+      "size_bytes": 21041847,
+      "duration_seconds": 180.0,
+      "frames": 5400,
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "chapters": 9,
+      "subtitle_languages": [],
+      "full_decode_errors": 0
+    }
+  ],
+  "wording_revision": {
+    "date_kst": "2026-11-04",
+    "scope": "Removed GPU hardware name from narration, editorial model labels and promotional captions; original scientific records retained",
+    "previous_cut_backup": "local_artifacts/structure_demo_20261103/before_hardware_wording_edit",
+    "product_model_calls": 0,
+    "gpu_jobs": 0,
+    "hardware_evidence": "validation/optional_science_runtime_20261028.json"
+  }
 }

@@ -3,8 +3,8 @@
   "gifs": [
     {
       "path": "docs/images/biopilot-predictions.gif",
-      "size_bytes": 1456865,
-      "sha256": "b5f17c80b6ce6c785cfaf2f020f23991364e6b8432ba7cbcf33e6bceeaa927dd",
+      "size_bytes": 1442722,
+      "sha256": "cd61130fe0fe877d414c7929957fa4a25da8dcbe6f64ee0fbc7ce9fdaaeed5b1",
       "width": 840,
       "height": 472,
       "frames": 84,
@@ -81,5 +81,7 @@
     "esmfold2": "WT",
     "esm3": "A32V"
   },
-  "visual_review": "PASS: generated frame contact sheet reviewed; recorded model labels and Atlas retrieval targets checked"
+  "visual_review": "PASS: same recorded UI sources and reviewed framing; editorial labels simplified to model, input and saved prediction",
+  "wording_revision": "Removed hardware model from editorial captions; underlying source captures and actual scientific receipts preserved",
+  "wording_revision_date_kst": "2026-11-04"
 }

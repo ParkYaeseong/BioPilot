@@ -36,7 +36,7 @@ and explains the result; code enforces residue numbering, protected catalytic
 sites, execution limits and a common ranking policy. Local ESM-2 scores all 19
 non-WT alternatives at an approved position. Researchers can also inspect a public
 experimental reference, real stored ESMFold2 WT and ESM3 A32V predictions from
-separate L40S GPU runs, and an exact-reference Atlas database snapshot. These
+separate runs, and an exact-reference Atlas database snapshot. These
 optional evidence views preserve the scoring policy and identify their sources.
 The event contribution is this guarded workflow and review interface, not the
 underlying public models or reference data. Sequence preferences and predicted

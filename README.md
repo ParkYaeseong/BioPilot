@@ -48,10 +48,10 @@ public 3D reference. Positions without observed atoms remain unmarked.
 
 ![Inspect missing A32 atoms, map S108 to author 77, and rotate the reference](docs/images/biopilot-structure.gif)
 
-### Explore real GPU structure predictions
+### Explore predicted structures
 
-Rotate the stored **ESMFold2 WT** and **ESM3 A32V** predictions, computed separately
-on an L40S GPU. Each result retains its model, input, execution receipt and checked
+Rotate the stored **ESMFold2 WT** and **ESM3 A32V** predictions from separate runs.
+Each result retains its model, input, execution receipt and checked
 full-reference sequence. These optional views complement the saved ESM-2 ranking;
 different models and inputs are not a measurement of the mutation's effect.
 
@@ -95,8 +95,8 @@ credentials, pinned local ESM weights and explicit approval.
 |---|---|---|
 | ESM-2 150M sequence scoring | Inspect saved scores for 19 alternatives | New review, with your Meta credentials and pinned local CPU weights |
 | Public experimental structure (1ISP) | Interactive reference view with checked residue correspondence | No folding required |
-| ESMFold2 | Inspect the stored WT prediction from an actual L40S run | Separate GPU worker; not launched by New review |
-| ESM3 open | Inspect the stored A32V prediction from an actual L40S run | Separate GPU worker; not launched by New review |
+| ESMFold2 | Inspect the stored WT prediction from an actual run | Separate GPU worker; not launched by New review |
+| ESM3 open | Inspect the stored A32V prediction from an actual run | Separate GPU worker; not launched by New review |
 | Biohub ESM Atlas | Inspect the saved exact-reference WT match and source | Separate approved lookup; not similarity search |
 
 To view the predictions, open a saved review → **Structure** →
