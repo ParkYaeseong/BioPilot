@@ -194,5 +194,6 @@
   "youtube_caption_tracks_verified": false,
   "github_demo_release_present": false,
   "github_release_retirement_receipt": "submission/demo_release_retirement_20261103.json",
-  "final_form_answers": "submission/FORM_ANSWERS_20261103.md"
+  "final_form_answers": null,
+  "form_answers_distribution": "Private local preparation; excluded from public source"
 }

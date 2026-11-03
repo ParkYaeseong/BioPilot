@@ -1028,3 +1028,11 @@ an editorial revision; the models, outputs, ranking and available features do no
 ## 2026-11-04 — describe structure review by its purpose
 
 Use function-first README wording: inspect ESMFold2 WT and ESM3 A32V predictions alongside sequence scores. Keep hardware setup in the execution guide and original receipts. Preserve separate-run and ranking boundaries.
+
+
+## 2026-11-04 — keep submission answers outside the public code package
+
+The owner's copy-ready form responses and survey draft belong in local preparation,
+not the public repository. Preserve both locally and remove them from the current
+branch, its navigation and manifest. Keep reproducibility and contribution evidence
+public. Preserve existing commit history; changing history requires a separate decision.

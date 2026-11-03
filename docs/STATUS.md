@@ -1529,3 +1529,17 @@ Package validation after the wording revision: 2237 checks, 0 failures.
 
 Changed README.md to describe stored structure predictions and interactive inspection, without foregrounding GPU hardware. Existing GIFs, actual model/input labels, execution guides and scientific records remain intact. Documentation-only change; no new model calls or GPU jobs.
 Validation: .venv/Scripts/python.exe checks/validate_package.py — 2237 checks, 0 failures. Next action: view the updated public README; no new execution approval required.
+
+
+## 2026-11-04 — remove private form preparation from public source
+
+Moved the final form answers and earlier form draft byte-for-byte to ignored
+local_artifacts/submission_private. Removed public links from submission/README.md,
+cleared final_form_answers in submission/manifest.current.json and added targeted
+.gitignore entries. These form/survey drafts are not required to install or review the
+project. Public scientific evidence, reproduction instructions and original execution
+records remain available. No history rewrite was performed; prior commits retain the
+previously published drafts. No model call, GPU job, form submission or data deletion.
+Next allowed action: use the local copy for manual submission, without redistributing it
+in the public source package.
+Validation: checks/validate_package.py — 2229 checks, 0 failures; both local draft copies match their original SHA256 hashes.

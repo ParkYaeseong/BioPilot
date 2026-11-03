@@ -1,10 +1,9 @@
-# BioPilot Bench — local submission draft
+# BioPilot Bench — reproduction and submission evidence
 
 ## Final submission links — November 3
 
 - [Public repository](https://github.com/ParkYaeseong/BioPilot)
 - [YouTube demo](https://www.youtube.com/watch?v=V7jWi7q1ggU) — supplied by the owner after their upload
-- [Final field-by-field answers](FORM_ANSWERS_20261103.md)
 - [Event contribution disclosure](../compliance/EVENT_CONTRIBUTIONS.md)
 
 The earlier GitHub demo Release is retired at the owner's request. Earlier Release
@@ -14,11 +13,12 @@ not been independently verified during this link update.
 
 ## November 3 final preparation
 
-[Ready-to-copy form answers](FORM_DRAFT_20261103.md),
-[new versus reused contributions](../compliance/EVENT_CONTRIBUTIONS.md),
+[New versus reused contributions](../compliance/EVENT_CONTRIBUTIONS.md),
 [owner-reported participation confirmation](../compliance/ELIGIBILITY_STATUS_20261103.md),
 and [current quality-corrected media upload](demo_release_quality_20261103.json)
 supersede the corresponding earlier preparation status below.
+Form answers and survey drafts are private preparation and are not distributed
+with the public source. The earlier preparation records below are historical.
 The repository is now public under MIT for original project code/documentation;
 [anonymous source/video access was verified](../validation/public_access_20261103.json).
 The current public video includes the event contribution label and quality repair.
