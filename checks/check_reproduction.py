@@ -1,6 +1,6 @@
 """Exercise the workbench without dispatching a provider or scientific worker.
 
-Run with only requirements-workbench.txt installed. This checks rendered AppTest
+Run with only requirements/workbench.txt installed. This checks rendered AppTest
 elements and saved data, not browser JavaScript, an independent PC, or live inference.
 """
 import argparse

@@ -1195,3 +1195,26 @@ Still not done and still not authorised: the private demo Release still carries 
 2026-11-02 asset and the re-encoded MP4 has not been uploaded; no GitHub publication,
 no external deployment, no contest submission, no GPU or Modal work, no biological
 efficacy claim. Full human listening review of the audio remains pending.
+
+## 2026-11-03 — repository root flattened
+
+Changed files: seven `requirements-*.txt` moved to `requirements/*.txt`;
+`BIOPILOT_ATLAS_KO.md`, `OPEN_ISSUES.md`, `SOURCES.md`, `VALIDATION.md` moved to `docs/`;
+references updated in `README.md`, `docs/VALIDATION.md`, `docs/BIOPILOT_ATLAS_KO.md`,
+`docs/IMPLEMENTATION_KO.md`, `checks/check_reproduction.py`, `checks/validate_package.py`,
+`compliance/THIRD_PARTY_NOTICES.md`, `prompts/coding/00_bootstrap_ko.txt`,
+`submission/README.md`, `submission/REPRODUCE_KO.md`, `requirements/workbench.txt`;
+plus `MANIFEST.sha256`, `docs/DECISIONS.md`.
+
+Root entries went from 40 to 30. A sweep confirms no `requirements-` reference and no
+root-relative link to a moved document survives outside the frozen historical records,
+which keep the old paths on purpose. The `-r` include in the workbench pin resolves.
+
+Tests: package validator 2149 checks, 0 failures; `pytest -q` 785 passed, 2 skipped,
+12 subtests passed. The GIF was also re-delivered at 760x428 and 2.4 MB so the README
+image loads quickly; the bytes on GitHub match the local blob exactly.
+
+Still not done and still not authorised: the repository stays private until the owner
+publishes it at the end; the demo Release still carries the 2026-11-02 video and the
+re-encoded cut has not replaced it; no external deployment, contest submission, GPU or
+Modal work, and no biological efficacy claim.

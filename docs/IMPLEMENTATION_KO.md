@@ -24,8 +24,8 @@ Transformers 5.2.0, Streamlit 1.66.1. 실제 ESM 실행은 CPU/float32였습니�
 사용하지 않았습니다. `.venv`는 기존 패키지를 재사용하는 `--system-site-packages`
 환경이므로 다른 컴퓨터의 깨끗한 재설치는 아직 검증하지 않았습니다.
 
-직접 의존성은 `requirements-dev.txt`, 과학 런타임은 `requirements-science.txt`, 선택
-뷰어는 `requirements-viewer.txt`에 고정했습니다. Modal SDK 1.6.2의 오프라인 API 검사는
+직접 의존성은 `requirements/dev.txt`, 과학 런타임은 `requirements/science.txt`, 선택
+뷰어는 `requirements/viewer.txt`에 고정했습니다. Modal SDK 1.6.2의 오프라인 API 검사는
 원격 배포나 GPU 실행의 증거가 아닙니다.
 
 ## 외부 호출 없는 로컬 검사

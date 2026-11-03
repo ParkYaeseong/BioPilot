@@ -57,7 +57,7 @@ without model weights or the author's credentials.
 
 ```powershell
 py -3.14 -m venv .venv
-.venv/Scripts/python.exe -m pip install -r requirements-workbench-win-py314.lock.txt
+.venv/Scripts/python.exe -m pip install -r requirements/workbench-win-py314.lock.txt
 .venv/Scripts/python.exe checks/check_reproduction.py
 .venv/Scripts/python.exe -m streamlit run app/bench.py --server.headless true --server.address 127.0.0.1 --server.port 8522 -- --state-dir .runtime/judge-review --artifact demo/artifacts/unified_review_20261029.replay.json
 ```

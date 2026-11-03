@@ -717,3 +717,27 @@ existing screenshot hashes and keeps the LOCAL UI and REPLAY labels.
 
 The re-encoded MP4 no longer matches the asset already attached to the private
 demo Release. Re-upload is not performed and still requires explicit approval.
+
+
+## 2026-11-03 — flatten the repository root
+
+Forty entries at the repository root buried the README under seven
+`requirements-*.txt` files and four secondary documents. Collect the pins into
+`requirements/` with the redundant prefix dropped, and move `BIOPILOT_ATLAS_KO.md`,
+`OPEN_ISSUES.md`, `SOURCES.md` and `VALIDATION.md` into `docs/`. Thirty entries remain.
+
+`README.md`, `AGENTS.md`, `START_HERE_KO.md` and `CHANGELOG.md` stay at the root as
+entry points, as do `MANIFEST.sha256`, `pytest.ini` and `sources.json`, which the
+validator and test runner resolve from there.
+
+Every reference in this package is repo-root-relative, because the install lines are
+run from the root and the prose cites root paths. The rewrite therefore adds no `../`
+anywhere. The single exception is the `-r` include inside the workbench pin, which pip
+resolves beside its own file and now reads `-r viewer.txt`.
+
+Recorded evidence was not rewritten. The original v2 manifest, the reproduction
+receipts under `validation/`, and the append-only STATUS, DECISIONS and CHANGELOG logs
+still cite the old root paths, which is what they are for: they state where the files
+were when those runs happened. Anyone replaying
+`validation/clean_workbench_reproduction_20261102.json` should read its command against
+the old layout; the current instructions live in `submission/REPRODUCE_KO.md`.

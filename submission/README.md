@@ -81,8 +81,8 @@ The second command must exit 2 with `status: blocked`: the catalytic residue is
 protected. The viewer is bound to localhost and only reads saved artifacts.
 For an actual fresh local MCP round trip and the full verification commands, see
 [IMPLEMENTATION_KO.md](../docs/IMPLEMENTATION_KO.md) and [the recording guide](../demo/README_KO.md).
-Tested dependency pins are in `requirements-dev.txt`, `requirements-science.txt`
-and `requirements-viewer.txt`. The current `.venv` reuses system packages;
+Tested dependency pins are in `requirements/dev.txt`, `requirements/science.txt`
+and `requirements/viewer.txt`. The current `.venv` reuses system packages;
 **installation into a clean environment has not been verified**.
 
 Fresh Meta execution is a separate approved action. `MODEL_API_KEY` or

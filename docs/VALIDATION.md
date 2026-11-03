@@ -62,7 +62,7 @@ rules/form, real model IDs, provider billing and installed SDK/host compatibilit
 
 ## Reproduce after extraction
 
-Install `requirements-checks.txt` only in an authorized environment if its dependencies are absent.
+Install `requirements/checks.txt` only in an authorized environment if its dependencies are absent.
 Then run from the extracted package root:
 
 ```bash
@@ -73,4 +73,4 @@ python checks/validate_package.py
 The checks do not require API keys or paid network calls. The subprocess regression tests create
 and remove isolated temporary copies. Ignore generated __pycache__ files when repackaging.
 
-Read `OPEN_ISSUES.md` before making any scientific, compatibility or competition-compliance claim.
+Read `docs/OPEN_ISSUES.md` before making any scientific, compatibility or competition-compliance claim.

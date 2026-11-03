@@ -13,7 +13,7 @@ try:
     import yaml
     from jsonschema import Draft202012Validator
 except ImportError:
-    raise SystemExit('Missing local checker dependency. Review requirements-checks.txt before installation.')
+    raise SystemExit('Missing local checker dependency. Review requirements/checks.txt before installation.')
 
 from science_contracts import verify_target
 from hackathon_contracts import to_chat_tools, select_tools, validate_timeline, validate_bundle_paths, RUBRIC_WEIGHTS

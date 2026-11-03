@@ -13,7 +13,7 @@
 
 ```powershell
 py -3.14 -m venv .venv
-.venv/Scripts/python.exe -m pip install -r requirements-workbench-win-py314.lock.txt
+.venv/Scripts/python.exe -m pip install -r requirements/workbench-win-py314.lock.txt
 .venv/Scripts/python.exe -m pip check
 .venv/Scripts/python.exe checks/check_reproduction.py
 .venv/Scripts/python.exe -m streamlit run app/bench.py --server.headless true --browser.gatherUsageStats false --server.address 127.0.0.1 --server.port 8522 -- --state-dir .runtime/judge-review --artifact demo/artifacts/unified_review_20261029.replay.json
@@ -23,7 +23,7 @@ py -3.14 -m venv .venv
 주소는 http://127.0.0.1:8522/ 입니다. `python -m streamlit`을 사용합니다.
 `streamlit.exe run`만 쓰면 프로젝트의 `app` 모듈을 찾지 못할 수 있습니다.
 검증된 전이 의존성 버전은 lock 파일에 있습니다. 최소 직접 의존성 목록은
-`requirements-workbench.txt`이며, 별도 읽기 전용 뷰어는 `requirements-viewer.txt`입니다.
+`requirements/workbench.txt`이며, 별도 읽기 전용 뷰어는 `requirements/viewer.txt`입니다.
 
 ## 확인할 동작
 
@@ -42,7 +42,7 @@ A32는 기준 실험 구조에 원자가 없으므로 임의 위치를 표시하
 ## 실제 새 실행과의 구분
 
 위 설치는 **저장 결과와 로컬 입력 검증용**입니다. Meta/MCP/ESM 새 실행에는
-`requirements-dev.txt`, `requirements-science.txt`, 별도로 검증한 Meta 설정·사용자 본인의
+`requirements/dev.txt`, `requirements/science.txt`, 별도로 검증한 Meta 설정·사용자 본인의
 인증정보·해시를 고정한 로컬 ESM 체크포인트와 명시적 승인이 필요합니다.
 이 문서는 새 환경의 유료/과학 계산 경로까지 검증했다고 주장하지 않습니다.
 설정 방식과 실행 범위는 [통합 작업 안내](../docs/UNIFIED_WORKBENCH_KO.md)를 보세요.
