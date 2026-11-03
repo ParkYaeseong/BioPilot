@@ -7,7 +7,7 @@
 
 - [제출 설명](README.md), [현재 manifest](manifest.current.json), [증거 목록](evidence.current.json)
 - [저장된 실제 실행 재생](../demo/README_KO.md), [실제 로컬 보호/MCP 검사](../validation/submission_local_smoke_20261028.json)
-- [실행 환경과 검증 방법](../docs/IMPLEMENTATION_KO.md), [상태와 테스트 기록](../docs/STATUS.md)
+- [실행 환경과 검증 방법](../docs/IMPLEMENTATION_KO.md), [상태와 테스트 기록](https://github.com/ParkYaeseong/BioPilot/blob/0086ef9/docs/STATUS.md)
 - [작성·재사용 이력](../compliance/originality_ledger.csv), [권리 검토 목록](../compliance/THIRD_PARTY_NOTICES.md)
 
 아직 확인이 필요한 항목:
@@ -31,4 +31,4 @@ agent에 의한 생물학적 순위 개선, 측정하지 않은 시간 절감, �
 Modal/RunPod/Atlas/구조 예측/Native Muse Code의 실연결도 제출 기능으로 주장하지 않습니다.
 
 기술 변경은 기록된 로컬 경로에 한정합니다. 공개·배포·제출과 provider/GPU 작업의 별도
-승인 원칙은 [AGENTS.md](../AGENTS.md)의 프로젝트 경계를 따릅니다.
+승인 원칙은 [AGENTS.md](https://github.com/ParkYaeseong/BioPilot/blob/0086ef9/AGENTS.md)의 프로젝트 경계를 따릅니다.

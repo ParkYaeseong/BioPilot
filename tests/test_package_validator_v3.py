@@ -43,6 +43,16 @@ class PackageValidatorV3Tests(unittest.TestCase):
         self.assertEqual(code,0,report['failures'])
         self.assertEqual(report['failed_count'],0)
 
+    def test_local_development_notes_are_not_read_as_public_docs(self):
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td)/'pack';self.copy_package(root)
+            local=root/'docs/superpowers/private/session.md'
+            local.parent.mkdir(parents=True,exist_ok=True)
+            local.write_bytes(b'\xff local material outside the source inventory')
+            proc=subprocess.run([sys.executable,str(root/'checks/validate_package.py'),
+                                 '--root',str(root)],text=True,capture_output=True,timeout=30)
+            self.assertEqual(proc.returncode,0,proc.stderr)
+
     def test_catalog_schema_drift_is_detected(self):
         with tempfile.TemporaryDirectory() as td:
             root=Path(td)/'pack';self.copy_package(root)

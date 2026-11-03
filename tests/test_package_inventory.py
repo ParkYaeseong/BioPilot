@@ -96,3 +96,15 @@ def test_public_scientific_evidence_and_readme_media_remain_packaged(tmp_path):
     for relative in keep:
         write(tmp_path,relative)
     assert inventory(tmp_path)==keep
+
+
+@pytest.mark.parametrize('relative',[
+    'AGENTS.md', 'START_HERE_KO.md', 'MANIFEST.sha256',
+    'docs/STATUS.md', 'docs/01_product_spec.md',
+    'docs/superpowers/plans/design.md', 'docs/archive/demo/old_script.md',
+    'docs/images/biopilot-demo.gif',
+])
+def test_local_development_material_is_not_published_as_source(tmp_path,relative):
+    write(tmp_path,relative)
+    write(tmp_path,'README.md')
+    assert inventory(tmp_path)=={'README.md'}

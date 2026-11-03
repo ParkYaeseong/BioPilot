@@ -8,7 +8,7 @@ stored structure predictions and Atlas reference context. Meta selects permitted
 tools and explains the evidence; code enforces scientific constraints, execution
 limits and ranking.
 
-[Demo](#demo) · [Features](#features) · [Quickstart](#quickstart) · [Event contributions](compliance/EVENT_CONTRIBUTIONS.md) · [MIT License](LICENSE)
+[Demo](#demo) · [Features](#features) · [Quickstart](#quickstart) · [Documentation](docs/README.md) · [Event contributions](compliance/EVENT_CONTRIBUTIONS.md) · [MIT License](LICENSE)
 
 ## Demo
 
@@ -145,7 +145,7 @@ from stored predictions and leave missing atom coordinates unmarked.
 | `tests/`, `tests_app/`, `checks/` | Tests, package validation and reproduction checks |
 | `examples/`, `templates/`, `evaluation/` | Integration examples, configuration templates and offline evaluation tools |
 | `evaluation_private/` | Two label-free protocol templates; actual local assay data and results are excluded |
-| `docs/` | Guides, diagrams and archived preparation |
+| `docs/` | Usage, model setup, scientific contracts and testing guides |
 | `compliance/`, `submission/`, `validation/` | Contribution disclosure, submission information and evidence |
 
 ## Development and contributions
@@ -158,7 +158,7 @@ helper algorithms, public models, data and libraries are disclosed separately.
 [Contribution breakdown](compliance/EVENT_CONTRIBUTIONS.md)
 · [Development history](compliance/DEVELOPMENT_HISTORY.md)
 · [AI assistance](compliance/AI_DEVELOPMENT.md)
-· [Execution and validation records](docs/STATUS.md)
+· [Execution and validation records](validation/README.md)
 
 ## License
 

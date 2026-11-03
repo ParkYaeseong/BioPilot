@@ -1,0 +1,61 @@
+{
+  "date_kst": "2026-11-04",
+  "status": "PASS",
+  "scope": "Public documentation cleanup and clean-source reproduction; no history rewrite",
+  "files_untracked_with_local_originals_preserved": 60,
+  "local_archive": "local_artifacts/documentation_cleanup_20261104",
+  "local_originals_hash_verified": true,
+  "past_git_history_retained": true,
+  "root_files_local_only": [
+    "AGENTS.md",
+    "START_HERE_KO.md",
+    "MANIFEST.sha256"
+  ],
+  "manifest_policy": "Optional locally generated checksums; not a runtime or checkout dependency",
+  "docs_files_before": 74,
+  "docs_files_after": 19,
+  "public_docs_markdown": 12,
+  "public_readme_gifs": 7,
+  "public_docs_index": "docs/README.md",
+  "testing_guide": "docs/TESTING.md",
+  "public_markdown_relative_links": "PASS against published source inventory, not local file existence",
+  "scientific_data_and_runtime_code_unchanged": true,
+  "regressions": {
+    "inventory_tests": 34,
+    "validator_and_inventory_focused_tests": 42,
+    "red_cases_verified": [
+      "8 local-development material cases",
+      "ignored development notes must not be read as public docs"
+    ],
+    "clean_checkout_temp_issue": "Removed pytest.ini default requiring an absent .cache parent; single fresh-checkout reproducer passed after correction",
+    "clean_source_full_suite": {
+      "command": "python -m pytest tests tests_app -q -rs -p no:cacheprovider --tb=short",
+      "passed": 808,
+      "skipped": 3,
+      "subtests_passed": 12,
+      "warnings": 2,
+      "skip_scope": "Two Windows symlink privileges and absent approved local-only 1ISP re-derivation copy",
+      "warnings_scope": "Existing Modal asyncio deprecations"
+    },
+    "clean_source_package_check_without_manifest": {
+      "checks": 1094,
+      "failures": 0
+    },
+    "offline_reproduction": {
+      "views": 5,
+      "candidates": 19,
+      "S108A": "blocked",
+      "A32V": "accepted",
+      "execute_disabled_without_configuration": true,
+      "provider_calls": 0,
+      "gpu_calls": 0
+    },
+    "workspace_package_check_with_optional_local_manifest": {
+      "checks": 1799,
+      "failures": 0
+    }
+  },
+  "new_meta_calls": 0,
+  "new_gpu_jobs": 0,
+  "published_source_files_after": 351
+}

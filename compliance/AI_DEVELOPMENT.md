@@ -18,7 +18,7 @@ now from existing records, not a contemporaneous chat transcript or an organizer
 | Role | Actual use | Evidence |
 |---|---|---|
 | Product runtime | Meta Model API, requested and returned `muse-spark-1.3`; bounded MCP tool selection and public explanations | [Actual integration receipt](../validation/integration_success_20261027.json), [saved replay](../demo/artifacts/sequence_review.replay.json) |
-| Development assistance | Codex helped implement, debug, test, document and prepare demonstrations | Source, tests, [decision log](../docs/DECISIONS.md), [originality ledger](originality_ledger.csv) |
+| Development assistance | Codex helped implement, debug, test, document and prepare demonstrations | Source, tests, [decision log](https://github.com/ParkYaeseong/BioPilot/blob/0086ef9/docs/DECISIONS.md), [originality ledger](originality_ledger.csv) |
 | Additional development assistance | The owner reports local updates made with Claude, including session, structure and tutorial work subsequently reviewed and refined | Owner's development disclosure; not an independently exported Claude transcript |
 | Scientific models | ESM2 scoring; separate ESM3/ESMFold2 GPU predictions | [GPU execution records](../validation/optional_science_runtime_20261028.json) |
 

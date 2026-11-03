@@ -108,7 +108,7 @@ def main() -> int:
         text=pth.read_text(encoding='utf-8');check('no numeric assay cutoff in runtime '+pth.name,'46.34' not in text)
     sources=load('sources.json');ids=[s['id'] for s in sources]
     check('source IDs unique',len(ids)==len(set(ids)))
-    for doc in (root/'docs').rglob('*.md'):
+    for doc in (p for p in files if p.suffix=='.md' and p.is_relative_to(root/'docs')):
         for token in re.findall(r'\[(S[0-9]{2}(?:[^\]]*)?)\]',doc.read_text(encoding='utf-8')):
             for sid in re.findall(r'S[0-9]{2}',token):check('source resolves '+doc.name+' '+sid,sid in ids)
     prompts=list((root/'prompts').rglob('*.txt'))

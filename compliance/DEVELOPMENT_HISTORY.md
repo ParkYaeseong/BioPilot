@@ -19,7 +19,7 @@ It does not retroactively create dated development commits.
 | 2026-10-27 | Supplied v3 design package preserved | Actual commit `5898a2f` (`chore: preserve supplied v3 design package before implementation`) |
 | 2026-10-27 | Guarded MCP core, controlled host and ESM providers | Actual commit `c0cb60f` (`feat: implement guarded MCP review core and explicit ESM providers`) |
 | 2026-10-27 | Actual Meta → MCP → ESM2 execution | [Recorded receipt](../validation/integration_success_20261027.json); requested/returned `muse-spark-1.3`, three requests, nineteen candidates |
-| 2026-10-28 | Viewer/session, coordinate join, verifier, spotlight and validation refinements | [Milestone log](../docs/STATUS.md), [decisions](../docs/DECISIONS.md), tests and versioned records; much of this was not committed individually |
+| 2026-10-28 | Viewer/session, coordinate join, verifier, spotlight and validation refinements | [Milestone log](https://github.com/ParkYaeseong/BioPilot/blob/0086ef9/docs/STATUS.md), [decisions](https://github.com/ParkYaeseong/BioPilot/blob/0086ef9/docs/DECISIONS.md), tests and versioned records; much of this was not committed individually |
 | 2026-10-28 | Exact-WT Atlas acquisition and two actual optional GPU predictions | [Atlas receipt](../validation/atlas_registered_reference_20261028.json), [GPU receipt](../validation/optional_science_runtime_20261028.json); separate from the older Meta trace |
 | 2026-10-29 | Repository publication preparation | Current-date commits, hygiene checks and documentation; not a claim of work performed on an earlier date |
 
