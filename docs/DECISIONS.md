@@ -1,5 +1,23 @@
 # Decision log
 
+## YouTube upload package prepared; browser permission blocked — 2026-11-03
+
+Owner authorized a project YouTube channel or existing Google account,English
+description,selectable Korean captions and replacing the README video link. Browser
+access to https://www.youtube.com was denied at the origin approval gate. No
+alternate route,account creation,upload,legal acceptance or invented watch URL.
+Requested site permission; prepared all independent local media work meanwhile.
+
+Created local_artifacts/youtube_upload_20261103 with180s1080p30MP4,English narration,
+no burned dialogue captions,matched27-cue EN/KO SRTs,English description with9chapters,
+credits and GitHub links. Original zoom/highlight style and narration retained.
+Verified5400frames,whole-file decode,identical decoded audio,7sample frames and
+caption source bytes. Current source SHA256f4a006d9e582985e8087e99f10e7d049fd6229dd362a35e213a42d736e169b1b,
+16,425,920bytes. No new Meta/GPU calls. Existing Release/video files unchanged.
+README link intentionally remains the working Release until an actual YouTube URL
+is uploaded and verified. Local metadata/receipt status:prepared_not_uploaded.
+Next:restore YouTube browser permission,inspect channel and upload with EN/KO tracks.
+
 ## README simplified and actual form answers prepared — 2026-11-03
 
 Rewrote README from207to85lines around the product,demo,features,quickstart,workflow,
