@@ -1,0 +1,88 @@
+{
+  "date_kst": "2026-11-03",
+  "reason": "Separate obsolete demonstration preparation from current runnable demo artifacts",
+  "content_bytes_preserved": true,
+  "source_history_rewritten": false,
+  "moved": [
+    {
+      "original_path": "demo/NARRATION_EN.md",
+      "archived_path": "docs/archive/demo/NARRATION_EN.md",
+      "sha256": "8534c70c9f4d7c59e874cca9fd5723866e376e14cc88fd6d592caceeec714930"
+    },
+    {
+      "original_path": "demo/NARRATION_EN.srt",
+      "archived_path": "docs/archive/demo/NARRATION_EN.srt",
+      "sha256": "bf33f7bf707740eb3f2bf5fe1e0b2b949be1963e05213e219f4233f36f18e7e9"
+    },
+    {
+      "original_path": "demo/OVERVIEW_DEMO_180S_EN.md",
+      "archived_path": "docs/archive/demo/OVERVIEW_DEMO_180S_EN.md",
+      "sha256": "1429b84c5854e91ef4c870c607fff9b3274d4883b3d4301618171bc1c9f2cea5"
+    },
+    {
+      "original_path": "demo/POLISHED_NARRATION_EN.md",
+      "archived_path": "docs/archive/demo/POLISHED_NARRATION_EN.md",
+      "sha256": "4d2d134440d361a025065666a94445cd6f2e4b74ba5c3701c0dc1738d3803f53"
+    },
+    {
+      "original_path": "demo/POLISHED_NARRATION_EN.srt",
+      "archived_path": "docs/archive/demo/POLISHED_NARRATION_EN.srt",
+      "sha256": "641efe7bedac10bf5a8830a507443e82c3bd16a78e48cffe3b4c415d5197a689"
+    },
+    {
+      "original_path": "demo/PRESENTER_NOTES_KO.md",
+      "archived_path": "docs/archive/demo/PRESENTER_NOTES_KO.md",
+      "sha256": "194885aa16a9cfb8cff277a75ea6d68095c9cf84ec16c0832f226a8699f2af40"
+    },
+    {
+      "original_path": "demo/RECORDING_CHECKLIST.md",
+      "archived_path": "docs/archive/demo/RECORDING_CHECKLIST.md",
+      "sha256": "8c2a9043ec3dd53e1fc7a2dcffc405d9c8182682c945b7c5e43d44f5d264e866"
+    },
+    {
+      "original_path": "demo/RECORD_POLISHED_KO.md",
+      "archived_path": "docs/archive/demo/RECORD_POLISHED_KO.md",
+      "sha256": "c128c422a7209f6ba2ba158d0aaff39bd6a636b3ac5183747303b0b463dfbfb6"
+    },
+    {
+      "original_path": "demo/RECORD_SPOTLIGHT_KO.md",
+      "archived_path": "docs/archive/demo/RECORD_SPOTLIGHT_KO.md",
+      "sha256": "e8169c9de19a3eafa797573f4672e957597e2a849a64da926916f1efec6e3c44"
+    },
+    {
+      "original_path": "demo/RECORD_WORKBENCH_KO.md",
+      "archived_path": "docs/archive/demo/RECORD_WORKBENCH_KO.md",
+      "sha256": "3c944865f356842ce7850bebe0a2079884611e8d1dfa2cfcccbcd618219a2d43"
+    },
+    {
+      "original_path": "demo/SPOTLIGHT_NARRATION_EN.md",
+      "archived_path": "docs/archive/demo/SPOTLIGHT_NARRATION_EN.md",
+      "sha256": "58b996cd86ddf0ce045a9cc4191430df958fcf8885f2909308104e2cba2f7551"
+    },
+    {
+      "original_path": "demo/SPOTLIGHT_NARRATION_EN.srt",
+      "archived_path": "docs/archive/demo/SPOTLIGHT_NARRATION_EN.srt",
+      "sha256": "49de13235eb4bbaa52dee333c750e87b413be03732e7d4be1bf9617d9b9602fa"
+    },
+    {
+      "original_path": "demo/WORKBENCH_NARRATION_EN.md",
+      "archived_path": "docs/archive/demo/WORKBENCH_NARRATION_EN.md",
+      "sha256": "ccbf46b5a7a4af0971e7b7fab5fa7a0eb890cb88d702a0836f30774dc5473f44"
+    },
+    {
+      "original_path": "demo/WORKBENCH_NARRATION_EN.srt",
+      "archived_path": "docs/archive/demo/WORKBENCH_NARRATION_EN.srt",
+      "sha256": "99b429c58e420b86cf4e8082bbc786e99bdd49f752dd700d4bec221bb51d78ff"
+    },
+    {
+      "original_path": "diagrams/architecture.mmd",
+      "archived_path": "docs/diagrams/architecture.mmd",
+      "sha256": "c92a7038fd86828fdaa56d1229400a7df45c4018cccb64668ddd0b9d12b3a374"
+    },
+    {
+      "original_path": "diagrams/run_states.mmd",
+      "archived_path": "docs/diagrams/run_states.mmd",
+      "sha256": "956331b74ce00b30ce168d094997f7b073ed84114ffc43d07a7cb147cae9278d"
+    }
+  ]
+}

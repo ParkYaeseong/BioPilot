@@ -92,6 +92,17 @@ reference. ESM scores are sequence preferences, not experimental T50, activity,
 stability or proof of retained function. Structure views distinguish the reference
 from stored predictions and leave missing atom coordinates unmarked.
 
+## Repository layout
+
+| Directory | Contents |
+|---|---|
+| `app/` | Workbench, Meta host, MCP server and scientific services |
+| `reference/`, `prompts/`, `schemas/`, `config/` | Registered scientific inputs and execution contracts |
+| `demo/artifacts/` | Saved real results and structures used by the offline viewer |
+| `tests/`, `tests_app/`, `checks/` | Tests, package validation and reproduction checks |
+| `docs/` | Guides, diagrams and archived preparation |
+| `compliance/`, `submission/`, `validation/` | Contribution disclosure, submission information and evidence |
+
 ## Development and contributions
 
 Built for the Meta Global AI Developer Hackathon by **Yaeseong Park**, with substantial

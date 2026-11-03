@@ -28,7 +28,7 @@ in `demo/REVIEW_FLOWS_180S_EN.md` and Korean screen actions in `demo/REVIEW_FLOW
 It plans exactly 180 seconds of the unified file/request workflow and a labeled recorded
 uploaded-input execution (3 Meta requests,45.48 seconds), followed by its actual result views.
 Tutorials remain separate local/replay walkthroughs and never invoke execution.
-The original `demo/storyboard.json` and `demo/NARRATION_EN.md` remain historical plans.
+The original `demo/storyboard.json` and `docs/archive/demo/NARRATION_EN.md` remain historical plans.
 Show a real request, actual Meta-to-MCP execution, one concrete failure or constraint branch and a
 reviewable result. Explain the measured workflow benefit, not a fictional biological improvement.
 A clear output is more useful than scrolling through large logs or a wall of architecture slides.

@@ -192,7 +192,7 @@ not evidence of research time savings, biological skill or a superior rank polic
 
 ## Latest local review material — 2026-10-28
 
-Use demo/RECORD_SPOTLIGHT_KO.md and submission/video_spotlight_receipt.json for the
+Use docs/archive/demo/RECORD_SPOTLIGHT_KO.md and submission/video_spotlight_receipt.json for the
 new180s spotlight/rotation video. New UI previews are loopback8522/8523; see
 docs/WORKSPACE_REFINEMENT_KO.md. Both optional GPU models have actual recorded
 results in validation/optional_science_runtime_20261028.json. These remain separate

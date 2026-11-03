@@ -29,7 +29,7 @@ Meta의 저장 실행 단계와 미검증 사항을 먼저 보여 줍니다. 저
 - `app/viewer.css`: 줄바꿈·표 내부 스크롤·좁은 화면 배치
 - `app/guided_tour.py`, `app/tour_spotlight.py`, `app/tour_spotlight.js`: 9단계와 상태 복원
 - `tests_app/test_overview_priority.py` 및 기존 viewer/workspace/tour 테스트
-- `demo/OVERVIEW_DEMO_180S_EN.md`: 새 화면 순서에 맞춘 180초 시연 계획
+- `docs/archive/demo/OVERVIEW_DEMO_180S_EN.md`: 새 화면 순서에 맞춘 180초 시연 계획
 
 ## 검증 및 시각 검증의 한계
 

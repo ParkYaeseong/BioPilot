@@ -1,5 +1,22 @@
 # Current status
 
+## Supporting-document layout cleanup — 2026-11-03
+
+Reviewed repository directory roles after owner questioned clutter. Kept checks/
+(9small validation/reproduction scripts) and demo/artifacts/ because the package
+checks,offline viewer,prediction view and tests use them. Moved14superseded demo
+scripts/subtitles/recording guides into docs/archive/demo/ and2Mermaid diagrams
+into docs/diagrams/,removing the standalone diagrams directory from current root.
+All16moved file hashes are identical. Original manifests/receipts remain unchanged;
+docs/archive/demo/archive_paths.json resolves original paths to current locations.
+Updated active pointers and added a compact README directory map. Historical
+preparation,source history,biological artifacts and runtime paths are preserved.
+
+Validation:82package tests passed with12subtests;fresh-environment offline AppTest
+passed5views,19candidates,S108A blocked,A32V accepted,execution disabled without
+configuration. Package check2,221passed,0failures. Moved Markdown links and16hashes
+checked. No app code change,new model/GPU calls or contest submission.
+
 ## README feature walkthrough GIFs — 2026-11-03
 
 Owner requested a richer README with per-feature GIFs. Replaced the long overview
