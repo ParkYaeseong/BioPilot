@@ -1,5 +1,17 @@
 # Current status
 
+## README simplified and actual form answers prepared — 2026-11-03
+
+Rewrote README from207to85lines around the product,demo,features,quickstart,workflow,
+scientific scope and contribution/license links. Removed stale private-repository
+and unassigned-license statements plus editorial/upload/verification narration.
+Detailed provenance,media receipts and contribution disclosures remain in linked
+documents. Followed a public Streamlit README structure without copying its text.
+Added submission/FORM_ANSWERS_20261103.md for actual field names supplied by owner;
+subjective survey choices are suggestions,not fabricated user opinions. Muse Code
+usage and partner deployment are not invented; publicity consent remains owner choice.
+Verified11README local links,0broken. No product code,model calls,GPU or submission.
+
 ## Repository made public and anonymous media access verified — 2026-11-03
 
 Committed/pushed contribution disclosure,MIT license,owner-reported eligibility,

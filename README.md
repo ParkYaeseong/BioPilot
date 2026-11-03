@@ -2,206 +2,84 @@
 
 **From a protein-variant request to an inspectable scientific review.**
 
-Upload a registered public Lipase A FASTA, describe a variant, and inspect the
-result in one local workspace. Meta chooses permitted MCP tools and explains the
-evidence; code enforces numbering, protected sites, approvals, budgets and ESM ranking.
-The current product is a sequence evidence assistant, not a validated enzyme optimizer.
+BioPilot Bench brings file validation, Meta-directed scientific tools and candidate
+review into one local workspace. Meta selects permitted MCP tools and explains the
+evidence; code enforces scientific constraints, execution limits and ranking.
 
-Documentation updated **2026-11-03** · Owner: **Yaeseong Park**.
-
-## Hackathon contributions
-
-**Event implementation:** controlled Meta/MCP execution, product-side guards and
-budgets, unified upload/request workbench, candidate comparison, reference-structure
-integration, inspectable evidence and guided onboarding.
-
-**Reused dependencies/material:** supplied planning and guard helpers, existing Meta
-and ESM models, public Lipase A/PDB references, Streamlit/MCP/PyTorch and 3Dmol.js.
-These are not claimed as new model inventions or newly determined structures.
-[Exact contribution boundaries](compliance/EVENT_CONTRIBUTIONS.md)
-· [AI assistance](compliance/AI_DEVELOPMENT.md)
-· [History](compliance/DEVELOPMENT_HISTORY.md)
-· [MIT license](LICENSE) · [Third-party terms](compliance/THIRD_PARTY_NOTICES.md).
+[Demo](#demo) · [Quickstart](#quickstart) · [Event contributions](compliance/EVENT_CONTRIBUTIONS.md) · [MIT License](LICENSE)
 
 ## Demo
 
-![A protected catalytic site is refused, a permitted variant validates locally, saved candidates are ranked, and the reference structure reports a missing residue](docs/images/biopilot-demo.gif)
+![BioPilot Bench: input validation, candidate review and reference structure inspection](docs/images/biopilot-demo.gif)
 
-Fourteen seconds, silent, looping, and rendered inline on this page, so reading it
-needs no Release download. A protected catalytic site is refused before any model
-call. A permitted variant validates locally. The saved run is reopened to read its
-ranked candidates and its reference structure, which reports that position 32 has no
-atoms rather than inventing one. Anyone who can see this page already has repository
-access, since the repository is private.
+Upload a public Lipase A FASTA, approve a review, then inspect candidates, structure and evidence.
 
-Every frame is a real capture of the running application. Camera movement,
-highlighting and timing are editorial; no UI state, model reply or execution progress
-is synthesised. [GIF receipt](submission/readme_gif_receipt.json).
-
-### Full three-minute video
-
-The 180-second cut adds English narration, measured captions and nine chapters over
-the same captures. It is **not in this repository**: the binary does not belong in
-source history, so it stays a Release attachment.
-
-The Release attachment was replaced with the **quality-corrected 2026-11-03 edit**.
-It includes actual approval, Execute, RUNNING and COMPLETED captures, sharp Chrome
-sources at 45–68 seconds, the same fast targeted zooms and rounded highlights,
-and updated English/Korean subtitles. Three Meta requests, local CPU ESM and nineteen
-candidates; result inspection is replay and waiting is shortened.
-Uploaded sizes and SHA-256 digests match the local export.
-[Upload receipt](submission/demo_release_quality_20261103.json)
-· [Execution and capture-quality receipt](validation/video_quality_recapture_20261103.json).
-The silent GIF above remains an earlier summary of local guards and saved results.
-
-**[Three-minute demo — public download](https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02)**
-· [English SRT](https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.srt)
+**[Three-minute demo](https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02)**
+· [Download MP4](https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.mp4)
+· [English subtitles](https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.srt)
 · [한국어 자막](https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_KO.srt)
 
-The repository and Release assets are **public**. Repository, README, license,
-contribution disclosure and MP4 access were checked without authentication on
-November 3. Open the Release and select the MP4 under **Assets**, or use the
-[direct video download](https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.mp4).
-[Public access verification](validation/public_access_20261103.json).
+## Features
 
-In the latest local cut, input checks lead to an actual approved execution; the
-subsequent result navigation is **REPLAY**, with no further model calls. One new
-execution made three Meta requests and used local CPU ESM, with no GPU call.
-The Release attachment now contains this quality-corrected execution segment.
-Full human listening review is still pending.
-[Video guide and scope](demo/FINAL_VIDEO_20261102_KO.md)
-· [Technical media receipt](submission/video_current_ui_20261102_receipt.json).
+- **Guarded input:** validate reference identity, full-reference numbering and protected catalytic sites before execution.
+- **Meta + MCP:** run an explicitly approved, bounded review through `muse-spark-1.3` and registered scientific tools.
+- **Candidate comparison:** inspect all 19 non-WT alternatives at an approved position under one ranking policy.
+- **Interactive structure:** inspect candidate positions in the public reference structure with verified residue correspondence and missing-atom handling.
+- **Traceable results:** review recorded tool calls, source hashes and saved results, with guided onboarding.
 
-## Try the saved review and input checks
+## Quickstart
 
-Prerequisites: Windows and Python 3.14. Use a new checkout/environment; do not replace
-an existing working `.venv`. The following route installs the offline UI/intake only,
-without model weights or the author's credentials.
+Windows · Python 3.14. From a fresh checkout:
 
 ```powershell
 py -3.14 -m venv .venv
 .venv/Scripts/python.exe -m pip install -r requirements/workbench-win-py314.lock.txt
-.venv/Scripts/python.exe checks/check_reproduction.py
-.venv/Scripts/python.exe -m streamlit run app/bench.py --server.headless true --server.address 127.0.0.1 --server.port 8522 -- --state-dir .runtime/judge-review --artifact demo/artifacts/unified_review_20261029.replay.json
+.venv/Scripts/python.exe -m streamlit run app/bench.py --server.address 127.0.0.1 --server.port 8522 -- --state-dir .runtime/judge-review --artifact demo/artifacts/unified_review_20261029.replay.json
 ```
 
-Open http://127.0.0.1:8522/. The initial Overview contains 19 saved candidates.
-Open **New review** to upload the public reference or try local validation.
-`S108A` is refused; `A32V` passes validation. Without trusted model configuration,
-execution remains disabled. Use `python -m streamlit` so the project can import `app`.
+Open **http://127.0.0.1:8522/** to explore saved results or start **New review**.
+Try `A32V` for a valid input or `S108A` to see the catalytic-site guard.
 
-This route passed in a fresh isolated Windows/Python 3.14 environment and separate
-source copy on the same PC. Another machine/OS and a fresh live inference installation
-remain unverified. [Full reproduction instructions](submission/REPRODUCE_KO.md)
-· [Reproduction receipt](validation/clean_workbench_reproduction_20261102.json).
+Saved results and input checks run offline. New execution requires your own Meta
+credentials, pinned local ESM weights and explicit approval.
+[Installation and reproduction](submission/REPRODUCE_KO.md) · [Execution setup](docs/IMPLEMENTATION_KO.md)
 
-## One workflow, inspectable results
+## Workflow
 
-1. **Input & Validation** — upload the registered full-reference FASTA and describe
-   the review. Code rejects unsupported sequences, numbering and protected sites.
-2. **Agent Execution** — inspect frozen input, checkpoint and call limits, then
-   explicitly acknowledge permission and unverified cost before execution.
-3. **Review Results** — inspect completion, failure or partial completion and reopen
-   the saved result from Recent reviews without dispatching it again.
+**Input & Validation → Agent Execution → Review Results**
 
-Results have unnumbered navigation: **Overview / Candidates / Structure / Agent Trace / Evidence**.
-Candidates and Structure share the inspected candidate. A request such as A32V
-validates the requested substitution, then reviews all 19 non-WT alternatives at that
-approved position under one common ranking policy. Optional annotations do not rerank it.
+Results are organized into **Overview / Candidates / Structure / Agent Trace / Evidence**.
+Candidates and Structure share the inspected candidate. Reopening a saved review
+reads its recorded results without starting another model call.
 
-New Review has a five-step local guide; saved results have a nine-step guide.
-Both guides operate the real interface and cannot grant execution permission.
-[Unified workflow guide](docs/UNIFIED_WORKBENCH_KO.md).
-
-## What Meta actually does
-
-| Component | Responsibility |
+| Component | Role |
 |---|---|
-| Meta `muse-spark-1.3` | Select permitted tools and provide a bounded evidence explanation |
-| BioPilot MCP server and Python core | Enforce reference identity, coordinates, constraints, approval and budget guards |
-| Pinned ESM-2 150M on local CPU | Compute full-reference sequence preference scores |
-| Deterministic ranking and viewer | Rank candidates by one policy and render stored numerical artifacts |
+| Meta `muse-spark-1.3` | Select permitted tools and explain evidence |
+| MCP server and Python core | Enforce guards, approvals and execution budgets |
+| Local ESM-2 150M | Compute sequence preferences |
+| Review workbench | Compare candidates and inspect structure, trace and provenance |
 
-The current recorded uploaded-input run completed in **45.48 seconds**, using
-**3 Meta requests**, **2 MCP calls** (`validate_target_context`, `score_positions`)
-and **19 candidates** in the registered `full_212` context. Its actual provider bill
-is unknown; a local request reservation is not an invoice or currency ceiling.
-This single run does not establish workflow time savings or biological gain.
+## Scope
 
-- [Current actual execution receipt](validation/unified_review_execution_20261029.json)
-- [Portable replay with original report/score provenance](demo/artifacts/unified_review_20261029.replay.json)
-- [Actual Meta runtime evidence](compliance/META_RUNTIME_EVIDENCE.md)
-- [Earlier integration receipt](validation/integration_success_20261027.json) — historical execution, separate from the 45.48 s run
+The executable target is currently the registered public Lipase A full 212-residue
+reference. ESM scores are sequence preferences, not experimental T50, activity,
+stability or proof of retained function. Structure views distinguish the reference
+from stored predictions and leave missing atom coordinates unmarked.
 
-Fresh execution additionally requires the documented Meta/MCP/science dependencies,
-your own credentials, pinned local ESM weights and explicit approval. The shipped
-demo does not include owner keys or automatically download models. See
-[execution setup](docs/IMPLEMENTATION_KO.md) and [current workflow](docs/UNIFIED_WORKBENCH_KO.md).
+## Development and contributions
 
-## Structure and additional recorded evidence
+Built for the Meta Global AI Developer Hackathon by **Yaeseong Park**, with substantial
+Codex and Claude development assistance. Event work includes the guarded Meta/MCP
+workflow, unified workbench, evidence views and guided onboarding. Existing planning,
+helper algorithms, public models, data and libraries are disclosed separately.
 
-- The interactive reference viewer uses pinned public 1ISP data and a locally checked
-  full-reference/deposited-sequence/observed-residue join. A32 has no modeled atoms;
-  no location is invented. S108 maps to author 77. Index correspondence does not
-  establish atom geometry, stability, activity or binding changes.
-- ESM3 A32V and ESMFold2 WT have separately recorded L40S executions. They are stored
-  predictions, distinct from the experimental WT reference and the baseline Meta run.
-  [Optional GPU receipt](validation/optional_science_runtime_20261028.json).
-- Atlas provides a sanitized pinned exact-WT snapshot, not a fresh search on page view.
-  Automatic remote folding, RunPod, deployed Modal and native Muse Code hosting
-  remain disabled or unverified. [Optional science guide](docs/OPTIONAL_SCIENCE_KO.md).
+[Contribution breakdown](compliance/EVENT_CONTRIBUTIONS.md)
+· [Development history](compliance/DEVELOPMENT_HISTORY.md)
+· [AI assistance](compliance/AI_DEVELOPMENT.md)
+· [Execution and validation records](docs/STATUS.md)
 
-## Scientific scope and checks
+## License
 
-Executable inputs currently cover only the registered public Lipase A full 212-residue sequence,
-not arbitrary proteins or the 181-residue mature sequence. Use full-reference 1-based
-coordinates; interactive review protects S108/D164/H187. Protection does not guarantee
-retained function. ESM scores are dimensionless sequence preferences, not T50, Tm,
-activity, solubility or experimental validation.
-
-The retrospective evaluation does not establish useful T50 prediction: its site-bootstrap
-interval includes zero. [Biological readiness](docs/12_biological_readiness.md)
-· [Evaluator summary](validation/site_bootstrap_summary.json).
-Evaluator labels, outcomes and result-bearing papers stay outside the prediction-agent
-workspace, MCP catalog and GPU worker. Do not mount this whole repository into the agent;
-use the reviewed allowlisted runtime bundle.
-
-With the documented development dependencies installed:
-
-```powershell
-.venv/Scripts/python.exe -m pytest tests tests_app -q -rs -p no:cacheprovider
-.venv/Scripts/python.exe checks/validate_package.py
-```
-
-Actual test commands and scopes are recorded in [STATUS](docs/STATUS.md).
-Fixtures, replay and live integrations are identified separately.
-
-## What belongs in Git, Releases and local storage
-
-| Location | Contents |
-|---|---|
-| Git source history | Application/tests, dependency pins, setup guides, small approved public reference/prediction artifacts, sanitized receipts and preview images |
-| Release assets | MP4, measured English/Korean SRTs and SHA256SUMS; download separately from source |
-| Local only | Keys and `.env`, runtime databases, model weights, caches, raw captures/audio, reference GIF and evaluation imports |
-
-This keeps the video out of source history. The original source package dates and
-development history are preserved. [Release upload receipt](submission/demo_release_20261102.json).
-
-## Development, access and submission status
-
-The project began as a v3 design/prompt package dated 2026-10-27, with preserved v2
-helpers and planning provenance. Do not present reused preparation as newly authored
-event work. [Development history](compliance/DEVELOPMENT_HISTORY.md)
-· [Reuse ledger](compliance/originality_ledger.csv)
-· [Codex/Claude development disclosure](compliance/AI_DEVELOPMENT.md).
-
-Source and demo assets are currently private. Public/judge access, final form/rules,
-contributor/rights confirmation, prior-work eligibility and a submission receipt remain
-open. Video upload does not mean the project has been submitted.
-[Submission draft](submission/README.md)
-· [Rules check and remaining questions](compliance/HACKATHON_READINESS_KO.md).
-
-## Licensing
-
-A project-wide license has not been assigned. Bundled third-party material retains
-its own terms and notices. [Attribution and rights status](compliance/THIRD_PARTY_NOTICES.md).
+Original project code and documentation: **[MIT](LICENSE)**.
+Third-party components, models and data retain their own terms.
+[Third-party notices](compliance/THIRD_PARTY_NOTICES.md).
