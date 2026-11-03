@@ -38,5 +38,16 @@
   },
   "current_video_receipt": "submission/video_current_ui_20261102_receipt.json",
   "private_demo_release_uploaded": true,
-  "private_demo_release_receipt": "submission/demo_release_20261102.json"
+  "private_demo_release_receipt": "submission/demo_release_20261102.json",
+  "latest_local_video_revision": {
+    "date_kst": "2026-11-03",
+    "receipt": "submission/video_current_ui_20261102_receipt.json",
+    "new_meta_calls": 3,
+    "gpu_calls": 0,
+    "release_updated": false,
+    "quality_fixed": true,
+    "execution_receipt": "validation/video_quality_recapture_20261103.json",
+    "additional_approved_recapture_meta_calls": 3,
+    "meta_requests_total_across_nov3_video_execution_passes": 6
+  }
 }

@@ -9,6 +9,20 @@ The current product is a sequence evidence assistant, not a validated enzyme opt
 
 Documentation updated **2026-11-03** · Owner: **Yaeseong Park**.
 
+## Hackathon contributions
+
+**Event implementation:** controlled Meta/MCP execution, product-side guards and
+budgets, unified upload/request workbench, candidate comparison, reference-structure
+integration, inspectable evidence and guided onboarding.
+
+**Reused dependencies/material:** supplied planning and guard helpers, existing Meta
+and ESM models, public Lipase A/PDB references, Streamlit/MCP/PyTorch and 3Dmol.js.
+These are not claimed as new model inventions or newly determined structures.
+[Exact contribution boundaries](compliance/EVENT_CONTRIBUTIONS.md)
+· [AI assistance](compliance/AI_DEVELOPMENT.md)
+· [History](compliance/DEVELOPMENT_HISTORY.md)
+· [MIT license](LICENSE) · [Third-party terms](compliance/THIRD_PARTY_NOTICES.md).
+
 ## Demo
 
 ![A protected catalytic site is refused, a permitted variant validates locally, saved candidates are ranked, and the reference structure reports a missing residue](docs/images/biopilot-demo.gif)
@@ -30,10 +44,15 @@ The 180-second cut adds English narration, measured captions and nine chapters o
 the same captures. It is **not in this repository**: the binary does not belong in
 source history, so it stays a Release attachment.
 
-The attached asset is the **2026-11-02** cut. Its camera and emphasis were re-edited
-on 2026-11-03, which removed a crossfade that double-exposed the UI text and dropped
-the zooms that had no target. That re-encode is local and has not replaced the
-attachment. The GIF above is from the re-edited version.
+The Release attachment was replaced with the **quality-corrected 2026-11-03 edit**.
+It includes actual approval, Execute, RUNNING and COMPLETED captures, sharp Chrome
+sources at 45–68 seconds, the same fast targeted zooms and rounded highlights,
+and updated English/Korean subtitles. Three Meta requests, local CPU ESM and nineteen
+candidates; result inspection is replay and waiting is shortened.
+Uploaded sizes and SHA-256 digests match the local export.
+[Upload receipt](submission/demo_release_quality_20261103.json)
+· [Execution and capture-quality receipt](validation/video_quality_recapture_20261103.json).
+The silent GIF above remains an earlier summary of local guards and saved results.
 
 **[Demo Release — GitHub sign-in required](https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02)**
 · [English SRT](https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.srt)
@@ -43,8 +62,10 @@ The repository and its Release are **private**, so these are not anonymous
 judge-access links: signed-out visitors get Not Found. Sign in as `ParkYaeseong` or
 an account with repository access, then open **Assets**.
 
-Local input checks run in the UI; the scientific execution is shown as **recorded
-REPLAY** with waiting omitted. No new Meta or GPU inference happens during capture.
+In the latest local cut, input checks lead to an actual approved execution; the
+subsequent result navigation is **REPLAY**, with no further model calls. One new
+execution made three Meta requests and used local CPU ESM, with no GPU call.
+The Release attachment now contains this quality-corrected execution segment.
 Full human listening review is still pending.
 [Video guide and scope](demo/FINAL_VIDEO_20261102_KO.md)
 · [Technical media receipt](submission/video_current_ui_20261102_receipt.json).

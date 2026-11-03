@@ -1,5 +1,15 @@
 # BioPilot Bench — local submission draft
 
+## November 3 final preparation
+
+[Ready-to-copy form answers](FORM_DRAFT_20261103.md),
+[new versus reused contributions](../compliance/EVENT_CONTRIBUTIONS.md),
+[owner-reported participation confirmation](../compliance/ELIGIBILITY_STATUS_20261103.md),
+and [current quality-corrected media upload](demo_release_quality_20261103.json)
+supersede the corresponding earlier preparation status below.
+The live submission form is not yet inspected: browser access is blocked by a saved
+site permission. No submission or acceptance of legal terms is claimed.
+
 ## Current submission entry — 2026-11-02
 
 The current-UI **180-second English-narrated MP4** has now been exported locally.

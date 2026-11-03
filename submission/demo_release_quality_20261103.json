@@ -1,0 +1,44 @@
+{
+  "checked_date_kst": "2026-11-03",
+  "repository": "ParkYaeseong/BioPilot",
+  "visibility": "private",
+  "release_id": 431467583,
+  "release_url": "https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02",
+  "tag": "demo-2026-11-02",
+  "media_revision": "quality-corrected 2026-11-03",
+  "assets": [
+    {
+      "name": "BioPilot_Bench_180s_EN.mp4",
+      "asset_id": 705415840,
+      "size_bytes": 16972362,
+      "sha256": "9babd85a6556e43afbaea66e1fa3b6c03937c0322cb6d5f4cffd5f4af8899ab9",
+      "download_url": "https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.mp4"
+    },
+    {
+      "name": "BioPilot_Bench_180s_EN.srt",
+      "asset_id": 705415841,
+      "size_bytes": 3121,
+      "sha256": "4509ade16139fe70a8ff1f63abcac28256b88078ff5c99f70692ff4805805895",
+      "download_url": "https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.srt"
+    },
+    {
+      "name": "BioPilot_Bench_180s_KO.srt",
+      "asset_id": 705415839,
+      "size_bytes": 3477,
+      "sha256": "f5e04b38641716efd78870c2142a759fb3bc7f7da5d8f7d1cbaa66163c07e924",
+      "download_url": "https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_KO.srt"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "asset_id": 705415845,
+      "size_bytes": 279,
+      "sha256": "a0f7fd85c23a44e46fd14795d220f4f4616c5d39fe0f116b71cee27a81d1f103",
+      "download_url": "https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/SHA256SUMS.txt"
+    }
+  ],
+  "remote_sizes_and_sha256_match": true,
+  "binary_committed_to_git": false,
+  "repository_visibility_changed": false,
+  "contest_submission_performed": false,
+  "previous_upload_receipt": "submission/demo_release_20261102.json"
+}

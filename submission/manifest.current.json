@@ -8,13 +8,19 @@
   "video_access_verified": false,
   "product_or_reproduction_url": null,
   "final_form_access_requirement_verified": false,
-  "contributors": [],
+  "contributors": [
+    {
+      "name": "Yaeseong Park",
+      "role": "Solo developer",
+      "github": "ParkYaeseong"
+    }
+  ],
   "actual_meta_model": "muse-spark-1.3",
   "actual_meta_host": "Controlled Python host",
   "actual_mcp_trace_artifact": "demo/artifacts/sequence_review.replay.json",
   "actual_esm_artifact": "demo/artifacts/sequence_review.replay.json#/score_artifacts/0",
-  "eligibility_confirmed": false,
-  "prior_work_disclosure_complete": false,
+  "eligibility_confirmed": true,
+  "prior_work_disclosure_complete": true,
   "external_rights_reviewed": false,
   "submitted_at": null,
   "submission_receipt": null,
@@ -32,7 +38,7 @@
     "sha256": "f73f8bc084542204691c17b327da9ba1931ab57da52384b5a8bd9e940e830045"
   },
   "project_owner_from_original_readme": "Yaeseong Park",
-  "contributors_confirmation_pending": true,
+  "contributors_confirmation_pending": false,
   "development_assistance": [
     "Codex",
     "Claude (user-reported local development updates)"
@@ -55,12 +61,10 @@
   },
   "public_actions_performed": false,
   "remaining_gates": [
-    "Organizer eligibility and prior-work reuse ruling",
-    "Confirm ownership/contributors and third-party rights",
-    "Review final submission rules/form and product access requirements",
-    "Verify separate-machine/full live-runtime reproduction; same-PC isolated offline UI/intake now passed",
-    "Repository public release deferred by owner; review final video and authorize video publication",
-    "Verify public links without owner login and explicitly authorize final submission"
+    "Verify final submission form and required declarations; browser saved site permission currently blocks access",
+    "Complete public release and anonymous repository/video access verification",
+    "Confirm any mandatory deployment/product-access field and source-specific rights declarations in the actual form",
+    "Final submission receipt not yet obtained"
   ],
   "regression_receipt": {
     "path": "validation/spotlight_verification_20261028.json",
@@ -101,10 +105,10 @@
     "verified_initial_upload_commit": "457890b0e6bbf0cfba8c050024847a23a017ce41",
     "visibility": "private",
     "remote_ref_verified": true,
-    "public_visibility_approval": "withheld_for_now",
+    "public_visibility_approval": "Owner authorized public repository as required for requested submission on 2026-11-03",
     "verification_receipt": "validation/github_publication_20261029.json",
-    "visibility_decision_date_kst": "2026-10-29",
-    "visibility_decision": "Owner explicitly chose to keep the repository private for now"
+    "visibility_decision_date_kst": "2026-11-03",
+    "visibility_decision": "Public release authorized; verification follows actual visibility change"
   },
   "current_workbench": {
     "entrypoint": "app/bench.py",
@@ -139,12 +143,12 @@
   },
   "current_ui_video": {
     "path": "local_artifacts/final_demo_20261102/BioPilot_Bench_180s_EN.mp4",
-    "sha256": "535495e5bbbf1df45ec11cf1a5ae8eb145e1ff98351e7e2628488103fc5a79bf",
+    "sha256": "9babd85a6556e43afbaea66e1fa3b6c03937c0322cb6d5f4cffd5f4af8899ab9",
     "duration_seconds": 180,
     "width": 1920,
     "height": 1080,
     "fps": 30,
-    "size_bytes": 41628046,
+    "size_bytes": 16972362,
     "receipt": "submission/video_current_ui_20261102_receipt.json",
     "voice": "AI-generated en-US-AndrewNeural",
     "burned_english_captions": true,
@@ -159,8 +163,23 @@
     "binary_in_git": false,
     "private_release_url": "https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02",
     "private_asset_url": "https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.mp4",
-    "private_upload_receipt": "submission/demo_release_20261102.json",
-    "remote_size_and_sha256_verified": true
+    "private_upload_receipt": "submission/demo_release_quality_20261103.json",
+    "remote_size_and_sha256_verified": true,
+    "local_revision_date_kst": "2026-11-03",
+    "actual_execution_included": true,
+    "execution_receipt": "validation/video_quality_recapture_20261103.json",
+    "private_release_contains_current_edit": true,
+    "release_scope": "Release MP4, EN/KO SRTs and checksums replaced with the quality-corrected November 3 export.",
+    "new_meta_calls_during_capture": 3,
+    "new_gpu_calls_during_capture": 0,
+    "capture_quality_fixed": true,
+    "local_quality_revision": "2026-11-03 / sharp Chrome source recapture",
+    "meta_requests_total_across_nov3_video_execution_passes": 6,
+    "event_contribution_label": true
   },
-  "private_demo_release_uploaded": true
+  "private_demo_release_uploaded": true,
+  "eligibility_basis": "Owner reports organizer participation confirmation in conversation on 2026-11-03; written reply not independently inspected",
+  "eligibility_receipt": "compliance/ELIGIBILITY_STATUS_20261103.md",
+  "contribution_disclosure": "compliance/EVENT_CONTRIBUTIONS.md",
+  "license": "MIT for original project code/documentation; third-party terms retained"
 }

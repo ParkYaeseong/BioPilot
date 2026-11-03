@@ -1,15 +1,20 @@
 # 현재 UI로 제작한 3분 시연 영상
 
-2026-11-02 제작. 2026-11-03 안내 갱신: MP4와 한·영 자막, 체크섬을
-[비공개 Release](https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02)의
-첨부파일로 제공합니다. 저장소 권한이 있어야 접근할 수 있습니다. MP4는 Git 소스 기록에
-넣지 않았으며 원본 캡처·음성 파일은 로컬에 남깁니다.
-[기술 검증 영수증](../submission/video_current_ui_20261102_receipt.json)에
-실제 파일 길이, SHA-256, 오디오 수준, 자막·챕터와 촬영 범위를 기록합니다.
-공개 링크나 최종 제출 접수 확인을 뜻하지 않습니다.
+2026-11-02 제작본을 **2026-11-03 실제 실행 흐름으로 재편집**했습니다.
+로컬의 같은 MP4 경로에 저장하며, 직전 편집본은
+`local_artifacts/final_demo_20261102/before_execution_edit_20261103/`에 보존합니다.
+빠른 확대 후 고정, 정확한 둥근 강조 박스와 주변 디밍 스타일을 유지합니다.
+첫 챕터에는 행사 중 구현한 MCP 검토·워크벤치임을 표시하고,
+[새 기능과 재사용 구분](../compliance/EVENT_CONTRIBUTIONS.md)을 README·제출 문서에 연결했습니다.
+이 자막 표기 수정은 새 Meta/GPU 호출 없이 재인코딩했으며 Release에도 교체했습니다.
 
-[영상 다운로드](https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.mp4)
-· [업로드 검증 기록](../submission/demo_release_20261102.json).
+현재 [비공개 Release](https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02)는
+2026-11-03 화질 수정 영상과 최신 한영 자막·체크섬으로 교체했습니다.
+[업로드 영수증](../submission/demo_release_quality_20261103.json)에 원격 파일 크기·SHA 일치를 기록합니다.
+MP4·원본 캡처·음성은 Git 소스 기록에 넣지 않습니다.
+[현재 실행·화질 수정 영수증](../validation/video_quality_recapture_20261103.json)과
+[영상 검증 영수증](../submission/video_current_ui_20261102_receipt.json)을 확인하세요.
+공개 접근이나 최종 제출 완료를 뜻하지 않습니다.
 
 ## GitHub에서 Not Found가 나오는 경우
 
@@ -54,13 +59,13 @@ local_artifacts/final_demo_20261102/BioPilot_Bench_180s_KO.srt
 
 | 시간 | 화면과 확인할 점 |
 |---|---|
-| 0–15초 | New Review: 파일과 요청을 한 작업 공간에서 시작 |
+| 0–15초 | 행사 중 만든 MCP 검토·워크벤치라고 표시하고 New Review에서 시작 |
 | 15–35초 | 실제 공개 FASTA 업로드와 S108A의 로컬 보호 규칙 거부 |
-| 35–55초 | A32V 검증, 위치32·esm150·호출 상한4·별도 실행 승인 |
-| 55–75초 | 실제 완료 기록: Meta3회,19후보,45.48초; 대기 생략 표시 |
+| 35–55초 | A32V 검증, 위치32·esm150·호출 상한4·실행 허용 및 비용 확인 |
+| 55–75초 | 활성 Execute 버튼 → 실제 RUNNING → COMPLETED → 새 결과; 대기 단축 표시 |
 | 75–100초 | 저장된 후보 순위, 상위3개 비교, A32V 선택 |
 | 100–125초 | A32 원자 없음, S108→author77 대응, 실제 기준 구조 회전 |
-| 125–145초 | Meta의 실제 MCP 검증/점수 요청과 저장된 인수·출력 |
+| 125–145초 | 이번 실행의 실제 Meta/MCP 검증·점수 요청과 인수·출력 |
 | 145–165초 | 업로드 입력 영수증, 보고서 해시, 공개 구조 잔기 대응 |
 | 165–180초 | COMPLETED 기록 재열기, 근거 검토와 생물학적 한계 |
 
@@ -71,16 +76,26 @@ local_artifacts/final_demo_20261102/BioPilot_Bench_180s_KO.srt
 
 ## 실제 실행과 재생의 구분
 
-촬영 때는 새 Meta 요청이나 GPU 작업을 하지 않았습니다. 입력 가드·FASTA 업로드는
-현재 로컬 UI에서 직접 조작했고, 실제 계산 결과는 기존 완료 실행
-`14014be81e934c0ab4236268d013ad19`를 열었습니다. 제품의 실제 모델은
-`muse-spark-1.3`이며 계산은 로컬 CPU ESM-2 150M이 수행했습니다.
-사용한 업로드 파일은 그 실행에 기록된 공개 FASTA와 바이트 해시가 같습니다.
+45–68초의 승인·실행 화면은 이전 내장 브라우저 캡처 원본부터 흐릿했습니다.
+사용자 확인 후 **추가 실행 1회(최대 Meta 요청4회·로컬 CPU·GPU 없음)**를 승인받아
+별도 촬영 한도1회로 재촬영했습니다. Chrome의 실제 선명한 원본으로 바꾸었으며
+AI 업스케일이나 UI 합성은 하지 않았습니다. 빠른 확대와 둥근 박스 스타일은 유지합니다.
 
-로컬 검증으로 새 VALIDATED 초안1개가 생겼지만 실행 승인은 체크하지 않았습니다.
-기존 COMPLETED/PARTIAL 기록은 보존했고 실행 사용량은 촬영 전후2건으로 같습니다.
-남은 실행 허용량을 초기화하거나 새 계산을 촬영한 것처럼 연결하지 않았습니다.
-ESM 점수는 실험적 내열성·활성·기능 유지의 검증값이 아닙니다.
+현재 영상에 보이는 실행은 검토 ID `093ed33a29154e76a0d43fdf52a8267b`, run `1a614cadfe604b36999ad33c316f2dfd`입니다.
+실제 모델 `muse-spark-1.3`가 Meta 요청3회로 MCP 검증·로컬 CPU ESM-2 150M 점수를
+실행해 후보19개를 생성했습니다. 이 촬영 배치 한도는0→1회 사용했으며, 기존 주 작업
+기록 사용량3회는3회로 그대로입니다. 기존 기록·이력을 지우거나 허용량을 초기화하지 않았습니다.
+
+입력 장면의 공개 FASTA와 **같은 바이트**를 새로 업로드·검증하여 실행했습니다.
+입력 장면은 이전 촬영 자료를 유지하므로 끊김 없는 단일 녹화는 아니며 대기는 편집으로 줄였습니다.
+새 실행과 이전 실행의 후보19개 및 점수 파일 목록이 정확히 같음을 확인해 후보·공개 기준 구조
+장면은 유지했습니다. 승인·RUNNING·완료·Meta trace·입력/보고서 영수증·재열기는 이번 실행을 촬영했습니다.
+
+11월3일 영상 제작의 두 실행을 합치면 Meta 요청은총6회이며, 현재 재촬영 실행은 그중3회입니다.
+GPU 호출과 추가 음성 생성은 이번 화질 수정에 없습니다. 영상 상단에서 실행 중과 결과 재생을 구분합니다.
+
+완료 뒤 결과 탐색은 **REPLAY**이며 모델 재호출이 없습니다. 실행 중 상태와 저장 결과 탐색을
+영상 상단에서 구분합니다. ESM 점수는 실험적 내열성·활성·기능 유지의 검증값이 아닙니다.
 
 ## 게시 전 최종 확인
 
@@ -91,5 +106,6 @@ ESM 점수는 실험적 내열성·활성·기능 유지의 검증값이 아닙�
 영상 설명에 사용할 영어 문구:
 
 > AI-generated English narration over actual application captures. Camera movement,
-> highlights and timing are edited. The scientific execution is shown as recorded
-> evidence; no new Meta or GPU inference is performed during capture.
+> highlights and timing are edited. The same frozen public upload is shown from
+> input through an actual approved Meta/MCP/local CPU ESM execution, with waiting
+> shortened. Result inspection is replay. Three Meta requests; no GPU call.

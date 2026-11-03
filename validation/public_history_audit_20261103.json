@@ -1,0 +1,8 @@
+{
+  "date_kst": "2026-11-03",
+  "status": "PASS",
+  "scope": "All reachable local Git history blobs; common private-key and token signatures plus sensitive paths. Pattern-based audit, not proof of absence of every secret.",
+  "blobs_scanned": 680,
+  "bytes_scanned": 15064619,
+  "findings": []
+}

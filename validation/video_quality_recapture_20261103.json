@@ -1,0 +1,57 @@
+{
+  "date_kst": "2026-11-03",
+  "status": "sequence_review_complete",
+  "review_id": "093ed33a29154e76a0d43fdf52a8267b",
+  "run_id": "1a614cadfe604b36999ad33c316f2dfd",
+  "report_sha256": "d3ba5f6e7dadda3532218e86d1d355bdf2764557d060c179d3cf66061be07bf6",
+  "input": {
+    "external_file_upload": false,
+    "fasta_sha256": "470ceb44a8d71857564226e070a0c3ccd3c856cfd98b4339249957117cd6121a",
+    "filename": "bench_public_reference.fasta",
+    "input_kind": "upload",
+    "message": "Review A32V for sequence plausibility.",
+    "model_key": "esm150",
+    "objective_id": "sequence_plausibility_review",
+    "positions": [
+      32
+    ],
+    "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+    "sequence_context": "full_212",
+    "structure_sha256": null
+  },
+  "actual_model": "muse-spark-1.3",
+  "meta_request_attempts": 3,
+  "candidate_count": 19,
+  "meta_request_cap": 4,
+  "new_gpu_calls": 0,
+  "local_execution_claims_before_after": [
+    0,
+    1
+  ],
+  "remaining_runs": 0,
+  "prior_records_preserved": true,
+  "main_journal_consumed_before_after": [
+    3,
+    3
+  ],
+  "explicit_additional_one_run_approval": true,
+  "identical_candidates_and_score_artifacts_to_prior_run": true,
+  "capture_scope": "Actual Chrome approval, RUNNING, COMPLETED, trace, input receipt and reopening captures from a separately authorized one-run batch. Same public upload bytes; invariant earlier candidate/reference illustrations retained. Waiting shortened; not a continuous screencast.",
+  "provider_cost": "unknown / unverified",
+  "submission_performed": false,
+  "capture_quality": {
+    "cause": "Earlier IAB source screenshots were already blurred before encoding; nominal 1280x720 dimensions did not reveal lost detail.",
+    "fix": "Replace raw approval/running captures with actual sharp Chrome screenshots. No AI upscaling or invented UI.",
+    "text_roi_xyxy": [
+      58,
+      507,
+      460,
+      569
+    ],
+    "metric": "Grayscale Laplacian variance on matching source text crop, a relative diagnostic not a perceptual quality guarantee",
+    "previous_value": 188.28952090748106,
+    "replacement_value": 6662.983581058977,
+    "ratio": 35.38690602082383
+  },
+  "meta_requests_total_across_nov3_video_execution_passes": 6
+}

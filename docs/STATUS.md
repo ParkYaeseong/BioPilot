@@ -1,5 +1,111 @@
 # Current status
 
+## Event contribution disclosure and authorized public submission preparation — 2026-11-03
+
+Owner reported organizer participation confirmation and requested contribution
+disclosure and submission. Added compliance/EVENT_CONTRIBUTIONS.md separating
+event-built Meta/MCP/workbench/guard/visualization integration from existing planning,
+helper algorithms,models,data,libraries and UI inspirations. Original history and
+historical pending records preserved. Eligibility is recorded as owner-reported;
+no unseen written ruling or blanket reuse approval is invented.
+
+Added MIT LICENSE for original project code/docs,with third-party terms retained;
+updated README/disclosures/current submission metadata and prepared truthful form
+answers in submission/FORM_DRAFT_20261103.md. Opening demo chapter identifies the
+event-built MCP review/workbench; camera style,source capture quality,voice and
+timing are retained. No new Meta/GPU calls. Verified37local links with0broken.
+
+All reachable Git history was scanned for common private-key/provider/GitHub/AWS
+token signatures and sensitive paths:680blobs,15,064,619bytes,0findings. This is
+pattern-based and not a complete security proof. Models,credentials,runtime journals,
+private conversations and raw captures remain excluded from Git.
+
+The Cerebral Valley submit URL is blocked by a saved browser origin permission.
+Requested that owner clear it; no alternate surface or HTTP submission is used.
+Contribution-label media export verified:180s,1080p30,5400frames,27measured
+subtitle cues,whole-file decode,24sample frames and12targeted45–75s quality samples.
+Release MP4/EN/KO/checksum uploaded and digest-matched; current MP4
+16972362bytes,SHA2569babd85a6556e43afbaea66e1fa3b6c03937c0322cb6d5f4cffd5f4af8899ab9.
+Public repository/media verification and final source upload are recorded separately
+after completion. No form submission or acceptance of legal terms is claimed.
+
+## Quality-corrected demo Release assets replaced — 2026-11-03
+
+User explicitly requested replacing the video and providing its link. Uploaded exactly
+the corrected MP4,EN SRT,KO SRT and SHA256SUMS to existing demo-2026-11-02 Release,
+replacing same-name attachments. MP4 asset705148740,size16,973,584bytes,SHA256
+ba3f25083e156f33c915a1f6ff8688e82cac2de7cbf1e72cd2963db933f2d00b.
+GitHub uploaded states,sizes and SHA256 digest fields match all four local files.
+Updated Release description/title to identify actual execution and sharp recapture.
+Existing tag/source history unchanged; repository remains private. No visibility
+change,new inference,source commit/push or contest submission. Receipt:
+submission/demo_release_quality_20261103.json. Next:owner video review and approved
+judge access/publication path. No anonymous-access claim.
+
+## Approval and RUNNING source blur repaired — 2026-11-03
+
+User identified degraded quality from45seconds. Root cause: the52_execute_ready and
+54_execution_running IAB source screenshots already lacked text detail despite their
+1280×720 pixel dimensions. Their enlargement amplified the defect. Earlier media
+checks verified encoding and bounds, but missed source legibility.
+
+User explicitly approved one additional execution,Meta cap4,local CPU only,no GPU.
+Created a separately bounded one-run filming journal .runtime/film_quality_20261103;
+the existing main journal remained3claims and all original records were preserved.
+Actual Chrome approval/RUNNING/completion sources are crisp; same text-crop Laplacian
+variance188.29→6662.98(35.39×),a relative diagnostic,not a perceptual guarantee.
+No AI upscaling or fake UI. Fast target zooms,highlight styling and narration stay.
+
+New review093ed33a29154e76a0d43fdf52a8267b / run1a614cadfe604b36999ad33c316f2dfd completed with3Meta
+requests,muse-spark-1.3,2MCP calls,CPU ESM150,19candidates,no GPU. Candidate and score
+artifact objects exactly equal the prior execution. New trace,receipt and reopening
+captures identify this run. Across the two November3 filming executions,6Meta requests.
+Current-pass journal0→1; main journal3→3. Receipt:validation/video_quality_recapture_20261103.json.
+
+Previous video and edit are preserved under before_quality_repair_20261103.
+Rendered to a pending MP4;12encoded samples at45.8–73s were checked before
+replacing the local deliverable. Matching47s text-crop Laplacian variance improved
+22.36× in the decoded export. Visually checked47s and63s at full resolution.
+`.venv/Scripts/python.exe .cache/verify_quality_candidate.py` passed duration180s,
+5400frames,full decode and the relative text-detail check before promotion.
+`.venv/Scripts/python.exe local_artifacts/final_demo_20261102/verify_video.py` passed
+1080p30,H.264/AAC,9chapters,27measured subtitle cues,24encoded samples,source hashes
+and highlight crop bounds. File16,973,584bytes,SHA256ba3f25083e156f33c915a1f6ff8688e82cac2de7cbf1e72cd2963db933f2d00b.
+Updated current receipt/manifest/checksums; private Release still contains the old cut.
+No product code changes,Release upload,visibility change or contest submission.
+Full human listening review remains pending. Earlier application regression is
+historical and is not claimed as rerun for media-only changes.
+
+## Actual execution added to local demo — 2026-11-03
+
+User requested an update of the existing local MP4 while retaining fast targeted
+zooms and accurate rounded highlight boxes. Preserved the previous local cut in
+local_artifacts/final_demo_20261102/before_execution_edit_20261103/. Kept the camera,
+halo/dimming and no same-source dissolve behavior; replaced the execution sequence
+with real permission checks, Execute, RUNNING, COMPLETED and result captures.
+
+Executed the existing November 2 frozen public uploaded-input draft once via the
+real browser. Review27ad1367776e47d18948632e44413946 / run622ddd9cc74a43528e470c50f51d46dc
+completed with muse-spark-1.3,3Meta requests,2MCP calls,local CPU ESM150 and19candidates.
+Allowance consumed2→3,remaining0; no reset/retry/GPU. Old records preserved.
+New candidates and score_artifacts exactly equal the earlier run, so invariant
+candidate and public reference-structure illustrations are reused. New trace,
+input receipt and reopening are captured from the new run. Waiting is shortened;
+the input and execution captures are from separate dates, not a continuous take.
+Only public narration group4 is regenerated with the existing Edge TTS voice.
+
+Changed files: README.md,demo/FINAL_VIDEO_20261102_KO.md,validation/video_execution_20261103.json,
+current video receipt/manifest and local-only edit/media files. Product/MCP/science
+code and original artifacts are unchanged. Release remains the previous version;
+no upload, visibility change or contest submission. Technical verification:180.000s,1920×1080,30fps,5400frames,H.264/AAC,
+9chapters,27nonoverlapping measured EN/KO cues,whole-file decode with no errors,
+24encoded sample frames,source hashes and highlight crop bounds passed.
+New file17,025,247bytes,SHA256a26d5076cfd60c78a8e8e7f877b7dcfe26a1dcaae522476778563cd498dd761b.
+Commands: `.venv/Scripts/python.exe local_artifacts/final_demo_20261102/verify_video.py`
+passed; `.venv/Scripts/python.exe checks/validate_package.py` passed2,153checks,0failures.
+Full human listening review remains pending. No product code changes, so the earlier
+785-pass application regression is historical and was not rerun for this media edit.
+
 ## Private video 404 diagnosis and README entry correction — 2026-11-03
 
 User reported Not Found on the direct Release MP4 URL. Reproduced anonymous404;

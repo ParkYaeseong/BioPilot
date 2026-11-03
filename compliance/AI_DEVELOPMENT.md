@@ -1,5 +1,15 @@
 # AI-assisted development disclosure
 
+## November 3 submission update
+
+See [event contribution boundaries](EVENT_CONTRIBUTIONS.md) for the current new/reused
+feature mapping. The owner reports that organizer confirmation of participation was
+received; [status and evidence scope](ELIGIBILITY_STATUS_20261103.md). Earlier pending
+wording below describes the historical record and is preserved. No separate blanket
+reuse ruling or unseen correspondence is invented. The event window supplied by the
+participant is October26–November4; existing preparation remains disclosed as reused
+relative to this implementation even where dated within that window.
+
 Prepared for repository publication on **2026-10-29**. This is a disclosure written
 now from existing records, not a contemporaneous chat transcript or an organizer ruling.
 

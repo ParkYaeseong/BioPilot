@@ -1,0 +1,37 @@
+{
+  "date_kst": "2026-11-03",
+  "status": "sequence_review_complete",
+  "review_id": "27ad1367776e47d18948632e44413946",
+  "run_id": "622ddd9cc74a43528e470c50f51d46dc",
+  "report_sha256": "65cf3d477f51395c0976ac522ba30481af8f693bab1494e44960802baac31214",
+  "input": {
+    "external_file_upload": false,
+    "fasta_sha256": "470ceb44a8d71857564226e070a0c3ccd3c856cfd98b4339249957117cd6121a",
+    "filename": "bench_public_reference.fasta",
+    "input_kind": "upload",
+    "message": "Review A32V for sequence plausibility.",
+    "model_key": "esm150",
+    "objective_id": "sequence_plausibility_review",
+    "positions": [
+      32
+    ],
+    "reference_sha256": "8a9ea05c5d2953b5b143b591bea6014aec631be96a4842b274fb3e91ee4907d7",
+    "sequence_context": "full_212",
+    "structure_sha256": null
+  },
+  "actual_model": "muse-spark-1.3",
+  "meta_request_attempts": 3,
+  "candidate_count": 19,
+  "meta_request_cap": 4,
+  "new_gpu_calls": 0,
+  "local_execution_claims_before_after": [
+    2,
+    3
+  ],
+  "remaining_runs": 0,
+  "prior_records_preserved": true,
+  "identical_candidates_and_score_artifacts_to_prior_run": true,
+  "capture_scope": "Actual approved browser execution of the same frozen upload used in November 2 footage. Input and invariant candidate/reference illustrations reused; new execution, completion, trace, input receipt and reopening captured November 3.",
+  "provider_cost": "unknown / unverified",
+  "submission_performed": false
+}

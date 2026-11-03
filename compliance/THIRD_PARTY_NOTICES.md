@@ -1,7 +1,9 @@
 # Attribution and rights review — 2026-10-28
 
-This inventory records dependencies and provenance. Rights clearance remains
-pending; it does not grant redistribution rights or assign a project license.
+Original project code and documentation are offered under the root MIT LICENSE.
+Third-party materials retain their own licenses and notices; the project license
+does not relicense model weights, services or scientific inputs. This inventory
+records provenance and known terms; unresolved source-specific rights remain pending.
 
 | Material | Source / local record | Use and review still required |
 |---|---|---|
