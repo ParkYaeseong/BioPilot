@@ -1,5 +1,17 @@
 # Current status
 
+## YouTube thumbnail generated and made remotely downloadable — 2026-11-03
+
+Created an illustrative promotional cover with built-in image_gen,referencing the
+actual public-reference structure screenshot. Text:BioPilot Bench / Protein Variant
+Review / Meta × MCP × ESM /3-MIN DEMO. This AI-generated cover is not an evidence
+screenshot or new scientific result. Saved the project asset locally and uploaded
+BioPilot_Bench_YouTube_Thumbnail.png to the existing public Release for the owner
+to download from another device. PNG1672×941,1,549,229bytes,under2MiB. Remote size/SHA
+and anonymous PNG download passed. Full prompt and reference hash retained in
+submission/youtube_thumbnail_20261103.json. No YouTube browser access,channel action,
+YouTube upload,thumbnail setting,Meta/GPU inference or contest submission occurred.
+
 ## YouTube upload kit added to public GitHub Release — 2026-11-03
 
 Owner is away from the recording PC and needs remote downloads. The prior

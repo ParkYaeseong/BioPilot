@@ -1,0 +1,20 @@
+{
+  "date_kst": "2026-11-03",
+  "status": "thumbnail_created_and_hosted_on_public_github_release",
+  "generation_tool": "built-in image_gen",
+  "prompt": "Create one polished professional 16:9 YouTube thumbnail for the real open source software project BioPilot Bench. Use the attached actual application screenshot as a supporting visual reference: the colorful protein ribbon shown in its right-hand structure viewer should be the recognizable scientific visual on the RIGHT half, presented inside a clean white rounded app-viewer card, closely preserving its existing shape/colors rather than inventing a new protein or new scientific result. Do not invent graphs, scores, dashboards, labels, model outputs, or functional claims. This is a promotional cover, not an evidence screenshot. LEFT half: very large, beautifully typeset exact text 'BioPilot' on one line and 'Bench' on the next, white/off-white geometric sans-serif bold; below in medium type exact text 'Protein Variant Review'; bottom-left tasteful small teal pill exact text 'Meta × MCP × ESM'. A restrained small '3-MIN DEMO' label at top-left. Background deep midnight navy with subtle teal ambient light and extremely subtle technical linework; premium restrained open-source product branding, crisp visual hierarchy, generous spacing, sharp readable type even at phone thumbnail size. Strong but sophisticated contrast; teal accent, not loud clickbait. Right visual occupies 45 percent and left text 50 percent with safe margins. No human faces, no robot head, no generic brain illustration, no YouTube play icon, no fabricated company logos, no before/after or 'better enzyme' claims. Output horizontal 16:9 composition suitable for a 1280x720 YouTube thumbnail.",
+  "ai_generated": true,
+  "reference_role": "Actual application structure screenshot used as visual reference; output is an illustrative promotional cover, not a scientific evidence screenshot",
+  "reference_capture_sha256": "600d3f86ff9d23560fabe0d4e5050a70bac35d5386ee0934d9f43c615a3de325",
+  "width": 1672,
+  "height": 941,
+  "format": "PNG",
+  "size_bytes": 1549229,
+  "sha256": "2e9eeb581396722c7e8138efc15709b6444ed67ff96e74ff5bf1c33dfc150ae5",
+  "release_asset_id": 705660709,
+  "download_url": "https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_YouTube_Thumbnail.png",
+  "remote_size_and_sha256_match": true,
+  "anonymous_access_verified": true,
+  "youtube_thumbnail_set": false,
+  "youtube_upload_performed": false
+}
