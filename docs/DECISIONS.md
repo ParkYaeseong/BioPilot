@@ -1,5 +1,25 @@
 # Decision log
 
+## README feature walkthrough GIFs — 2026-11-03
+
+Owner requested a richer README with per-feature GIFs. Replaced the long overview
+GIF in the README with five focused clips:inline validation and guards,approval/
+recorded execution/completion,candidate comparison,reference structure review,
+and actual tool/input provenance. Added short captions above each clip and kept
+YouTube as the full demo link. Quickstart,scope,contribution and license links remain.
+
+Created docs/images/biopilot-{input,execution,candidates,structure,evidence}.gif
+from actual stored captures. Each is840×472,6.8–7.38seconds,under1.7MB;total7,811,064bytes.
+The structure clip uses actual rotation frames. Existing fast push-in,rounded box,
+dimming and mode-label style retained. No synthetic UI/progress or new provider/GPU
+calls. Old overview GIF retained for historical receipt integrity,not duplicated
+in the current README. Generation receipt:submission/readme_feature_gifs_20261103.json.
+
+Checked every GIF frame for decoding,infinite looping and changing content;verified
+46source screenshot hashes and reviewed15decoded sample frames across all5clips.
+README local links15passed;no stale Release link. Product code is unchanged,so the
+earlier785-pass app suite is historical;package/source checks run for this media edit.
+
 ## YouTube is the primary demo; obsolete GitHub Release retired — 2026-11-03
 
 Owner supplied YouTube video V7jWi7q1ggU after manual upload and requested README

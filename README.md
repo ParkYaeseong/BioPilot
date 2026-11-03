@@ -6,11 +6,9 @@ BioPilot Bench brings file validation, Meta-directed scientific tools and candid
 review into one local workspace. Meta selects permitted MCP tools and explains the
 evidence; code enforces scientific constraints, execution limits and ranking.
 
-[Demo](#demo) · [Quickstart](#quickstart) · [Event contributions](compliance/EVENT_CONTRIBUTIONS.md) · [MIT License](LICENSE)
+[Demo](#demo) · [Features](#features) · [Quickstart](#quickstart) · [Event contributions](compliance/EVENT_CONTRIBUTIONS.md) · [MIT License](LICENSE)
 
 ## Demo
-
-![BioPilot Bench: input validation, candidate review and reference structure inspection](docs/images/biopilot-demo.gif)
 
 Upload a public Lipase A FASTA, approve a review, then inspect candidates, structure and evidence.
 
@@ -18,11 +16,42 @@ Upload a public Lipase A FASTA, approve a review, then inspect candidates, struc
 
 ## Features
 
-- **Guarded input:** validate reference identity, full-reference numbering and protected catalytic sites before execution.
-- **Meta + MCP:** run an explicitly approved, bounded review through `muse-spark-1.3` and registered scientific tools.
-- **Candidate comparison:** inspect all 19 non-WT alternatives at an approved position under one ranking policy.
-- **Interactive structure:** inspect candidate positions in the public reference structure with verified residue correspondence and missing-atom handling.
-- **Traceable results:** review recorded tool calls, source hashes and saved results, with guided onboarding.
+Short walkthroughs from real recorded application screens, with edited zoom and highlights.
+
+### Validate input before running
+
+Upload the registered public FASTA and check reference identity, numbering and
+protected sites. `S108A` is refused locally; `A32V` passes validation.
+
+![Upload a FASTA, reject protected S108A, and validate A32V](docs/images/biopilot-input.gif)
+
+### Approve and execute a bounded review
+
+Check permissions and call limits before execution. The recorded run follows
+Meta → MCP → local ESM and reaches a saved completed result.
+
+![Review execution permissions, inspect RUNNING, and reach COMPLETED](docs/images/biopilot-execution.gif)
+
+### Compare candidate variants
+
+Inspect 19 alternatives under one ranking policy, compare the top three and
+select a candidate for closer review.
+
+![Compare saved candidate scores and select A32V for inspection](docs/images/biopilot-candidates.gif)
+
+### Inspect the reference structure
+
+Locate residues using checked reference-to-structure correspondence and rotate the
+public 3D reference. Positions without observed atoms remain unmarked.
+
+![Inspect missing A32 atoms, map S108 to author 77, and rotate the reference](docs/images/biopilot-structure.gif)
+
+### Follow the evidence
+
+Inspect Meta's actual tool requests, the recorded scoring arguments and the
+input/report hashes behind the saved review.
+
+![Inspect recorded Meta and MCP handoffs, scoring arguments, and input provenance](docs/images/biopilot-evidence.gif)
 
 ## Quickstart
 
