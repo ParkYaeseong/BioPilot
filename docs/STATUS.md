@@ -1160,3 +1160,38 @@ inventory drift, which is regenerated at packaging time.
 
 Still not done and still not authorised: no GitHub publication, no external deployment, no
 contest submission, no manual arm, no GPU or Modal work, no biological efficacy claim.
+
+## 2026-11-03 — demo camera rebuild and README GIF
+
+Changed files: `local_artifacts/final_demo_20261102/build_video.py`,
+`local_artifacts/final_demo_20261102/verify_video.py`,
+`local_artifacts/final_demo_20261102/build_readme_gif.py` (new),
+`docs/images/biopilot-demo.gif` (new), `submission/readme_gif_receipt.json` (new),
+`submission/video_current_ui_20261102_receipt.json`, `README.md`,
+`demo/FINAL_VIDEO_20261102_KO.md`, `docs/DECISIONS.md`, `MANIFEST.sha256`.
+
+The published cut drifted its zoom across whole shots, highlighted most of the page,
+and crossfaded consecutive shots that shared one screenshot, which double-exposed the
+UI text: the encoded frame at 68 s had doubled headings. The camera is now one fast
+ease-out push-in per shot followed by a static hold, the zoom is solved from the
+emphasis target so a highlight cannot be cropped by its own shot, and same-screenshot
+reframes are cut rather than dissolved. Highlights are a rounded stroke with a halo
+over dimmed surroundings and appear only after the camera settles.
+
+Re-encode verified locally: 180 s, 1920x1080, 30 fps, 5400 frames, 9 chapters, 27
+measured caption cues, no whole-file decode error, mean -16.9 dBFS and peak -1.4 dBFS.
+Output is 17.6 MB against the previous 41.6 MB because static holds compress far better
+than continuous drift. `verify_video.py` now also asserts that every emphasis target
+stays inside its own shot's crop from the moment the highlight appears, and that no
+same-source reframe is dissolved; both guards pass over all 25 highlighted shots.
+
+A 14-second silent looping README GIF was added at `docs/images/biopilot-demo.gif`
+(960x540, 177 frames, 3.8 MB) covering the guard refusal, local validation, the recorded
+run's counters, the ranked candidates and the missing-atom notice. It reuses the existing
+capture hashes; no new screenshot, Meta request or GPU work. Captions move above the
+highlight when the target sits low so they never cover it.
+
+Still not done and still not authorised: the private demo Release still carries the
+2026-11-02 asset and the re-encoded MP4 has not been uploaded; no GitHub publication,
+no external deployment, no contest submission, no GPU or Modal work, no biological
+efficacy claim. Full human listening review of the audio remains pending.

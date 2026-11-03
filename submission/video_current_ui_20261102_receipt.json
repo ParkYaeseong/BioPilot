@@ -2,8 +2,8 @@
   "prepared_date_kst": "2026-11-02",
   "status": "local_video_export_technically_verified",
   "video_path": "local_artifacts/final_demo_20261102/BioPilot_Bench_180s_EN.mp4",
-  "sha256": "535495e5bbbf1df45ec11cf1a5ae8eb145e1ff98351e7e2628488103fc5a79bf",
-  "size_bytes": 41628046,
+  "sha256": "09d3e00d2c793ba64a44eb25dda18abe07a5e62a0f45cbdb1a9bfb4f71988ba1",
+  "size_bytes": 17609499,
   "duration_seconds": 180,
   "video": {
     "codec": "h264",
@@ -40,122 +40,122 @@
     {
       "second": 7,
       "file": "encoded_01.jpg",
-      "sha256": "8634818f1f7ec12ffaf5868401ed0d82ba0afd60e47ae75ee7c6dd38bd85a052"
+      "sha256": "d6e7efcc58505fe17f23fade36edbd5be0becb34f54b62f6e03e5af78814652c"
     },
     {
       "second": 19,
       "file": "encoded_02.jpg",
-      "sha256": "a4c31f29fc97280b044228c8d22284d8d55530c2bfb4048e773f2dd97b4b7ef7"
+      "sha256": "68ca50b9dbc1638b78675a3872ba2fdd2b51e77ebe428514463cca2aca164d39"
     },
     {
       "second": 26,
       "file": "encoded_03.jpg",
-      "sha256": "3f3d5001611e0c5ed64e430bb17789fb690d28511c4a0532716d35842d5e54cb"
+      "sha256": "27acfe2e38d9f42c58a268482b5c66ecab5ea54e6e2f96da4c3fe112aece4414"
     },
     {
       "second": 43,
       "file": "encoded_04.jpg",
-      "sha256": "bb3f698b487fca6d98a3d39443296567547a3dd84a8d05d81aeb28c5cf6ed687"
+      "sha256": "d040aa0ce59a4d9174bebd92fca76c1b5619a1a4651beb5bd37e211174d5f690"
     },
     {
       "second": 48,
       "file": "encoded_05.jpg",
-      "sha256": "a20f7b0af3c752ef888348fa9258e602319dc0537f8a51c792ac6042f1a64e3f"
+      "sha256": "8203e225ca1612bb96cc1a820de636e476a43b321699828095361c8edfbe249c"
     },
     {
       "second": 63,
       "file": "encoded_06.jpg",
-      "sha256": "059029220f5644f546e0250cc7664f9ee6fb7b971e49fce88b23280df6252078"
+      "sha256": "b7fc428adc7e0095004de9b1e95593c52e461d266e64b564bbdc8472e3f2198a"
     },
     {
       "second": 70,
       "file": "encoded_07.jpg",
-      "sha256": "4f0de612847a416eee6819cfeae53ee6d4c1b189be8509160a50903643621141"
+      "sha256": "d66b5c9147c5c6a24c47d20b71669409760936ad5a62ae6d020b22c64d715a6a"
     },
     {
       "second": 80,
       "file": "encoded_08.jpg",
-      "sha256": "5c66a921cbccda5ee7f1fb1cbb5000b5cfa25baa20b3796f459c33709f6af717"
+      "sha256": "0f5e02e81ca3f53373b11f7838597761f3fbd09e75c35dceefba3eed40a76d32"
     },
     {
       "second": 88,
       "file": "encoded_09.jpg",
-      "sha256": "22b1c31b3670345e65446ab3bbcdbe9323d83b47c3827996aa17c7a1ae0c8207"
+      "sha256": "cf537fb4417e7db80c6f1d5f4bcb67d298e596ba49042361b1f37c3088bcda27"
     },
     {
       "second": 96,
       "file": "encoded_10.jpg",
-      "sha256": "a473e8df819fa411b1baaa6c37ef99ad676d2e4bdc9335850cbefc5263b01c2c"
+      "sha256": "3443a9a5ce23bbca08c5f56c8badd865c9cfaa4d60686d8ead5d70721ecc7f80"
     },
     {
       "second": 104,
       "file": "encoded_11.jpg",
-      "sha256": "41f44419d6f13bdb28526b298990125edbbc86068ba32f66ef7899166ed09e62"
+      "sha256": "23b5369ceb4082af1940a9d509ba528adf26d2d72d54a294b87e2ccc0aa9eb76"
     },
     {
       "second": 113,
       "file": "encoded_12.jpg",
-      "sha256": "e71664a4e64909e7f69cc00ce06eb599806399111675d3a02233fea86d25271f"
+      "sha256": "c918ba755bf2e9064afe9a0b68141091bc50d01b8db8a5b9060f503c0e6924be"
     },
     {
       "second": 118,
       "file": "encoded_13.jpg",
-      "sha256": "424ef77478822bed7a196cfb412235f7d0de5d138dd6199f2d478c55942fce9d"
+      "sha256": "4a72cdf6c1daa42b3127aa43708001e2b326c642460b894df5fc92f9e95806c6"
     },
     {
       "second": 123,
       "file": "encoded_14.jpg",
-      "sha256": "9b6391e6d3578d25f22c71ecf66d185559c40cced6653bb792a1430f31d36678"
+      "sha256": "2222467eb80ee1ec1d64ba5c343a33485fd9214919dc17b92db806222ea2ea63"
     },
     {
       "second": 129,
       "file": "encoded_15.jpg",
-      "sha256": "ca0894e98eadaa16424465be98c6a238f01704c4dbfb0a05dca54c4da6440869"
+      "sha256": "3780d7247c0ef8b84541b780136cd500623a3b34b01bbe7fef6431d7f7f1f296"
     },
     {
       "second": 137,
       "file": "encoded_16.jpg",
-      "sha256": "d138c5f7376d982921fffe52e8cf91a16ed0c1488bc36318c249d4ebe3af0166"
+      "sha256": "c81818962c5b31c17b62ab0df9774e76bc47a69bca8deb1dde02bca510fe8f7e"
     },
     {
       "second": 142,
       "file": "encoded_17.jpg",
-      "sha256": "d456c902105b468ce6591a77eb843fc45574f8a4dfcafd0577f8bedf47a0a074"
+      "sha256": "fd32086a0ec0dd5e3a352be49e6adee7ac3644983e3bb5a69f27d810394edc66"
     },
     {
       "second": 148,
       "file": "encoded_18.jpg",
-      "sha256": "dddc87d8f3499d17d7fd767db5adf2aad17ccebc4cb8a7c5f45d635599cd845e"
+      "sha256": "3b266d180e89e3d082ad99b28f95c44184ae9f9c4d02c639094c2e45c2d0ad09"
     },
     {
       "second": 154,
       "file": "encoded_19.jpg",
-      "sha256": "d2d9419096aaa5c665b492a39c7e6aa421f6f3687b2dcef01f7b3291845a8439"
+      "sha256": "22cd9f0b15532b3bbc90e63da0e57f062f9f1772c7bed53dd7a4c74277fe6f08"
     },
     {
       "second": 161,
       "file": "encoded_20.jpg",
-      "sha256": "6b2c20226674d370b2ef1f24c16284a45ac250ae46e6d22a5a0f570aab57deab"
+      "sha256": "e28ed8efabb636b88dcf33272414e2ad50ea00971a1cafb4359ee5ea66441824"
     },
     {
       "second": 167,
       "file": "encoded_21.jpg",
-      "sha256": "0663186b11fdb078a13c9c2c43f1912181cec774ed905b23fbb3489d69a68a63"
+      "sha256": "b76b368a707bdb2661e7f0ac8a6e645890d1f3ec8fc76cae6a89740d8e4f5e15"
     },
     {
       "second": 173,
       "file": "encoded_22.jpg",
-      "sha256": "5d9e89fc99bdb05706c3a5873c5e543a02d493458cc3088b1e8a7d4779cb12fa"
+      "sha256": "b8d90c12539722c83415ad4b7f4ff5f0889dd74bf11868ee7c667fd17d7b34eb"
     },
     {
       "second": 178,
       "file": "encoded_23.jpg",
-      "sha256": "5876d95b2b82ed89ef4ac338f5cf21cda6aaf0aa9f739a1f42eb96328e8446e5"
+      "sha256": "810bc797cb305baedf1d5824db4b49ec424dde5bba0be0f391568448b7ca6b60"
     },
     {
       "second": 179.7,
       "file": "encoded_24.jpg",
-      "sha256": "7a84f3c1237db1c033955b1507227571177134da006ec35825f5224a3ce84210"
+      "sha256": "50f67ae173452c5adc7c1e9e04c6df8c3b47206551368e7731beb19adeb38959"
     }
   ],
   "captures": {
@@ -175,6 +175,12 @@
     "synthetic_execution_progress": false,
     "optical_flow_frame_interpolation": false,
     "reference_gif_included_in_movie": false,
+    "camera_motion": "one fast ease-out push-in per shot, then a static hold",
+    "emphasis_style": "rounded stroke with halo over dimmed surroundings",
+    "camera_is_solved_from_the_emphasis_target": true,
+    "same_source_reframes_dissolved": false,
+    "dissolve_seconds": 0.18,
+    "max_zoom": 1.72,
     "style_reference": "https://github.com/iOfficeAI/AionUi/blob/main/resources/AionUi_team.gif"
   },
   "recorded_science": {

@@ -689,3 +689,31 @@ Independent audit also identified the same optional catalog issue in legacy
 validation_smoke; narrow its offered tools to validation/status while tolerating
 only the known optional science capabilities in discovery. Fixture regression
 failed then passed; no paid smoke was needed. Unknown/duplicate tools stay blocked.
+
+
+## 2026-11-03 — demo motion model and README GIF
+
+The first cut drifted: every shot interpolated zoom and pan across its whole
+duration, so a ten-second shot crept 1.03 to 1.08 and read as sluggish while
+never arriving anywhere. Several shots zoomed with no target at all. Emphasis
+boxes were drawn around most of the page, clamped to the screen edge, and traced
+over 0.85s, so a sampled frame often showed a stray line on the window bezel.
+Worst, consecutive shots on the same screenshot were crossfaded into each other,
+double-exposing the UI text; the encoded frame at 68s showed doubled headings.
+
+Replace the motion model with one fast ease-out push-in per shot followed by a
+static hold, and solve the zoom from the emphasis target so a box can never be
+cropped by its own shot. A full-width target therefore resolves to a full-width
+framing instead of a clipped highlight, and the dimmed surroundings carry the
+emphasis where zoom cannot. A reframe on the same screenshot is a camera move,
+not a scene change, so it is never dissolved and an unchanged box is not
+re-animated. Highlights now appear after the camera settles.
+
+Add a separate 14-second silent looping README GIF from the same captures, since
+a private Release MP4 shows nothing on the repository front page. Captions move
+above the highlight when the target sits low, so a caption never covers the thing
+it points at. No new capture, Meta request or GPU work: the GIF reuses the
+existing screenshot hashes and keeps the LOCAL UI and REPLAY labels.
+
+The re-encoded MP4 no longer matches the asset already attached to the private
+demo Release. Re-upload is not performed and still requires explicit approval.

@@ -9,26 +9,42 @@ The current product is a sequence evidence assistant, not a validated enzyme opt
 
 Documentation updated **2026-11-03** · Owner: **Yaeseong Park**.
 
-## Three-minute demo
+## Demo
 
-[![Open the private BioPilot Bench demo Release](docs/images/final-video-preview.jpg)](https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02)
+![A protected catalytic site is refused, a permitted variant validates locally, saved candidates are ranked, and the reference structure reports a missing residue](docs/images/biopilot-demo.gif)
 
-**[Open the demo Release — GitHub sign-in required](https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02)**
-· [Direct MP4 download after sign-in](https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.mp4)
+Fourteen seconds, silent, looping, and visible without signing in. A protected
+catalytic site is refused before any model call. A permitted variant validates
+locally. The saved run is reopened to read its ranked candidates and its reference
+structure, which reports that position 32 has no atoms rather than inventing one.
+
+Every frame is a real capture of the running application. Camera movement,
+highlighting and timing are editorial; no UI state, model reply or execution progress
+is synthesised. [GIF receipt](submission/readme_gif_receipt.json).
+
+### Full three-minute video
+
+The 180-second cut adds English narration, measured captions and nine chapters over
+the same captures. It is **not in this repository**: the binary does not belong in
+source history, so it stays a Release attachment.
+
+The attached asset is the **2026-11-02** cut. Its camera and emphasis were re-edited
+on 2026-11-03, which removed a crossfade that double-exposed the UI text and dropped
+the zooms that had no target. That re-encode is local and has not replaced the
+attachment. The GIF above is from the re-edited version.
+
+**[Demo Release — GitHub sign-in required](https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02)**
 · [English SRT](https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_EN.srt)
 · [한국어 자막](https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_KO.srt)
 
-180 seconds · 1080p / 30fps · about 42 MB. The preview opens the Release page,
-not an inline player. **First sign in to GitHub as `ParkYaeseong` or an account with
-repository access**, then open **Assets → BioPilot_Bench_180s_EN.mp4**.
-The repository and Release are **private**: signed-out or unauthorized access can
-return Not Found. These are not anonymous judge-access links.
+The repository and its Release are **private**, so these are not anonymous
+judge-access links: signed-out visitors get Not Found. Sign in as `ParkYaeseong` or
+an account with repository access, then open **Assets**.
 
-The video uses actual application captures, English AI narration, measured captions,
-smooth zoom/pan and animated emphasis. Local input checks are performed in the UI;
-the scientific execution is shown as **recorded REPLAY**, with waiting omitted.
-No new Meta or GPU inference is performed during capture. Full human listening review
-remains pending. [Video guide and scope](demo/FINAL_VIDEO_20261102_KO.md)
+Local input checks run in the UI; the scientific execution is shown as **recorded
+REPLAY** with waiting omitted. No new Meta or GPU inference happens during capture.
+Full human listening review is still pending.
+[Video guide and scope](demo/FINAL_VIDEO_20261102_KO.md)
 · [Technical media receipt](submission/video_current_ui_20261102_receipt.json).
 
 ## Try the saved review and input checks
