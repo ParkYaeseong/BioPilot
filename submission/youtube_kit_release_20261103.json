@@ -1,0 +1,54 @@
+{
+  "date_kst": "2026-11-03",
+  "status": "youtube_upload_kit_hosted_on_public_github_release",
+  "release_url": "https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02",
+  "assets": [
+    {
+      "name": "BioPilot_Bench_180s_YOUTUBE.mp4",
+      "asset_id": 705605467,
+      "size_bytes": 16425920,
+      "sha256": "f4a006d9e582985e8087e99f10e7d049fd6229dd362a35e213a42d736e169b1b",
+      "url": "https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_180s_YOUTUBE.mp4",
+      "anonymous_http_status": 206
+    },
+    {
+      "name": "BioPilot_Bench_EN.srt",
+      "asset_id": 705605473,
+      "size_bytes": 3121,
+      "sha256": "4509ade16139fe70a8ff1f63abcac28256b88078ff5c99f70692ff4805805895",
+      "url": "https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_EN.srt",
+      "anonymous_http_status": 206
+    },
+    {
+      "name": "BioPilot_Bench_KO.srt",
+      "asset_id": 705605462,
+      "size_bytes": 3477,
+      "sha256": "f5e04b38641716efd78870c2142a759fb3bc7f7da5d8f7d1cbaa66163c07e924",
+      "url": "https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_Bench_KO.srt",
+      "anonymous_http_status": 206
+    },
+    {
+      "name": "YouTube_description_EN.txt",
+      "asset_id": 705605482,
+      "size_bytes": 1601,
+      "sha256": "ee89004602da3291877ae850668514de61c30feb8022b63143c66e2bac801d0f",
+      "url": "https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/YouTube_description_EN.txt",
+      "anonymous_http_status": 206
+    },
+    {
+      "name": "BioPilot_YouTube_Upload_Kit.zip",
+      "asset_id": 705605465,
+      "size_bytes": 15982002,
+      "sha256": "696649603d4166dabd5d4229bc64b897862f026c89eb2126bb5e1e4df5b029ed",
+      "url": "https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_YouTube_Upload_Kit.zip",
+      "anonymous_http_status": 206
+    }
+  ],
+  "remote_size_and_sha256_match": true,
+  "original_demo_assets_preserved": true,
+  "binary_committed_to_git": false,
+  "youtube_uploaded": false,
+  "youtube_url": null,
+  "new_meta_or_gpu_calls": 0,
+  "anonymous_access_verified": true
+}

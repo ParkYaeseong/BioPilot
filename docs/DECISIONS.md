@@ -1,5 +1,20 @@
 # Decision log
 
+## YouTube upload kit added to public GitHub Release — 2026-11-03
+
+Owner is away from the recording PC and needs remote downloads. The prior
+YouTube-ready MP4/captions/description were local-only; now uploaded five explicit
+assets to existing public demo-2026-11-02 Release:YouTube-ready MP4,EN SRT,KO SRT,
+English description and a ZIP containing those files plus upload instructions.
+Original burned-caption demo assets preserved; no binary added to Git history.
+All remote asset sizes and GitHub SHA256 digests match local bytes. Anonymous
+HTTP access verified for all5files,including MP4 ftyp and ZIP PK signatures.
+ZIP15,982,002bytes;MP4 remains16,425,920bytes/SHA256f4a006d9...69b1b.
+Receipt:submission/youtube_kit_release_20261103.json. This is GitHub hosting only;
+no YouTube account/channel/upload/watch URL or hackathon submission is claimed.
+No new Meta/GPU calls. README's current working demo link remains until a real
+YouTube URL is available.
+
 ## YouTube upload package prepared; browser permission blocked — 2026-11-03
 
 Owner authorized a project YouTube channel or existing Google account,English

@@ -183,5 +183,13 @@
   "eligibility_receipt": "compliance/ELIGIBILITY_STATUS_20261103.md",
   "contribution_disclosure": "compliance/EVENT_CONTRIBUTIONS.md",
   "license": "MIT for original project code/documentation; third-party terms retained",
-  "public_access_receipt": "validation/public_access_20261103.json"
+  "public_access_receipt": "validation/public_access_20261103.json",
+  "youtube_upload_kit": {
+    "release_url": "https://github.com/ParkYaeseong/BioPilot/releases/tag/demo-2026-11-02",
+    "receipt": "submission/youtube_kit_release_20261103.json",
+    "zip_url": "https://github.com/ParkYaeseong/BioPilot/releases/download/demo-2026-11-02/BioPilot_YouTube_Upload_Kit.zip",
+    "anonymous_access_verified": true,
+    "youtube_uploaded": false,
+    "youtube_url": null
+  }
 }
