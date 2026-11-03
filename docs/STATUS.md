@@ -1186,7 +1186,7 @@ stays inside its own shot's crop from the moment the highlight appears, and that
 same-source reframe is dissolved; both guards pass over all 25 highlighted shots.
 
 A 14-second silent looping README GIF was added at `docs/images/biopilot-demo.gif`
-(960x540, 177 frames, 3.8 MB) covering the guard refusal, local validation, the recorded
+(760x428, 177 frames, 2.4 MB) covering the guard refusal, local validation, the recorded
 run's counters, the ranked candidates and the missing-atom notice. It reuses the existing
 capture hashes; no new screenshot, Meta request or GPU work. Captions move above the
 highlight when the target sits low so they never cover it.

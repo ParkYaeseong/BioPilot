@@ -47,7 +47,7 @@ local_artifacts/final_demo_20261102/BioPilot_Bench_180s_KO.srt
   [AionUi 참고 GIF](https://github.com/iOfficeAI/AionUi/blob/main/resources/AionUi_team.gif)는
   편집 스타일 참고용으로 확인했으며 영상에 삽입하지 않았습니다.
 - README용 14초 무음 반복 GIF를 같은 캡처에서 따로 만듭니다
-  (`docs/images/biopilot-demo.gif`, 960×540, 약 3.8MB,
+  (`docs/images/biopilot-demo.gif`, 760×428, 약 2.4MB,
   [영수증](../submission/readme_gif_receipt.json)). 새 촬영이나 새 실행은 없습니다.
 
 ## 보여 주는 실제 동작
