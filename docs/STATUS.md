@@ -1503,3 +1503,4 @@ when the replacement URL is available. Fresh model/GPU work still requires separ
 
 Package validation after the media/documentation additions: 2237 checks, 0 failures.
 Added README/guide links, both GIF loops and all 25 EN/KO subtitle intervals also passed.
+Publication follow-up: normalized the two public SRT files to LF so the Git blobs and MANIFEST hashes agree; local MP4/SRT delivery files are preserved.
