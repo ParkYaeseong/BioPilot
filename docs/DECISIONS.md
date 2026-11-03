@@ -1023,3 +1023,8 @@ Remove L40S from spoken narration, editorial model labels, README feature copy a
 captions. Name the model, WT/A32V input and saved-prediction state instead. Preserve original
 receipts, reproduction specifications and captured UI evidence without alteration. This is
 an editorial revision; the models, outputs, ranking and available features do not change.
+
+
+## 2026-11-04 — describe structure review by its purpose
+
+Use function-first README wording: inspect ESMFold2 WT and ESM3 A32V predictions alongside sequence scores. Keep hardware setup in the execution guide and original receipts. Preserve separate-run and ranking boundaries.

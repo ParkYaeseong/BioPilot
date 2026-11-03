@@ -4,7 +4,7 @@
 
 BioPilot Bench brings file validation, Meta-directed scientific tools and candidate
 review into one local workspace, alongside experimental reference structures,
-stored GPU predictions and Atlas reference context. Meta selects permitted MCP
+stored structure predictions and Atlas reference context. Meta selects permitted MCP
 tools and explains the evidence; code enforces scientific constraints, execution
 limits and ranking.
 
@@ -50,10 +50,10 @@ public 3D reference. Positions without observed atoms remain unmarked.
 
 ### Explore predicted structures
 
-Rotate the stored **ESMFold2 WT** and **ESM3 A32V** predictions from separate runs.
-Each result retains its model, input, execution receipt and checked
-full-reference sequence. These optional views complement the saved ESM-2 ranking;
-different models and inputs are not a measurement of the mutation's effect.
+Interactively inspect the stored **ESMFold2 WT** and **ESM3 A32V** structures.
+Each prediction identifies its model, input and execution record, with the
+full-reference sequence checked. These separate predictions add structural context
+alongside ESM-2 scores without changing the candidate ranking or measuring a mutation effect.
 
 ![Select and rotate the stored ESMFold2 WT and ESM3 A32V predictions](docs/images/biopilot-predictions.gif)
 

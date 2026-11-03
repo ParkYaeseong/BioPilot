@@ -1523,3 +1523,9 @@ YouTube URL still identifies the older owner-uploaded cut.
 
 Media verification: both outputs are 180.000 seconds, 1920x1080, 30 fps, 5400 frames, nine chapters; full decode errors zero. Measured subtitle cues remain aligned and ordered.
 Package validation after the wording revision: 2237 checks, 0 failures.
+
+
+## 2026-11-04 — align README introduction with the demo wording
+
+Changed README.md to describe stored structure predictions and interactive inspection, without foregrounding GPU hardware. Existing GIFs, actual model/input labels, execution guides and scientific records remain intact. Documentation-only change; no new model calls or GPU jobs.
+Validation: .venv/Scripts/python.exe checks/validate_package.py — 2237 checks, 0 failures. Next action: view the updated public README; no new execution approval required.
