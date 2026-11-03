@@ -3,8 +3,10 @@
 **From a protein-variant request to an inspectable scientific review.**
 
 BioPilot Bench brings file validation, Meta-directed scientific tools and candidate
-review into one local workspace. Meta selects permitted MCP tools and explains the
-evidence; code enforces scientific constraints, execution limits and ranking.
+review into one local workspace, alongside experimental reference structures,
+stored GPU predictions and Atlas reference context. Meta selects permitted MCP
+tools and explains the evidence; code enforces scientific constraints, execution
+limits and ranking.
 
 [Demo](#demo) · [Features](#features) · [Quickstart](#quickstart) · [Event contributions](compliance/EVENT_CONTRIBUTIONS.md) · [MIT License](LICENSE)
 
@@ -46,6 +48,23 @@ public 3D reference. Positions without observed atoms remain unmarked.
 
 ![Inspect missing A32 atoms, map S108 to author 77, and rotate the reference](docs/images/biopilot-structure.gif)
 
+### Explore real GPU structure predictions
+
+Rotate the stored **ESMFold2 WT** and **ESM3 A32V** predictions, computed separately
+on an L40S GPU. Each result retains its model, input, execution receipt and checked
+full-reference sequence. These optional views complement the saved ESM-2 ranking;
+different models and inputs are not a measurement of the mutation's effect.
+
+![Select and rotate the stored ESMFold2 WT and ESM3 A32V predictions](docs/images/biopilot-predictions.gif)
+
+### Check Atlas reference context
+
+Inspect an exact match for the registered WT in Biohub ESM Atlas, including its
+accession, source and retrieval record. The workbench reads the verified saved
+snapshot; this feature does not search for similar proteins or request a new fold.
+
+![Inspect the Atlas exact-reference match, accession, source and saved lookup](docs/images/biopilot-atlas.gif)
+
 ### Follow the evidence
 
 Inspect Meta's actual tool requests, the recorded scoring arguments and the
@@ -78,6 +97,7 @@ credentials, pinned local ESM weights and explicit approval.
 | Public experimental structure (1ISP) | Interactive reference view with checked residue correspondence | No folding required |
 | ESMFold2 | Inspect the stored WT prediction from an actual L40S run | Separate GPU worker; not launched by New review |
 | ESM3 open | Inspect the stored A32V prediction from an actual L40S run | Separate GPU worker; not launched by New review |
+| Biohub ESM Atlas | Inspect the saved exact-reference WT match and source | Separate approved lookup; not similarity search |
 
 To view the predictions, open a saved review → **Structure** →
 **Additional evidence · Atlas and structure models** → **Stored predicted structure**.
@@ -90,8 +110,8 @@ verified checkpoint files and explicit execution approval. It does not provision
 server or connect the workbench to RunPod; the RunPod backend is unconfigured.
 There is no standalone ESMC scoring feature.
 
-The current three-minute video demonstrates ESM-2 execution and the experimental
-1ISP reference viewer; it does not demonstrate the optional ESMFold2/ESM3 prediction views.
+The linked YouTube video currently shows ESM-2 execution and the experimental 1ISP
+reference viewer. The optional prediction and Atlas walkthroughs are shown above.
 
 ## Workflow
 

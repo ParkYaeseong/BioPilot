@@ -43,6 +43,9 @@ does not independently establish every rights or reuse question.
 The demo presents the event-built file intake, validation/approval workflow, actual
 Meta/MCP/CPU ESM execution, candidate review, reference-structure integration, trace
 and evidence views. The opening chapter identifies the event-built workflow.
+The November 3 revised local cut also presents the optional ESMFold2 WT / ESM3 A32V
+stored GPU predictions and exact-reference Atlas snapshot. These were acquired
+separately and are not presented as tools called in the recorded Meta sequence review.
 Public models and biological inputs are supporting dependencies, not new discoveries.
 Candidate/reference illustrations may be reused between actual runs only after
 checking identical candidate and score-artifact objects. Camera movement, highlights

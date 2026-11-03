@@ -1476,3 +1476,30 @@ tests_app/test_viewer_structure.py -q -p no:cacheprovider
 No new Meta call, GPU job, external sequence transfer or video edit. Fresh third-party
 GPU installation and automatic remote execution remain unverified/unimplemented respectively.
 Next allowed action: inspect stored prediction views; new GPU execution requires its own approval.
+
+
+## 2026-11-03 — structure and Atlas demo edit
+
+Changed README.md, submission/FORM_ANSWERS_20261103.md, compliance/EVENT_CONTRIBUTIONS.md,
+demo/FINAL_VIDEO_20261102_KO.md; added two measured EN/KO subtitle files, two README GIFs,
+submission/readme_structure_gifs_20261103.json and submission/structure_atlas_video_20261103.json.
+Final videos remain in local_artifacts/structure_demo_20261103, outside the Git source inventory.
+The original cut and YouTube URL are preserved; the owner has not uploaded this revised cut.
+
+The new 180-second flow preserves the original input/approved execution/candidates and adds
+1ISP reference -> stored ESMFold2 WT -> stored ESM3 A32V -> exact-WT Atlas snapshot -> actual
+Meta trace -> input/report evidence. The repetitive closing limitation narration was replaced
+with the product value, while model/input/replay labels and scientific limits remain accurate.
+No API, GPU, new Atlas lookup, deployment or submission occurred; no scientific artifacts changed.
+
+Tests: 44 prediction/optional-science/reference-view tests passed. Both final videos are
+180.000 seconds, 1920x1080, 30 fps, 5400 frames, nine chapters, with full decode errors zero.
+The clean video contains EN/KO optional subtitle tracks; separate SRTs contain 25 measured cues.
+Sampled 45.8-86s frames retain 50.9-53.7 dB PSNR against the original clean cut. Reviewed final
+encoded full-size structure, Atlas, evidence and caption samples; corrected Atlas highlight and
+caption/model-label overlap. Full human audio listening and revised YouTube playback are not verified.
+Next allowed action: owner reviews the new local cut and uploads it; update the README URL only
+when the replacement URL is available. Fresh model/GPU work still requires separate approval.
+
+Package validation after the media/documentation additions: 2237 checks, 0 failures.
+Added README/guide links, both GIF loops and all 25 EN/KO subtitle intervals also passed.

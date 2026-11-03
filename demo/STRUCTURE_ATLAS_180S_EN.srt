@@ -1,0 +1,99 @@
+1
+00:00:00,280 --> 00:00:08,227
+BioPilot Bench connects a protein file, a review request, and traceable results in one workspace.
+
+2
+00:00:09,473 --> 00:00:14,700
+This demonstration uses the registered public Lipase A reference.
+
+3
+00:00:15,280 --> 00:00:19,221
+Upload the full-reference FASTA and describe the variant.
+
+4
+00:00:21,400 --> 00:00:26,343
+A request for S108A is refused by the local protection guard.
+
+5
+00:00:28,521 --> 00:00:34,700
+No model request is sent, and the file is never silently replaced with another protein.
+
+6
+00:00:35,280 --> 00:00:38,174
+A32V passes local validation.
+
+7
+00:00:38,209 --> 00:00:45,163
+The confirmation connects the uploaded file hash to position thirty-two and the pinned ESM checkpoint.
+
+8
+00:00:45,198 --> 00:00:49,460
+Execution requires separate permission and cost acknowledgment.
+
+9
+00:00:49,494 --> 00:00:54,700
+Call limits are enforced; actual provider billing remains unverified.
+
+10
+00:00:55,280 --> 00:01:01,224
+I now execute the approved review through Meta, MCP, and local ESM.
+
+11
+00:01:01,826 --> 00:01:07,678
+Waiting is shortened in this edit; the execution and its recorded results are real.
+
+12
+00:01:08,280 --> 00:01:14,700
+The review completes with three Meta requests and nineteen scored candidates in this workspace.
+
+13
+00:01:15,280 --> 00:01:22,091
+The result contains nineteen alternatives at the approved position, ranked by one common code policy.
+
+14
+00:01:25,091 --> 00:01:29,594
+Compare candidates without changing their saved scores or ranks.
+
+15
+00:01:32,594 --> 00:01:37,608
+Select A32V and carry the same selection into Structure.
+
+16
+00:01:40,280 --> 00:01:45,145
+The public experimental reference checks where residues can actually be located.
+
+17
+00:01:48,145 --> 00:01:56,852
+ESMFold2 provides a full wild-type structure, computed on an L40S GPU and saved for inspection.
+
+18
+00:01:59,852 --> 00:02:08,261
+For A32V, a separate ESM3 run provides a full two-hundred-twelve-residue predicted structure.
+
+19
+00:02:11,261 --> 00:02:17,483
+These optional structure views complement the same saved ESM-two candidate ranking.
+
+20
+00:02:20,280 --> 00:02:26,054
+Atlas adds an exact-reference database match, with its accession and source.
+
+21
+00:02:28,373 --> 00:02:33,700
+This saved lookup supplies reference context without requesting a new fold.
+
+22
+00:02:34,280 --> 00:02:39,273
+Agent Trace shows the actual Meta validation and scoring requests.
+
+23
+00:02:40,024 --> 00:02:46,700
+Meta coordinates permitted tools; code enforces constraints, computation, and ranking.
+
+24
+00:02:47,280 --> 00:02:52,271
+Evidence connects the uploaded file to the saved report and scoring record.
+
+25
+00:02:52,377 --> 00:02:59,700
+BioPilot Bench brings sequence, structure, and traceable evidence into one review workspace.

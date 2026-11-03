@@ -996,3 +996,22 @@ ESMFold2 demonstration. Preserve its existing edit and all scientific artifacts.
 Validation: 44 focused prediction/optional-science/reference-view tests passed and both
 bundled predictions passed their loader's hash and sequence checks. README.md,
 docs/STATUS.md, docs/DECISIONS.md and MANIFEST.sha256 are the only intended changes.
+
+
+## 2026-11-03 — place optional science in the research review flow
+
+Show structural context immediately after candidate selection: experimental 1ISP, then
+separately acquired ESMFold2 WT and ESM3 A32V predictions. These are different model/input
+pairs, not a mutant-effect comparison or automatic steps in the recorded Meta run. Atlas
+belongs alongside reference evidence: the implemented snapshot is an exact WT match, not a
+similar-protein search. Follow it with the actual Meta trace and input/report receipts.
+
+Keep the existing fast zoom, rounded highlights and dark editorial frame. Replace repeated
+closing caveats with the unified review value, retaining honest input/model/source labels.
+Publish lightweight GIFs, captions and descriptions to Git, and preserve large MP4s locally.
+The current YouTube link continues to identify the older owner-uploaded cut until a new URL
+is supplied. No speculative feature, new scientific run, score or ranking change was added.
+
+Validation: 44 focused tests; complete decoding and 5400-frame/180-second checks for both
+outputs; encoded-frame visual checks and previous execution-clip quality comparison. See
+submission/structure_atlas_video_20261103.json for hashes, exact commands and evidence scope.

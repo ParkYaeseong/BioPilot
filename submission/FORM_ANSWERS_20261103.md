@@ -34,9 +34,13 @@ the input, explicitly approve a bounded run, and inspect candidates, structure,
 tool calls and evidence in one local workbench. Meta selects permitted MCP tools
 and explains the result; code enforces residue numbering, protected catalytic
 sites, execution limits and a common ranking policy. Local ESM-2 scores all 19
-non-WT alternatives at an approved position. The event contribution is this guarded
-workflow and review interface, not the underlying public models or reference data.
-ESM preference is sequence evidence, not experimental proof of improved enzyme performance.
+non-WT alternatives at an approved position. Researchers can also inspect a public
+experimental reference, real stored ESMFold2 WT and ESM3 A32V predictions from
+separate L40S GPU runs, and an exact-reference Atlas database snapshot. These
+optional evidence views preserve the scoring policy and identify their sources.
+The event contribution is this guarded workflow and review interface, not the
+underlying public models or reference data. Sequence preferences and predicted
+structures support hypothesis review, not measured enzyme performance.
 
 ## Public GitHub Repository
 
@@ -56,6 +60,11 @@ host enforce reference identity, scientific guards, approval and call limits; lo
 ESM-2 performs the numerical scoring. Codex and Claude assisted development and are
 disclosed separately. We do not present them as the product's Meta runtime or claim
 that Muse Code was used.
+
+The structure review additionally displays separately acquired ESMFold2 and ESM3
+GPU predictions and a Biohub ESM Atlas exact-reference snapshot. These are optional
+scientific evidence sources, not additional Meta Model API calls or tool calls
+retroactively attributed to the demonstrated Meta trace.
 
 ## Why are Meta's models important to your solution?
 
