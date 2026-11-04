@@ -1,17 +1,16 @@
 # Reproduction and execution evidence
 
 - [Public repository](https://github.com/ParkYaeseong/BioPilot)
-- [Owner-uploaded YouTube demo](https://www.youtube.com/watch?v=V7jWi7q1ggU)
+- [Owner-uploaded YouTube demo](https://www.youtube.com/watch?v=tozONY6U15s)
 - [Install and reproduce the offline workbench](REPRODUCE_KO.md)
 - [Event contributions and reused material](../compliance/EVENT_CONTRIBUTIONS.md)
 - [Scientific execution receipts](../validation/README.md)
 - [Current local structure/Atlas video edit](../demo/FINAL_VIDEO_20261102_KO.md)
 
-The YouTube link currently identifies the earlier owner-uploaded cut. The revised
-local cut adds stored ESMFold2 WT / ESM3 A32V predictions and exact-reference Atlas
-context. Its [technical receipt](structure_atlas_video_20261103.json) records output
-hashes, narration, measured captions and verification. It has not been uploaded to
-YouTube by this workflow.
+The owner supplied the new YouTube link after uploading the revised three-minute
+cut with stored ESMFold2 WT / ESM3 A32V predictions and exact-reference Atlas context.
+Its [technical receipt](structure_atlas_video_20261103.json) records local output
+hashes, narration, measured captions and verification.
 
 Saved numerical results, model/tool identities and provenance remain in
 `demo/artifacts/` and `validation/`. Result navigation is replay; new scientific

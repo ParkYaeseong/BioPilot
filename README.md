@@ -14,7 +14,7 @@ limits and ranking.
 
 Upload a public Lipase A FASTA, approve a review, then inspect candidates, structure and evidence.
 
-**[Watch the three-minute demo on YouTube](https://www.youtube.com/watch?v=V7jWi7q1ggU)**
+**[Watch the three-minute demo on YouTube](https://www.youtube.com/watch?v=tozONY6U15s)**
 
 ## Features
 
@@ -110,8 +110,9 @@ verified checkpoint files and explicit execution approval. It does not provision
 server or connect the workbench to RunPod; the RunPod backend is unconfigured.
 There is no standalone ESMC scoring feature.
 
-The linked YouTube video currently shows ESM-2 execution and the experimental 1ISP
-reference viewer. The optional prediction and Atlas walkthroughs are shown above.
+The three-minute demo follows input validation and ESM-2 execution into candidate
+review, the experimental 1ISP reference, stored ESMFold2/ESM3 predictions, Atlas
+reference context and the recorded Meta tool trace.
 
 ## Workflow
 

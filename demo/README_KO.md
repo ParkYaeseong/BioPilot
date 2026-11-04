@@ -1,12 +1,12 @@
 # 저장 결과와 시연 자료
 
-- [공개 YouTube 시연](https://www.youtube.com/watch?v=V7jWi7q1ggU)
+- [공개 YouTube 시연](https://www.youtube.com/watch?v=tozONY6U15s)
 - [구조 예측·Atlas를 포함한 최신 로컬 편집 안내](FINAL_VIDEO_20261102_KO.md)
 - [영어 자막](STRUCTURE_ATLAS_180S_EN.srt) · [한국어 자막](STRUCTURE_ATLAS_180S_KO.srt)
 - [새 설치와 오프라인 재현](../submission/REPRODUCE_KO.md)
 
-현재 YouTube 주소는 사용자가 올린 이전 편집본입니다. 새 로컬 편집본의 업로드가
-확인되면 대표 링크를 변경합니다. 원본 MP4와 촬영 파일은 Git에 포함하지 않습니다.
+현재 YouTube 주소는 사용자가 새로 업로드한 구조 예측·Atlas 포함 편집본입니다.
+원본 MP4와 촬영 파일은 Git에 포함하지 않습니다.
 
 ## 앱에서 저장 결과 확인
 

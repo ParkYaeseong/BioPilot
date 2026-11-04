@@ -1,6 +1,6 @@
 {
   "date_kst": "2026-11-03",
-  "status": "encoded_and_checked_local_not_uploaded_to_youtube",
+  "status": "encoded_and_checked_owner_reported_youtube_upload",
   "outputs": [
     {
       "file": "BioPilot_Bench_180s_YOUTUBE.mp4",
@@ -34,8 +34,8 @@
   ],
   "local_output_directory": "local_artifacts/structure_demo_20261103",
   "preserved_previous_video": "local_artifacts/youtube_upload_20261103/BioPilot_Bench_180s_YOUTUBE.mp4",
-  "current_youtube_url": "https://www.youtube.com/watch?v=V7jWi7q1ggU",
-  "youtube_link_targets_previous_cut": true,
+  "current_youtube_url": "https://www.youtube.com/watch?v=tozONY6U15s",
+  "youtube_link_targets_previous_cut": false,
   "new_model_calls": 0,
   "new_gpu_jobs": 0,
   "new_atlas_http_queries": 0,
@@ -716,5 +716,9 @@
     "product_model_calls": 0,
     "gpu_jobs": 0,
     "hardware_evidence": "validation/optional_science_runtime_20261028.json"
-  }
+  },
+  "previous_youtube_url": "https://www.youtube.com/watch?v=V7jWi7q1ggU",
+  "youtube_upload_owner_reported": true,
+  "youtube_playback_independently_verified": false,
+  "youtube_caption_tracks_verified": false
 }
