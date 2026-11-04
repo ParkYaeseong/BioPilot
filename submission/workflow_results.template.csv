@@ -1,1 +1,0 @@
-scenario_id,method,run_id,source_mode,task_completed,constraint_violations,evidence_items_complete,evidence_items_required,human_interventions,unnecessary_expensive_calls,operator_seconds,wall_seconds,meta_cost_usd,gpu_cost_usd,cache_state,artifact_hash,limitations

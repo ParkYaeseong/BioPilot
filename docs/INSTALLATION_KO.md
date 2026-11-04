@@ -1,4 +1,4 @@
-# 심사자용 로컬 재현 안내
+# 설치와 오프라인 재현
 
 2026-11-02 확인. Windows / Python 3.14.0의 **새 가상환경과 별도 소스 복사본**에서
 통합 UI의 5개 결과 화면과 로컬 입력 검증을 확인했습니다. 기존 설치 패키지, 개인
@@ -16,7 +16,7 @@ py -3.14 -m venv .venv
 .venv/Scripts/python.exe -m pip install -r requirements/workbench-win-py314.lock.txt
 .venv/Scripts/python.exe -m pip check
 .venv/Scripts/python.exe checks/check_reproduction.py
-.venv/Scripts/python.exe -m streamlit run app/bench.py --server.headless true --browser.gatherUsageStats false --server.address 127.0.0.1 --server.port 8522 -- --state-dir .runtime/judge-review --artifact demo/artifacts/unified_review_20261029.replay.json
+.venv/Scripts/python.exe -m streamlit run app/bench.py --server.headless true --browser.gatherUsageStats false --server.address 127.0.0.1 --server.port 8522 -- --state-dir .runtime/judge-review --artifact examples/artifacts/unified_review_20261029.replay.json
 ```
 
 `--server.headless true`는 새 설치의 Streamlit 이메일 안내가 서버 시작을 막지 않도록 합니다.

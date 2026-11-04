@@ -14,7 +14,7 @@ assistance; they are disclosed as tools, not additional human team members.
 | Inspectable numerical results and provenance | `app/viewer_data.py`, `app/viewer_render.py`, `app/review_checks.py`, `app/viewer.py` | Artifact-derived tables, common ranking policy, comparison controls, public tool trace and local checksum inspection; not experimental enzyme improvement |
 | Candidate-linked reference structure review | `app/viewer_structure.py`, `app/core/coordinate_join.py`; commit `2d2617c` on October 29 | Local integration, reference/author numbering checks, missing-atom refusal and selected-candidate highlighting; not a new 3D renderer or a newly solved structure |
 | Guided onboarding and responsive visual refinement | `app/guided_tour.py`, `app/new_review_tour.py`, `app/tour_spotlight.*`, viewer styles and brand | Original integration of the acting tours and workbench presentation; interaction patterns inspired by public interfaces |
-| Reproduction package, tests and demo production | `checks/`, `tests_app/`, `requirements/`, `demo/`, `submission/`, `validation/` | Credential-free offline reproduction checks, execution receipts, documentation and a 180-second edited real-application demo |
+| Reproduction package, tests and demo production | `checks/`, `tests_app/`, `requirements/`, `examples/`, `docs/`, `validation/` | Credential-free offline reproduction checks, execution receipts, documentation and a 180-second edited real-application demo |
 
 The authoritative paths are the files in this repository. Evidence dates describe
 records and do not independently prove authorship or organizer acceptance. Some

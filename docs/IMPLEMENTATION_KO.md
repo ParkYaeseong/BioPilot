@@ -9,7 +9,7 @@
 
 실제 Meta → MCP → 로컬 ESM → 최종 설명의 연속 실행과 읽기 전용 Streamlit 뷰어가
 구현되어 있습니다. 실제 실행 근거는 [통합 영수증](../validation/integration_success_20261027.json),
-제출 준비 상태는 [제출 초안](../submission/README.md)에서 확인합니다.
+현재 사용자 흐름은 [통합 워크벤치 안내](UNIFIED_WORKBENCH_KO.md)에서 확인합니다.
 제품 범위는 `unvalidated_sequence_evidence_assistant`입니다. 내열성 개선이나 검증된
 T50 예측 모델을 완성한 것은 아닙니다.
 
@@ -59,10 +59,10 @@ Transformers 5.2.0, Streamlit 1.66.1. 실제 ESM 실행은 CPU/float32였습니�
 
 ## 저장된 실제 결과 보기
 
-[시연 안내](../demo/README_KO.md)의 검증된 재생 파일을 사용합니다.
+[저장 결과 안내](../examples/README.md)의 검증된 재생 파일을 사용합니다.
 
 ```powershell
-.venv/Scripts/python.exe -m streamlit run app/viewer.py -- --artifact demo/artifacts/sequence_review.replay.json
+.venv/Scripts/python.exe -m streamlit run app/viewer.py -- --artifact examples/artifacts/sequence_review.replay.json
 ```
 
 뷰어는 저장된 결과만 읽고 API 호출, 추론, 실행 DB 변경을 하지 않습니다. `.streamlit/config.toml`은

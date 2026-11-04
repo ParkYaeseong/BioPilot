@@ -20,4 +20,4 @@ and removed from the current source tree. Earlier Git commits retain their histo
 New logs belong in `.cache/` or `local_artifacts/`, rather than this public folder.
 
 Run the current tests and package checker yourself; stored receipts are historical
-evidence, not a substitute for fresh verification. See [reproduction instructions](../submission/REPRODUCE_KO.md).
+evidence, not a substitute for fresh verification. See [reproduction instructions](../docs/INSTALLATION_KO.md).

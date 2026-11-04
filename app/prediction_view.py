@@ -21,7 +21,7 @@ def load_predictions(root=None):
     target=validate_target(registered_profile(),'sequence_plausibility_review')
     results=[]
     for model,variant in PAIRS:
-        folder=root/'demo/artifacts/structures'/f'{model}_{variant}'
+        folder=root/'examples/artifacts/structures'/f'{model}_{variant}'
         if not folder.is_dir():
             continue
         pin=pins[(model,variant)]

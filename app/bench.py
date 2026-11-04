@@ -26,7 +26,7 @@ def _arguments():
     parser.add_argument('--esm-env',type=Path,default=ROOT/'.cache/local_esm150_verified.env')
     parser.add_argument('--max-runs',type=int,default=3)
     parser.add_argument('--max-requests',type=int,choices=(3,4),default=4)
-    parser.add_argument('--artifact',type=Path,default=ROOT/'demo/artifacts/sequence_review.replay.json')
+    parser.add_argument('--artifact',type=Path,default=ROOT/'examples/artifacts/sequence_review.replay.json')
     return parser.parse_known_args()[0]
 
 

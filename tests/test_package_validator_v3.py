@@ -21,6 +21,17 @@ class PackageValidatorV3Tests(unittest.TestCase):
             '__pycache__','MANIFEST.sha256','.git','.venv','.runtime','.cache',
             '.pytest_cache','.superpowers','.env','BioPilot_Atlas_Local_Start','local_artifacts'))
 
+    def test_checker_accepts_source_without_submission_or_demo_folders(self):
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td)/'pack';self.copy_package(root)
+            for name in ('demo','submission'):
+                path=root/name
+                assert path.resolve().is_relative_to(root.resolve())
+                if path.exists():shutil.rmtree(path)
+            proc=subprocess.run([sys.executable,str(root/'checks/validate_package.py'),
+                                 '--root',str(root)],text=True,capture_output=True,timeout=30)
+            self.assertEqual(proc.returncode,0,proc.stderr)
+
     def test_local_secret_and_environment_are_not_package_sources(self):
         with tempfile.TemporaryDirectory() as td:
             root=Path(td)/'pack';self.copy_package(root)
@@ -80,14 +91,5 @@ class PackageValidatorV3Tests(unittest.TestCase):
             code,report=self.run_checker(root)
             self.assertEqual(code,1)
             self.assertIn('runtime source allowlist guarded',report['failures'])
-
-    def test_overlong_recording_plan_is_detected(self):
-        with tempfile.TemporaryDirectory() as td:
-            root=Path(td)/'pack';self.copy_package(root)
-            p=root/'demo/storyboard.json';d=json.loads(p.read_text())
-            d['segments'][-1]['end_s']=181;p.write_text(json.dumps(d))
-            code,report=self.run_checker(root)
-            self.assertEqual(code,1)
-            self.assertIn('recording plan within 180 seconds',report['failures'])
 
 if __name__=='__main__':unittest.main()

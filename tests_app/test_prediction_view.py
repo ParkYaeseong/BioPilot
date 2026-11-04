@@ -16,11 +16,11 @@ def test_real_gpu_predictions_remain_separate_and_have_matching_local_hashes():
 
 def test_changed_predicted_coordinates_are_not_silently_rendered(tmp_path):
     from app.prediction_view import load_predictions
-    shutil.copytree(ROOT/'demo/artifacts/structures',tmp_path/'demo/artifacts/structures')
+    shutil.copytree(ROOT/'examples/artifacts/structures',tmp_path/'examples/artifacts/structures')
     (tmp_path/'validation').mkdir()
     shutil.copyfile(ROOT/'validation/optional_science_runtime_20261028.json',
                     tmp_path/'validation/optional_science_runtime_20261028.json')
-    pdb=tmp_path/'demo/artifacts/structures/esmfold2_WT/prediction.pdb'
+    pdb=tmp_path/'examples/artifacts/structures/esmfold2_WT/prediction.pdb'
     pdb.write_text(pdb.read_text()+'REMARK modified\n')
     with pytest.raises(ValueError,match='checksum'):
         load_predictions(tmp_path)

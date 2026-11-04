@@ -137,7 +137,7 @@ accession·source·서열 hash·길이·존재하는 구조 confidence·SAE feat
 ## 실제 실행 영수증과 화면
 
 `validation/optional_science_runtime_20261028.json`과
-`demo/artifacts/structures/{esmfold2_WT,esm3_A32V}/`를 확인하세요.
+`examples/artifacts/structures/{esmfold2_WT,esm3_A32V}/`를 확인하세요.
 두 출력은 chainA CA 번호1..212와 정확한 WT/A32V 서열을 확인했습니다. 좌표 기하와
 생물학적 효과는 검증하지 않았습니다.44.776/6.478초는 파일 해시 검사 이후의 모델
 로딩·추론 구간이며 환경 설치·다운로드·전체 연구 시간 측정이 아닙니다. GPU 비용도

@@ -259,7 +259,7 @@ def test_subset_and_csv_keep_original_ranks_and_formula_safe_text():
 def test_workbench_top_five_selection_and_trace_are_real_interactions(monkeypatch):
     pytest.importorskip('streamlit')
     from streamlit.testing.v1 import AppTest
-    path=VIEWER_APP.parents[1]/'demo'/'artifacts'/'sequence_review.replay.json'
+    path=VIEWER_APP.parents[1]/'examples'/'artifacts'/'sequence_review.replay.json'
     monkeypatch.setattr('sys.argv',['viewer.py','--artifact',str(path)])
     app=AppTest.from_file(str(VIEWER_APP),default_timeout=60).run()
     assert not app.exception
@@ -329,7 +329,7 @@ def test_raw_artifact_markup_stays_plain_text_and_private_provenance_is_absent(t
 
 # --- Provenance chain -----------------------------------------------------------
 
-REPLAY = _Path(__file__).resolve().parents[1] / 'demo' / 'artifacts' / 'sequence_review.replay.json'
+REPLAY = _Path(__file__).resolve().parents[1] / 'examples' / 'artifacts' / 'sequence_review.replay.json'
 
 
 def _replay_artifact():

@@ -89,7 +89,7 @@ def test_source_delivery_excludes_private_and_generated_material(tmp_path,relati
 
 
 def test_public_scientific_evidence_and_readme_media_remain_packaged(tmp_path):
-    keep={'docs/images/feature.gif','demo/artifacts/structures/prediction.pdb',
+    keep={'docs/images/feature.gif','examples/artifacts/structures/prediction.pdb',
           'validation/optional_science_runtime_20261028.json',
           'validation/history_v2/science_tests.txt','prompts/runtime/system.txt',
           'requirements/workbench.txt','templates/.env.example'}
@@ -103,6 +103,7 @@ def test_public_scientific_evidence_and_readme_media_remain_packaged(tmp_path):
     'docs/STATUS.md', 'docs/01_product_spec.md',
     'docs/superpowers/plans/design.md', 'docs/archive/demo/old_script.md',
     'docs/images/biopilot-demo.gif',
+    'demo/storyboard.json', 'submission/README.md', 'checks/validate_review_flow_demo.py',
 ])
 def test_local_development_material_is_not_published_as_source(tmp_path,relative):
     write(tmp_path,relative)

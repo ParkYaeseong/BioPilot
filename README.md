@@ -16,6 +16,8 @@ Upload a public Lipase A FASTA, approve a review, then inspect candidates, struc
 
 **[Watch the three-minute demo on YouTube](https://www.youtube.com/watch?v=tozONY6U15s)**
 
+[English subtitles](docs/captions/BioPilot_Bench_EN.srt) · [한국어 자막](docs/captions/BioPilot_Bench_KO.srt)
+
 ## Features
 
 Short walkthroughs from real recorded application screens, with edited zoom and highlights.
@@ -79,7 +81,7 @@ Windows · Python 3.14. From a fresh checkout:
 ```powershell
 py -3.14 -m venv .venv
 .venv/Scripts/python.exe -m pip install -r requirements/workbench-win-py314.lock.txt
-.venv/Scripts/python.exe -m streamlit run app/bench.py --server.address 127.0.0.1 --server.port 8522 -- --state-dir .runtime/judge-review --artifact demo/artifacts/unified_review_20261029.replay.json
+.venv/Scripts/python.exe -m streamlit run app/bench.py --server.address 127.0.0.1 --server.port 8522 -- --state-dir .runtime/judge-review --artifact examples/artifacts/unified_review_20261029.replay.json
 ```
 
 Open **http://127.0.0.1:8522/** to explore saved results or start **New review**.
@@ -87,7 +89,7 @@ Try `A32V` for a valid input or `S108A` to see the catalytic-site guard.
 
 Saved results and input checks run offline. New execution requires your own Meta
 credentials, pinned local ESM weights and explicit approval.
-[Installation and reproduction](submission/REPRODUCE_KO.md) · [Execution setup](docs/IMPLEMENTATION_KO.md)
+[Installation and reproduction](docs/INSTALLATION_KO.md) · [Execution setup](docs/IMPLEMENTATION_KO.md)
 
 ## Models and structure predictions
 
@@ -142,12 +144,12 @@ from stored predictions and leave missing atom coordinates unmarked.
 |---|---|
 | `app/` | Workbench, Meta host, MCP server and scientific services |
 | `reference/`, `prompts/`, `schemas/`, `config/` | Registered scientific inputs and execution contracts |
-| `demo/artifacts/` | Saved real results and structures used by the offline viewer |
+| `examples/artifacts/` | Saved real results and structures used by the offline viewer |
 | `tests/`, `tests_app/`, `checks/` | Tests, package validation and reproduction checks |
 | `examples/`, `templates/`, `evaluation/` | Integration examples, configuration templates and offline evaluation tools |
 | `evaluation_private/` | Two label-free protocol templates; actual local assay data and results are excluded |
 | `docs/` | Usage, model setup, scientific contracts and testing guides |
-| `compliance/`, `submission/`, `validation/` | Contribution disclosure, submission information and evidence |
+| `compliance/`, `validation/` | Contribution disclosure and scientific execution evidence |
 
 ## Development and contributions
 

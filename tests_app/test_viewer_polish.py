@@ -4,7 +4,7 @@ from pathlib import Path
 import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
-REPLAY = ROOT / 'demo/artifacts/sequence_review.replay.json'
+REPLAY = ROOT / 'examples/artifacts/sequence_review.replay.json'
 
 
 def app_view(monkeypatch):

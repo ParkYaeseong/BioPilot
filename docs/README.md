@@ -2,7 +2,7 @@
 
 ## Start and use the workbench
 
-- [Install and reproduce the offline demo](../submission/REPRODUCE_KO.md)
+- [Install and reproduce the offline demo](INSTALLATION_KO.md)
 - [Unified input, execution and review workflow](UNIFIED_WORKBENCH_KO.md)
 - [Configure execution and use the CLI](IMPLEMENTATION_KO.md)
 - [ESMFold2, ESM3 and Atlas setup and scope](OPTIONAL_SCIENCE_KO.md)

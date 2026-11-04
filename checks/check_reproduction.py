@@ -49,7 +49,7 @@ def main():
             assert not app.exception
             assert app.session_state['bench_pending']
             assert app.button(key='bench_execute').disabled
-            view = load_run_view(root / 'demo/artifacts/unified_review_20261029.replay.json')
+            view = load_run_view(root / 'examples/artifacts/unified_review_20261029.replay.json')
             assert view['candidate_count'] == 19
             assert view['integrity_status'] == 'locally_consistent'
     finally:

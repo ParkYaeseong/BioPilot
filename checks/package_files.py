@@ -10,7 +10,8 @@ LOCAL_SUFFIXES = ('.pyc', '.pyo', '.safetensors', '.pt', '.pth',
     '.db', '.db-wal', '.db-shm', '.db-journal', '.pem', '.key', '.ppk', '.p12', '.pfx',
     '.mp4', '.mov', '.mkv', '.webm', '.wav', '.mp3', '.zip', '.7z', '.tar', '.gz', '.log')
 EVALUATOR_SCAFFOLDS = frozenset({'assay_protocol.json','dataset_reconciliation.json'})
-LOCAL_DOCUMENT_DIRECTORIES = frozenset({'docs/archive', 'docs/superpowers', 'docs/diagrams'})
+LOCAL_DOCUMENT_DIRECTORIES = frozenset({
+    'docs/archive', 'docs/superpowers', 'docs/diagrams', 'submission', 'demo'})
 LOCAL_DOCUMENTS = frozenset({
     'AGENTS.md', 'START_HERE_KO.md', 'MANIFEST.sha256',
     'docs/01_product_spec.md', 'docs/02_system_design.md', 'docs/03_meta_integration.md',
@@ -26,6 +27,7 @@ LOCAL_DOCUMENTS = frozenset({
     'docs/images/biopilot-demo.gif', 'docs/images/final-video-preview.jpg',
     'docs/images/guided-tutorial.png', 'docs/images/live-session-light.png',
     'docs/images/workbench-light.png',
+    'checks/validate_review_flow_demo.py',
 })
 
 def package_files(root: Path):
@@ -50,9 +52,6 @@ def package_files(root: Path):
                     or (lower.startswith('.env.') and lower != '.env.example')):
                 continue
             if directory == root/'validation' and lower.endswith('.txt'):
-                continue
-            if (directory == root/'submission' and lower.endswith('.md')
-                    and lower.startswith(('form_answers', 'form_draft'))):
                 continue
             if (path.is_symlink() or lower.endswith(LOCAL_SUFFIXES)
                     or lower in {'.coverage', 'coverage.xml', '.ds_store', 'thumbs.db'}

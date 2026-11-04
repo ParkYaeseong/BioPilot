@@ -13,8 +13,9 @@ __pycache__/
 BioPilot_Atlas_Local_Start/
 evaluation_private/
 local_artifacts/
-/submission/FORM_ANSWERS*.md
-/submission/FORM_DRAFT*.md
+/submission/
+/demo/
+/checks/validate_review_flow_demo.py
 *.safetensors
 *.pt
 *.pth

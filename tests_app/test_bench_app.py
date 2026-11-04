@@ -59,7 +59,7 @@ def test_mocked_execution_is_saved_once_and_opens_same_result_views(monkeypatch,
     calls=[]
     def mocked(*args,**kwargs):
         calls.append(kwargs)
-        record=json.loads((ROOT/'demo/artifacts/sequence_review.replay.json').read_text())
+        record=json.loads((ROOT/'examples/artifacts/sequence_review.replay.json').read_text())
         record['source_mode']='synthetic_fixture'
         record['esm_source_mode']='synthetic_fixture'
         return {'returncode':0,'stage':'review','stdout':json.dumps(record),'stderr':''}

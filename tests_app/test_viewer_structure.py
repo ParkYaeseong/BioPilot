@@ -35,7 +35,7 @@ def test_shared_candidate_focus_survives_switching_views():
     from streamlit.testing.v1 import AppTest
     import sys
     from unittest.mock import patch
-    with patch.object(sys, 'argv', ['viewer.py', '--artifact', str(ROOT / 'demo/artifacts/sequence_review.replay.json')]):
+    with patch.object(sys, 'argv', ['viewer.py', '--artifact', str(ROOT / 'examples/artifacts/sequence_review.replay.json')]):
         app = AppTest.from_file(str(ROOT / 'app/viewer.py')).run()
         app.session_state['active_view'] = 'Candidates'
         app.run()

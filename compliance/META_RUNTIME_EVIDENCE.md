@@ -5,7 +5,7 @@ The development assistants and scientific models have separate roles.
 
 The [actual integration receipt](../validation/integration_success_20261027.json)
 records the requested and returned model, three Meta requests, a completed
-nineteen-candidate review and local ESM2 computation. Its [portable saved record](../demo/artifacts/sequence_review.replay.json)
+nineteen-candidate review and local ESM2 computation. Its [portable saved record](../examples/artifacts/sequence_review.replay.json)
 retains the tool trace, numerical artifact and original source hashes.
 
 The recorded sequence is:

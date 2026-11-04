@@ -120,11 +120,3 @@ mcp:
   arbitrary_resources_enabled: false
   evaluator_tools_enabled: false
   max_tool_calls_per_run: 12
-demo:
-  planned_duration_seconds: 180
-  source_mode: synthetic_fixture
-  storyboard: demo/storyboard.json
-  actual_video_path: null
-  actual_video_verified: false
-  replay_disclosure_required: true
-  anonymous_paid_execution_enabled: false

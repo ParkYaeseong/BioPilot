@@ -203,7 +203,7 @@ def test_exported_report_envelope_keeps_raw_and_content_hashes_distinct(tmp_path
 
 def test_exported_real_sample_renders_nineteen_candidates_as_replay(monkeypatch):
     from app.viewer_data import load_run_view
-    path = ROOT / 'demo' / 'artifacts' / 'sequence_review.replay.json'
+    path = ROOT / 'examples' / 'artifacts' / 'sequence_review.replay.json'
     assert path.is_file(), 'A portable saved real replay must accompany the demo'
     view = load_run_view(path)
     assert view['esm_badge'] == 'REPLAY'

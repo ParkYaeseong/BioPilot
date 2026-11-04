@@ -9,7 +9,7 @@ import pytest
 from app.viewer_data import load_run_view, provenance_chain
 
 
-REPLAY = Path(__file__).resolve().parents[1] / 'demo/artifacts/sequence_review.replay.json'
+REPLAY = Path(__file__).resolve().parents[1] / 'examples/artifacts/sequence_review.replay.json'
 
 
 @pytest.fixture
